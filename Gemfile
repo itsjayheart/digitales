@@ -60,3 +60,9 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 
 
+gem 'sendgrid-ruby'
+gem 'devise'
+gem 'stripe'
+gem 'activerecord'
+gem 'table_print'
+gem 'faker'

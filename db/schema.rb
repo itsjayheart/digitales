@@ -65,16 +65,22 @@ ActiveRecord::Schema.define(version: 2020_09_08_170908) do
 
   create_table "donated_sums", force: :cascade do |t|
     t.decimal "amount"
+    t.bigint "foundraiser_id"
+    t.bigint "creatrix_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["creatrix_id"], name: "index_donated_sums_on_creatrix_id"
+    t.index ["foundraiser_id"], name: "index_donated_sums_on_foundraiser_id"
   end
 
   create_table "fundraisers", force: :cascade do |t|
     t.bigint "creatrix_id"
+    t.bigint "microservice_achievement_relation_id"
     t.decimal "goal"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["creatrix_id"], name: "index_fundraisers_on_creatrix_id"
+    t.index ["microservice_achievement_relation_id"], name: "index_fundraisers_on_microservice_achievement_relation_id"
   end
 
   create_table "microservice_achievement_relations", force: :cascade do |t|
@@ -109,8 +115,13 @@ ActiveRecord::Schema.define(version: 2020_09_08_170908) do
   end
 
   create_table "nodes", force: :cascade do |t|
+    t.string "title"
+    t.text "content"
+    t.string "creatrix_type"
+    t.bigint "creatrix_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["creatrix_type", "creatrix_id"], name: "index_nodes_on_creatrix_type_and_creatrix_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

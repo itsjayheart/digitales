@@ -1,0 +1,17 @@
+<div class="container">
+<% @nodes.each do |node|  %>
+  <a href='<%= node_path(node.id)%>%'>
+    <div class="<%= @cards_classes.sample %>" style="max-width: 20rem;">
+      <div class="card-header"> <%= Faker::Name.first_name %>
+      <%= node.created_at%> </div>
+      <div class="card-body"> 
+        <h4 class="card-title"><%= node.title %></h4>
+        <p class="card-text"><%= node.content %></p>
+      </div>
+      <div class='card-footer'>
+        <button class='btn btn-primary'>Cagnote</button>
+      </div>
+    </div>
+  </a>
+<% end %>
+</div>

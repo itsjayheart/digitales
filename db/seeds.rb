@@ -13,5 +13,5 @@ Creatrix.destroy_all
 end
 
 25.times do 
-    node = Node.create(title: Faker::Books::Lovecraft.tome, content: Faker::Books::Lovecraft.paragraphs(number: rand(2..10)), creatrix: Creatrix.all.sample ) 
+    node = Node.create(title: Faker::Books::Lovecraft.tome, content: Faker::Books::Lovecraft.paragraphs(number: rand(1..3))[0], creatrix: Creatrix.all.sample ) 
 end

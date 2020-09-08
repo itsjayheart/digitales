@@ -34,92 +34,21 @@
 
   <div class="container">
 
-    <% Node.all.each do |node|  %>
+    <% @nodes.each do |node|  %>
 
-      <div class="card text-white bg-dark mb-3" style="max-width: 20rem;">
+      <div class="<%= @cards_classes.sample %>" style="max-width: 20rem;">
         <div class="card-header"> <%= Faker::Name.first_name %>
         <%= node.created_at%> </div>
         <div class="card-body"> 
           <h4 class="card-title"><%= node.title %></h4>
           <p class="card-text"><%= node.content %></p>
         </div>
+        <div class='card-footer'>
+          <button class='btn btn-primary'>Cagnote</button>
+        </div>
       </div>
 
     <% end %>
-
-    <div class="box border-success">
-      <h6>Posted By:</h6> 
-      <h6>My_Beard_is_thick 8h ago</h6>
-      <img src="img1.jpeg">
-      <h2>Title Goes Here</h2>
-      <h5>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</h5>
-    </div>
-
-    <div class="card text-white bg-dark mb-3" style="max-width: 20rem;">
-      <div class="card-header">Header</div>
-      <div class="card-body">
-        <h4 class="card-title">Dark card title</h4>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      </div>
-    </div>
-
-    <div class="box">
-      <h6>Posted By:</h6>
-      <p>My_Beard_is_thick 8h ago</p>
-      <img src="img3.jpeg">
-      <h2>Title Goes Here</h2>
-      <h4>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</h4>
-    </div>
-
-    <div class="card bg-light mb-3" style="max-width: 20rem;">
-      <div class="card-header">Header</div>
-      <div class="card-body">
-        <h4 class="card-title">Light card title</h4>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      </div>
-    </div>
-
-    <div class="box">
-      <h6>Posted By:</h6>
-      <p>My_Beard_is_thick 8h ago</p>
-      <img src="img5.jpeg">
-      <h2>Title Goes Here</h2>
-      <h6>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</h4>
-    </div>
-
-    <div class="box">
-      <h6>Posted By:</h6>
-      <p>My_Beard_is_thick 8h ago</p>
-      <img src="img7.jpeg">
-      <h2>Title Goes Here</h2>
-      <h4>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</h4>
-    </div>
-
-    
-    <div class="card text-white bg-dark mb-3 border-success" style="max-width: 20rem;">
-      <div class="card-header">Header</div>
-      <div class="card-body">
-        <h4 class="card-title">Dark card title</h4>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      </div>
-    </div>
-
-    <div class="box">
-      <h1>Posted By:</h1>
-      <p>My_Beard_is_thick 8h ago</p>
-      <img src="img9.jpeg">
-      <h2>Title Goes Here</h2>
-      <h4>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</h4>
-    </div>
-
-    
-    <div class="card bg-light mb-3 " style="max-width: 20rem;">
-      <div class="card-header">Header</div>
-      <div class="card-body">
-        <h4 class="card-title">Light card title</h4>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      </div>
-    </div>
   
   </body>
 </html>

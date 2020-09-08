@@ -15,3 +15,6 @@
 //= require jquery.min
 //= require bootstrap.bundle
 //= require main
+//= require navbar
+//= require mansory_grid
+

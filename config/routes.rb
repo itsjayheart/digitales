@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'creatrixes/show'
   root 'test#test_assets_pipeline'
 
   devise_for :creatrixes

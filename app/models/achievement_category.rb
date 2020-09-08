@@ -1,0 +1,2 @@
+class AchievementCategory < ApplicationRecord
+end

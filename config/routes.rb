@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'digitales_dot_gg/static_index'
+  root 'digitales_dot_gg/static_index'
   get 'creatrixes/show'
   root 'test#test_assets_pipeline'
 

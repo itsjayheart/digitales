@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'digitales_dot_gg#static_index'
+  root 'nodes#index'
 
 
   devise_for :creatrixes

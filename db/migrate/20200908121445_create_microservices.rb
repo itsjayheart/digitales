@@ -3,6 +3,7 @@ class CreateMicroservices < ActiveRecord::Migration[5.2]
     create_table :microservices do |t|
       t.decimal :price
       t.belongs_to :microservice_category, index: true
+      t.references :manufacturer, index: true
       t.timestamps
     end
   end

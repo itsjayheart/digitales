@@ -6,7 +6,8 @@ class Microservice < ApplicationRecord
 
     belongs_to :manufacturer, class_name: "Creatrix"
     belongs_to :microservice_category
-    has_many :achievments
+    has_many :microservice_achievement_relations
+    has_many :achievments, through: :microservice_achievement_relations
     has_many :fundraisers
 
 end

@@ -1,4 +1,7 @@
 class DonatedSum < ApplicationRecord
+
+    belongs_to :creatrix
+    belongs_to :foundraiser
     validates :price,
     presence: true, 
     numericality: true,

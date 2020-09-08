@@ -33,7 +33,20 @@
   <body>
 
   <div class="container">
-  
+
+    <% Node.all.each do |node|  %>
+
+      <div class="card text-white bg-dark mb-3" style="max-width: 20rem;">
+        <div class="card-header"> <%= Faker::Name.first_name %>
+        <%= node.created_at%> </div>
+        <div class="card-body"> 
+          <h4 class="card-title"><%= node.title %></h4>
+          <p class="card-text"><%= node.content %></p>
+        </div>
+      </div>
+
+    <% end %>
+
     <div class="box border-success">
       <h6>Posted By:</h6> 
       <h6>My_Beard_is_thick 8h ago</h6>

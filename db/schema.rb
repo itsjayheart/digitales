@@ -101,8 +101,12 @@ ActiveRecord::Schema.define(version: 2020_09_08_170908) do
 
   create_table "microservices", force: :cascade do |t|
     t.decimal "price"
+    t.bigint "microservice_category_id"
+    t.bigint "manufacturer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["manufacturer_id"], name: "index_microservices_on_manufacturer_id"
+    t.index ["microservice_category_id"], name: "index_microservices_on_microservice_category_id"
   end
 
   create_table "nod_achievements_relations", force: :cascade do |t|

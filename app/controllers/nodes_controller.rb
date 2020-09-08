@@ -5,5 +5,8 @@ class NodesController < ApplicationController
     end
 
     def show
+      @nodes = Node.all
+      @node = Node.find(params[:id])
+      @cards_classes = ["card text-white bg-dark mb-3", "card bg-light mb-3"]
     end
   end

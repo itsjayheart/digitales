@@ -99,39 +99,10 @@ ActiveRecord::Schema.define(version: 2020_09_08_170908) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "microservice_achievement_relations", force: :cascade do |t|
-    t.bigint "achievement_id"
-    t.bigint "microservice_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["achievement_id"], name: "index_microservice_achievement_relations_on_achievement_id"
-    t.index ["microservice_id"], name: "index_microservice_achievement_relations_on_microservice_id"
-  end
-
-  create_table "microservice_categories", force: :cascade do |t|
-    t.string "name"
-    t.text "description"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "microservices", force: :cascade do |t|
     t.decimal "price"
-    t.bigint "microservice_category_id"
-    t.bigint "manufacturer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["manufacturer_id"], name: "index_microservices_on_manufacturer_id"
-    t.index ["microservice_category_id"], name: "index_microservices_on_microservice_category_id"
-  end
-
-  create_table "nod_achievements_relations", force: :cascade do |t|
-    t.bigint "nod_id"
-    t.bigint "achievement_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["achievement_id"], name: "index_nod_achievements_relations_on_achievement_id"
-    t.index ["nod_id"], name: "index_nod_achievements_relations_on_nod_id"
   end
 
   create_table "nod_achievements_relations", force: :cascade do |t|
@@ -146,14 +117,11 @@ ActiveRecord::Schema.define(version: 2020_09_08_170908) do
   create_table "nodes", force: :cascade do |t|
     t.string "title"
     t.text "content"
-    t.string "nodeable_type"
-    t.bigint "nodeable_id"
     t.string "creatrix_type"
     t.bigint "creatrix_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["creatrix_type", "creatrix_id"], name: "index_nodes_on_creatrix_type_and_creatrix_id"
-    t.index ["nodeable_type", "nodeable_id"], name: "index_nodes_on_nodeable_type_and_nodeable_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

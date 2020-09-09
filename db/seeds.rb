@@ -81,9 +81,9 @@ end
 
 # creating  w h a t | i f . s
 
-	creatrixes = WhatIf.create(sentence: 'a tiny zillion beings tricked us into oblivion', creatrix: Creatrix.all.sample)
-	trois_mondes = WhatIf.create(sentence: 'three worlds ended all at once', creatrix: Creatrix.all.sample)
-	qui_est_jerome = WhatIf.create(sentence: 'i was the last human left on earth', creatrix: Creatrix.all.sample)
+	creatrixes = WhatIf.create(sentence: 'a tiny zillion beings tricked us into oblivion', creatrix: Creatrix.all.sample, description: Faker::Books::Lovecraft.paragraphs(number: rand(1..3))[0])
+	trois_mondes = WhatIf.create(sentence: 'three worlds ended all at once', creatrix: Creatrix.all.sample, description: Faker::Books::Lovecraft.paragraphs(number: rand(1..3))[0])
+	qui_est_jerome = WhatIf.create(sentence: 'i was the last human left on earth', creatrix: Creatrix.all.sample, description: Faker::Books::Lovecraft.paragraphs(number: rand(1..3))[0])
 
 
 # creating  m | s t a t e m e n t . s
@@ -121,26 +121,60 @@ end
 		case nodeable.class.name
 		when "Tale"
 			n = nodeable.title
+			d = nodeable.description
 		when "WhatIf"
 			n = "WHAT IF " + nodeable.sentence
+			d = nodeable.description
 		when "Setting"
 			n = nodeable.full_name
+			d = nodeable.description
 		end
-		node = Node.create(creatrix: nodeable.creatrix, nodeable: nodeable, title: n)
+		node = Node.create(creatrix: nodeable.creatrix, nodeable: nodeable, title: n, content: d)
 		i = 0
 		node_achievements = []
-		rand(1..5).times do
+		rand(0..5).times do
 			ach = Achievement.create(achievement_category: AchievementCategory.all[i], achieved?: true, node: node)
 			node_achievements << ach
 			i += 1
 		end
+
+		i = node.achievements.count
+
+
+		non_achieved = Achievement.create(achievement_category: AchievementCategory.all[i], achieved?: false, node: node)
+		
+
+		i = 0
+		rand(0..non_achieved.achievement_category.microservice_categories.count - 1).times do
+			micro = Microservice.where(microservice_category: non_achieved.achievement_category.microservice_categories[i]).sample
+			non_achieved.microservices << micro
+			i += 1
+			raiser = Fundraiser.create(goal: micro.price, funded?: true, microservice_achievement_relation: MicroserviceAchievementRelation.where(achievement: non_achieved, microservice: micro)[0], creatrix: node.creatrix)
+			sum = raiser.goal / 3
+			3.times do
+				DonatedSum.create(sum: sum, creatrix: Creatrix.all.sample, fundraiser: raiser)
+			end
+		end
+
+		i = non_achieved.microservices.count
+
+		current_micro = Microservice.where(microservice_category: non_achieved.achievement_category.microservice_categories[i]).sample
+		non_achieved.microservices << current_micro
+		non_funded = Fundraiser.create(goal: current_micro.price, funded?: false, microservice_achievement_relation: MicroserviceAchievementRelation.where(achievement: non_achieved, microservice: current_micro)[0], creatrix: node.creatrix)
+
+		sum = non_funded.goal / 3
+		2.times do
+			DonatedSum.create(sum: sum, creatrix: Creatrix.all.sample, fundraiser: non_funded)
+		end
+
 		i = 0
 		node_achievements.each do |ach|
 			ach.achievement_category.microservice_categories.each do |mic_cat|
 				ach.microservices << Microservice.where(microservice_category: mic_cat).sample
 			end
 			ach.microservices.each do |micro|
-				raiser = Fundraiser.create(goal: micro.price, funded?: true, microservice_achievement_relation: MicroserviceAchievementRelation.where(achievement: ach, microservice: micro)[0])
+				raiser = Fundraiser.create(goal: micro.price, funded?: true, microservice_achievement_relation: MicroserviceAchievementRelation.where(achievement: ach, microservice: micro)[0], creatrix: node.creatrix)
+				Fundraiser.last
 				sum = raiser.goal / 3
 				3.times do
 					DonatedSum.create(sum: sum, creatrix: Creatrix.all.sample, fundraiser: raiser)
@@ -148,8 +182,6 @@ end
 			end
 		end
 	end
-
-
 
 
 

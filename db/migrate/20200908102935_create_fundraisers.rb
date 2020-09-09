@@ -4,6 +4,8 @@ class CreateFundraisers < ActiveRecord::Migration[5.2]
       t.belongs_to :creatrix, index: true
       t.belongs_to :microservice_achievement_relation, index: true
 
+      t.boolean :funded?
+
       t.decimal :goal
 
       t.timestamps

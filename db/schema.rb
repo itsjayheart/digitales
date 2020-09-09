@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_08_170908) do
+ActiveRecord::Schema.define(version: 2020_09_09_113342) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,9 +24,12 @@ ActiveRecord::Schema.define(version: 2020_09_08_170908) do
 
   create_table "achievements", force: :cascade do |t|
     t.bigint "achievement_category_id"
+    t.bigint "node_id"
+    t.boolean "achieved?"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["achievement_category_id"], name: "index_achievements_on_achievement_category_id"
+    t.index ["node_id"], name: "index_achievements_on_node_id"
   end
 
   create_table "active_storage_attachments", force: :cascade do |t|
@@ -63,24 +66,43 @@ ActiveRecord::Schema.define(version: 2020_09_08_170908) do
     t.index ["reset_password_token"], name: "index_creatrixes_on_reset_password_token", unique: true
   end
 
+  create_table "digits", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.bigint "creatrix_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["creatrix_id"], name: "index_digits_on_creatrix_id"
+  end
+
   create_table "donated_sums", force: :cascade do |t|
-    t.decimal "amount"
-    t.bigint "foundraiser_id"
+    t.decimal "sum"
+    t.bigint "fundraiser_id"
     t.bigint "creatrix_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["creatrix_id"], name: "index_donated_sums_on_creatrix_id"
-    t.index ["foundraiser_id"], name: "index_donated_sums_on_foundraiser_id"
+    t.index ["fundraiser_id"], name: "index_donated_sums_on_fundraiser_id"
   end
 
   create_table "fundraisers", force: :cascade do |t|
     t.bigint "creatrix_id"
     t.bigint "microservice_achievement_relation_id"
+    t.boolean "funded?"
     t.decimal "goal"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["creatrix_id"], name: "index_fundraisers_on_creatrix_id"
     t.index ["microservice_achievement_relation_id"], name: "index_fundraisers_on_microservice_achievement_relation_id"
+  end
+
+  create_table "m_statements", force: :cascade do |t|
+    t.string "sentence"
+    t.text "description"
+    t.bigint "creatrix_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["creatrix_id"], name: "index_m_statements_on_creatrix_id"
   end
 
   create_table "microservice_achievement_relations", force: :cascade do |t|
@@ -93,39 +115,70 @@ ActiveRecord::Schema.define(version: 2020_09_08_170908) do
   end
 
   create_table "microservice_categories", force: :cascade do |t|
+    t.bigint "achievement_category_id"
     t.string "name"
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["achievement_category_id"], name: "index_microservice_categories_on_achievement_category_id"
   end
 
   create_table "microservices", force: :cascade do |t|
     t.decimal "price"
     t.bigint "microservice_category_id"
-    t.bigint "manufacturer_id"
+    t.bigint "creatrix_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["manufacturer_id"], name: "index_microservices_on_manufacturer_id"
+    t.index ["creatrix_id"], name: "index_microservices_on_creatrix_id"
     t.index ["microservice_category_id"], name: "index_microservices_on_microservice_category_id"
   end
 
-  create_table "nod_achievements_relations", force: :cascade do |t|
-    t.bigint "nod_id"
+  create_table "node_achievement_relations", force: :cascade do |t|
+    t.bigint "node_id"
     t.bigint "achievement_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["achievement_id"], name: "index_nod_achievements_relations_on_achievement_id"
-    t.index ["nod_id"], name: "index_nod_achievements_relations_on_nod_id"
+    t.index ["achievement_id"], name: "index_node_achievement_relations_on_achievement_id"
+    t.index ["node_id"], name: "index_node_achievement_relations_on_node_id"
   end
 
   create_table "nodes", force: :cascade do |t|
     t.string "title"
     t.text "content"
-    t.string "creatrix_type"
+    t.bigint "creatrix_id"
+    t.string "nodeable_type"
+    t.bigint "nodeable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["creatrix_id"], name: "index_nodes_on_creatrix_id"
+    t.index ["nodeable_type", "nodeable_id"], name: "index_nodes_on_nodeable_type_and_nodeable_id"
+  end
+
+  create_table "settings", force: :cascade do |t|
+    t.string "full_name"
+    t.text "description"
     t.bigint "creatrix_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["creatrix_type", "creatrix_id"], name: "index_nodes_on_creatrix_type_and_creatrix_id"
+    t.index ["creatrix_id"], name: "index_settings_on_creatrix_id"
+  end
+
+  create_table "tales", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.bigint "creatrix_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["creatrix_id"], name: "index_tales_on_creatrix_id"
+  end
+
+  create_table "what_ifs", force: :cascade do |t|
+    t.string "sentence"
+    t.text "description"
+    t.bigint "creatrix_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["creatrix_id"], name: "index_what_ifs_on_creatrix_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

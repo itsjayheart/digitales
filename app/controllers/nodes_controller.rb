@@ -32,17 +32,16 @@ class NodesController < ApplicationController
       @achievments_status = Hash.new
       (achievements.length-1).times do |i| 
         if @achievements_node.keys.include?(achievements[i]) 
-          #achievement status 
-          achievements[i] = [achievements[i], "text-primary"]
+          (microservices[i].length).times do |x| 
+            if @achievements_node[achievements[i]].include?(microservices[i][x])
+              microservices[i][x] = [microservices[i][x], "text-primary"]
+            else
+              microservices[i][x] = [microservices[i][x], "text-secondary"]
+            end
+          end
         else
-          achievements[i] = [achievements[i], "text-secondary"]
-        end
-        #microservice status
-        microservices[i].each do |microservice_category| 
-          if @achievements_node[achievements[i][0]].include?(microservice_category)
-            puts "yes"
-          else
-            puts "no"
+          (microservices[i].length).times do |x| 
+            microservices[i][x] = [microservices[i][x], "text-secondary"]
           end
         end
         @achievments_status[achievements[i]] = microservices[i]

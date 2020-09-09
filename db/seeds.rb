@@ -17,6 +17,7 @@ Achievement.destroy_all
 Microservice.destroy_all
 AchievementCategory.destroy_all
 MicroserviceCategory.destroy_all
+MicroserviceAchievementRelation.destroy_all
 Fundraiser.destroy_all
 DonatedSum.destroy_all
 
@@ -66,16 +67,16 @@ end
 
 # creating  t a l e . s
 
-	end_of_time = Tale.create(title: 't a l e s | f r o m | t h e | e n d | o f | t i m e', creatrix: Creatrix.all.sample, description: Faker::Books::Lovecraft.paragraphs(number: rand(1..3))[0])
-	atlantis = Tale.create(title: 't a l e s | o f | a t l a n t i s', creatrix: Creatrix.all.sample, description: Faker::Books::Lovecraft.paragraphs(number: rand(1..3))[0])
-	galathea = Tale.create(title: 't a l e s | o f | g a l a t h e a', creatrix: Creatrix.all.sample, description: Faker::Books::Lovecraft.paragraphs(number: rand(1..3))[0])
-	harrisson_davis = Tale.create(title: 't a l e s | o f | h a r r i s s o n | d a v i s', creatrix: Creatrix.all.sample, description: Faker::Books::Lovecraft.paragraphs(number: rand(1..3))[0])
-	barbara_sand = Tale.create(title: 't a l e s | o f | b a r b a r a | s a n d', creatrix: Creatrix.all.sample, description: Faker::Books::Lovecraft.paragraphs(number: rand(1..3))[0])
-	sobbing_heart = Tale.create(title: 't a l e s | o f | a | s o b b i n g | h e a r t', creatrix: Creatrix.all.sample, description: Faker::Books::Lovecraft.paragraphs(number: rand(1..3))[0])
-	kuku_e = Tale.create(title: 't a l e s | o f | k u k u | e', creatrix: Creatrix.all.sample, description: Faker::Books::Lovecraft.paragraphs(number: rand(1..3))[0])
-	broken_dream = Tale.create(title: 't a l e s | o f | a | b r o k e n | d r e a m', creatrix: Creatrix.all.sample, description: Faker::Books::Lovecraft.paragraphs(number: rand(1..3))[0])
-	dying_earth = Tale.create(title: 't a l e s | o f | a | d y i n g | e a r t h', creatrix: Creatrix.all.sample, description: Faker::Books::Lovecraft.paragraphs(number: rand(1..3))[0])
-	bliss = Tale.create(title: 't a l e s | o f | b l i s s', creatrix: Creatrix.all.sample, description: Faker::Books::Lovecraft.paragraphs(number: rand(1..3))[0])
+	end_of_time = Tale.create(title: 'TALES FROM THE END OF TIME', creatrix: Creatrix.all.sample, description: Faker::Books::Lovecraft.paragraphs(number: rand(1..3))[0])
+	atlantis = Tale.create(title: 'TALES OF ATLANTIS', creatrix: Creatrix.all.sample, description: Faker::Books::Lovecraft.paragraphs(number: rand(1..3))[0])
+	galathea = Tale.create(title: 'TALES OF GALATHEA', creatrix: Creatrix.all.sample, description: Faker::Books::Lovecraft.paragraphs(number: rand(1..3))[0])
+	harrisson_davis = Tale.create(title: 'TALES OF HARRISSON DAVIS', creatrix: Creatrix.all.sample, description: Faker::Books::Lovecraft.paragraphs(number: rand(1..3))[0])
+	barbara_sand = Tale.create(title: 'TALES OF BARBARA SAND', creatrix: Creatrix.all.sample, description: Faker::Books::Lovecraft.paragraphs(number: rand(1..3))[0])
+	sobbing_heart = Tale.create(title: 'TALES OF A SOBBING HEART', creatrix: Creatrix.all.sample, description: Faker::Books::Lovecraft.paragraphs(number: rand(1..3))[0])
+	kuku_e = Tale.create(title: 'TALES OF KUKU-E', creatrix: Creatrix.all.sample, description: Faker::Books::Lovecraft.paragraphs(number: rand(1..3))[0])
+	broken_dream = Tale.create(title: 'TALES OF A BROKEN DREAM', creatrix: Creatrix.all.sample, description: Faker::Books::Lovecraft.paragraphs(number: rand(1..3))[0])
+	dying_earth = Tale.create(title: 'TALES OF A DYING EARTH', creatrix: Creatrix.all.sample, description: Faker::Books::Lovecraft.paragraphs(number: rand(1..3))[0])
+	bliss = Tale.create(title: 'TALES OF BLISS', creatrix: Creatrix.all.sample, description: Faker::Books::Lovecraft.paragraphs(number: rand(1..3))[0])
 
 
 # creating  w h a t | i f . s
@@ -90,22 +91,22 @@ end
 
 # creating s e t t i n g . s 
 	
-	maamny = Setting.create(full_name: "m a ' a m | n ÿ'", creatrix: Creatrix.all.sample, description: Faker::Books::Lovecraft.paragraphs(number: rand(1..3))[0])
-	maamny = Setting.create(full_name: "w r a a t h", creatrix: Creatrix.all.sample, description: Faker::Books::Lovecraft.paragraphs(number: rand(1..3))[0])
-	maamny = Setting.create(full_name: "t h e | e l d e r", creatrix: Creatrix.all.sample, description: Faker::Books::Lovecraft.paragraphs(number: rand(1..3))[0])
-	maamny = Setting.create(full_name: "b l a n c h e", creatrix: Creatrix.all.sample, description: Faker::Books::Lovecraft.paragraphs(number: rand(1..3))[0])
-	maamny = Setting.create(full_name: "t h e | b l u e | c r e a t r i x", creatrix: Creatrix.all.sample, description: Faker::Books::Lovecraft.paragraphs(number: rand(1..3))[0])
-	maamny = Setting.create(full_name: "t h e | r e d | c r e a t r i x", creatrix: Creatrix.all.sample, description: Faker::Books::Lovecraft.paragraphs(number: rand(1..3))[0])
-	maamny = Setting.create(full_name: "s a l i m | u l t i m a t u m", creatrix: Creatrix.all.sample, description: Faker::Books::Lovecraft.paragraphs(number: rand(1..3))[0])
-	maamny = Setting.create(full_name: "k a m i l | u l t i m a t u m", creatrix: Creatrix.all.sample, description: Faker::Books::Lovecraft.paragraphs(number: rand(1..3))[0])
-	maamny = Setting.create(full_name: "s t a c e y | e n d e r s o n", creatrix: Creatrix.all.sample, description: Faker::Books::Lovecraft.paragraphs(number: rand(1..3))[0])
-	maamny = Setting.create(full_name: "c l a y t o n | n o l a n", creatrix: Creatrix.all.sample, description: Faker::Books::Lovecraft.paragraphs(number: rand(1..3))[0])
-	maamny = Setting.create(full_name: "k a t b o b", creatrix: Creatrix.all.sample, description: Faker::Books::Lovecraft.paragraphs(number: rand(1..3))[0])
-	maamny = Setting.create(full_name: "b a t m o o n", creatrix: Creatrix.all.sample, description: Faker::Books::Lovecraft.paragraphs(number: rand(1..3))[0])
-	maamny = Setting.create(full_name: "a | g i g a n t i c | e y e", creatrix: Creatrix.all.sample, description: Faker::Books::Lovecraft.paragraphs(number: rand(1..3))[0])
-	maamny = Setting.create(full_name: "t h e | d a r k e s t | o f | a l l", creatrix: Creatrix.all.sample, description: Faker::Books::Lovecraft.paragraphs(number: rand(1..3))[0])
-	maamny = Setting.create(full_name: "d e s t i n e e", creatrix: Creatrix.all.sample, description: Faker::Books::Lovecraft.paragraphs(number: rand(1..3))[0])
-	maamny = Setting.create(full_name: "m a l i k | f i r s t | o f | h i s | n a m e", creatrix: Creatrix.all.sample, description: Faker::Books::Lovecraft.paragraphs(number: rand(1..3))[0])
+	maamny = Setting.create(full_name: "MA'AM NY'", creatrix: Creatrix.all.sample, description: Faker::Books::Lovecraft.paragraphs(number: rand(1..3))[0])
+	maamny = Setting.create(full_name: "WRAATH", creatrix: Creatrix.all.sample, description: Faker::Books::Lovecraft.paragraphs(number: rand(1..3))[0])
+	maamny = Setting.create(full_name: "THE ELDER", creatrix: Creatrix.all.sample, description: Faker::Books::Lovecraft.paragraphs(number: rand(1..3))[0])
+	maamny = Setting.create(full_name: "BLANCHE", creatrix: Creatrix.all.sample, description: Faker::Books::Lovecraft.paragraphs(number: rand(1..3))[0])
+	maamny = Setting.create(full_name: "THE BLUE CREATRIX", creatrix: Creatrix.all.sample, description: Faker::Books::Lovecraft.paragraphs(number: rand(1..3))[0])
+	maamny = Setting.create(full_name: "THE RED CREATRIX", creatrix: Creatrix.all.sample, description: Faker::Books::Lovecraft.paragraphs(number: rand(1..3))[0])
+	maamny = Setting.create(full_name: "SALIM ULTIMATUM", creatrix: Creatrix.all.sample, description: Faker::Books::Lovecraft.paragraphs(number: rand(1..3))[0])
+	maamny = Setting.create(full_name: "KAMIL ULTIMATUM", creatrix: Creatrix.all.sample, description: Faker::Books::Lovecraft.paragraphs(number: rand(1..3))[0])
+	maamny = Setting.create(full_name: "STACEY ENDERSON", creatrix: Creatrix.all.sample, description: Faker::Books::Lovecraft.paragraphs(number: rand(1..3))[0])
+	maamny = Setting.create(full_name: "CLAYTON NOLAN", creatrix: Creatrix.all.sample, description: Faker::Books::Lovecraft.paragraphs(number: rand(1..3))[0])
+	maamny = Setting.create(full_name: "KATBOB", creatrix: Creatrix.all.sample, description: Faker::Books::Lovecraft.paragraphs(number: rand(1..3))[0])
+	maamny = Setting.create(full_name: "BATMOON", creatrix: Creatrix.all.sample, description: Faker::Books::Lovecraft.paragraphs(number: rand(1..3))[0])
+	maamny = Setting.create(full_name: "A GIGANTIC EYE", creatrix: Creatrix.all.sample, description: Faker::Books::Lovecraft.paragraphs(number: rand(1..3))[0])
+	maamny = Setting.create(full_name: "THE DARKEST OF ALL", creatrix: Creatrix.all.sample, description: Faker::Books::Lovecraft.paragraphs(number: rand(1..3))[0])
+	maamny = Setting.create(full_name: "DESTINEE", creatrix: Creatrix.all.sample, description: Faker::Books::Lovecraft.paragraphs(number: rand(1..3))[0])
+	maamny = Setting.create(full_name: "MALIK FIRST OF HIS NAME", creatrix: Creatrix.all.sample, description: Faker::Books::Lovecraft.paragraphs(number: rand(1..3))[0])
 
 
 # creating a  n o d e  for each nodeable
@@ -117,7 +118,15 @@ end
 	all_nodeables = [tales, what_if_s, settings].flatten
 
 	all_nodeables.each do |nodeable|
-		node = Node.create(creatrix: nodeable.creatrix, nodeable: nodeable)
+		case nodeable.class.name
+		when "Tale"
+			n = nodeable.title
+		when "WhatIf"
+			n = "WHAT IF " + nodeable.sentence
+		when "Setting"
+			n = nodeable.full_name
+		end
+		node = Node.create(creatrix: nodeable.creatrix, nodeable: nodeable, title: n)
 		i = 0
 		node_achievements = []
 		rand(1..5).times do

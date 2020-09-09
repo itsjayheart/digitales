@@ -117,7 +117,15 @@ end
 	all_nodeables = [tales, what_if_s, settings].flatten
 
 	all_nodeables.each do |nodeable|
-		node = Node.create(creatrix: nodeable.creatrix, nodeable: nodeable)
+		case nodeable.class.name
+		when "Tale"
+			n = nodeable.title
+		when "WhatIf"
+			n = "w h a t | i f ~{?}~" + nodeable.sentence
+		when "Setting"
+			n = nodeable.full_name
+		end
+		node = Node.create(creatrix: nodeable.creatrix, nodeable: nodeable, title: n)
 		i = 0
 		node_achievements = []
 		rand(1..5).times do

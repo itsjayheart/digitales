@@ -53,7 +53,7 @@ micros.each do |arr|
 	i += 1
 end
 
-
+Creatrix.create(email: "melon" + "@yopmail.com", password: "123123")
 10.times do
     creatrix = Creatrix.create(email: Faker::Name.first_name + "@yopmail.com", password: "123123")
     MicroserviceCategory.all.each do |cat|

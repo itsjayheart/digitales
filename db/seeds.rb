@@ -81,9 +81,9 @@ end
 
 # creating  w h a t | i f . s
 
-	creatrixes = WhatIf.create(sentence: 'a tiny zillion beings tricked us into oblivion', creatrix: Creatrix.all.sample)
-	trois_mondes = WhatIf.create(sentence: 'three worlds ended all at once', creatrix: Creatrix.all.sample)
-	qui_est_jerome = WhatIf.create(sentence: 'i was the last human left on earth', creatrix: Creatrix.all.sample)
+	creatrixes = WhatIf.create(sentence: 'a tiny zillion beings tricked us into oblivion', creatrix: Creatrix.all.sample, description: Faker::Books::Lovecraft.paragraphs(number: rand(1..3))[0])
+	trois_mondes = WhatIf.create(sentence: 'three worlds ended all at once', creatrix: Creatrix.all.sample, description: Faker::Books::Lovecraft.paragraphs(number: rand(1..3))[0])
+	qui_est_jerome = WhatIf.create(sentence: 'i was the last human left on earth', creatrix: Creatrix.all.sample, description: Faker::Books::Lovecraft.paragraphs(number: rand(1..3))[0])
 
 
 # creating  m | s t a t e m e n t . s
@@ -121,12 +121,15 @@ end
 		case nodeable.class.name
 		when "Tale"
 			n = nodeable.title
+			d = nodeable.description
 		when "WhatIf"
 			n = "WHAT IF " + nodeable.sentence
+			d = nodeable.description
 		when "Setting"
 			n = nodeable.full_name
+			d = nodeable.description
 		end
-		node = Node.create(creatrix: nodeable.creatrix, nodeable: nodeable, title: n)
+		node = Node.create(creatrix: nodeable.creatrix, nodeable: nodeable, title: n, content: d)
 		i = 0
 		node_achievements = []
 		rand(1..5).times do

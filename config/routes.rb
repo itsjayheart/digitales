@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
 
   devise_scope :creatrix do
-    root to: "devise/sessions#new"
+    authenticated :creatrix do
+      root 'nodes#index', as: :authenticated_root
+    end
+  
+    unauthenticated do
+      root 'devise/sessions#new', as: :unauthenticated_root
+    end
   end
 
   resources :nodes
@@ -10,4 +16,6 @@ Rails.application.routes.draw do
 
   resources :creatrixes, only: [:show]
 end
+
+
 

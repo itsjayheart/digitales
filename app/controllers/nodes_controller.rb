@@ -6,7 +6,17 @@ class NodesController < ApplicationController
     end
 
     def show
-      #$$$$$$$$$$$$$$$$$$$$$---STATICS_DATA---$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+      #$$$$$$$$$$$$$$$$$$$$$---NODE_DATA_HASH---$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+      @node = Node.find(params[:id])      
+      @achievements_node = Hash.new
+      @node.achievements.each do |achievment| 
+        achievement_microservices = []
+        achievment.microservices.each { |microservice| achievement_microservices << microservice.microservice_category.name}
+        @achievements_node[achievment.achievement_category.name] = achievement_microservices
+      end  
+      #$$$$$$$$$$$$$$$$$$$$$---NODE_DATA_HASH---$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+      #$$$$$$$$$$$$$$$$$$$$$---STATICS_DATA_ARRAYS---$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
         #achievements
         achievements = ["CREATIVE WRITING", "2D DIGITAL ART", "3D DIGITAL ART", "ACTING", "EDITING", "COMPOSING"]
         #micro_services
@@ -17,29 +27,36 @@ class NodesController < ApplicationController
         editing_micros = ["1-3 minutes animated scene editing"]          
         music_micros = ["1-3 minutes music theme"] 
         microservices = [wri_micros, flat_micros, volume_micros, act_micros, editing_micros, music_micros]
-        
-        @achievments_static = Hash.new
-        (achievements.length-1).times do |i| 
-          @achievments_static[achievements[i]] = microservices[i]
-        end
-      #$$$$$$$$$$$$$$$$$$$$$---STATICS_DATA---$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+      #$$$$$$$$$$$$$$$$$$$$$---STATICS_DATA_ARRAYS---$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
       
-      #NODE_DATA
-      @node = Node.find(params[:id])      
-      @achievements_node = Hash.new
-      @node.achievements.each do |achievment| 
-        achievement_microservices = []
-        achievment.microservices.each { |microservice| achievement_microservices << microservice.microservice_category.name}
-        @achievements_node[achievment.achievement_category.name] = achievement_microservices
-      end  
+      @achievments_status = Hash.new
+      (achievements.length-1).times do |i| 
+        if @achievements_node.keys.include?(achievements[i]) 
+          #achievement status 
+          achievements[i] = [achievements[i], "text-primary"]
+        else
+          achievements[i] = [achievements[i], "text-secondary"]
+        end
+        #microservice status
+        microservices[i].each do |microservice_category| 
+          if @achievements_node[achievements[i][0]].include?(microservice_category)
+            puts "yes"
+          else
+            puts "no"
+          end
+        end
+        @achievments_status[achievements[i]] = microservices[i]
+      end
+      
+
 
       #achievements
       @status_achievement = ["text-secondary"]
       puts ("%"*100)
-      puts @achievments_static.keys
+      puts @achievments_status
       puts ("%"*100)
       puts ("$"*100)
-      puts @achievements_node.keys
+      puts @achievements_node
       puts ("$"*100)
       #microservices
         

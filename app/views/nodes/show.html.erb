@@ -10,13 +10,10 @@
     <%end%>
   </div>
   <div class="col-sm-4 col-xs-1 border-right border-primary">
-    <% @achievements.length.times do |i|  %>
-      <% @status_achievement = "text-primary" if @achievements[i] == @achievements_node.keys[i]%>
-      <ul><h4 class="<%= @status_achievement %>"><%=@achievements[i]%> <%= @status_achievement %></h4>
-      <% @microservices.each do |microservice| %>
-        <%  @node.achievements%>
-        <% @status_microservice = "text-secondary"%>
-        <li class="<%= @status_microservice %>"> <%=microservice[0]%></li>
+    <% @achievments_status.keys.each do |achievement|  %>
+      <ul><h4 class="<%=achievement[1]%>"><%=achievement[0]%></h4>
+      <% @achievments_status[achievement].each do |microservice| %>
+        <li class="<%=%>"> <%=microservice%></li>
       <%end%>
       </ul>
     <%end%>

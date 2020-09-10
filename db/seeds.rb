@@ -30,19 +30,19 @@ achievs.each do |achiev|
 	ach_cat = AchievementCategory.create(name: achiev)
 end
 
-wri_micros = ["1.5k synopsis", "10k words one-shot", "10k words one-shot: screenplay translation"]
+writing_microservices = ["1.5k synopsis", "10k words one-shot", "10k words one-shot: screenplay translation"]
 
-flat_micros = ["2D character design", "2D prop design", "50-150 panels webcomic : thumbnail", "50-150 panels webcomic :sketching", "50-150 panels webcomic : lineart", "50-150 panels webcomic : flats", "50-150 panels webcomic : shadows and highlights", "50-150 panels webcomic : backgrounds", "50-150 panels webcomic : cover"]
+flat_microservices = ["2D character design", "2D prop design", "50-150 panels webcomic : thumbnail", "50-150 panels webcomic :sketching", "50-150 panels webcomic : lineart", "50-150 panels webcomic : flats", "50-150 panels webcomic : shadows and highlights", "50-150 panels webcomic : backgrounds", "50-150 panels webcomic : cover"]
 
-volume_micros = ["3D modeling : character design", "3D modeling : prop design", "3D scenery artwork", "3D character artwork", "3D rigging of a character", "1-3 minutes animated scene"]
+volume_microservices = ["3D modeling : character design", "3D modeling : prop design", "3D scenery artwork", "3D character artwork", "3D rigging of a character", "1-3 minutes animated scene"]
 
-act_micros = ["1-3 minutes animated scene voice acting"]
+acting_microservices = ["1-3 minutes animated scene voice acting"]
 
-editing_micros = ["1-3 minutes animated scene editing"]
+editing_microservices = ["1-3 minutes animated scene editing"]
 
-music_micros = ["1-3 minutes music theme"] 
+music_microservices = ["1-3 minutes music theme"] 
 
-micros = [wri_micros, flat_micros, volume_micros, act_micros, editing_micros, music_micros]
+micros = [writing_microservices, flat_microservices, volume_microservices, acting_microservices, editing_microservices, music_microservices]
 
 i = 0
 

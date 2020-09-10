@@ -15,7 +15,12 @@
           </div>
         </div>
         <%=@per_cent_status.ceil%> %
+<<<<<<< HEAD
       <% elsif  current_creatrix && current_creatrix == @fundraiser.creatrix.email%>
+=======
+      <% elsif  current_creatrix && current_creatrix == @node.creatrix.email%>
+
+>>>>>>> develop
         <%link_to "Start fundraising your node", "/", class: "btn btn-primary"%>
       <% else %>
         <p>No fundraising in progress<p>

@@ -1,5 +1,10 @@
 footer
 {
+    z-index: 0;
+    margin-bottom: 50px;
+    padding-top: 50px;
+    width: 100%;
+    bottom: 0;
     padding-top: 50px;
     width: 100%;
     bottom: 0;

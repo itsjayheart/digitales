@@ -1,5 +1,5 @@
 .footer-border
 {
-    padding: px;
-    position: fixed;
+    z-index: 0;
+    margin-bottom: 50000000px;
 }

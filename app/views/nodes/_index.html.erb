@@ -1,5 +1,5 @@
 
-<div class="container-index">
+<div class="masonry-grid">
 <% @nodes.each do |node|  %>
   <%= link_to node_path(node.id), class: "text-decoration-none text-reset", :remote => true do %>
     <div id="" class="<%= @cards_classes.sample %> card mb-2" style="max-width: 20rem;">

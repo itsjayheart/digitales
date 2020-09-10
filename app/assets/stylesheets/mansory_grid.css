@@ -1,4 +1,5 @@
-body
+
+body 
 {
     margin: 0;
     padding: 0;
@@ -7,19 +8,18 @@ body
     margin-top: 110px;
 }
 
-
-.container-index 
+.masonry-grid 
 {
     width: 1200px;
-    margin: 40px auto;
-    columns: 4;
+    margin: 80px auto;
+    columns: 3;
     column-gap: 20px;
     margin-left: 100px;
-    padding: 25px;
     margin-bottom: 50px
 }
-    
-.box
+
+
+.box 
 {
     margin-top: 50px;
     margin-bottom: 40px;
@@ -27,45 +27,10 @@ body
     margin-bottom: 50px;
 }
 
-.container-index .box
+.container-index .box 
 {
     margin: 0 0 20px;
     padding: 15px;
     background: #FBFBFF;
     outline-style: strong;
 }
-
-
-/*- - - - card columns - - - -*/
-
-@media (min-width: 360px) {
-	.card-columns {
-	column-count: 1;
-	}
-}
-
-@media (min-width: 576px) {
-	.card-columns {
-	column-count: 2;
-	}
-}
-
-@media (min-width: 768px) {
-	.card-columns {
-	column-count: 2;
-	}
-}
-
-@media (min-width: 992px) {
-	.card-columns {
-	column-count: 2;
-	}
-}
-
-@media (min-width: 1200px) {
-	.card-columns {
-	column-count: 2;
-	}
-}
-
-/*- - - - End of card columns - - - -*/

@@ -1,0 +1,227 @@
+<div id="microservices">
+                        <h1 class="text-center">ADD A MICROSERVICE</h1>
+
+    <%= form_with(url: creatrix_microservices_path(current_creatrix.id), method: 'post', remote: false, authenticity_token: true) do %>
+    <div class="container">
+        <div id="accordion">
+            
+              <div class="card">
+                <div class="card-header" id="headingOne">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">CREATIVE WRITING</button>
+                  </h5>
+                </div>
+                
+                  <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+
+                    <% AchievementCategory.first.microservice_categories.each do |cat| %>
+                            <% if current_creatrix.microservices.any? { |micro| micro.microservice_category == cat} %>   
+
+                                  <div class="card-body">
+                                    <p><%= cat.name %></p>
+                                    <p><%= cat.description %></p>
+                                    <p><%= Microservice.where(creatrix: current_creatrix, microservice_category: cat).sample.price %></p>
+                                    <p>YOU ALREADY PROVIDE THIS MICROSERVICE</p>
+                                    <hr>
+                                  </div>
+                             <% else %>
+                                  <div class="card-body">
+                                    <p><%= cat.name %></p>
+                                    <p><%= cat.description %></p>
+                                    <p><%= number_field(:microservice, :price) %></p>
+                                    <%  %><p>ADD MICROSERVICE</p>
+                                    <hr>
+                                  </div>
+
+                      <% end %>
+                      <% end %>
+                  </div>
+              </div>
+
+
+         <div class="card">
+            <div class="card-header" id="headingTwo">
+              <h5 class="mb-0">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  2D DIGITAL ART
+                </button>
+              </h5>
+            </div>
+
+           
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+
+                    <% i = AchievementCategory.first.id + 1 %>
+                    <% AchievementCategory.find(i).microservice_categories.each do |cat| %>
+                            <% if current_creatrix.microservices.any? { |micro| micro.microservice_category == cat} %>   
+
+                                  <div class="card-body">
+                                    <p><%= cat.name %></p>
+                                    <p><%= cat.description %></p>
+                                    <p><%= Microservice.where(creatrix: current_creatrix, microservice_category: cat).sample.price %></p>
+                                    <p>YOU ALREADY PROVIDE THIS MICROSERVICE</p>
+                                    <hr>
+                                  </div>
+                             <% else %>
+                                  <div class="card-body">
+                                    <p><%= cat.name %></p>
+                                    <p><%= cat.description %></p>
+                                    <p><%= number_field(:microservice, :price) %></p>
+                                    <%  %><p>ADD MICROSERVICE</p>
+                                    <hr>
+                                  </div>
+
+                      <% end %>
+                  <% end %>
+                  <% i += 1 %>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header" id="headingThree">
+              <h5 class="mb-0">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                  3D DIGITAL ART
+                </button>
+              </h5>
+            </div>
+
+            
+            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+
+                <% AchievementCategory.find(i).microservice_categories.each do |cat| %>
+                            <% if current_creatrix.microservices.any? { |micro| micro.microservice_category == cat} %>   
+
+                                  <div class="card-body">
+                                    <p><%= cat.name %></p>
+                                    <p><%= cat.description %></p>
+                                    <p><%= Microservice.where(creatrix: current_creatrix, microservice_category: cat).sample.price %></p>
+                                    <p>YOU ALREADY PROVIDE THIS MICROSERVICE</p>
+                                    <hr>
+                                  </div>
+                             <% else %>
+                                  <div class="card-body">
+                                    <p><%= cat.name %></p>
+                                    <p><%= cat.description %></p>
+                                    <p><%= number_field(:microservice, :price) %></p>
+                                    <%  %><p>ADD MICROSERVICE</p>
+                                    <hr>
+                                  </div>
+
+                      <% end %>
+                  <% end %>
+                  <% i += 1 %>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header" id="headingFour">
+              <h5 class="mb-0">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                  ACTING
+                </button>
+              </h5>
+            </div>
+
+            
+            <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+
+                <% AchievementCategory.find(i).microservice_categories.each do |cat| %>
+                            <% if current_creatrix.microservices.any? { |micro| micro.microservice_category == cat} %>   
+
+                                  <div class="card-body">
+                                    <p><%= cat.name %></p>
+                                    <p><%= cat.description %></p>
+                                    <p><%= Microservice.where(creatrix: current_creatrix, microservice_category: cat).sample.price %></p>
+                                    <p>YOU ALREADY PROVIDE THIS MICROSERVICE</p>
+                                    <hr>
+                                  </div>
+                             <% else %>
+                                  <div class="card-body">
+                                    <p><%= cat.name %></p>
+                                    <p><%= cat.description %></p>
+                                    <p><%= number_field(:microservice, :price) %></p>
+                                    <%  %><p>ADD MICROSERVICE</p>
+                                    <hr>
+                                  </div>
+
+                      <% end %>
+                  <% end %>
+                  <% i += 1 %>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header" id="headingFive">
+              <h5 class="mb-0">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                  EDITING
+                </button>
+              </h5>
+            </div>
+            <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
+
+                <% AchievementCategory.find(i).microservice_categories.each do |cat| %>
+                            <% if current_creatrix.microservices.any? { |micro| micro.microservice_category == cat} %>   
+
+                                  <div class="card-body">
+                                    <p><%= cat.name %></p>
+                                    <p><%= cat.description %></p>
+                                    <p><%= Microservice.where(creatrix: current_creatrix, microservice_category: cat).sample.price %></p>
+                                    <p>YOU ALREADY PROVIDE THIS MICROSERVICE</p>
+                                    <hr>
+                                  </div>
+                             <% else %>
+                                  <div class="card-body">
+                                    <p><%= cat.name %></p>
+                                    <p><%= cat.description %></p>
+                                    <p><%= number_field(:microservice, :price) %></p>
+                                    <%  %><p>ADD MICROSERVICE</p>
+                                    <hr>
+                                  </div>
+
+                      <% end %>
+                  <% end %>
+                  <% i += 1 %>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header" id="headingSix">
+              <h5 class="mb-0">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                  COMPOSING
+                </button>
+              </h5>
+            </div>
+            <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordion">
+
+               <% AchievementCategory.find(i).microservice_categories.each do |cat| %>
+                            <% if current_creatrix.microservices.any? { |micro| micro.microservice_category == cat} %>   
+
+                                  <div class="card-body">
+                                    <p><%= cat.name %></p>
+                                    <p><%= cat.description %></p>
+                                    <p><%= Microservice.where(creatrix: current_creatrix, microservice_category: cat).sample.price %></p>
+                                    <p>YOU ALREADY PROVIDE THIS MICROSERVICE</p>
+                                    <hr>
+                                  </div>
+                             <% else %>
+                                  <div class="card-body">
+                                    <p><%= cat.name %></p>
+                                    <p><%= cat.description %></p>
+                                    <p><%= number_field(:microservice, :price) %></p>
+                                    <%  %><p>ADD MICROSERVICE</p>
+                                    <hr>
+                                  </div>
+
+                      <% end %>
+                  <% end %>
+                  <% i += 1 %>
+            </div>
+          </div>
+
+        </div>
+        <%= submit_tag 'ADD A MICROSERVICE', class: "btn btn-outline-primary btn-lg btn-block mt-5 rounded" %>
+
+<% end %>

@@ -13,8 +13,7 @@
               <a class="btn btn-secondary" href="#">
                 e d i t
               </a></p>
-                      <div class="btn btn-outline-primary btn-lg btn-block" href="#">ADD A MICROSERVICE</div>
-
+              
         </div>  
 
     <% end %>      
@@ -29,6 +28,8 @@
 </div>
 
 <div id="microservices">
+                        <h1 class="text-center">m i c r o s e r v i c e . s</h1>
+
 
 <!-- $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ -->
     <div class="container">
@@ -44,10 +45,10 @@
                <!-- < @creatrix.microservices.each do |microservice| >
                     < if cat.microservice_categories.include?(microservice.microservice_category) == true >-->
                 
-                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                  <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
 
                             <% @creatrix.microservices.each do |microservice|%>
-                    <% if AchievementCategory.find(1).microservice_categories.include?(microservice.microservice_category) == true %>
+                    <% if AchievementCategory.first.microservice_categories.include?(microservice.microservice_category) == true %>
 
                           <div class="card-body">
                             <p><%= microservice.microservice_category.name %></p>
@@ -55,14 +56,12 @@
                             <p><%= microservice.price %></p>
                             <hr>
                           </div>
-                        </div>
-                    <!--< end >
-                < end >-->
 
+                      <% end %>
+                      <% end %>
+                  </div>
               </div>
-            <!--< end >
-        </div>
-    </div>-->
+
 
          <div class="card">
             <div class="card-header" id="headingTwo">
@@ -77,7 +76,7 @@
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
 
                  <% @creatrix.microservices.each do |microservice|%>
-                    <% if AchievementCategory.find(2).microservice_categories.include?(microservice.microservice_category) == true %>
+                    <% if AchievementCategory.find(AchievementCategory.first.id + 1).microservice_categories.include?(microservice.microservice_category) == true %>
 
               <div class="card-body">
                 <p><%= microservice.microservice_category.name %></p>
@@ -86,8 +85,11 @@
                             
                 <hr>
               </div>
+              <% end %>
+              <% end %>
             </div>
           </div>
+
           <div class="card">
             <div class="card-header" id="headingThree">
               <h5 class="mb-0">
@@ -101,7 +103,7 @@
             <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
 
                 <% @creatrix.microservices.each do |microservice|%>
-                    <% if AchievementCategory.find(3).microservice_categories.include?(microservice.microservice_category) == true %>
+                    <% if AchievementCategory.find(AchievementCategory.first.id + 2).microservice_categories.include?(microservice.microservice_category) == true %>
 
 
               <div class="card-body">
@@ -111,6 +113,8 @@
                             
                 <hr>
               </div>
+              <% end %>
+              <% end %>
             </div>
           </div>
 
@@ -127,13 +131,17 @@
             <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
 
                 <% @creatrix.microservices.each do |microservice|%>
-                <% if AchievementCategory.find(4).microservice_categories.include?(microservice.microservice_category) == true %>
+                <% if AchievementCategory.find(AchievementCategory.first.id + 3).microservice_categories.include?(microservice.microservice_category) == true %>
 
               <div class="card-body">
-                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                <p><%= microservice.microservice_category.name %></p>
+                <p><%= microservice.microservice_category.description %></p>
+                <p><%= microservice.price %></p>
 
                 <hr>
               </div>
+              <% end %>
+              <% end %>
             </div>
           </div>
 
@@ -148,12 +156,16 @@
             <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
 
                 <% @creatrix.microservices.each do |microservice|%>
-                <% if AchievementCategory.find(5).microservice_categories.include?(microservice.microservice_category) == true %>
+                <% if AchievementCategory.find(AchievementCategory.first.id + 4).microservice_categories.include?(microservice.microservice_category) == true %>
 
               <div class="card-body">
-                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                <p><%= microservice.microservice_category.name %></p>
+                <p><%= microservice.microservice_category.description %></p>
+                <p><%= microservice.price %></p>
                 <hr>
               </div>
+              <% end %>
+              <% end %>
             </div>
           </div>
 
@@ -168,49 +180,37 @@
             <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordion">
 
                 <% @creatrix.microservices.each do |microservice|%>
-                <% if AchievementCategory.find(6).microservice_categories.include?(microservice.microservice_category) == true %>
+                <% if AchievementCategory.find(AchievementCategory.first.id + 5).microservice_categories.include?(microservice.microservice_category) == true %>
 
               <div class="card-body">
-                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                <p><%= microservice.microservice_category.name %></p>
+                <p><%= microservice.microservice_category.description %></p>
+                <p><%= microservice.price %></p>
                 <hr>
               </div>
+              <% end %>
+              <% end %>
             </div>
           </div>
 
-
         </div>
+        <%= link_to 'ADD A MICROSERVICE', new_creatrix_microservice_path(current_creatrix.id), class: "btn btn-outline-primary btn-lg btn-block mt-5 rounded" %>
+
+
     </div>
 
 
 
 <!-- $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ -->
 
-        <div>
-            <div class="row text-right align-items-center">
-            <div class="col-12 col-lg-6 col-xl-5 m-lg-auto text-left p-5">
-                <h1>m i c r o s e r v i c e . s</h1>
-                <% @creatrix.microservices.each do |microservice| %>
-                    <div class="row">
-                        <div class="mt-3">
-                            <h5> <%= microservice.microservice_category.name %> </h5>
-                            <p><%= microservice.microservice_category.description %></p>
-                            <p><%= microservice.price %>
-                            <p class="btn btn-outline-primary btn-lg btn-block">p o r t f o l i o</p>
-                        </div>
-                    </div>
-                <% end %>
-            </div>
-                
-            </div>
-        </div>
+
 </div>
 
-<div id="fundraising-block">
+
+<div id="fundraising-block" class="container d-flex flex-column justify-content-center">
         <div>
-            <h1>n o d e . s</h1>
-            <div class="row text-left mt-5 justify-content-between">
-            <div class="col-6">
-                <div class="fdb-box fdb-touch p-5" id="box-drop-shadow">
+            <h1 class="text-center">n o d e . s</h1>
+                <div class="p-5" id="box-drop-shadow">
                 <h2></h2>
                 <br>
                 <% @creatrix.nodes.each do |node| %>
@@ -220,58 +220,13 @@
                     <p></p>
                 <% end %>
                 </div>
-            </div>
-            </div>
         </div>
 </div>
 
-<div id="my-creations-block">
+
+<div id="my-participations-block" class="container">
         <div>
-            <h1>My creations</h1>
-            <div class="row text-left mt-5 justify-content-between">
-                <div class="col-4">
-                    <div class="fdb-box fdb-touch p-5" id="box-drop-shadow">
-                    <h2>Petite pasteque en fleurs</h2>
-                    <br>
-                    <h5>Participants</h5>
-                    <p>Far far away, behind the word moun, far from the country Vokalia, there live the blind texts.</p>
-                    <p class="float-right">Créé le 08/09/2020</p>
-                    <br>
-                    <div><p><a class="btn btn-secondary mt-2" style="width:100%" href="https://www.google.com">See all</a></div>
-                    </div>
-                </div>
-
-                 <div class="col-4">
-                    <div class="fdb-box fdb-touch p-5" id="box-drop-shadow">
-                    <h2>Petite pasteque en fleurs</h2>
-                    <br>
-                    <h5>Participants</h5>
-                    <p>Far far away, behind the word moun, far from the country Vokalia, there live the blind texts.</p>
-                    <p class="float-right">Créé le 08/09/2020</p>
-                    <br>
-                    <div><p><a class="btn btn-secondary mt-2" style="width:100%" href="https://www.google.com">See all</a></div>
-                    </div>
-                </div>
-
-                  <div class="col-4">
-                    <div class="fdb-box fdb-touch p-5" id="box-drop-shadow">
-                    <h2>Petite pasteque en fleurs</h2>
-                    <br>
-                    <h5>Participants</h5>
-                    <p>Far far away, behind the word moun, far from the country Vokalia, there live the blind texts.</p>
-                    <p class="float-right">Créé le 08/09/2020</p>
-                    <br>
-                    <div><p><a class="btn btn-secondary mt-2" style="width:100%" href="https://www.google.com">See all</a></div>
-                    </div>
-                </div>
-            
-            </div>
-        </div>
-</div>
-
-<div id="my-participations-block">
-        <div>
-            <h1>My participations</h1>
+            <h1 class="text-center">d o n a t i o n . s</h1>
             <div class="row text-left mt-5 justify-content-between">
                 <div class="col-4">
                     <div class="fdb-box fdb-touch p-5" id="box-drop-shadow">

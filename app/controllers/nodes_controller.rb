@@ -58,9 +58,25 @@ class NodesController < ApplicationController
       puts @achievements_node
       puts ("$"*100)
       #microservices
-        
+    end
 
-      
+    def new
+      @node = Node.new
+    end
 
+    def create
+      case params['nodeable_type']
+      when "Tale" 
+        nodeable = Tale.create(creatrix: current_creatrix, title: params['title'], description: params['title'])
+      when "WhatIf"
+        nodeable = WhatIf.create(creatrix: current_creatrix, sentence: params['sentence'], description: params['description'])
+      when "MStatement"
+        nodeable = MStatement.create(creatrix: current_creatrix, sentence: params['sentence'], description: params['description'])
+      when "Setting"
+        nodeable = Setting.create(creatrix: current_creatrix, full_name: params['full_name'], description: params['description'])
+      when "Digit"
+        nodeable = Digit.create
+      end
+      node = Node.create(nodeable: nodeable, creatrix: current_creatrix)
     end
   end

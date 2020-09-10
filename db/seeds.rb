@@ -140,21 +140,28 @@ end
 
 		i = node.achievements.count
 
+
 		non_achieved = Achievement.create(achievement_category: AchievementCategory.all[i], achieved?: false, node: node)
+		
+
 		i = 0
 		rand(0..non_achieved.achievement_category.microservice_categories.count - 1).times do
 			micro = Microservice.where(microservice_category: non_achieved.achievement_category.microservice_categories[i]).sample
 			non_achieved.microservices << micro
 			i += 1
-			raiser = Fundraiser.create(goal: micro.price, funded?: true, microservice_achievement_relation: MicroserviceAchievementRelation.where(achievement: non_achieved, microservice: micro)[0])
+			raiser = Fundraiser.create(goal: micro.price, funded?: true, microservice_achievement_relation: MicroserviceAchievementRelation.where(achievement: non_achieved, microservice: micro)[0], creatrix: node.creatrix)
 			sum = raiser.goal / 3
 			3.times do
 				DonatedSum.create(sum: sum, creatrix: Creatrix.all.sample, fundraiser: raiser)
 			end
 		end
 
+		i = non_achieved.microservices.count
+
 		current_micro = Microservice.where(microservice_category: non_achieved.achievement_category.microservice_categories[i]).sample
-		non_funded = Fundraiser.create(goal: current_micro.price, funded?: false, microservice_achievement_relation: MicroserviceAchievementRelation.where(achievement: non_achieved, microservice: current_micro)[0])
+		non_achieved.microservices << current_micro
+		non_funded = Fundraiser.create(goal: current_micro.price, funded?: false, microservice_achievement_relation: MicroserviceAchievementRelation.where(achievement: non_achieved, microservice: current_micro)[0], creatrix: node.creatrix)
+
 		sum = non_funded.goal / 3
 		2.times do
 			DonatedSum.create(sum: sum, creatrix: Creatrix.all.sample, fundraiser: non_funded)
@@ -166,7 +173,8 @@ end
 				ach.microservices << Microservice.where(microservice_category: mic_cat).sample
 			end
 			ach.microservices.each do |micro|
-				raiser = Fundraiser.create(goal: micro.price, funded?: true, microservice_achievement_relation: MicroserviceAchievementRelation.where(achievement: ach, microservice: micro)[0])
+				raiser = Fundraiser.create(goal: micro.price, funded?: true, microservice_achievement_relation: MicroserviceAchievementRelation.where(achievement: ach, microservice: micro)[0], creatrix: node.creatrix)
+				Fundraiser.last
 				sum = raiser.goal / 3
 				3.times do
 					DonatedSum.create(sum: sum, creatrix: Creatrix.all.sample, fundraiser: raiser)
@@ -174,8 +182,3 @@ end
 			end
 		end
 	end
-
-
-
-
-

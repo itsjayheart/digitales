@@ -53,7 +53,9 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
     color: white;
-}
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    }
 
 #microservices {
     padding: 150px 0 150px 0;
@@ -125,9 +127,6 @@ h1, h2, h3, h4, h5, h6 {
     width: 155px;
  }
 
- .fdb-block {
-     margin-top: 80px;  
- }
 
 .col-fill-left {
     background-image: url("https://images.pexels.com/photos/956999/milky-way-starry-sky-night-sky-star-956999.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260");

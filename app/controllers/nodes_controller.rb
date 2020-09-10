@@ -6,8 +6,14 @@ class NodesController < ApplicationController
     end
 
     def show
-      #$$$$$$$$$$$$$$$$$$$$$---NODE_DATA_HASH---$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
       @node = Node.find(params[:id])      
+      @fundraiser = @node.current_fundraiser
+      @fundraiser.funded? ? @fund_status = "The goal is met" : @fund_status = "funding in progress"
+      @fundraiser = @node.current_fundraiser
+
+      @per_cent_status = (@fundraiser.current_fundings.ceil * 100) / @fundraiser.goal.ceil
+
+      #$$$$$$$$$$$$$$$$$$$$$---NODE_DATA_HASH---$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
       @achievements_node = Hash.new
       @node.achievements.each do |achievment| 
         achievement_microservices = []
@@ -47,8 +53,6 @@ class NodesController < ApplicationController
         @achievments_status[achievements[i]] = microservices[i]
       end
       
-
-
       #achievements
       @status_achievement = ["text-secondary"]
       puts ("%"*100)
@@ -58,9 +62,6 @@ class NodesController < ApplicationController
       puts @achievements_node
       puts ("$"*100)
       #microservices
-        
-
       
-
     end
   end

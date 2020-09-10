@@ -1,36 +1,16 @@
-
-body 
-{
+body {
     margin: 0;
     padding: 0;
-    font-family: 'poppins', sans-serif;
-    background: #333;
+    font-family: '', sans-serif;
     margin-top: 110px;
 }
 
-.masonry-grid 
-{
-    width: 1200px;
+.masonry-grid {
     margin: 80px auto;
     columns: 3;
     column-gap: 20px;
     margin-left: 100px;
-    margin-bottom: 50px
-}
-
-
-.box 
-{
-    margin-top: 50px;
-    margin-bottom: 40px;
-    border-radius: 8px;
-    margin-bottom: 50px;
-}
-
-.container-index .box 
-{
-    margin: 0 0 20px;
-    padding: 15px;
-    background: #FBFBFF;
-    outline-style: strong;
+    margin-bottom: 120px;
+    margin-right: auto;
+    background-color: darkslategray;
 }

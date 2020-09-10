@@ -17,4 +17,8 @@
  *= require navbar
  *= require footer
  *= require nodes_show
+ *= require homepage
+ *= require profile_page
+ *= require sign_up
+ *= require forgotten_password
  */

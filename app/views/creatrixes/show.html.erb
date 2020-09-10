@@ -1,128 +1,241 @@
 <div id="profile-block">
 
-    <div id="in-page-links">
-        <div><a href="#microservices"> My microservices </a> </div>
-        <div><a href="#fundraising-block"> Fundraisings </a> </div>
-        <div><a href="#my-creations-block"> My creations </a> </div>
-        <div><a href="#my-participations-block"> My participations </a> </div>
-    </div>
-
     <div id="avatar">
         <img alt="image" class="img-fluid" id="avatar-image" src="https://f4.bcbits.com/img/0006103509_10.jpg">
-        <h1>Emeroun GOUNVOULLE</h1>
-        <p class="lead">Ici on aura peut etre une petite description, vous en pensez quoi?</p>    
+        <h2><%= @creatrix.itself %></h2>
+        <p class="lead"></p>    
     </div>
     
-    <div id="creatrix-details">
-        <h3>My details: </h3>
-        <p><strong> Email address </strong>: emerounelbaboon@gmail.com </p>
-        <p><strong> First name </strong>: Emeroune </p>
-        <p><strong> Surname </strong>: El Baboon  <a class="btn btn-secondary float-right" href="https://www.google.com">Edit my details</a></p>
-    </div>        
+    <% if @creatrix == current_creatrix %>
+        <div id="creatrix-details">
+            <h3>My details: </h3>
+            <p><strong> Email address </strong>: <%= @creatrix.email %></p>
+              <a class="btn btn-secondary" href="#">
+                e d i t
+              </a></p>
+              
+        </div>  
+
+    <% end %>      
+
+    <div id="in-page-links" class="mt-4">
+        <div><a href="#microservices"> m i c r o s e r v i c e . s </a> </div>
+        <div><a href="#fundraising-block"> n o d e . s </a> </div>
+        <!--<div><a href="#my-creations-block"> My creations </a> </div>-->
+        <div><a href="#my-participations-block"> d o n a t i o n . s </a> </div>
+    </div>
+
 </div>
 
 <div id="microservices">
-    <section class="fdb-block" id="test">
-        <div>
-            <div class="row text-right align-items-center">
-            <div class="col-12 col-lg-6 col-xl-5 m-lg-auto text-left p-5">
-                <h1>My microservices</h1>
-                <div class="row">
-                    <div class="mt-3">
-                        <h5> Artwork design </h5>
-                        <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-                    </div>
+                        <h1 class="text-center">m i c r o s e r v i c e . s</h1>
+
+
+<!-- $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ -->
+    <div class="container">
+        <div id="accordion">
+          <!--< AchievementCategory.all.each do |cat| > -->
+            
+              <div class="card">
+                <div class="card-header" id="headingOne">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">CREATIVE WRITING</button>
+                  </h5>
                 </div>
-                <div class="row">
-                    <div class="mt-3">
-                        <h5> Artwork design </h5>
-                        <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-                    </div>
-                </div>
-                <div class="row pt-8">
-                    <div class="mt-3">
-                        <h5> Artwork design </h5>
-                        <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-                    </div>
-                </div>
-                 <div class="row pt-8">
-                    <div class="mt-3">
-                         <p><a class="btn btn-secondary" href="https://www.google.com">See all</a> <a class="btn btn-secondary ml-2" href="https://www.google.com">Edit my microservices</a></p>
-                    </div>
-                </div>
+               <!-- < @creatrix.microservices.each do |microservice| >
+                    < if cat.microservice_categories.include?(microservice.microservice_category) == true >-->
                 
+                  <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+
+                            <% @creatrix.microservices.each do |microservice|%>
+                    <% if AchievementCategory.first.microservice_categories.include?(microservice.microservice_category) == true %>
+
+                          <div class="card-body">
+                            <p><%= microservice.microservice_category.name %></p>
+                            <p><%= microservice.microservice_category.description %></p>
+                            <p><%= microservice.price %></p>
+                            <hr>
+                          </div>
+
+                      <% end %>
+                      <% end %>
+                  </div>
+              </div>
+
+
+         <div class="card">
+            <div class="card-header" id="headingTwo">
+              <h5 class="mb-0">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  2D DIGITAL ART
+                </button>
+              </h5>
             </div>
 
-            <div class="col-7 col-sm-4 m-auto pt-5 pt-md-0">
-                <img alt="image" class="img-fluid" src="https://f4.bcbits.com/img/0006103509_10.jpg">
-            </div>
-            </div>
-        </div>
-    </section>
-</div>
+           
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
 
-<div id="fundraising-block">
-    <section class="fdb-block">
-        <div>
-            <h1>Fundraisings</h1>
-            <div class="row text-left mt-5 justify-content-between">
-            <div class="col-6">
-                <div class="fdb-box fdb-touch p-5" id="box-drop-shadow">
-                <h2>My fundraisings (10)</h2>
-                <br>
-                <h3>Petite pastèque en fleur</h3>
-                <h6>Artwork creation</h6>
-                <p>Far far away, behind the word mountains, far from the country Vokalia, there live the blind texts.</p>
-                <p><a href="https://www.google.com">Read more</a></p>
-                <h3>Petite pastèque en fleur</h3>
-                <h6>Artwork creation</h6>
-                <p>Far far away, behind the word mountains, far from the country Vokalia, there live the blind texts.</p>
-                <p><a href="https://www.google.com">Read more</a></p>
-                <h3>Petite pastèque en fleur</h3>
-                <h6>Artwork creation</h6>
-                <p>Far far away, behind the word mountains, far from the country Vokalia, there live the blind texts.</p>
-                <p><a href="https://www.google.com">Read more</a></p>
-                </div>
+                 <% @creatrix.microservices.each do |microservice|%>
+                    <% if AchievementCategory.find(AchievementCategory.first.id + 1).microservice_categories.include?(microservice.microservice_category) == true %>
+
+              <div class="card-body">
+                <p><%= microservice.microservice_category.name %></p>
+                <p><%= microservice.microservice_category.description %></p>
+                <p><%= microservice.price %></p>
+                            
+                <hr>
+              </div>
+              <% end %>
+              <% end %>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header" id="headingThree">
+              <h5 class="mb-0">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                  3D DIGITAL ART
+                </button>
+              </h5>
             </div>
 
-            <div class="col-6">
-                <div class="fdb-box fdb-touch p-5" id="box-drop-shadow">
-                <h2>My contributions (8)</h2>
-                <br>
-                <h3>Petite pastèque en fleur</h3>
-                <h6>Artwork creation</h6>
-                <p>Far far away, behind the word mountains, far from the country Vokalia, there live the blind texts.</p>
-                <p><a href="https://www.google.com">Read more</a></p>
-                <h3>Petite pastèque en fleur</h3>
-                <h6>Artwork creation</h6>
-                <p>Far far away, behind the word mountains, far from the country Vokalia, there live the blind texts.</p>
-                <p><a href="https://www.google.com">Read more</a></p>
-                <h3>Petite pastèque en fleur</h3>
-                <h6>Artwork creation</h6>
-                <p>Far far away, behind the word mountains, far from the country Vokalia, there live the blind texts.</p>
-                <p><a href="https://www.google.com">Read more</a></p>
-                </div>
-            </div>
             
+            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+
+                <% @creatrix.microservices.each do |microservice|%>
+                    <% if AchievementCategory.find(AchievementCategory.first.id + 2).microservice_categories.include?(microservice.microservice_category) == true %>
+
+
+              <div class="card-body">
+                <p><%= microservice.microservice_category.name %></p>
+                <p><%= microservice.microservice_category.description %></p>
+                <p><%= microservice.price %></p>
+                            
+                <hr>
+              </div>
+              <% end %>
+              <% end %>
             </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header" id="headingFour">
+              <h5 class="mb-0">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                  ACTING
+                </button>
+              </h5>
+            </div>
+
+            
+            <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+
+                <% @creatrix.microservices.each do |microservice|%>
+                <% if AchievementCategory.find(AchievementCategory.first.id + 3).microservice_categories.include?(microservice.microservice_category) == true %>
+
+              <div class="card-body">
+                <p><%= microservice.microservice_category.name %></p>
+                <p><%= microservice.microservice_category.description %></p>
+                <p><%= microservice.price %></p>
+
+                <hr>
+              </div>
+              <% end %>
+              <% end %>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header" id="headingFive">
+              <h5 class="mb-0">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                  EDITING
+                </button>
+              </h5>
+            </div>
+            <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
+
+                <% @creatrix.microservices.each do |microservice|%>
+                <% if AchievementCategory.find(AchievementCategory.first.id + 4).microservice_categories.include?(microservice.microservice_category) == true %>
+
+              <div class="card-body">
+                <p><%= microservice.microservice_category.name %></p>
+                <p><%= microservice.microservice_category.description %></p>
+                <p><%= microservice.price %></p>
+                <hr>
+              </div>
+              <% end %>
+              <% end %>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header" id="headingSix">
+              <h5 class="mb-0">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                  COMPOSING
+                </button>
+              </h5>
+            </div>
+            <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordion">
+
+                <% @creatrix.microservices.each do |microservice|%>
+                <% if AchievementCategory.find(AchievementCategory.first.id + 5).microservice_categories.include?(microservice.microservice_category) == true %>
+
+              <div class="card-body">
+                <p><%= microservice.microservice_category.name %></p>
+                <p><%= microservice.microservice_category.description %></p>
+                <p><%= microservice.price %></p>
+                <hr>
+              </div>
+              <% end %>
+              <% end %>
+            </div>
+          </div>
+
         </div>
-    </section>
+        <%= link_to 'ADD A MICROSERVICE', new_creatrix_microservice_path(current_creatrix.id), class: "btn btn-outline-primary btn-lg btn-block mt-5 rounded" %>
+
+
+    </div>
+
+
+
+<!-- $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ -->
+
+
 </div>
 
-<div id="my-creations-block">
-    <section class="fdb-block">
+
+<div id="fundraising-block" class="container d-flex flex-column justify-content-center">
         <div>
-            <h1>My creations</h1>
+            <h1 class="text-center">n o d e . s</h1>
+                <div class="p-5" id="box-drop-shadow">
+                <h2></h2>
+                <br>
+                <% @creatrix.nodes.each do |node| %>
+                    <h3><%= link_to node.title, node_path(node.id)  %></h3>
+                    <h6><%= node.achievements.count.to_s %> achievements out of 21</h6>
+                    <p><%= node.content %></p>
+                    <p></p>
+                <% end %>
+                </div>
+        </div>
+</div>
+
+
+<div id="my-participations-block" class="container">
+        <div>
+            <h1 class="text-center">d o n a t i o n . s</h1>
             <div class="row text-left mt-5 justify-content-between">
                 <div class="col-4">
                     <div class="fdb-box fdb-touch p-5" id="box-drop-shadow">
                     <h2>Petite pasteque en fleurs</h2>
                     <br>
-                    <h5>Participants</h5>
-                    <p>Far far away, behind the word moun, far from the country Vokalia, there live the blind texts.</p>
-                    <p class="float-right">Créé le 08/09/2020</p>
+                    <h5>Node</h5>
+                    <p>Far far away, behind the word...</p>
                     <br>
-                    <div><p><a class="btn btn-secondary mt-2" style="width:100%" href="https://www.google.com">See all</a></div>
+                    <div><p><a class="btn btn-secondary mt-2" style="width:100%" href="https://www.google.com">Go to node</a></div>
                     </div>
                 </div>
 
@@ -130,51 +243,6 @@
                     <div class="fdb-box fdb-touch p-5" id="box-drop-shadow">
                     <h2>Petite pasteque en fleurs</h2>
                     <br>
-                    <h5>Participants</h5>
-                    <p>Far far away, behind the word moun, far from the country Vokalia, there live the blind texts.</p>
-                    <p class="float-right">Créé le 08/09/2020</p>
-                    <br>
-                    <div><p><a class="btn btn-secondary mt-2" style="width:100%" href="https://www.google.com">See all</a></div>
-                    </div>
-                </div>
-
-                  <div class="col-4">
-                    <div class="fdb-box fdb-touch p-5" id="box-drop-shadow">
-                    <h2>Petite pasteque en fleurs</h2>
-                    <br>
-                    <h5>Participants</h5>
-                    <p>Far far away, behind the word moun, far from the country Vokalia, there live the blind texts.</p>
-                    <p class="float-right">Créé le 08/09/2020</p>
-                    <br>
-                    <div><p><a class="btn btn-secondary mt-2" style="width:100%" href="https://www.google.com">See all</a></div>
-                    </div>
-                </div>
-            
-            </div>
-        </div>
-    </section>
-</div>
-
-<div id="my-participations-block">
-    <section class="fdb-block">
-        <div>
-            <h1>My participations</h1>
-            <div class="row text-left mt-5 justify-content-between">
-                <div class="col-4">
-                    <div class="fdb-box fdb-touch p-5" id="box-drop-shadow">
-                    <h2>Petite pasteque en fleurs</h2>
-                    <br>
-                    <h5>Node</h5>
-                    <p>Far far away, behind the word...</p>
-                    <br>
-                    <div><p><a class="btn btn-secondary mt-2" style="width:100%" href="https://www.google.com">Go to node</a></div>
-                    </div>
-                </div>
-
-                 <div class="col-4">
-                    <div class="fdb-box fdb-touch p-5" id="box-drop-shadow">
-                    <h2>Petite pasteque en fleurs</h2>
-                    <br>
                     <h5>Node</h5>
                     <p>Far far away, behind the word...</p>
                     <br>
@@ -197,6 +265,5 @@
             
             </div>
         </div>
-    </section>
 </div>
 

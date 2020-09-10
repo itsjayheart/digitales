@@ -1,8 +1,35 @@
-<%= render 'nodes/show'%>
 <div class='d-flex flex-wrap justify-content-between'>
-  <div class="col-sm-8 col-xs-1 d-flex ">
-    <%= render 'nodes/index'%>
+  <div class="col-sm-8 col-xs-1 d-flex flex-column ">
+    <%= render 'nodes/show'%>
+    <div class='d-flex flex-column'>
+      <% if @fundraiser %>
+        <ul><h4>Foundraiser</h4><i>by <%=@fundraiser.creatrix.email%></i>
+          <li><%= @fund_status  %></li>
+          <li>Goal <%= @fundraiser.goal.ceil(2) %></li>
+          <li>Current <%= @fundraiser.current_fundings.ceil(2)%>
+          <li><%= @fundraiser.created_at.strftime("%Y-%m-%d") %></li>
+        </ul>
+        donation form go here<br><br><br>
+        <div class="progress">
+          <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="<%= @per_cent_status%>" aria-valuemin="0" aria-valuemax="100" style="width: <%= @per_cent_status%>%">
+          </div>
+        </div>
+        <%=@per_cent_status.ceil%> %
+      <% elsif  current_user && current_user == @fundraiser.creatrix.email%>
+        <%link_to "Start fundraising your node", "/", class: "btn btn-primary"%>
+      <% else %>
+        <p>No fundraising in progress<p>
+      <%end%>
+    </div>
   </div>
   <div class="col-sm-4 col-xs-1 border-right border-primary">
+    <% @achievments_status.keys.each do |achievement|  %>
+      <ul><h4><%=achievement%></h4>
+      <% @achievments_status[achievement].each do |microservice| %>
+        <li class="<%=microservice[1]%>"> <%=microservice[0]%></li>
+      <%end%>
+      </ul>
+    <%end%>
   </div>
 </div>
+

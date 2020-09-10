@@ -1,14 +1,12 @@
-  <div class="col-sm-8 col-xs-1 d-flex">
+  <% node = @node if @node %>
+
+<div class="card text-white bg-dark" >
+  <div class="card-header"> <%= Faker::Name.first_name %>
+  <%= node.created_at%> </div>
+  <div class="card-body"> 
+    <h4 class="card-title"><%= node.title %></h4>
+    <p class="card-text"><%= node.content %></p>
   </div>
-  <div class="media col-sm-4 col-xs-1 border-right border-primary" >
-    <div class="card text-white bg-dark" >
-      <div class="card-header"> <%= Faker::Name.first_name %>
-      <%= node.created_at%> </div>
-      <div class="card-body"> 
-        <h4 class="card-title"><%= node.title %></h4>
-        <p class="card-text"><%= node.content %></p>
-      </div>
-      <img class='card-img-bot' src='https://vignette.wikia.nocookie.net/lovecraft/images/0/03/Cthulhu_%28Andr%C3%A9e_Wallin%29.jpg/revision/latest?cb=20190713054520'>
-    </div>
-  </div>
+</div>
+  
 

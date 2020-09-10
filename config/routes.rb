@@ -12,11 +12,13 @@ Rails.application.routes.draw do
 
   resources :nodes
   devise_for :creatrixes
-  resources :creatrixes, only: [:show]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  resources :creatrixes, only: [:show]
+  resources :creatrixes, only: [:show] do
+    resources :microservices, only: [:new, :create]
+  end
+
 end
 
 

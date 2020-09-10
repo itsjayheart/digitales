@@ -1,18 +1,18 @@
 
 <div class="container-index">
-<% @nodes.each do |node|  %>
-  <%= link_to node_path(node.id), class: "text-decoration-none text-reset", :remote => true do %>
+  <% @nodes.each do |node|  %>
+    <%= link_to node_path(node.id), class: "text-decoration-none text-reset", :remote => true do %>
     <div id="" class="<%= @cards_classes.sample %> card mb-2" style="max-width: 20rem;">
       <div class="card-header"> 
       <h4 class="card-title"><%= node.title %></h4>
       </div>
-      <div class="card-body">
+      <div class="card-body"> 
         <p class="card-text"><%= node.content %></p>
       </div>
       <%end%>
       <div class='card-footer'>
-        <button class='btn btn-primary'>found</button>
+        <%= link_to "view", node_path(node.id), class: "btn btn-primary" %>
       </div>
     </div>
-<% end %>
+  <% end %>
 </div>

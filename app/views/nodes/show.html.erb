@@ -1,8 +1,16 @@
-<%= render 'nodes/show'%>
 <div class='d-flex flex-wrap justify-content-between'>
-  <div class="col-sm-8 col-xs-1 d-flex ">
-    <%= render 'nodes/index'%>
+  <div class="col-sm-8 col-xs-1 d-flex flex-column ">
+    <%= render 'nodes/show'%>
   </div>
   <div class="col-sm-4 col-xs-1 border-right border-primary">
+    <% @achievments_status.keys.each do |achievement|  %>
+      <ul><h4><%=achievement%></h4>
+      <% @achievments_status[achievement].each do |microservice| %>
+        <li class="<%=microservice[1]%>"> <%=microservice[0]%></li>
+      <%end%>
+      </ul>
+    <%end%>
   </div>
 </div>
+
+

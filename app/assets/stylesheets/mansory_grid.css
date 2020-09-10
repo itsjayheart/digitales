@@ -1,71 +1,41 @@
-body
-{
+body {
     margin: 0;
     padding: 0;
-    font-family: 'poppins', sans-serif;
-    background: #333;
     margin-top: 110px;
 }
 
-
-.container-index 
-{
-    width: 1200px;
-    margin: 40px auto;
-    columns: 4;
-    column-gap: 20px;
-    margin-left: 100px;
-    padding: 25px;
-    margin-bottom: 50px
-}
-    
-.box
-{
-    margin-top: 50px;
-    margin-bottom: 40px;
-    border-radius: 8px;
-    margin-bottom: 50px;
+#masonry-flex {
+    display: flex;
+    align-items: center;
 }
 
-.container-index .box
-{
-    margin: 0 0 20px;
-    padding: 15px;
-    background: #FBFBFF;
-    outline-style: strong;
+.masonry-grid {
+    margin-left: auto;
+    margin-right: auto;
+    columns: 3;
+    margin-bottom: 120px;
+    padding: 100px 0 100px 0;
 }
 
-
-/*- - - - card columns - - - -*/
-
-@media (min-width: 360px) {
-	.card-columns {
-	column-count: 1;
-	}
+#masonry-card {
+    margin: 0 5px 0 5px;
+    max-width: 400px;
+    height: 250px;
+    padding: 40px;
 }
 
-@media (min-width: 576px) {
-	.card-columns {
-	column-count: 2;
-	}
+#masonry-card-button {
+    float: right;
 }
 
-@media (min-width: 768px) {
-	.card-columns {
-	column-count: 2;
-	}
+.Tale {
+    background-color: rgb(124, 96, 43);
 }
 
-@media (min-width: 992px) {
-	.card-columns {
-	column-count: 2;
-	}
+.WhatIf {
+    background-color: rgb(64, 49, 104);
 }
 
-@media (min-width: 1200px) {
-	.card-columns {
-	column-count: 2;
-	}
+.Setting {
+    background-color: rgb(88, 88, 88);
 }
-
-/*- - - - End of card columns - - - -*/

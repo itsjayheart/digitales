@@ -1,0 +1,192 @@
+<div class="container d-flex flex-column justify-content-around w-100">
+        
+        <ul class="nav d-flex justify-content-around" style="white-space: nowrap; text-align: center; margin-bottom: 10px; display: flex; flex-wrap: nowrap;">
+          <li><a data-toggle="tab" href="#tale"> <small>t a l e <span class="text-muted">. s</span></small></a></li>
+          <li><a data-toggle="tab" href="#what_if"> <small>w h a t | i f <span class="text-muted">. s</span></small></a></li>
+          <li><a data-toggle="tab" href="#m_statement"> <small>m | s t a t e m e n t <span class="text-muted">. s</span></small></a></li>
+
+          <li><a data-toggle="tab" href="#setting"> <small>s e t t i n g<span class="text-muted">. s</span></small></a></li>
+
+          <li><a class="active" data-toggle="tab" href="#digit"> <small>d i g i t<span class="text-muted">. s</span></small></a></li>
+        </ul>
+
+        <div class="tab-content" style="width: 100%; padding-bottom: 20px;">
+
+          <div id="tale" class="tab-pane fade in active">
+
+            <form action="<%= nodes_path %>" method="post" id="nodeform" style="display: flex; flex-direction: column; justify-content: space-around; align-items: center; height: 70vh;">
+
+              <input type="hidden" name="type" value="Tale">
+
+              <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+              <label for="content">t i t l e</label>
+
+              <input style="border: 0px; background-color: transparent; color: white;" class="w-50 text-center" type="text" name="content" placeholder="e.g. 't a l e s | o f | a t l a n t i s'">
+
+              <label for="description">d e s c r i p t i o n</label>
+
+              <textarea style="border: 0px; background-color: transparent; color: white; height: 125px; overflow-x: hidden;" class="w-50 text-center text-muted " name="description" placeholder="In the depths of a planet called Atlantis entirely covered with water survives a tribe of a few hundred people. It's all that is left from what once was a great civilization. They end up wandering deeper into the Abyss from where anyone never came back." form="nodeform"></textarea>
+
+
+              <p><input type="submit" class="btn btn-outline-secondary btn-lg btn-block" value="c r e a t e"></p>
+
+            </form>   
+
+          </div>
+
+          <div id="what_if" class="tab-pane text-center fade">
+            <p>w h a t | i f</p>
+            <form action="<%= nodes_path %>" method="post" id="nodeform" style="display: flex; flex-direction: column; justify-content: space-around; align-items: center; height: 70vh;">
+              <input type="hidden" name="type" value="WhatIf">
+              <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+              <div style="display: flex; flex-direction: row; justify-content: center; align_items : center;">
+                
+                <div class="text-center">
+
+                  <select name="subject_setting_content">
+                
+                  <option id="subject-create-option">create new setting</option>
+
+                  <% ab_settings_array = Setting.all.sort { |a, b| a.full_name <=> b.full_name } %>
+
+                  <% ab_settings_array.each do |setting| %>
+                    <option><%= setting.full_name %></option>
+                  <% end %>
+                
+                </select>
+                
+                <input name="new_subject_setting_content" placeholder="e.g. New Zealand" style="border: 0px; background-color: transparent; color: white;" class="text-center">
+              </div>
+
+              <div class="text-center">
+                
+              <input name="new_verb_setting_content" style="border: 0px; background-color: transparent; color: white;" class="text-center" placeholder="e.g. had been">
+            </div>
+
+            <div class="text-center">
+              <select name="object_setting_content">
+                
+                <option id="object-create-option">create new setting</option>
+
+                
+                <% ab_settings_array = Setting.all.sort { |a, b| a.full_name <=> b.full_name } %>
+
+                <% ab_settings_array.each do |setting| %>
+                  <option><%= setting.full_name %></option>
+                <% end %>
+                
+              </select>
+
+              <input name="new_object_setting_content" style="border: 0px; background-color: transparent; color: white;" class="text-center" placeholder="e.g. a planet">
+            </div>
+          </div>
+
+          <label for="description">d e s c r i p t i o n</label>
+
+          <textarea style="border: 0px; background-color: transparent; color: white; height: 125px; overflow-x: hidden;" class="w-50 text-center text-muted " name="description" placeholder="Aoteraoa is an exoplanet from the Oceania Galaxy. Maori boats surf along numerous red comets with spaceships sculpted in wood. When two strange pale newcomers arrive in a damaged spaceship made of metal, they ask for hospitality and pretend to be the last of their kind. Yet, there might be more than survival that motives their deeds..." form="nodeform"></textarea>
+
+          <p><input type="submit" class="btn btn-outline-secondary btn-lg btn-block" value="c r e a t e"></p>
+        </form>
+      </div>
+
+          <div id="m_statement" class="tab-pane fade text-center">
+            
+
+            <p>m i g h t | | | m i g h t | n o t</p>
+
+
+
+            <form action="<%= nodes_path %>" method="post" id="nodeform" style="display: flex; flex-direction: column; justify-content: space-around; align-items: center; height: 70vh;">
+              <input type="hidden" name="type" value="MStatement">
+              <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+              <div style="display: flex; flex-direction: row; justify-content: center; align_items : center;">
+                
+                <div class="text-center">
+                  <select name="subject_setting_content">
+                
+                  <option id="subject-create-option">create new setting</option>
+
+                  <% ab_settings_array = Setting.all.sort { |a, b| a.full_name <=> b.full_name } %>
+
+                  <% ab_settings_array.each do |setting| %>
+                    <option><%= setting.full_name %></option>
+                  <% end %>
+                
+                </select>
+                
+                <input name="new_subject_setting_content" style="border: 0px; background-color: transparent; color: white; width: 25vw;" class="text-center" placeholder="e.g. a mother">
+              </div>
+
+              <div class="text-center">
+              
+              <input name="new_verb_setting_content" class="text-center" style="border: 0px; background-color: transparent; color: white; width: 25vw;" placeholder="e.g. have prevented from deportation">
+            </div>
+
+            <div class="text-center">
+              <select name="object_setting_content">
+                
+                <option id="object-create-option">create new setting</option>
+
+                
+                <% ab_settings_array = Setting.all.sort { |a, b| a.full_name <=> b.full_name } %>
+
+                <% ab_settings_array.each do |setting| %>
+                  <option><%= setting.full_name %></option>
+                <% end %>
+                
+              </select>
+
+              <input name="new_object_setting_content" style="border: 0px; background-color: transparent; color: white; width: 25vw;" class="text-center" placeholder="e.g. her son">
+            </div>
+          </div>
+
+          <label for="description">d e s c r i p t i o n</label>
+
+          <textarea style="border: 0px; background-color: transparent; color: white; height: 125px; overflow-x: hidden;" class="w-50 text-center text-muted " name="description" placeholder="Salome Imperator is the wrongful majesty of Primary World who asked for all mothers of Cities of Swen to abandon their first born to Imperial Camp." form="nodeform"></textarea>
+
+
+          <p><input type="submit" class="btn btn-outline-secondary btn-lg btn-block" value="c r e a t e"></p>
+        </form>
+      </div>
+
+
+
+          <div id="setting" class="tab-pane fade text-center">
+            <form action="<%= nodes_path %>" method="post" id="nodeform" style="display: flex; flex-direction: column; justify-content: space-around; align-items: center; height: 70vh;">
+              <input type="hidden" name="type" value="Setting">              
+              <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+              <label for="content">full name</label>
+              <input class="text-center" type="text" name="content" style="border: 0px; background-color: transparent; color: white; width: 33vw;" placeholder="e. g. Barbara Sand">
+
+              <label for="description">d e s c r i p t i o n</label>
+
+              <textarea style="border: 0px; background-color: transparent; color: white; height: 125px; overflow-x: hidden;" class="w-50 text-center text-muted " name="description" placeholder="Barbara Sand is a new cheerleader in the sweet town of Cotton Hills. When she mysteriously disappears, Agent Bobby Johnson starts to investigate. Rumors are his boyfriend, light-minded monster of a quarterback Leilani Greed, lost it when he understood she was transgender." form="nodeform"></textarea>
+              
+              <p><input type="submit" class="btn btn-outline-secondary btn-lg btn-block" value="c r e a t e"></p>
+            </form>
+          </div>
+
+
+
+          <div id="digit" class="tab-pane fade text-center">
+            <form action="<%= nodes_path %>" method="post" id="nodeform" style="display: flex; flex-direction: column; justify-content: space-around; align-items: center; height: 70vh;">
+              <input type="hidden" name="type" value="Digit">                
+              <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+              <label for="content">t i t l e</label>
+
+              <input style="border: 0px; background-color: transparent; color: white;" class="w-50 text-center" type="text" name="content" placeholder="e.g. weird LOTR meme">
+
+              <label for="description">d e s c r i p t i o n</label>
+
+              <textarea style="border: 0px; background-color: transparent; color: white; height: 125px; overflow-x: hidden;" class="w-50 text-center text-muted " name="description" placeholder="Memes are the new poem and believe me I know the weirdest ones." form="nodeform"></textarea>
+              
+              <p><input type="submit" class="btn btn-outline-secondary btn-lg btn-block" value="u p l o a d"></p>
+
+            </form>
+          </div>
+        </div>
+</div>

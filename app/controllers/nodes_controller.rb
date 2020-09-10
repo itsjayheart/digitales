@@ -65,17 +65,17 @@ class NodesController < ApplicationController
     end
 
     def create
-      case params['nodeable_type']
+      case params['type']
       when "Tale" 
-        nodeable = Tale.create(creatrix: current_creatrix, title: params['title'], description: params['title'])
+        nodeable = Tale.create(creatrix: current_creatrix, title: params['content'], description: params['description'])
       when "WhatIf"
         nodeable = WhatIf.create(creatrix: current_creatrix, sentence: params['sentence'], description: params['description'])
       when "MStatement"
         nodeable = MStatement.create(creatrix: current_creatrix, sentence: params['sentence'], description: params['description'])
       when "Setting"
-        nodeable = Setting.create(creatrix: current_creatrix, full_name: params['full_name'], description: params['description'])
+        nodeable = Setting.create(creatrix: current_creatrix, full_name: params['content'], description: params['description'])
       when "Digit"
-        nodeable = Digit.create
+        nodeable = Digit.create(creatrix: current_creatrix, title: params['content'], description: params['description'])
       end
       node = Node.create(nodeable: nodeable, creatrix: current_creatrix)
     end

@@ -5,6 +5,10 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
     color: white;
-    font-family: "Montserrat", sans-serif;
-    font-weight: 600;
+    font-family: 'Gotu', sans-serif;
+    font-weight: bold;
     }
+
+p, a {
+    font-family: 'Marcellus', sans-serif;
+}

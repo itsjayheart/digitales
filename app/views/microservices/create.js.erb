@@ -1,0 +1,5 @@
+console.log("ok")
+console.log("microservice_category#"+"<%=@microservice_category.id%>")
+
+
+  document.getElementById("microservice_category#"+"<%=@microservice_category.id%>").innerHTML = "<%= j render "microservices/create", microservice: @microservice %>"

@@ -6,7 +6,8 @@ class CreatrixesController < ApplicationController
   	else
   		@creatrix = Creatrix.find(params['id'])
   	end
-  	
+	@achievements = AchievementCategory.all
+  	@microservice = Microservice.new
   end
 
 end

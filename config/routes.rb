@@ -15,8 +15,13 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  resources :creatrixes, only: [:show] do
-    resources :microservices, only: [:new, :create]
+  resources :creatrixes, only: [:show] 
+  
+  
+  resources :microservices, only: [:new]
+
+  resources :microservice_category do
+    resources :microservices, only: [:create]
   end
 
 end

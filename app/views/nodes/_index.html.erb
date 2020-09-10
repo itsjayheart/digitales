@@ -1,19 +1,26 @@
-<div class="justify-content-center">
+<script src="https://kit.fontawesome.com/6085f87352.js" crossorigin="anonymous"></script>
+
+<div id="masonry-flex">
   <div class="masonry-grid">
   <% @nodes.each do |node|  %>
     <%= link_to node_path(node.id), class: "text-decoration-none text-reset", :remote => true do %>
-      <div id="" class="<%= @cards_classes.sample %> card mb-2" style="max-width: 20rem;">
-        <div class="card-header"> 
-        <h4 class="card-title"><%= node.title %></h4>
+      <div id="masonry-card" class="<%= node.nodeable_type %> card mb-2">
+        <div id="vertical-flex">
+          <div id="masonry-card-title"> <h3> <%= node.title %> </h3> </div>
+          <div> <p><%= node.content %></p> </div>
+          <% case node.nodeable_type %>
+            <% when "WhatIf" %>
+              <div> <i class="fas fa-question"></i> </div>
+            <% when "Tale" %>
+              <div> <i class="fas fa-atlas"></i> </div>
+            <% when "Setting" %>
+              <div> <i class="fas fa-cogs"></i> </div>
+          <% end %>
+          <div id="masonry-card-button" class="float-right"> <%= link_to "view", node_path(node.id), class: "btn btn-primary" %> 
         </div>
-        <div class="card-body"> 
-          <p class="card-text"><%= node.content %></p>
-        </div>
-        <%end%>
-        <div class='card-footer'>
-          <%= link_to "view", node_path(node.id), class: "btn btn-primary" %>
         </div>
       </div>
-    <% end %>
+    <%end%>
+  <% end %>
   </div>
 </div>

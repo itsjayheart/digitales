@@ -1,13 +1,13 @@
 <script src="https://kit.fontawesome.com/6085f87352.js" crossorigin="anonymous"></script>
 
-<div id="masonry-flex">
+<div class="masonry-flex" id="hero-background">
   <div class="masonry-grid">
   <% @nodes.each do |node|  %>
     <%= link_to node_path(node.id), class: "text-decoration-none text-reset", :remote => true do %>
       <div id="masonry-card" class="<%= node.nodeable_type %> card mb-2">
         <div id="vertical-flex">
-          <div id="masonry-card-title">
-          <a data-toggle="collapse" data-target="#collapse<%= node.id %>" href="tollapse" role="button" aria-expanded="false" aria-controls="collapseExample">
+          <div id="masonry-card-title" class="panel panel-default">
+          <a class="panel-title" data-toggle="collapse" data-target="#collapse<%= node.id %>" href="tollapse" role="button" aria-expanded="false" aria-controls="collapseExample">
            <h5> <%= node.title %> </h5> </a>
           </div>
           <div> <p><%= node.content %></p> </div>
@@ -25,10 +25,9 @@
           <div class="collapse" id="collapse<%= node.id %>">
             <div>
               Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
-              <div class="btn">
-              <%= link_to "Creep in", node_path(node.id)%> </div>
             </div>
           </div>
+          <div class="btn"> <%= link_to "Creep in", node_path(node.id)%> </div>
       </div>
     <%end%>
   <% end %>

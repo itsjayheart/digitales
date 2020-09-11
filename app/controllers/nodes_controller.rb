@@ -6,12 +6,12 @@ class NodesController < ApplicationController
     end
 
     def show
+      @donated_sum = DonatedSum.new
 
       @node = Node.find(params[:id])    
-      if @node.current_fundraiser
-        @fundraiser = @node.current_fundraiser
+      if Fundraiser.find_by(microservice_request: @node.achievements.last.microservice_requests.last)
+        @fundraiser = Fundraiser.find_by(microservice_request: @node.achievements.last.microservice_requests.last)
         @fundraiser.funded? ? @fund_status = "The goal is met" : @fund_status = "funding in progress"
-        @fundraiser = @node.current_fundraiser
         @per_cent_status = (@fundraiser.current_fundings.ceil * 100) / @fundraiser.goal.ceil
       end
       

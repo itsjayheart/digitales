@@ -19,12 +19,13 @@ class MicroservicesController < ApplicationController
   def index
     @node = Node.find(params[:node_id])
     
-    current_microservice_category = @node.current_microservice.microservice_category
+    @current_microservice_category = @node.current_microservice_category
 
+    puts @current_microservice_category.name
 
     @microservices = []
     Microservice.all.each do |microservice|
-      @microservices << microservice if microservice == current_microservice_category
+      @microservices << microservice if microservice.microservice_category.name == @current_microservice_category.name
     end
 
     

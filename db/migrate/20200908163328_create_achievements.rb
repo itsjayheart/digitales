@@ -4,7 +4,7 @@ class CreateAchievements < ActiveRecord::Migration[5.2]
       t.belongs_to :achievement_category, index: true
       t.belongs_to :node, index: true
 
-      t.boolean :achieved?
+      t.boolean :achieved?, default: false
       
       t.timestamps
     end

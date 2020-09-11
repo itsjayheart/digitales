@@ -1,4 +1,4 @@
-class MicroserviceAchievementRelation < ApplicationRecord
+class MicroserviceRequest < ApplicationRecord
     belongs_to :achievement
     belongs_to :microservice
 

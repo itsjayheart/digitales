@@ -1,5 +1,6 @@
 class Node < ApplicationRecord
-	
+    after_create :achievement
+
     belongs_to :nodeable, polymorphic: true
     belongs_to :creatrix
 
@@ -17,4 +18,11 @@ class Node < ApplicationRecord
     	i = self.non_achieved.microservices.count - 1
 		return Microservice.where(microservice_category: self.non_achieved.achievement_category.microservice_categories[i]).sample
     end
+
+    def achievement
+      AchievementCategory.all.each do |achievement_category|
+        Achievement.create(node: self, achievement_category: achievement_category)
+      end
+    end
+
 end

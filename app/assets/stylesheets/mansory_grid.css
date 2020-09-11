@@ -1,3 +1,14 @@
+
+.header-mansory {
+    position: relative;
+    height: 350px;
+    margin: auto;
+    padding: 10px;
+    width: 50%;
+    text-align: center;
+    padding-top: 150px;
+}
+
 .masonry-flex {
     display: flex;
     align-items: center;
@@ -8,7 +19,7 @@
     margin-left: auto;
     margin-right: auto;
     columns: 4;
-    padding: 100px 0 100px 0;
+    padding: 6px 0 100px 0;
     overflow: hidden;
     column-gap: 2em;
 }
@@ -86,3 +97,21 @@ a:hover
 .panel-title[aria-expanded="true"]::after {
       content: "\f106";
   }
+
+div.sticky {
+    height: 60px;
+    width: 90px;
+    position: sticky;
+    bottom: 40px;
+    left: 20px;
+    text-align: center;
+}
+
+.fa-plus-circle {
+    color: rgb(255, 255, 255);
+    margin-bottom: 10px    
+}
+
+div.sticky h6 {
+    color: rgb(153, 153, 153);
+}

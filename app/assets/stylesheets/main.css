@@ -1,7 +1,14 @@
 body {
     background-color: #1E1E1E;
-
+    padding-top: 65px; /*THIS LINE IS VERY IMPORTANT, DON'T  TOUCH IT IF YOU DON'T KNOW WHAT YOU ARE DOING*/
 }
+
+h1 {
+    font-size: 68px;
+    color: white;
+    font-family: 'Gotu', sans-serif;
+    font-weight: bold;
+    }
 
 h1, h2, h3, h4, h5, h6 {
     color: white;

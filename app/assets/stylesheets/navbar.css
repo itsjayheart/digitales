@@ -1,6 +1,4 @@
-html,body {
-    height:100%;
-  }
+
   
   .affix {
     weight:100%;
@@ -21,9 +19,10 @@ html,body {
   
   nav .navbar-nav .nav-link,
   nav .navbar-brand {
-     color: rgb(69, 27, 255);
+    color: white;
+    font-family: 'Gotu', sans-serif;
   }
-  
+
   section {
     height:calc(90% - 50px);
     height: 90vh;

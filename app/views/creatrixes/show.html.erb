@@ -1,7 +1,11 @@
 <div id="profile-block">
 
     <div id="avatar">
-        <img alt="image" class="img-fluid" id="avatar-image" src="https://f4.bcbits.com/img/0006103509_10.jpg">
+        <%if @creatrix.avatar.attached?%>
+            <%= image_tag @creatrix.avatar, alt: 'avatar', class: "img-fluid", id: "avatar-image" %>
+        <%else%>
+            no pics
+        <%end%>
         <h2><%= @creatrix.itself %></h2>
         <p class="lead"></p>    
     </div>
@@ -12,10 +16,8 @@
             <p><strong> Email address </strong>: <%= @creatrix.email %></p>
               <a class="btn btn-secondary" href="#">
                 e d i t
-              </a></p>
-              
+              </a></p>              
         </div>  
-
     <% end %>      
 
     <div id="in-page-links" class="mt-4">
@@ -28,182 +30,8 @@
 </div>
 
 <div id="microservices">
-                        <h1 class="text-center">m i c r o s e r v i c e . s</h1>
-
-
-<!-- $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ -->
-    <div class="container">
-        <div id="accordion">
-          <!--< AchievementCategory.all.each do |cat| > -->
-            
-              <div class="card">
-                <div class="card-header" id="headingOne">
-                  <h5 class="mb-0">
-                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">CREATIVE WRITING</button>
-                  </h5>
-                </div>
-               <!-- < @creatrix.microservices.each do |microservice| >
-                    < if cat.microservice_categories.include?(microservice.microservice_category) == true >-->
-                
-                  <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-
-                            <% @creatrix.microservices.each do |microservice|%>
-                    <% if AchievementCategory.first.microservice_categories.include?(microservice.microservice_category) == true %>
-
-                          <div class="card-body">
-                            <p><%= microservice.microservice_category.name %></p>
-                            <p><%= microservice.microservice_category.description %></p>
-                            <p><%= microservice.price %></p>
-                            <hr>
-                          </div>
-
-                      <% end %>
-                      <% end %>
-                  </div>
-              </div>
-
-
-         <div class="card">
-            <div class="card-header" id="headingTwo">
-              <h5 class="mb-0">
-                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                  2D DIGITAL ART
-                </button>
-              </h5>
-            </div>
-
-           
-            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-
-                 <% @creatrix.microservices.each do |microservice|%>
-                    <% if AchievementCategory.find(AchievementCategory.first.id + 1).microservice_categories.include?(microservice.microservice_category) == true %>
-
-              <div class="card-body">
-                <p><%= microservice.microservice_category.name %></p>
-                <p><%= microservice.microservice_category.description %></p>
-                <p><%= microservice.price %></p>
-                            
-                <hr>
-              </div>
-              <% end %>
-              <% end %>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="card-header" id="headingThree">
-              <h5 class="mb-0">
-                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                  3D DIGITAL ART
-                </button>
-              </h5>
-            </div>
-
-            
-            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-
-                <% @creatrix.microservices.each do |microservice|%>
-                    <% if AchievementCategory.find(AchievementCategory.first.id + 2).microservice_categories.include?(microservice.microservice_category) == true %>
-
-
-              <div class="card-body">
-                <p><%= microservice.microservice_category.name %></p>
-                <p><%= microservice.microservice_category.description %></p>
-                <p><%= microservice.price %></p>
-                            
-                <hr>
-              </div>
-              <% end %>
-              <% end %>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="card-header" id="headingFour">
-              <h5 class="mb-0">
-                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                  ACTING
-                </button>
-              </h5>
-            </div>
-
-            
-            <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
-
-                <% @creatrix.microservices.each do |microservice|%>
-                <% if AchievementCategory.find(AchievementCategory.first.id + 3).microservice_categories.include?(microservice.microservice_category) == true %>
-
-              <div class="card-body">
-                <p><%= microservice.microservice_category.name %></p>
-                <p><%= microservice.microservice_category.description %></p>
-                <p><%= microservice.price %></p>
-
-                <hr>
-              </div>
-              <% end %>
-              <% end %>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="card-header" id="headingFive">
-              <h5 class="mb-0">
-                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                  EDITING
-                </button>
-              </h5>
-            </div>
-            <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
-
-                <% @creatrix.microservices.each do |microservice|%>
-                <% if AchievementCategory.find(AchievementCategory.first.id + 4).microservice_categories.include?(microservice.microservice_category) == true %>
-
-              <div class="card-body">
-                <p><%= microservice.microservice_category.name %></p>
-                <p><%= microservice.microservice_category.description %></p>
-                <p><%= microservice.price %></p>
-                <hr>
-              </div>
-              <% end %>
-              <% end %>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="card-header" id="headingSix">
-              <h5 class="mb-0">
-                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-                  COMPOSING
-                </button>
-              </h5>
-            </div>
-            <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordion">
-
-                <% @creatrix.microservices.each do |microservice|%>
-                <% if AchievementCategory.find(AchievementCategory.first.id + 5).microservice_categories.include?(microservice.microservice_category) == true %>
-
-              <div class="card-body">
-                <p><%= microservice.microservice_category.name %></p>
-                <p><%= microservice.microservice_category.description %></p>
-                <p><%= microservice.price %></p>
-                <hr>
-              </div>
-              <% end %>
-              <% end %>
-            </div>
-          </div>
-
-        </div>
-        <%= link_to 'ADD A MICROSERVICE', new_creatrix_microservice_path(current_creatrix.id), class: "btn btn-outline-primary btn-lg btn-block mt-5 rounded" %>
-
-
-    </div>
-
-
-
-<!-- $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ -->
-
-
+  <h1 class="text-center">m i c r o s e r v i c e . s</h1>
+  <%= render "microservices/new"%>
 </div>
 
 

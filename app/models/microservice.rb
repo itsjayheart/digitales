@@ -4,6 +4,8 @@ class Microservice < ApplicationRecord
     presence: true, 
     numericality: { greater_than_or_equal_to: 0.99e2, less_than_or_equal_to: 0.501e3 }
 
+    has_one_attached :picture
+
     belongs_to :creatrix
     belongs_to :microservice_category
 

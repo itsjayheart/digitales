@@ -1,20 +1,19 @@
 class MicroservicesController < ApplicationController
 
-  def new
-  	unless params['creatrix_id'] == nil
-  		@creatrix = Creatrix.find(params['creatrix_id'])
-  	end
-  		@microservice = Microservice.new
-  end
-
   def create
-  	microservice = Microservice.new(creatrix: current_creatrix, microservice_category: params['microservice_category'], price: params['price'])
+    price = params["microservice"]['price'].to_f * 100
+  	@microservice = Microservice.new(creatrix: current_creatrix, microservice_category: MicroserviceCategory.find(params['microservice_category_id']), price: price)
+    
+    @microservice.picture.attach(params[:picture])
 
-  	if microservice.save
-  		redirect_to creatrix_path(current_creatrix.id)
-  	else
-  		render :new
-  	end
+    @microservice_category = @microservice.microservice_category
+
+    @microservice.save ? @errors = nil : @errors = @microservice.errors.full_messages.to_sentence
+    
+    respond_to do |format|
+      format.html { redirect_to creatrix_path(current_creatrix.id) }
+      format.js { }
+    end
   end
 
 end

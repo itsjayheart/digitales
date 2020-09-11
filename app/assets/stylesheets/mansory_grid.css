@@ -1,71 +1,88 @@
-body
-{
-    margin: 0;
-    padding: 0;
-    font-family: 'poppins', sans-serif;
-    background: #333;
-    margin-top: 110px;
+.masonry-flex {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
 }
 
-
-.container-index 
-{
-    width: 1200px;
-    margin: 40px auto;
+.masonry-grid {
+    margin-left: auto;
+    margin-right: auto;
     columns: 4;
-    column-gap: 20px;
-    margin-left: 100px;
-    padding: 25px;
-    margin-bottom: 50px
+    padding: 100px 0 100px 0;
+    overflow: hidden;
+    column-gap: 2em;
 }
+
+#masonry-card {
+    margin: 50 45px 50 45px;
+    max-width: 400px;
+    min-height: 250px;
+    max-height: 800px;
+    padding: 38px;
+    display: grid;
+    grid-gap: 40px;
+    display: flex;
+    text-align: center;
+    letter-spacing: 1px;
+    text-shadow: floralwhite;
+}
+
+#masonry-card:hover {
+    background-color: #014455b9;
+    border-width: 2px;
+}
+
+#masonry-card-button {
+    float: right;
+}
+
+.Tale {
+    background-color: #002b36a6;
+    border-color: #2aa19777;
+}
+
+.WhatIf {
+    background-color: #14485567;
+    border-radius: 0.25rem;
+    border-color: #2aa198;
+}
+
+.Setting {
+    background-color: #00161b9c;
+    border-radius: 0.25rem;
+    border-color: #d33682;
+}
+
+.MStatement {
+    background-color: #03001d6e;
+    border-radius: 0.25rem;
+    border-color: #ffb5d779;
+}
+
+.Digit {
+    background-color: #19003641;
+    border-radius: 0.25rem;
+    border-color: #fffde779;
+}
+
+a:hover 
+{
+    color: #2aa198;
+    text-decoration: underline;
+}
+
+.panel-title {
+    position: relative;
+  }
     
-.box
-{
-    margin-top: 50px;
-    margin-bottom: 40px;
-    border-radius: 8px;
-    margin-bottom: 50px;
-}
-
-.container-index .box
-{
-    margin: 0 0 20px;
-    padding: 15px;
-    background: #FBFBFF;
-    outline-style: strong;
-}
-
-
-/*- - - - card columns - - - -*/
-
-@media (min-width: 360px) {
-	.card-columns {
-	column-count: 1;
-	}
-}
-
-@media (min-width: 576px) {
-	.card-columns {
-	column-count: 2;
-	}
-}
-
-@media (min-width: 768px) {
-	.card-columns {
-	column-count: 2;
-	}
-}
-
-@media (min-width: 992px) {
-	.card-columns {
-	column-count: 2;
-	}
-}
-
-@media (min-width: 1200px) {
-	.card-columns {
-	column-count: 2;
-	}
-}
-
-/*- - - - End of card columns - - - -*/
+.panel-title::after {
+      content: "\f107";
+      font-size: 20px;
+      color: rgb(255, 255, 255);
+      
+      font-family: "FontAwesome"
+  }
+  
+.panel-title[aria-expanded="true"]::after {
+      content: "\f106";
+  }

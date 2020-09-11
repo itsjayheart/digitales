@@ -21,7 +21,7 @@ html,body {
   
   nav .navbar-nav .nav-link,
   nav .navbar-brand {
-     color: rgb(158, 158, 158);
+     color: rgb(69, 27, 255);
   }
   
   section {
@@ -31,7 +31,7 @@ html,body {
 
 .navbar {
   padding: 15px 35px 15px 35px;
-  margin-block-end: 50px;
+  margin-block-end: 500px;
 }
 
 nav.navbar{

@@ -13,12 +13,16 @@ Rails.application.routes.draw do
       root 'devise/sessions#new', as: :unauthenticated_root
     end
   end
-  
-  resources :creatrixes, only: [:show] do
-    resources :microservices, only: [:new, :create]
-  end
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-    resources :nodes
+  resources :nodes
+
+  resources :creatrixes, only: [:show] 
+  
+  resources :microservice_category do
+    resources :microservices, only: [:create]
+
+  end
 
 end
 

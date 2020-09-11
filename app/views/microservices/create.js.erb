@@ -4,6 +4,6 @@ console.log("<%=@errors%>")
 if("<%=@errors%>"){
   document.getElementById("microservice_category#"+"<%=@microservice_category.id%>").insertAdjacentHTML("beforebegin","<p class='alert alert-danger'><%=@errors%></p>")
 }else{
-  document.getElementById("microservice_category#"+"<%=@microservice_category.id%>").innerHTML = "<%= j render "microservices/create", microservice: @microservice %>"
+  document.getElementById("microservice_category#"+"<%=@microservice_category.id%>").innerHTML = "<%= j render "microservices/created", microservice: @microservice %>"
 }
   

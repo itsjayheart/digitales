@@ -7,10 +7,12 @@ class NodesController < ApplicationController
 
     def show
 
-      @node = Node.find(params[:id])      
-      @fundraiser = @node.current_fundraiser
-      @fundraiser.funded? ? @fund_status = "The goal is met" : @fund_status = "funding in progress"
-      @fundraiser = @node.current_fundraiser
+      @node = Node.find(params[:id])    
+      if @node.current_fundraiser
+        @fundraiser = @node.current_fundraiser
+        @fundraiser.funded? ? @fund_status = "The goal is met" : @fund_status = "funding in progress"
+        @fundraiser = @node.current_fundraiser
+      end
 
       @per_cent_status = (@fundraiser.current_fundings.ceil * 100) / @fundraiser.goal.ceil
       #$$$$$$$$$$$$$$$$$$$$$---NODE_DATA_HASH---$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$

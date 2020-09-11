@@ -4,5 +4,6 @@ class ChargesController < ApplicationController
     end
 
     def create
+    end
  
 end

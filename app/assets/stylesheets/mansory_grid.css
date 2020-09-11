@@ -4,7 +4,7 @@ body {
     margin-top: 110px;
 }
 
-#masonry-flex {
+.masonry-flex {
     display: flex;
     align-items: center;
 }
@@ -23,7 +23,7 @@ body {
     max-width: 400px;
     min-height: 250px;
     max-height: 800px;
-    padding: 40px;
+    padding: 38px;
     display: grid;
     grid-gap: 40px;
     display: flex;
@@ -32,12 +32,17 @@ body {
     text-shadow: floralwhite;
 }
 
+#masonry-card:hover {
+    background-color: #014455b9;
+    border-width: 2px;
+}
+
 #masonry-card-button {
     float: right;
 }
 
 .Tale {
-    background-color: #002b36ab;
+    background-color: #002b36a6;
     border-color: #2aa19777;
     text-emphasis: text;
 }
@@ -49,23 +54,17 @@ body {
     padding-left: 0;
     border-radius: 0.25rem;
     border-color: #2aa198;
-    background-color: #002b36;
+    background-color: #002b3685;
 }
 
 .Setting {
-    background-color: rgba(255, 255, 255, 0.075);
+    background-color: #002b36a6;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     padding-left: 0;
     border-radius: 0.25rem;
     border-color: #d33682;
-    background-color: #002b36;
-}
-
-.nodeable_type_icon
-{
-   
 }
 
 a:hover 
@@ -73,3 +72,19 @@ a:hover
     color: #2aa198;
     text-decoration: underline;
 }
+
+.panel-title {
+    position: relative;
+  }
+    
+.panel-title::after {
+      content: "\f107";
+      font-size: 20px;
+      color: rgb(255, 255, 255);
+      
+      font-family: "FontAwesome"
+  }
+  
+.panel-title[aria-expanded="true"]::after {
+      content: "\f106";
+  }

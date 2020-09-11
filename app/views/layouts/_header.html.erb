@@ -1,31 +1,28 @@
 <div class=''>
   <nav id="navbar" class="navbar navbar-expand-lg d-flex justify-content-between navbar-inverse navbar-fixed-top sticky" data-spy="affix">
-   <%= image_tag "digitales-logo.png", class: "mr-2 img-fluid ml-5", style: "height: 35px"%> 
+   <a href="/"><%= image_tag "digitales-logo.png", class: "mr-2 img-fluid ml-3", style: "height: 35px"%></a> 
   <a class="navbar-toggler" data-toggle="collapse" data-target=".navbar-collapse">☰</a>
   <div class=navbar-collapse collapse">
     <ul class="navbar-nav mr-auto">
-    
-      <li class="nav-item ml-4"> <a href="/" class="nav-link">Home</a></li>
-      <li class="nav-item ml-4"> <a href="#" class="nav-link">Add a node</a></li>
     </ul>
   
     <ul class="ml-auto navbar-nav">
     <% if creatrix_signed_in? %>
 
         <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Mon compte
+                      <a class="nav-link dropdown-toggle mr-5" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-user-astronaut"></i>
                       </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
         
-          <%= link_to "Mon profil", creatrix_path(current_creatrix.id), class: "dropdown-item", style: "color: white;" %>
-        <%= link_to "Se déconnecter", destroy_creatrix_session_path, method: :delete, class: "dropdown-item", style: "color: white;" %>
+          <%= link_to "Account", creatrix_path(current_creatrix.id), class: "dropdown-item", style: "color: white;" %>
+        <%= link_to "Sign out", destroy_creatrix_session_path, method: :delete, class: "dropdown-item", style: "color: white;" %>
         </div>
 
       <% else %>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Compte
+          <a class="nav-link dropdown-toggle mr-5" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-user-astronaut"></i>
           </a>
           
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">

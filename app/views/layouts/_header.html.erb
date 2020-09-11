@@ -2,7 +2,7 @@
   <nav id="navbar" class="navbar navbar-expand-lg d-flex justify-content-between navbar-inverse navbar-fixed-top sticky" data-spy="affix">
    <%= image_tag "digitales-logo.png", class: "mr-2 img-fluid ml-5", style: "height: 35px"%> 
   <a class="navbar-toggler" data-toggle="collapse" data-target=".navbar-collapse">☰</a>
-  <div class="navbar-collapse collapse">
+  <div class=navbar-collapse collapse">
     <ul class="navbar-nav mr-auto">
     
       <li class="nav-item ml-4"> <a href="/" class="nav-link">Home</a></li>
@@ -12,28 +12,28 @@
     <ul class="ml-auto navbar-nav">
     <% if creatrix_signed_in? %>
 
-                <li class="nav-item dropdown">
-                              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Mon compte
-                              </a>
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                
-                 <%= link_to "Mon profil", creatrix_path(current_creatrix.id), class: "dropdown-item", style: "color: white;" %>
-                <%= link_to "Se déconnecter", destroy_creatrix_session_path, method: :delete, class: "dropdown-item", style: "color: white;" %>
-                </div>
+        <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Mon compte
+                      </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        
+          <%= link_to "Mon profil", creatrix_path(current_creatrix.id), class: "dropdown-item", style: "color: white;" %>
+        <%= link_to "Se déconnecter", destroy_creatrix_session_path, method: :delete, class: "dropdown-item", style: "color: white;" %>
+        </div>
 
-              <% else %>
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Compte
-                  </a>
-                  
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <%= link_to "Connexion ", new_creatrix_session_path, class: "dropdown-item" %>
-                    <%= link_to "Inscription", new_creatrix_registration_path, class: "dropdown-item" %>
-                  </div>
-                </li>
-              <% end %>
+      <% else %>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Compte
+          </a>
+          
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <%= link_to "Connexion ", new_creatrix_session_path, class: "dropdown-item" %>
+            <%= link_to "Inscription", new_creatrix_registration_path, class: "dropdown-item" %>
+          </div>
+        </li>
+      <% end %>
     </ul>
   </div>
   </nav>

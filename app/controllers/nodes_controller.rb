@@ -70,6 +70,5 @@ class NodesController < ApplicationController
       puts @achievements_node
       puts ("$"*100)
       #microservices
-      
     end
   end

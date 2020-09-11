@@ -1,18 +1,13 @@
-body {
-    margin: 0;
-    padding: 0;
-    margin-top: 110px;
-}
-
 .masonry-flex {
     display: flex;
     align-items: center;
+    flex-wrap: nowrap;
 }
 
 .masonry-grid {
     margin-left: auto;
     margin-right: auto;
-    columns: 3;
+    columns: 4;
     padding: 100px 0 100px 0;
     overflow: hidden;
     column-gap: 2em;
@@ -44,27 +39,30 @@ body {
 .Tale {
     background-color: #002b36a6;
     border-color: #2aa19777;
-    text-emphasis: text;
 }
 
 .WhatIf {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    padding-left: 0;
+    background-color: #14485567;
     border-radius: 0.25rem;
     border-color: #2aa198;
-    background-color: #002b3685;
 }
 
 .Setting {
-    background-color: #002b36a6;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    padding-left: 0;
+    background-color: #00161b9c;
     border-radius: 0.25rem;
     border-color: #d33682;
+}
+
+.MStatement {
+    background-color: #03001d6e;
+    border-radius: 0.25rem;
+    border-color: #ffb5d779;
+}
+
+.Digit {
+    background-color: #19003641;
+    border-radius: 0.25rem;
+    border-color: #fffde779;
 }
 
 a:hover 

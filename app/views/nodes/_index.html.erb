@@ -6,19 +6,29 @@
     <%= link_to node_path(node.id), class: "text-decoration-none text-reset", :remote => true do %>
       <div id="masonry-card" class="<%= node.nodeable_type %> card mb-2">
         <div id="vertical-flex">
-          <div id="masonry-card-title"> <h3> <%= node.title %> </h3> </div>
+          <div id="masonry-card-title">
+          <a data-toggle="collapse" data-target="#collapse<%= node.id %>" href="tollapse" role="button" aria-expanded="false" aria-controls="collapseExample">
+           <h5> <%= node.title %> </h5> </a>
+          </div>
           <div> <p><%= node.content %></p> </div>
-          <% case node.nodeable_type %>
-            <% when "WhatIf" %>
-              <div> <i class="fas fa-question"></i> </div>
-            <% when "Tale" %>
-              <div> <i class="fas fa-atlas"></i> </div>
-            <% when "Setting" %>
-              <div> <i class="fas fa-cogs"></i> </div>
-          <% end %>
-          <div id="masonry-card-button" class="float-right"> <%= link_to "view", node_path(node.id), class: "btn btn-primary" %> 
+            <div class= nodeable_type_icon>
+            <% case node.nodeable_type %>
+              <% when "WhatIf" %>
+                <div> <i class="fas fa-question vertical-flex"></i> </div>
+              <% when "Tale" %>
+                <div> <i class="fas fa-atlas"></i> </div>
+              <% when "Setting" %>
+                <div> <i class="fas fa-cogs"></i> </div>
+            <% end %>
+            </div>
         </div>
-        </div>
+          <div class="collapse" id="collapse<%= node.id %>">
+            <div>
+              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+              <div class="btn">
+              <%= link_to "Creep in", node_path(node.id)%> </div>
+            </div>
+          </div>
       </div>
     <%end%>
   <% end %>

@@ -1,39 +1,55 @@
 <script src="https://kit.fontawesome.com/6085f87352.js" crossorigin="anonymous"></script>
 
-<div class="masonry-flex" id="hero-background">
-  <div class="masonry-grid">
-  <% @nodes.each do |node|  %>
-    <%= link_to node_path(node.id), class: "text-decoration-none text-reset", :remote => true do %>
-      <div id="masonry-card" class="<%= node.nodeable_type %> card mb-2">
-        <div id="vertical-flex">
-          <div id="masonry-card-title" class="panel panel-default">
-          <a class="panel-title" data-toggle="collapse" data-target="#collapse<%= node.id %>" href="tollapse" role="button" aria-expanded="false" aria-controls="collapseExample">
-           <h5> <%= node.title %> </h5> </a>
-          </div>
-          <div> <p><%= node.content %></p> </div>
-            <div class= nodeable_type_icon>
-            <% case node.nodeable_type %>
-              <% when "WhatIf" %>
-                <div> <i class="fas fa-question vertical-flex"></i> </div>
-              <% when "Tale" %>
-                <div> <i class="fas fa-atlas"></i> </div>
-              <% when "Setting" %>
-                <div> <i class="fas fa-cogs"></i> </div>
-              <% when "MStatement" %>
-                <div> <i class="fas fa-cogs"></i> </div>
-              <% when "Digit" %>
-                <div> <i class="fas fa-cogs"></i> </div>
-            <% end %>
+
+<section class="wrapper" id="hero-background">
+    <div class="center-title">
+        <h1>Dive <br> in </h1>
+    </div>
+
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>
+
+  <div class="masonry-flex" id="hero-background">
+    <div class="masonry-grid">
+    <% @nodes.each do |node| %>
+      <%= link_to node_path(node.id), class: "text-decoration-none text-reset", :remote => true do %>
+        <div id="masonry-card" class="<%= node.nodeable_type %> card mb-2">
+          <div id="vertical-flex">
+            <div id="masonry-card-title" class="panel panel-default">
+            <a class="panel-title" data-toggle="collapse" data-target="#collapse<%= node.id %>" href="tollapse" role="button" aria-expanded="false" aria-controls="collapseExample">
+            <h5> <%= node.title %> </h5> </a>
             </div>
+              <div class= nodeable_type_icon>
+              <% case node.nodeable_type %>
+                <% when "WhatIf" %>
+                  <div> <i class="fas fa-question vertical-flex"></i> </div>
+                <% when "Tale" %>
+                  <div> <i class="fas fa-atlas"></i> </div>
+                <% when "Setting" %>
+                  <div> <i class="fas fa-cogs"></i> </div>
+                <% when "MStatement" %>
+                  <div> <i class="fas fa-cogs"></i> </div>
+                <% when "Digit" %>
+                  <div> <i class="fas fa-cogs"></i> </div>
+              <% end %>
+              </div>
+          </div>
+            <div class="collapse" id="collapse<%= node.id %>">
+              <div> <p><%= node.content %></p> </div>
+            </div>
+            <div class="btn"> <%= link_to "Creep in", node_path(node.id)%> </div>
         </div>
-          <div class="collapse" id="collapse<%= node.id %>">
-            <div>
-              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
-            </div>
-          </div>
-          <div class="btn"> <%= link_to "Creep in", node_path(node.id)%> </div>
-      </div>
-    <%end%>
-  <% end %>
+      <%end%>
+    <% end %>
+    </div>
+
+    <div class="sticky">
+        <%= link_to new_node_path, :action => 'go' do %>
+        <div class="row"><i class="fas fa-plus-circle fa-2x"></i>
+        <div class="add-a-node"> <h4> ADD A NODE </h4> </div>
+        <%end%>
+    </div>
   </div>
-</div>
+
+</section>

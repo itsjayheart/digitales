@@ -59,7 +59,7 @@
 
 a:hover 
 {
-    color: #2aa198;
+    color: #ffffff;
     text-decoration: underline;
 }
 
@@ -71,7 +71,6 @@ a:hover
       content: "\f107";
       font-size: 20px;
       color: rgb(255, 255, 255);
-      
       font-family: "FontAwesome"
   }
   
@@ -80,19 +79,42 @@ a:hover
   }
 
 div.sticky {
-    height: 60px;
-    width: 90px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 30px;
+    width: 190px;
     position: sticky;
-    bottom: 40px;
-    left: 20px;
+    bottom: 90px;
+    left: 1200px;
     text-align: center;
 }
 
+
 .fa-plus-circle {
     color: rgb(255, 255, 255);
-    margin-bottom: 10px    
+    padding: 20px;
+}
+
+.fa-plus-circle:hover {
+    color: #2aa198;
+}
+
+.add-a-node:hover {
+    color: #2aa198;
 }
 
 div.sticky h6 {
     color: rgb(153, 153, 153);
+    padding-top: 20px;
+}
+
+.center-title {
+    position: relative;
+    height: 350px;
+    margin: auto;
+    padding: 10px;
+    width: 50%;
+    text-align: center;
+    padding-top: 150px;
 }

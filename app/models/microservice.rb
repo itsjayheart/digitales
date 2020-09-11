@@ -9,7 +9,7 @@ class Microservice < ApplicationRecord
     belongs_to :creatrix
     belongs_to :microservice_category
 
-    has_many :microservice_achievement_relations
-    has_many :achievements, through: :microservice_achievement_relations
+    has_many :microservice_requests
+    has_many :achievements, through: :microservice_requests
 
 end

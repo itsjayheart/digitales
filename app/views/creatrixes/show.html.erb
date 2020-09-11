@@ -1,7 +1,11 @@
 <div id="profile-block">
 
     <div id="avatar">
-        <img alt="image" class="img-fluid" id="avatar-image" src="https://f4.bcbits.com/img/0006103509_10.jpg">
+        <%if @creatrix.avatar.attached?%>
+            <%= image_tag @creatrix.avatar, alt: 'avatar', class: "img-fluid", id: "avatar-image" %>
+        <%else%>
+            no pics
+        <%end%>
         <h2><%= @creatrix.itself %></h2>
         <p class="lead"></p>    
     </div>
@@ -12,10 +16,8 @@
             <p><strong> Email address </strong>: <%= @creatrix.email %></p>
               <a class="btn btn-secondary" href="#">
                 e d i t
-              </a></p>
-              
+              </a></p>              
         </div>  
-
     <% end %>      
 
     <div id="in-page-links" class="mt-4">

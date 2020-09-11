@@ -14,9 +14,9 @@
           <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="<%= @per_cent_status%>" aria-valuemin="0" aria-valuemax="100" style="width: <%= @per_cent_status%>%">
           </div>
         </div>
-        <%=@per_cent_status.ceil%> %
+        <%= @per_cent_status.ceil%> %
       <% elsif  current_creatrix && current_creatrix == @node.creatrix%>
-        <%link_to "Start fundraising your node", "/", class: "btn btn-primary"%>
+        <%= link_to "Start fundraising your node", node_microservices_path(@node.id) , class: "btn btn-primary"%>
       <% else %>
         <p>No fundraising in progress<p>
       <%end%>

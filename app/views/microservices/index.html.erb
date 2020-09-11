@@ -1,0 +1,9 @@
+<% @microservices.each do |microservice| %>
+  <li><%= microservice.creatrix.email %></li>
+  <li><%= microservice.price.ceil %></li>
+  <%if microservice.picture.attached?%>
+    <%= image_tag microservice.picture, alt: 'picture', style: "height: 5em", class: "ml-5 border rounded"%>
+  <%else%>
+    <p>no pics</p>
+  <%end%>
+<% end %>

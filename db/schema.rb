@@ -108,6 +108,7 @@ ActiveRecord::Schema.define(version: 2020_09_09_113342) do
   create_table "microservice_achievement_relations", force: :cascade do |t|
     t.bigint "achievement_id"
     t.bigint "microservice_id"
+    t.boolean "accepted?", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["achievement_id"], name: "index_microservice_achievement_relations_on_achievement_id"

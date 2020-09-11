@@ -3,6 +3,9 @@ class MicroservicesController < ApplicationController
   def create
     price = params["microservice"]['price'].to_f * 100
   	@microservice = Microservice.new(creatrix: current_creatrix, microservice_category: MicroserviceCategory.find(params['microservice_category_id']), price: price)
+    
+    @microservice.picture.attach(params[:picture])
+
     @microservice_category = @microservice.microservice_category
 
     @microservice.save ? @errors = nil : @errors = @microservice.errors.full_messages.to_sentence

@@ -1,4 +1,4 @@
-
+  
     <div id="accordion">    
       <% (@achievements.length-1).times do |i| %>        
       <div class="card">
@@ -10,16 +10,17 @@
         <div id="collapse<%=i%>" class="collapsed collapse" aria-labelledby="heading<%=i%>" data-parent="#accordion">
           <% @achievements[i].microservice_categories.each do |microservice_category| %>
             <div class='card-body' id='microservice_category#<%=microservice_category.id%>'>
-            <% if current_creatrix.microservices.any? { |micro| micro.microservice_category == microservice_category } %>   
-              <p><%= microservice_category.name %></p>
-              <p><%= microservice_category.description %></p>
-              <p>You are providing this MICROSERVICE for <%= Microservice.where(creatrix: current_creatrix, microservice_category: microservice_category).sample.price / 100 %> $</p>
+            <% if current_creatrix.microservices.any? { |microservice| microservice.microservice_category == microservice_category } %>   
+              <%= render "microservices/created", microservice: Microservice.where(creatrix: current_creatrix, microservice_category: microservice_category)[0] %>
             <% else %>
               <p><%= microservice_category.name %></p>
               <p><%= microservice_category.description %></p>
               <%= form_with model: @microservice, url: microservice_category_microservices_path(microservice_category.id) do |f| %>
                 <%= f.label :price %> :
                 <%= f.text_field :price, style: "width: 3em"%> $
+                <%= f.fields_for :picture  do |p| %>
+                    <%= p.file_field :picture , :multiple => true, name: :picture %>
+                <% end %>
                 <%= f.submit "ADD MICROSERVICE" , class: "ml-3 btn btn-primary" %>
               <%end%>
             <% end %>

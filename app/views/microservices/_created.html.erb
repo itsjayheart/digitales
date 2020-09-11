@@ -1,0 +1,14 @@
+<div class='d-flex flex-wrap'>
+  <div>
+    <p><%= microservice.microservice_category.name %></p>
+    <p><%= microservice.microservice_category.description %></p>
+    <p>You are providing this MICROSERVICE for <%= microservice.price / 100 %> $</p>
+  </div>
+  <div>
+    <%if microservice.picture.attached?%>
+      <%= image_tag microservice.picture, alt: 'picture', style: "height: 5em", class: "ml-5 border rounded"%>
+    <%else%>
+      <p>no pics</p>
+    <%end%>
+  </div>
+</div>

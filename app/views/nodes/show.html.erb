@@ -1,49 +1,103 @@
-<div class='d-flex flex-wrap justify-content-between'>
-  <div class="col-sm-8 col-xs-1 d-flex flex-column ">
+<!--
+
+  AS A VISITOR-CREATRIX I SHOULD
+
+    BE ABLE TO SEE THE CONTENT OF THE NODE
+
+      AND HAVE AN ACCESS TO THEIR CREATRIX' PROFILE
+
+    SEE THE CURRENT FUNDRAISER WITH
+
+      THE $ GOAL
+
+      HOW MUCH $ HAS ALREADY BEEN RAISED
+
+      A PROGRESS RANGE WITH A %
+
+      THE ARTIST-CREATRIX' PORTFOLIO FOR THE MICROSERVICE ASKED FOR
+
+    SEE THE LIST OF THE ACHIEVEMENTS 
+
+      WITH THOSE THAT HAVE ALREADY BEEN FUNDED IN A PARTICULAR COLOR
+
+      WITH THE ONE THAT IS CURRENTLY BEING FUNDED AND.OR DELIVERED BEING BOLDED AND BRIGHT
+
+      WITH THOSE ARE YET TO BE FUNDED AND DELIVERED BEING "MUTED"
+
+    HAVE AN ACCES TO THE DIGIT.S THROUGH A TIMELINE
+
+-->
+
+<div class='container mt-5 mb-5 d-flex flex-wrap justify-content-between'>
+
+  <div class="col-sm-8 col-xs-1 d-flex flex-column">
+    
     <%= render 'nodes/show'%>
-    <div class='d-flex flex-column'>
+       
+  </div>
+
+
+  <div class="col-sm-4 col-xs-1 card d-flex flex-column justify-content-around">
+    <div class='d-flex flex-column justify-content-around text-center m-5'>
+      
       <% if @fundraiser %>
-        <ul><h4>Fundraiser</h4><i>by <%=@fundraiser.creatrix.email%></i>
-          <li><%= @fund_status  %></li>
-          <li>Goal <%= (@fundraiser.goal / 100).ceil(2) %> $</li>
-          <li>Current <%= (@fundraiser.current_fundings/100).ceil(2)%> $</li>
-          <li>Start date <%= @fundraiser.created_at.strftime("%Y-%m-%d") %></li>
-        </ul>
-        <h4>Funraising progression</h4>
+        <p><%= @node.current_microservice_category.name %></p>
+       <p><b>$ <%= @fundraiser.current_fundings.ceil(2)%></b> raised of $ <%= (@fundraiser.goal / 100).ceil(2) %> goal</p>
         <div class="progress">
           <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="<%= @per_cent_status%>" aria-valuemin="0" aria-valuemax="100" style="width: <%= @per_cent_status%>%">
           </div>
         </div>
-        <%= @per_cent_status.ceil%> %
-        <h4>Participate</h4>
-        <div class="row">
-          <%= form_for @donated_sum, method: "get",url: new_node_donated_sum_path(@node.id) do |f| %>
-            <%= f.label :sum %> :
-            <%= f.text_field :sum, style: "width: 2em"%> $
+        <b><%= @per_cent_status.ceil%> %</b>
+        <div class="row mt-3 text-right">
+          <%= form_with model: @donated_sum, method: "get", url: new_donated_sum_path do |f| %>
+            <%= f.text_field :sum, style: "width: 3em"%> $
             <%= f.submit "Donate" , class: "ml-3 btn btn-primary" %>
           <%end%>
         </div> 
       <% elsif  current_creatrix && current_creatrix == @node.creatrix %>
         <% if !@node.achievements.first.microservice_requests.last %>
-          <%= link_to "Initiate fundraising #{@node.current_microservice_category.name}", node_microservices_path(@node.id) , class: "btn btn-primary"%>
+          <%= link_to "Make a request for #{@node.current_microservice_category.name} achievement", node_microservices_path(@node.id) , class: "btn btn-primary"%>
         <% elsif @node.achievements.last.microservice_requests.last.accepted?%>
           <%= link_to "Start fundraising #{@node.current_microservice_category.name}", node_microservices_path(@node.id) , class: "btn btn-primary"%>
         <% else %>
-          <p>Pending microservice request</p>
+          <p>Pending microservice request for <%= @node.current_microservice_category.name %></p>
         <% end %>
       <% else %>
-        <p>No fundraising in progress<p>
+        <p>No request ma %>de yet for <%= @node.current_microservice_category.name %><p>
       <%end%>
+    </div>    
+
+    <div class="card-body">
+      <% AchievementCategory.all.each do |achievement_category| %>
+        <h4 class="mt-3"><%= achievement_category.name %></h4>
+        <% achievement_category.microservice_categories.each do  |microservice_category| %>
+          <% achievement = @node.achievements.select { |achievement| achievement.achievement_category == achievement_category}.sample %>
+          <% if achievement %>
+            <% if achievement.microservice_requests.any? { |request| request.microservice.microservice_category == microservice_category } %>
+              <% achievement.microservice_requests.each do |request| %>
+                <% if request.microservice.microservice_category == microservice_category %>
+                  <% if request.delivered? %>
+                    <div class="text-primary ml-3"><%= microservice_category.name %></div>
+                  <% elsif request.delivered? == false %> 
+                    <div class="ml-3" style="color: white; text-shadow: 0px 0px 6px white;">
+                      <%= microservice_category.name %>
+                    </div>
+                  <% end %>
+                <% end %>
+              <% end %>
+            <% else %>
+              <div class="text-muted ml-3">
+                <%= microservice_category.name %>
+              </div>
+            <% end %>
+          <% else %>
+              <div class="text-muted ml-3">
+                <%= microservice_category.name %>
+              </div>
+          <% end %>
+        <% end %>
+      <% end %>
     </div>
-  </div>
-  <div class="col-sm-4 col-xs-1 border-right border-primary">
-    <% @achievments_status.keys.each do |achievement|  %>
-      <ul><h4><%=achievement%></h4>
-      <% @achievments_status[achievement].each do |microservice| %>
-        <li class="<%=microservice[1]%>"> <%=microservice[0]%></li>
-      <%end%>
-      </ul>
-    <%end%>
   </div>
 </div>
 

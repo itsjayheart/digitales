@@ -1,0 +1,5 @@
+console.log("ok")
+
+console.log("<%= j render "donated_sums/new", sum: @sum, flash_error:  flash[:errors]%>")
+
+document.getElementById("stripe_form").innerHTML = "<%= j render "donated_sums/new", sum: @sum, flash_error:  flash[:errors]%>"

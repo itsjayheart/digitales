@@ -3,25 +3,43 @@
     <%= render 'nodes/show'%>
     <div class='d-flex flex-column'>
       <% if @fundraiser %>
-        <ul><h4>Foundraiser</h4><i>by <%=@fundraiser.creatrix.email%></i>
+        <ul><h4>Fundraiser</h4><i>by <%=@fundraiser.creatrix.email%></i>
           <li><%= @fund_status  %></li>
-          <li>Goal <%= @fundraiser.goal.ceil(2) %></li>
+          <li>Goal <%= (@fundraiser.goal / 100).ceil(2) %> $</li>
           <li>Current <%= @fundraiser.current_fundings.ceil(2)%>
-          <li><%= @fundraiser.created_at.strftime("%Y-%m-%d") %></li>
+          <li>Start date <%= @fundraiser.created_at.strftime("%Y-%m-%d") %></li>
         </ul>
-        donation form go here<br><br><br>
+        <h4>Funraising progression</h4>
         <div class="progress">
           <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="<%= @per_cent_status%>" aria-valuemin="0" aria-valuemax="100" style="width: <%= @per_cent_status%>%">
           </div>
         </div>
+        
         <%=@per_cent_status.ceil%> %
-<<<<<<< HEAD
-      <% elsif  current_creatrix && current_creatrix == @fundraiser.creatrix.email%>
-=======
-      <% elsif  current_creatrix && current_creatrix == @node.creatrix.email%>
 
->>>>>>> develop
+      <% elsif  current_creatrix && current_creatrix == @fundraiser.creatrix.email%>
+
         <%link_to "Start fundraising your node", "/", class: "btn btn-primary"%>
+
+        <%= @per_cent_status.ceil%> %
+        <h4>Participate</h4>
+        <div class="row">
+          <%= form_with model: @donated_sum, method: "get",url: new_donated_sum_path do |f| %>
+            <%= f.label :sum %> :
+            <%= f.text_field :sum, style: "width: 3em"%> $
+            <%= f.submit "Donate" , class: "ml-3 btn btn-primary" %>
+          <%end%>
+          <div id='stripe_form'>  
+          </div>      
+        </div>  
+      <% elsif  current_creatrix && current_creatrix == @node.creatrix %>
+        <% if !@node.achievements.first.microservice_requests.last %>
+          <%= link_to "Initiate fundraising #{@node.current_microservice_category.name}", node_microservices_path(@node.id) , class: "btn btn-primary"%>
+        <% elsif @node.achievements.last.microservice_requests.last.accepted?%>
+          <%= link_to "Start fundraising #{@node.current_microservice_category.name}", node_microservices_path(@node.id) , class: "btn btn-primary"%>
+        <% else %>
+          <p>Pending microservice request</p>
+        <% end %>
       <% else %>
         <p>No fundraising in progress<p>
       <%end%>

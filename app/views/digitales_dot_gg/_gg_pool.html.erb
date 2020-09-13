@@ -1,4 +1,46 @@
 <div class="gg-pool">
-	<div class="gg-pool-card-primary" style="height: 600px;"><div>t a l e s | o f | a | m e d i c i n e | m a n</div><div class="gg-btn-primary">a l o h a</div></div>
+	<% wi_s = [] %>
+
+	<% 21.times do |i| %>
+		<% wi_s << "wi" + i.to_s %>
+	<% end %>
+
+	<% wi_s.each do |wi| %>
+	  <% i = rand(0..3) %>
+	  <% i.times do %>
+	  	<div class="gg-pool-hidden-card" style="height: <%= rand(125..750) %>px;"></div>
+	  <% end %>
+
+	 <% j = rand(1..3) %>
+
+	 <% case j %>
+	 <% when 1 %>
+	 	<div class="gg-pool-card-primary" style="height: 600px;"><%= wi %></div>
+	 <% when 2 %>
+	 	<div class="gg-pool-card-secondary" style="height: 600px;"><%= wi %></div>
+	 <% when 3 %>
+	 	<div class="gg-pool-card-tertiary" style="height: 600px;"><%= wi %></div>
+	 <% end %>
+
+	 <% if wi == wi_s.last %>
+	 	<% k = 4 - i %>
+	 <% else %>
+	 	<% k = 4 - i - 1 %>
+	 <% end %>
+
+	 <% k.times do %>
+	 	<div class="gg-pool-hidden-card" style="height: <%= rand(125..750) %>px;"></div>
+	 <% end %>
+	<% end %>
+
+	<div class="gg-pool-card-secondary" style="height: 66px;">generate new pool</div>
+
+
+
+	<!--<div class="gg-pool-card-primary" style="height: 600px;">
+		<div>t a l e s | o f | a | m e d i c i n e | m a n</div>
+	</div>
+	
 	<div class="gg-pool-card" style="height: 600px;"></div><div class="gg-pool-card-primary" style="height: 600px;"></div><div class="gg-pool-card" style="height: 600px;"></div><div class="gg-pool-card gg-primary" style="height: 600px;"></div><div class="gg-pool-card" style="height: 600px;"></div><div class="gg-pool-card" style="height: 600px;"></div><div class="gg-pool-card-tertiary" style="height: 350px;"></div><div class="gg-pool-card gg-secondary" style="height: 600px;"></div><div class="gg-pool-card" style="height: 600px;"></div><div class="gg-pool-card" style="height: 450px;"></div><div class="gg-pool-card" style="height: 600px;"></div><div class="gg-pool-card" style="height: 600px;"></div><div class="gg-pool-card-secondary" style="height: 600px;"></div><div class="gg-pool-card" style="height: 600px;"></div><div class="gg-pool-card-secondary" style="height: 600px;"></div><div class="gg-pool-card-secondary" style="height: 600px;">m i g h t | | | m i g h t | n o t</div><div class="gg-pool-card" style="height: 600px;"></div><div class="gg-pool-card" style="height: 600px;"></div><div class="gg-pool-card" style="height: 600px;"></div><div class="gg-pool-card gg-primary" style="height: 600px;"></div><div class="gg-pool-card-secondary" style="height: 600px;"></div><div class="gg-pool-card" style="height: 600px;"></div><div class="gg-pool-card" style="height: 600px;"></div><div class="gg-pool-card-secondary" style="height: 600px;"></div><div class="gg-pool-card" style="height: 600px;"></div><div class="gg-pool-card" style="height: 600px;"></div><div class="gg-pool-card-tertiary" style="height: 600px;">w h a t | i f</div>
+-->
 </div>

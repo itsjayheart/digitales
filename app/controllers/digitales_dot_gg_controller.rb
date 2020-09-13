@@ -1,5 +1,6 @@
 class DigitalesDotGgController < ApplicationController
   def the_pool
+  	
   end
 
   def the_hook

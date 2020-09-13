@@ -27,6 +27,7 @@
 	background: url("<%= asset_path 'gg_background.png' %>") center center no-repeat;
 	background-size: 600px;
 	overflow-y: scroll;
+	overflow-x: hidden;
 }
 
 
@@ -82,7 +83,7 @@ not supported in Firefox and IE */
 .gg-pool {
 	margin-top: 88px;
 	padding-top: 15px;
-	max-height: 5000px;
+	max-height: 15000px;
 	width: 100vw;
 	background-color: rgba(16,16,16, 0.85);
 	display: flex;
@@ -90,6 +91,13 @@ not supported in Firefox and IE */
 	flex-wrap: wrap;
 	justify-content: flex-end;
 	align-items: center;
+}
+
+.gg-pool-hidden-card {
+	width: 255px;
+	margin: 15px;
+	border-radius: 25px;
+	border: none;
 }
 
 .gg-pool-card-primary {
@@ -132,6 +140,7 @@ not supported in Firefox and IE */
 	margin: 15px;
 	border-radius: 25px;
 	border: solid  #555 1px;
+	color: rgba(55, 55, 55, 0.8);
 
 	display: flex;
 	flex-direction: column;

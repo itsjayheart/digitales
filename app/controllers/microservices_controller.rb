@@ -27,10 +27,6 @@ class MicroservicesController < ApplicationController
     Microservice.all.each do |microservice|
       @microservices << microservice if microservice.microservice_category.name == @current_microservice_category.name
     end
-
-    
-
-
     
   end
 

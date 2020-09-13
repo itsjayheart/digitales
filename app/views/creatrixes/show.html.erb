@@ -36,19 +36,39 @@
     <div class='d-flex flex-wrap'>
       <% @microservice_requests.each do |microservice_request| %>
         <div class='card m-2' style='width: 15em'>
-            <%if microservice_request.microservice.picture.attached?%>
-              <%= image_tag microservice_request.microservice.picture, alt: 'picture', class: "card-img-top img-fluid"%>
-            <%else%>
-              <img src='https://i.imgur.com/9e9sx.gif' class='card-img-top img-fluid'>
-            <%end%>
-            <div class='card-body'>
-              <ul>
+          <%if microservice_request.microservice.picture.attached?%>
+            <%= image_tag microservice_request.microservice.picture, alt: 'picture', class: "card-img-top img-fluid"%>
+          <%else%>
+            <img src='https://i.imgur.com/9e9sx.gif' class='card-img-top img-fluid'>
+          <%end%>
+          <div class='card-body'>
+            <ul>
               <li><%=microservice_request.achievement.achievement_category.name %></li>
               <li><%=microservice_request.microservice.microservice_category.name %></li>
               <li>price : <%=(microservice_request.microservice.price.to_f / 100).ceil(2)  %> $</li>
-              </ul>
+            </ul>
+          </div>
+          <% if microservice_request.fundraisers.last && microservice_request.fundraisers.last.funded? %>
+            <div class='card-footer'>
+              <%= form_with model: microservice_request, url: microservice_request_path(microservice_request.id),method: "patch" do |f| %>
+                <%= f.label :art_work, "upload your work" %> :
+                <%= hidden_field(:microservice_request, :art_work, :value => true) %>
+                <%= f.fields_for :art_work do |p| %>
+                    <%= p.file_field :art_work , :multiple => true, name: :art_work %>
+                <% end %>
+                <%= submit_tag("Upload file") %>
+              <% end %>
             </div>
-            <%= link_to "Accepte request", microservice_request_path(microservice_request.id), method: "patch", class: 'card-footer btn btn-primary'%>
+          <% elsif microservice_request.accepted? %>
+            <div class='card-footer'>
+              <p>Founding in progress</p>
+            </div>
+          <% else %>
+            <%= form_with(url: microservice_request_path(microservice_request.id), method: "patch")  do |f| %>
+              <%= hidden_field(:microservice_request, :accepted, :value => true) %>
+              <%= submit_tag("Accepte request", class: 'card-footer btn btn-primary' ) %>
+            <% end %>
+          <%end%>
         </div>
       <%end%>
     </div>

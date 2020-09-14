@@ -1,0 +1,10 @@
+     <% case microservice_request.microservice_category.media_type%>
+     <% when "image"%>
+       <%= image_tag microservice_request.picture, alt: 'picture', style: "height: 5em", class: "ml-5 border rounded"%>
+     <% when "video"%>
+      <iframe width="100%" height="100%" src="<%=microservice_request.youtube%>" frameborder="0"></iframe>
+     <% when "sound"%>
+      <%= microservice_request.soundcloude.html_safe  %>
+     <% when "text"%>
+      <%= microservice_request.quill.html_safe %>
+     <%end%>

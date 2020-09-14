@@ -24,10 +24,13 @@ class DonatedSumsController < ApplicationController
 
   microservice_request = MicroserviceRequest.find_by(achievement: achievement)
 
-  DonatedSum.create(
-    creatrix: current_creatrix, 
-    sum: @amount, 
-    fundraiser: Fundraiser.find_by(microservice_request: microservice_request))
+  fundraiser = Fundraiser.find_by(microservice_request: microservice_request)
+
+  DonatedSum.create(creatrix: current_creatrix, sum: @amount, fundraiser: fundraiser)
+
+  if fundraiser.current_fundings >= fundraiser.goal
+    fundraiser.update(funded?: true)
+  end
 
   rescue Stripe::CardError => e
   flash[:error] = e.message

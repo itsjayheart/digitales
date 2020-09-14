@@ -30,7 +30,7 @@ achievs.each do |achiev|
 	ach_cat = AchievementCategory.create(name: achiev[0])
 end
 
-writing_microservices = ["1.5k synopsis", "10k words one-shot", "10k words one-shot: screenplay translation"]
+writing_microservices = ["1.5k words synopsis", "10k words one-shot", "10k words one-shot: screenplay translation"]
 
 flat_microservices = ["2D character design", "2D prop design", "50-150 panels webcomic : thumbnail", "50-150 panels webcomic :sketching", "50-150 panels webcomic : lineart", "50-150 panels webcomic : flats", "50-150 panels webcomic : shadows and highlights", "50-150 panels webcomic : backgrounds", "50-150 panels webcomic : cover"]
 

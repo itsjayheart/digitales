@@ -1,4 +1,5 @@
 class CreatrixesController < ApplicationController
+	before_action :authenticate_creatrix, only: [:show]
 
   def show
 	@x = 0 #count variable for quill plug in ids
@@ -13,7 +14,7 @@ class CreatrixesController < ApplicationController
 
 	@microservice_requests =[]
 	@microservices.each do |microservice| 
-		MicroserviceRequest.where(microservice: microservice, accepted?: false).each {|microservice_request| @microservice_requests << microservice_request}
+		MicroserviceRequest.where(microservice: microservice).each {|microservice_request| @microservice_requests << microservice_request}
 	end
 
 	puts "%" * 100

@@ -119,6 +119,7 @@ ActiveRecord::Schema.define(version: 2020_09_14_081143) do
     t.bigint "achievement_id"
     t.bigint "microservice_id"
     t.boolean "accepted?", default: false
+    t.boolean "delivered?", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["achievement_id"], name: "index_microservice_requests_on_achievement_id"

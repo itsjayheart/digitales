@@ -1,6 +1,6 @@
-  
+
     <div id="accordion">    
-      <% (@achievements.length-1).times do |i| %>        
+      <% (@achievements.length).times do |i| %>        
       <div class="card">
         <div class="card-header" id="heading<%=i%>">
           <h5 class="mb-0">
@@ -9,20 +9,44 @@
         </div>                
         <div id="collapse<%=i%>" class="collapsed collapse" aria-labelledby="heading<%=i%>" data-parent="#accordion">
           <% @achievements[i].microservice_categories.each do |microservice_category| %>
-            <div class='card-body' id='microservice_category#<%=microservice_category.id%>'>
+            <div class='card-body bg-white' id='microservice_category#<%=microservice_category.id%>'>
             <% if current_creatrix.microservices.any? { |microservice| microservice.microservice_category == microservice_category } %>   
               <%= render "microservices/created", microservice: Microservice.where(creatrix: current_creatrix, microservice_category: microservice_category)[0] %>
             <% else %>
               <p><%= microservice_category.name %></p>
               <p><%= microservice_category.description %></p>
-              <%= form_with model: @microservice, url: microservice_category_microservices_path(microservice_category.id) do |f| %>
+              <%= form_with model: @microservice, id: "form#{@x}", url: microservice_category_microservices_path(microservice_category.id) do |f| %>
                 <%= f.label :price %> :
                 <%= f.text_field :price, style: "width: 3em"%> $
-                <%= f.fields_for :picture  do |p| %>
-                    <%= p.file_field :picture , :multiple => true, name: :picture %>
-                <% end %>
+                <% case microservice_category.media_type%>
+                <% when "image"%>
+                  <%= f.label :picture, "image" %> :
+                  <%= f.fields_for :picture  do |p| %>
+                      <%= p.file_field :picture , :multiple => true, name: :picture %>
+                  <% end %>
+                <% when "video"%>
+                  <%= f.label :youtube,"youtube link" %> :
+                  <%= f.text_field :youtube, style: "width: 20em"%>        
+                <% when "sound"%>
+                  <%= f.label :soundcloude,"soundcloude embed share code" %> :
+                  <%= f.text_field :soundcloude, style: "width: 20em"%>   
+                <% when "text"%>
+                  <%= f.hidden_field :quill, id: "post-quill#{@x}", required: true %>
+                  <div id="editor-container" hidden="true"></div>
+                  <div id="editor<%=@x%>"></div>
+                  <script>
+                    var form = document.querySelector('#form<%=@x%>');
+                    var quill = new Quill('#editor<%=@x%>', {
+                      theme: 'snow'
+                    });
+                    form.onsubmit = function() {
+                      document.querySelector('#post-quill<%=@x%>').value = document.querySelector('#form<%=@x%>').children[7].children[0].innerHTML;
+                    };
+                  </script>  
+                <%end%>
                 <%= f.submit "ADD MICROSERVICE" , class: "ml-3 btn btn-primary" %>
               <%end%>
+              <%@x += 1%>
             <% end %>
             </div>
             <hr>
@@ -31,4 +55,5 @@
       </div>
       <% end %>
     </div>
+
 

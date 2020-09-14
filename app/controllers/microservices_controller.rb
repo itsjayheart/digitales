@@ -4,7 +4,14 @@ class MicroservicesController < ApplicationController
     price = params["microservice"]['price'].to_f * 100
   	@microservice = Microservice.new(creatrix: current_creatrix, microservice_category: MicroserviceCategory.find(params['microservice_category_id']), price: price)
     
-    @microservice.picture.attach(params[:picture])
+    puts "$"*100
+    puts params[:microservice][:soundcloude]
+    puts "$"*100
+
+    @microservice.update(youtube: params[:microservice][:youtube].sub("https://www.youtube.com/watch?v=","http://www.youtube.com/embed/")) if params[:microservice][:youtube]
+    @microservice.update(soundcloude: params[:microservice][:soundcloude]) if params[:microservice][:soundcloude]
+    @microservice.update(quill: params[:microservice][:quill]) if params[:microservice][:quill]
+    @microservice.picture.attach(params[:picture]) if params[:picture]
 
     @microservice_category = @microservice.microservice_category
 
@@ -27,10 +34,6 @@ class MicroservicesController < ApplicationController
     Microservice.all.each do |microservice|
       @microservices << microservice if microservice.microservice_category.name == @current_microservice_category.name
     end
-
-    
-
-
     
   end
 

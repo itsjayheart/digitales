@@ -5,10 +5,6 @@
     <p>You are providing this MICROSERVICE for <%= microservice.price / 100 %> $</p>
   </div>
   <div>
-    <%if microservice.picture.attached?%>
-      <%= image_tag microservice.picture, alt: 'picture', style: "height: 5em", class: "ml-5 border rounded"%>
-    <%else%>
-      <p>no pics</p>
-    <%end%>
+    <%= render "microservices/media_display", microservice: microservice %>
   </div>
 </div>

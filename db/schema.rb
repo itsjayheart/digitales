@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_11_151633) do
+ActiveRecord::Schema.define(version: 2020_09_14_081143) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -111,6 +111,7 @@ ActiveRecord::Schema.define(version: 2020_09_11_151633) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "media_type"
     t.index ["achievement_category_id"], name: "index_microservice_categories_on_achievement_category_id"
   end
 
@@ -118,8 +119,12 @@ ActiveRecord::Schema.define(version: 2020_09_11_151633) do
     t.bigint "achievement_id"
     t.bigint "microservice_id"
     t.boolean "accepted?", default: false
+    t.boolean "delivered?", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "youtube"
+    t.text "soundcloude"
+    t.text "quill"
     t.index ["achievement_id"], name: "index_microservice_requests_on_achievement_id"
     t.index ["microservice_id"], name: "index_microservice_requests_on_microservice_id"
   end
@@ -130,6 +135,9 @@ ActiveRecord::Schema.define(version: 2020_09_11_151633) do
     t.bigint "creatrix_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "youtube"
+    t.text "soundcloude"
+    t.text "quill"
     t.index ["creatrix_id"], name: "index_microservices_on_creatrix_id"
     t.index ["microservice_category_id"], name: "index_microservices_on_microservice_category_id"
   end

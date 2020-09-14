@@ -30,7 +30,7 @@ class NodesController < ApplicationController
       case params['type']
       when "Tale" 
         nodeable = Tale.create(creatrix: current_creatrix, title: params['content'], description: params['description'])
-        node = Node.create(nodeable: nodeable, creatrix: current_creatrix, title: nodeable.title, content: "description feature coming soon")
+        node = Node.create(nodeable: nodeable, creatrix: current_creatrix, title: nodeable.title, content: nodeable.description)
       when "WhatIf"
         subject = params['new_subject_setting_content']
 

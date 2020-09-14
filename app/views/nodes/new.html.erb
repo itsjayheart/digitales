@@ -1,21 +1,52 @@
 <div class="container d-flex flex-column justify-content-around w-100">
         
         <ul class="nav d-flex justify-content-around" style="white-space: nowrap; text-align: center; margin-bottom: 10px; display: flex; flex-wrap: nowrap;">
-          <li><a data-toggle="tab" href="#tale"> <small>t a l e <span class="text-muted">. s</span></small></a></li>
-          <li><a data-toggle="tab" href="#what_if"> <small>w h a t | i f <span class="text-muted">. s</span></small></a></li>
+          <li>CREATE A NEW DIGITALE</li>
+          <!--<li><a data-toggle="tab" href="#what_if"> <small>w h a t | i f <span class="text-muted">. s</span></small></a></li>
           <li><a data-toggle="tab" href="#m_statement"> <small>m | s t a t e m e n t <span class="text-muted">. s</span></small></a></li>
 
           <li><a data-toggle="tab" href="#setting"> <small>s e t t i n g<span class="text-muted">. s</span></small></a></li>
 
-          <li><a class="active" data-toggle="tab" href="#digit"> <small>d i g i t<span class="text-muted">. s</span></small></a></li>
+          <li><a class="active" data-toggle="tab" href="#digit"> <small>d i g i t<span class="text-muted">. s</span></small></a></li>-->
         </ul>
 
-        <div class="tab-content" style="width: 100%; padding-bottom: 20px;">
+        <div style="width: 100%; padding-bottom: 20px;">
 
 
-          <div id="tale" class="tab-pane fade in active">
+          <div id="tale">
 
-            <form action="<%= nodes_path %>" method="post" id="nodeform" style="display: flex; flex-direction: column; justify-content: space-around; align-items: center; height: 70vh;">
+            <style>
+              .nodeform {
+                display: flex; 
+                flex-direction: column; 
+                justify-content: space-around; 
+                align-items: center; height: 70vh;
+              }
+
+              .form-text-input {
+                border: 0px; 
+                background-color: transparent; 
+                color: white;
+              }
+
+              .form-textarea-input {
+                border: 0px; 
+                background-color: transparent; 
+                color: white; height: 125px; 
+                overflow-x: hidden;
+              }
+            </style>
+
+            <%= form_with model: @node, method: 'post', remote: false, authenticity_token: true, class: "nodeform" do |f| %>
+              <%= hidden_field_tag(:type, "Tale") %>
+              <%= label_tag(:content, "t i t l e") %>
+              <%= text_field_tag(:content, "e. g. t a l e s | o f | a t l a n t i s", class: "form-text-input w-50 text-center text-muted") %>
+              <%= label_tag(:description, "d e s c r i p t i o n") %>
+              <%= text_area_tag(:description, "In the depths of a planet called Atlantis entirely covered with water survives a tribe of a few hundred people.", size: "24x6", class: "form-textarea-input w-50 text-center text-muted") %>
+              <%= submit_tag('c r e a t e', class: "btn btn-outline-secondary btn-lg btn-block") %>
+            <% end %>
+
+            <!--<form action="<%= nodes_path %>" method="post" id="nodeform" style="display: flex; flex-direction: column; justify-content: space-around; align-items: center; height: 70vh;">
 
               <input type="hidden" name="type" value="Tale">
 
@@ -27,12 +58,12 @@
 
               <label for="description">d e s c r i p t i o n</label>
 
-              <input type="text" style="border: 0px; background-color: transparent; color: white; height: 125px; overflow-x: hidden;" class="w-50 text-center text-muted " name="description" placeholder="In the depths of a planet called Atlantis entirely covered with water survives a tribe of a few hundred people. It's all that is left from what once was a great civilization. They end up wandering deeper into the Abyss from where anyone never came back.">
+              <input type="text" style="border: 0px; background-color: transparent; color: white; height: 125px; overflow-x: hidden;" class="w-50 text-center text-muted " name="description" placeholder="In the depths of a planet called Atlantis entirely covered with water survives a tribe of a few hundred people.">
 
 
               <p><input type="submit" class="btn btn-outline-secondary btn-lg btn-block" value="c r e a t e"></p>
 
-            </form>   
+            </form>-->   
 
           </div>
 

@@ -17,4 +17,4 @@
 //= require main
 //= require navbar
 //= require mansory_grid
-
+//= require quill.global

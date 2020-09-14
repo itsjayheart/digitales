@@ -68,6 +68,8 @@ gem 'table_print'
 gem 'faker'
 gem 'dotenv-rails'
 
+gem 'quilljs-rails'
+
 
 # amazone cloude gem
 gem "aws-sdk-s3", require: false

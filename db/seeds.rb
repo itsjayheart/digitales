@@ -24,10 +24,10 @@ DonatedSum.destroy_all
 # creating AchievementCategory and MicroServiceCategory lists
 
 
-achievs = ["CREATIVE WRITING", "2D DIGITAL ART", "3D DIGITAL ART", "ACTING", "EDITING", "COMPOSING"]
+achievs = [["CREATIVE WRITING", "text"], ["2D DIGITAL ART", "image"], ["3D DIGITAL ART", "video"], ["ACTING", "sound"], ["EDITING", "video"], ["COMPOSING", "sound"]]
 
 achievs.each do |achiev|
-	ach_cat = AchievementCategory.create(name: achiev)
+	ach_cat = AchievementCategory.create(name: achiev[0])
 end
 
 writing_microservices = ["1.5k synopsis", "10k words one-shot", "10k words one-shot: screenplay translation"]
@@ -48,7 +48,7 @@ i = 0
 
 micros.each do |arr|
 	arr.each do |micro|
-		cat = MicroserviceCategory.create(name: micro, achievement_category: AchievementCategory.all[i])
+		cat = MicroserviceCategory.create(name: micro, achievement_category: AchievementCategory.all[i], media_type: achievs[i][1])
 	end
 	i += 1
 end
@@ -57,7 +57,7 @@ Creatrix.create(email: "melon" + "@yopmail.com", password: "123123")
 10.times do
     creatrix = Creatrix.create(email: Faker::Name.first_name + "@yopmail.com", password: "123123")
     MicroserviceCategory.all.each do |cat|
-    	micro = Microservice.create(creatrix: creatrix, price: rand(0.99e2..0.501e3), microservice_category: cat)
+    	#micro = Microservice.create(creatrix: creatrix, price: rand(0.99e2..0.501e3), microservice_category: cat)
     end
 end
 

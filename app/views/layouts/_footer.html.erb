@@ -1,14 +1,14 @@
-<footer class="fdb-block footer-large bg-dark"> 
+<footer class="fdb-block footer-large"> 
   <div class="col">
         <ul class="nav justify-content-center">
           <li class="nav-item">
-            <a class="nav-link active" href="https://www.froala.com">Home</a>
+          </li>
+            <%= link_to "The nodes", nodes_path, class: "nav-link" %>
+          <li class="nav-item">
+            <%= link_to "Add a node", new_node_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="https://www.froala.com">Features</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="https://www.froala.com">About</a>
+            <%= link_to "My account", creatrix_path(current_creatrix.id), class: "nav-link" %>
           </li>
         </ul>
   </div>
@@ -16,7 +16,7 @@
 <div class="row text-center mt-3">
       <div class="col">
         <h3>Digitales</h3>
-        <p>+13 827 312 5002</p>
+        <p> 04 22 52 10 10</p>
       </div>
 </div>
 

@@ -3,11 +3,9 @@
   <div class='d-flex flex-wrap justify-content-around'>
   <% @microservices.each do |microservice| %>
     <div class='card mb-3' style='width: 20em'>
-      <%if microservice.picture.attached?%>
-        <%= image_tag microservice.picture, alt: 'picture', class: "card-img-top img-fluid"%>
-      <%else%>
-        <img src='https://i.imgur.com/9e9sx.gif' class='card-img-top img-fluid'>
-      <%end%>
+      <div class='card-header'>
+        <%= render "microservices/media_display", microservice: microservice %>
+      </div>
       <div class='card-body'>
         <li>Creatrix: <i><%= microservice.creatrix.email %></i></li>
         <li>Price: <%= (microservice.price.to_f / 100).ceil(2) %> $</li>

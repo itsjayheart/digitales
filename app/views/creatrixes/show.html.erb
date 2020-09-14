@@ -6,7 +6,7 @@
         <%else%>
             no pics
         <%end%>
-        <h2><%= @creatrix.itself %></h2>
+        <h2><%= @creatrix.itself.email %></h2>
         <p class="lead"></p>    
     </div>
     
@@ -14,9 +14,7 @@
         <div id="creatrix-details">
             <h3>My details: </h3>
             <p><strong> Email address </strong>: <%= @creatrix.email %></p>
-              <a class="btn btn-secondary" href="#">
-                e d i t
-              </a></p>              
+            <%= link_to "e d i t", edit_creatrix_registration_path, class: 'btn btn-secondary' %>            
         </div>  
     <% end %>      
 

@@ -17,9 +17,14 @@ class MicroserviceRequestsController < ApplicationController
       redirect_to creatrix_path(@creatrix.id)
     end
 
-    if params[:microservice_request][:art_work]
-      @microservice_request.art_work.attach(params[:art_work])
-      node = MicroserviceRequest.last.achievement.node
+    if params[:microservice_request][:media]
+      @microservice_request.update(youtube: params[:microservice][:youtube].sub("https://www.youtube.com/watch?v=","http://www.youtube.com/embed/")) if params[:microservice][:youtube]
+      @microservice_request.update(soundcloude: params[:microservice][:soundcloude]) if params[:microservice][:soundcloude]
+      @microservice_request.update(quill: params[:microservice][:quill]) if params[:microservice][:quill]
+      @microservice_request.art_work.attach(params[:art_work]) if params[:art_work]      
+
+      @microservice_request.update(delivered?: true)
+      node = @microservice_request.achievement.node
       redirect_to node_path(node.id)
     end
 

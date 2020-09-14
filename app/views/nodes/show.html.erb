@@ -49,13 +49,13 @@
         </div>
         <b><%= @per_cent_status.ceil%> %</b>
         <div class="row mt-3 text-right">
-          <%= form_with model: @donated_sum, method: "get", url: new_donated_sum_path do |f| %>
+          <%= form_with model: @donated_sum, method: "get", url: new_node_donated_sum_path(@node.id), local: true do |f| %>
             <%= f.text_field :sum, style: "width: 3em"%> $
             <%= f.submit "Donate" , class: "ml-3 btn btn-primary" %>
           <%end%>
         </div> 
       <% elsif  current_creatrix && current_creatrix == @node.creatrix %>
-        <% if !@node.achievements.first.microservice_requests.last %>
+        <% if !@node.achievements.first.microservice_requests.last || @node.achievements.first.microservice_requests.last.funded?%>
           <%= link_to "Make a request for #{@node.current_microservice_category.name} achievement", node_microservices_path(@node.id) , class: "btn btn-primary"%>
         <% elsif @node.achievements.last.microservice_requests.last.accepted?%>
           <%= link_to "Start fundraising #{@node.current_microservice_category.name}", node_microservices_path(@node.id) , class: "btn btn-primary"%>

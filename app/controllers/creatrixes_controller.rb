@@ -1,4 +1,5 @@
 class CreatrixesController < ApplicationController
+	before_action :authenticate_creatrix, only: [:show]
 
   def show
   	if params['id'] == nil

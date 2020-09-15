@@ -1,5 +1,5 @@
 <%= form_tag node_donated_sums_path(@node.id) do %>
-  <%= hidden_field(:donated_sum, :sum, :value => @sum) %>
+  <%= hidden_field(:donated_sum, :sum, :value => (@sum.to_f*100).to_i) %>
   <article>
     <% if flash[:error].present? %>
       <div id="error_explanation">
@@ -14,6 +14,6 @@
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
           data-description="A month's subscription"
-          data-amount="<%=@sum%>"
+          data-amount="<%=@sum.to_f*100%>"
           data-locale="auto"></script>
 <% end %>

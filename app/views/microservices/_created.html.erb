@@ -2,7 +2,7 @@
   <div>
     <p><%= microservice.microservice_category.name %></p>
     <p><%= microservice.microservice_category.description %></p>
-    <p>You are providing this MICROSERVICE for <%= microservice.price / 100 %> $</p>
+    <p>You are providing this MICROSERVICE for <%= microservice.price %> $</p>
   </div>
   <div>
     <%= render "microservices/media_display", microservice: microservice %>

@@ -8,7 +8,7 @@
       </div>
       <div class='card-body'>
         <li>Creatrix: <i><%= microservice.creatrix.email %></i></li>
-        <li>Price: <%= (microservice.price.to_f / 100).ceil(2) %> $</li>
+        <li>Price: <%= microservice.price %> $</li>
       </div>
       <%= link_to "Send request to creatrix", node_microservice_microservice_requests_path(@node.id, microservice.id), method: "post", class: 'card-footer btn btn-primary'%>
     </div>

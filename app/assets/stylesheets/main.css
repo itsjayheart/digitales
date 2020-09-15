@@ -1,5 +1,3 @@
-
-
 body {
     background-color: transparent;
     padding-top: 70px; /*THIS LINE IS VERY IMPORTANT, DON'T  TOUCH IT IF YOU DON'T KNOW WHAT YOU ARE DOING*/
@@ -20,6 +18,12 @@ h1, h2, h3, h4, h5, h6 {
 
 p, a {
     font-family: 'Marcellus', sans-serif;
+}
+
+/* makes things disappear for smooth Ajax 9-steps forms */
+
+.d-none {
+    display: none;
 }
 
 /* CSS for flash alerts */

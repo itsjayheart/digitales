@@ -1,15 +1,14 @@
-
 <div id="accordion">    
   <% (@achievements.length).times do |i| %>        
-  <div class="card gg-pool-card-secondary" style="width: 100%">
-    <div class="" id="heading<%=i%>" style="background-color: none">
+  <div class="card">
+    <div class="card-header" id="heading<%=i%>">
       <h5 class="mb-0">
-        <a class="bt" data-toggle="collapse" data-target="#collapse<%=i%>" aria-expanded="false" aria-controls="collapse<%=i%>"><%=@achievements[i].name%></a>
+        <button class="btn btn-link" data-toggle="collapse" data-target="#collapse<%=i%>" aria-expanded="false" aria-controls="collapse<%=i%>"><%=@achievements[i].name%></button>
       </h5>
     </div>                
     <div id="collapse<%=i%>" class="collapsed collapse" aria-labelledby="heading<%=i%>" data-parent="#accordion">
       <% @achievements[i].microservice_categories.each do |microservice_category| %>
-        <div class='card-body' id='microservice_category#<%=microservice_category.id%>'>
+        <div class='card-body bg-white' id='microservice_category#<%=microservice_category.id%>'>
         <% if current_creatrix.microservices.any? { |microservice| microservice.microservice_category == microservice_category } %>   
           <%= render "microservices/created", microservice: Microservice.where(creatrix: current_creatrix, microservice_category: microservice_category)[0] %>
         <% else %>
@@ -49,10 +48,9 @@
           <%@x += 1%>
         <% end %>
         </div>
-        <hr>
       <% end %>
+      </div>
     </div>
-  </div>
   <% end %>
 </div>
 

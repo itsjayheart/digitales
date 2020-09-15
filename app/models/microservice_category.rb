@@ -4,6 +4,4 @@ class MicroserviceCategory < ApplicationRecord
 
 	belongs_to :achievement_category
 
-	
-
 end

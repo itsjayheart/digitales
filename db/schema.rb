@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_14_081143) do
+ActiveRecord::Schema.define(version: 2020_09_14_184345) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,6 +66,13 @@ ActiveRecord::Schema.define(version: 2020_09_14_081143) do
     t.index ["reset_password_token"], name: "index_creatrixes_on_reset_password_token", unique: true
   end
 
+  create_table "digitales", force: :cascade do |t|
+    t.bigint "creatrix_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["creatrix_id"], name: "index_digitales_on_creatrix_id"
+  end
+
   create_table "digits", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -76,7 +83,7 @@ ActiveRecord::Schema.define(version: 2020_09_14_081143) do
   end
 
   create_table "donated_sums", force: :cascade do |t|
-    t.decimal "sum"
+    t.float "sum"
     t.bigint "fundraiser_id"
     t.bigint "creatrix_id"
     t.datetime "created_at", null: false
@@ -89,7 +96,7 @@ ActiveRecord::Schema.define(version: 2020_09_14_081143) do
     t.bigint "creatrix_id"
     t.bigint "microservice_request_id"
     t.boolean "funded?"
-    t.decimal "goal"
+    t.float "goal"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["creatrix_id"], name: "index_fundraisers_on_creatrix_id"
@@ -130,7 +137,7 @@ ActiveRecord::Schema.define(version: 2020_09_14_081143) do
   end
 
   create_table "microservices", force: :cascade do |t|
-    t.decimal "price"
+    t.float "price"
     t.bigint "microservice_category_id"
     t.bigint "creatrix_id"
     t.datetime "created_at", null: false
@@ -157,9 +164,11 @@ ActiveRecord::Schema.define(version: 2020_09_14_081143) do
     t.bigint "creatrix_id"
     t.string "nodeable_type"
     t.bigint "nodeable_id"
+    t.bigint "digitale_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["creatrix_id"], name: "index_nodes_on_creatrix_id"
+    t.index ["digitale_id"], name: "index_nodes_on_digitale_id"
     t.index ["nodeable_type", "nodeable_id"], name: "index_nodes_on_nodeable_type_and_nodeable_id"
   end
 

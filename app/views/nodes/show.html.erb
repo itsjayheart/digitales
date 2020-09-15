@@ -40,22 +40,17 @@
   <div class="col-sm-4 col-xs-1 card d-flex flex-column justify-content-around">
     <div class='d-flex flex-column justify-content-around text-center m-5'>
       
-      <% if @fundraiser %>
+      <% if @fundraiser && !@fundraiser.funded?%>
         <p><%= @node.current_microservice_category.name %></p>
-       <p><b>$ <%= @fundraiser.current_fundings.ceil(2)%></b> raised of $ <%= (@fundraiser.goal / 100).ceil(2) %> goal</p>
+       <p><b>$ <%= @fundraiser.current_fundings%></b> raised of $ <%= @fundraiser.goal%> goal</p>
         <div class="progress">
           <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="<%= @per_cent_status%>" aria-valuemin="0" aria-valuemax="100" style="width: <%= @per_cent_status%>%">
           </div>
         </div>
-        <b><%= @per_cent_status.ceil%> %</b>
-        <div class="row mt-3 text-right">
-          <%= form_with model: @donated_sum, method: "get", url: new_node_donated_sum_path(@node.id), local: true do |f| %>
-            <%= f.text_field :sum, style: "width: 3em"%> $
-            <%= f.submit "Donate" , class: "ml-3 btn btn-primary" %>
-          <%end%>
-        </div> 
+        <b><%= @per_cent_status.ceil %> %</b>
+        <%= render "donated_sums/form"%>
       <% elsif  current_creatrix && current_creatrix == @node.creatrix %>
-        <% if !@node.achievements.first.microservice_requests.last || @node.achievements.first.microservice_requests.last.funded?%>
+        <% if !@node.achievements.first.microservice_requests.last%>
           <%= link_to "Make a request for #{@node.current_microservice_category.name} achievement", node_microservices_path(@node.id) , class: "btn btn-primary"%>
         <% elsif @node.achievements.last.microservice_requests.last.accepted?%>
           <%= link_to "Start fundraising #{@node.current_microservice_category.name}", node_microservices_path(@node.id) , class: "btn btn-primary"%>
@@ -63,7 +58,7 @@
           <p>Pending microservice request for <%= @node.current_microservice_category.name %></p>
         <% end %>
       <% else %>
-        <p>No request ma %>de yet for <%= @node.current_microservice_category.name %><p>
+        <p>No request yet for <%= @node.current_microservice_category.name %><p>
       <%end%>
     </div>    
 

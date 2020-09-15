@@ -22,6 +22,7 @@
         <%= render "microservices/new"%>
         <h3 class="text-center holy padding-creatrixes">r e q u e s t . s</h3>
 
+<<<<<<< HEAD
         <div class="d-flex flex-wrap text-center holy padding-creatrixes">
           <% @microservice_requests.each do |microservice_request| %>
             <div class='card m-2' style='width: 15em'>
@@ -58,6 +59,33 @@
       <h4>Petite pasteque en fleurs</h4>
       <p>Far far away, behind the word...</p>
       <div><p><a class="btn btn-secondary mt-2" style="width:100%" href="https://www.google.com">Go to node</a></div>
+=======
+</div>
+<div id="microservices">
+  <div class='container'>
+    <h1 class="text-center">m i c r o s e r v i c e . s</h1>
+    <%= render "microservices/new"%>
+    <h1 class="text-center">r e q u e s t . s</h1>
+    <div class='d-flex flex-wrap'>
+      <% @microservice_requests.each do |microservice_request| %>
+        <div class='card m-2' style='width: 15em'>
+          <div class='card-header'>
+            <%= render "microservices/media_display", microservice: microservice_request.microservice %>
+          </div>
+          <div class='card-body'>
+            <ul>
+              <li><%=microservice_request.achievement.achievement_category.name %></li>
+              <li><%=microservice_request.microservice.microservice_category.name %></li>
+              <li>price : <%= microservice_request.microservice.price %> $</li>
+            </ul>
+          </div>
+          <div class='card-footer' id='microservice_request#<%=microservice_request.id%>'>
+            <%= render "microservice_requests/form", microservice_request: microservice_request%>
+          </div>
+
+        </div>
+      <%end%>
+>>>>>>> d87d400695f3f342284a9d698c8f059440f80077
     </div>
   </div>
 </div>

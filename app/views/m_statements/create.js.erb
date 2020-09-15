@@ -1,0 +1,5 @@
+document.getElementById('digitaleMStatementForm').classList.add('d-none');
+
+document.getElementById('digitaleForm').insertAdjacentHTML('beforeend', "<%= j render 'edit_digitale_m_statement', digitale: @digitale, node: @node %>")
+
+document.getElementById('digitaleForm').insertAdjacentHTML('beforeend', "<%= j render 'new_m_statement', digitale: @digitale, node: @node %>")

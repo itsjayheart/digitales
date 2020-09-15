@@ -57,9 +57,10 @@
 <script src="https://kit.fontawesome.com/6085f87352.js" crossorigin="anonymous"></script>
 
 <div class="stars-body">
-  <div id='stars'></div>
-  <div id='stars2'></div>
-  <div id='stars3'></div>
+      <div id='stars' style=''></div>
+      <div id='stars2' style=''></div>
+      <div id='stars3' style=''></div>
+
     <div class="gg-pool">
       <% @digitales.each do |digitale| %>
         <% i = rand(0..3) %>
@@ -68,7 +69,6 @@
         <% end %>
 
       <% j = rand(1..3) %>
-
       <% case j %>
       <% when 1 %>
         <div class="card-float-1 gg-pool-card-primary" style="height: 600px;"> 
@@ -88,7 +88,6 @@
                 </div>
                 <div class="fas fa-hand-holding-usd"> <%= link_to "Creep in", nodes_path%> </div>
         </div>
-        
       <% when 3 %>
         <div class="card-float-3 gg-pool-card-tertiary" style="height: 600px;">
                <a class="panel-title px-4 text-center" data-toggle="collapse" data-target="#collapse" href="tollapse" role="button" aria-expanded="false" aria-controls="collapseExample">

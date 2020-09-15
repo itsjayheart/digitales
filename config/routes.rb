@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'new/create'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   devise_for :creatrixes
@@ -14,6 +13,7 @@ Rails.application.routes.draw do
       root 'devise/sessions#new', as: :unauthenticated_root
     end
   end
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   resources :nodes do
@@ -22,6 +22,8 @@ Rails.application.routes.draw do
       resources :microservice_requests, only: [:create]
     end
   end
+
+  resources :digitales, only: [:show]
 
   resources :what_ifs, only: [:create, :update]
 

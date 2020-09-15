@@ -40,7 +40,7 @@
   <div class="col-sm-4 col-xs-1 card d-flex flex-column justify-content-around">
     <div class='d-flex flex-column justify-content-around text-center m-5'>
       
-      <% if @fundraiser %>
+      <% if @fundraiser && !@fundraiser.funded?%>
         <p><%= @node.current_microservice_category.name %></p>
        <p><b>$ <%= @fundraiser.current_fundings.ceil(2)%></b> raised of $ <%= (@fundraiser.goal / 100).ceil(2) %> goal</p>
         <div class="progress">
@@ -55,7 +55,7 @@
           <%end%>
         </div> 
       <% elsif  current_creatrix && current_creatrix == @node.creatrix %>
-        <% if !@node.achievements.first.microservice_requests.last || @node.achievements.first.microservice_requests.last.funded?%>
+        <% if !@node.achievements.first.microservice_requests.last%>
           <%= link_to "Make a request for #{@node.current_microservice_category.name} achievement", node_microservices_path(@node.id) , class: "btn btn-primary"%>
         <% elsif @node.achievements.last.microservice_requests.last.accepted?%>
           <%= link_to "Start fundraising #{@node.current_microservice_category.name}", node_microservices_path(@node.id) , class: "btn btn-primary"%>

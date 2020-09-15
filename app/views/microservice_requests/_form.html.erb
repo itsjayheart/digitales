@@ -1,0 +1,72 @@
+<% if microservice_request.fundraisers.last && microservice_request.fundraisers.last.funded? %>
+    <% case microservice_request.microservice.microservice_category.media_type%>
+    <% when "image"%>
+      <% if microservice_request.delivered? %>
+        <p>Youre work was delivered </p>
+        <%= image_tag microservice_request.picture, alt: 'picture', style: "width: 10em", class: "order rounded"%>
+      <% else %>
+        <%= form_with model: microservice_request, url: microservice_request_path(microservice_request.id), method: "patch" do |f| %>
+          <%= hidden_field(:microservice_request, :media, :value => true) %>
+          <%= f.label :art_work, "image" %> :
+          <%= f.fields_for :art_work  do |p| %>
+            <%= p.file_field :art_work , :multiple => true, name: :art_work %>
+          <% end %>
+          <%= submit_tag("Upload youre work") %>
+        <% end %>        
+      <% end %>
+    <% when "video"%>
+      <% if microservice_request.delivered? %>
+        <p>Youre work was delivered </p>
+        <%=microservice_request.youtube.html_safe %>
+      <% else %>
+        <%= form_with model: microservice_request, url: microservice_request_path(microservice_request.id), method: "patch" do |f| %>
+          <%= hidden_field(:microservice_request, :media, :value => true) %>
+          <%= f.label :youtube,"youtube link" %> :
+          <%= f.text_field :youtube, style: "width: 20em"%>     
+          <%= submit_tag("Upload youre work") %>
+        <% end %>          
+      <% end %>           
+    <% when "sound"%>
+      <% if microservice_request.delivered? %>
+        <p>Youre work was delivered </p>
+        <%= microservice_request.soundcloude.html_safe %>
+      <% else %>
+        <%= form_with model: microservice_request, url: microservice_request_path(microservice_request.id), method: "patch" do |f| %>
+          <%= hidden_field(:microservice_request, :media, :value => true) %>
+          <%= f.label :soundcloude,"soundcloude embed share code" %> :
+          <%= f.text_field :soundcloude, style: "width: 20em"%> 
+          <%= submit_tag("Upload youre work") %>
+        <% end %>        
+      <%end%>           
+    <% when "text"%>
+      <% if microservice_request.delivered? %>
+        <p>Youre work was delivered </p>
+        <%= microservice_request.quill.html_safe %>
+      <% else %>
+        <%= form_with model: microservice_request, id: "form_request#{@y}", url: microservice_request_path(microservice_request.id), method: "patch" do |f| %>
+          <%= hidden_field(:microservice_request, :media, :value => true) %>
+          <%= f.hidden_field :quill, id: "post-quill_request#{@y}", required: true %>
+          <div id="editor-container" hidden="true"></div>
+          <div id="editor_request<%=@y%>"></div>
+          <script>
+            var form_request = document.querySelector('#form_request<%=@y%>');
+            var quill = new Quill('#editor_request<%=@y%>', {
+              theme: 'snow'
+            });
+            form_request.onsubmit = function() {
+              document.querySelector('#post-quill_request<%=@y%>').value = document.querySelector('#form_request<%=@y%>').children[7].children[0].innerHTML;
+            };
+          </script>  
+          <%= submit_tag("Upload youre work") %>
+          <%@y += 1%>          
+        <% end %>
+      <% end %>      
+    <% end %>
+<% elsif microservice_request.accepted? %>
+    <p>Founding in progress</p>
+<% else %>
+  <%= form_with(url: microservice_request_path(microservice_request.id), method: "patch")  do |f| %>
+    <%= hidden_field(:microservice_request, :accepted, :value => true) %>
+    <%= submit_tag("Accept request", class: ' btn btn-primary' ) %>
+  <% end %>
+<%end%>

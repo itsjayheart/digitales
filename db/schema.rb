@@ -83,7 +83,7 @@ ActiveRecord::Schema.define(version: 2020_09_14_184345) do
   end
 
   create_table "donated_sums", force: :cascade do |t|
-    t.decimal "sum"
+    t.float "sum"
     t.bigint "fundraiser_id"
     t.bigint "creatrix_id"
     t.datetime "created_at", null: false
@@ -96,7 +96,7 @@ ActiveRecord::Schema.define(version: 2020_09_14_184345) do
     t.bigint "creatrix_id"
     t.bigint "microservice_request_id"
     t.boolean "funded?"
-    t.decimal "goal"
+    t.float "goal"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["creatrix_id"], name: "index_fundraisers_on_creatrix_id"
@@ -137,7 +137,7 @@ ActiveRecord::Schema.define(version: 2020_09_14_184345) do
   end
 
   create_table "microservices", force: :cascade do |t|
-    t.decimal "price"
+    t.float "price"
     t.bigint "microservice_category_id"
     t.bigint "creatrix_id"
     t.datetime "created_at", null: false

@@ -41,7 +41,7 @@
             <ul>
               <li><%=microservice_request.achievement.achievement_category.name %></li>
               <li><%=microservice_request.microservice.microservice_category.name %></li>
-              <li>price : <%=(microservice_request.microservice.price.to_f / 100).ceil(2)%> $</li>
+              <li>price : <%= microservice_request.microservice.price %> $</li>
             </ul>
           </div>
           <div class='card-footer' id='microservice_request#<%=microservice_request.id%>'>

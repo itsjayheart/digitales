@@ -3,7 +3,7 @@
     <% when "image"%>
       <% if microservice_request.delivered? %>
         <p>Youre work was delivered </p>
-        <%= image_tag microservice_request.picture, alt: 'picture', style: "width: 10em", class: "order rounded"%>
+        <%= image_tag microservice_request.art_work, alt: 'art_work', style: "width: 10em", class: "order rounded"%>
       <% else %>
         <%= form_with model: microservice_request, url: microservice_request_path(microservice_request.id), method: "patch" do |f| %>
           <%= hidden_field(:microservice_request, :media, :value => true) %>

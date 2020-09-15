@@ -1,7 +1,7 @@
 class MicroservicesController < ApplicationController
 
   def create
-    price = params["microservice"]['price'].to_f * 100
+    price = params["microservice"]['price']
   	@microservice = Microservice.new(creatrix: current_creatrix, microservice_category: MicroserviceCategory.find(params['microservice_category_id']), price: price)
     
     puts "$"*100
@@ -34,7 +34,5 @@ class MicroservicesController < ApplicationController
     Microservice.all.each do |microservice|
       @microservices << microservice if microservice.microservice_category.name == @current_microservice_category.name
     end
-    
   end
-
 end

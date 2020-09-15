@@ -41,53 +41,13 @@
             <ul>
               <li><%=microservice_request.achievement.achievement_category.name %></li>
               <li><%=microservice_request.microservice.microservice_category.name %></li>
-              <li>price : <%=(microservice_request.microservice.price.to_f / 100).ceil(2)  %> $</li>
+              <li>price : <%=(microservice_request.microservice.price.to_f / 100).ceil(2)%> $</li>
             </ul>
           </div>
-          <% if microservice_request.fundraisers.last && microservice_request.fundraisers.last.funded? %>
-            <div class='card-footer'>
-              <%= form_with model: microservice_request, id: "form_request#{@y}", url: microservice_request_path(microservice_request.id),method: "patch" do |f| %>
-                <%= hidden_field(:microservice_request, :media, :value => true) %>
-                <% case microservice_request.microservice.microservice_category.media_type%>
-                <% when "image"%>
-                  <%= f.label :art_work, "image" %> :
-                  <%= f.fields_for :art_work  do |p| %>
-                      <%= p.file_field :art_work , :multiple => true, name: :art_work %>
-                  <% end %>
-                <% when "video"%>
-                  <%= f.label :youtube,"youtube link" %> :
-                  <%= f.text_field :youtube, style: "width: 20em"%>        
-                <% when "sound"%>
-                  <%= f.label :soundcloude,"soundcloude embed share code" %> :
-                  <%= f.text_field :soundcloude, style: "width: 20em"%>   
-                <% when "text"%>
-                  <%= f.hidden_field :quill, id: "post-quill#{@y}", required: true %>
-                  <div id="editor-container" hidden="true"></div>
-                  <div id="editor<%=@y%>"></div>
-                  <script>
-                    var form_request = document.querySelector('#form_request<%=@y%>');
-                    var quill = new Quill('#editor<%=@y%>', {
-                      theme: 'snow'
-                    });
-                    form_request.onsubmit = function() {
-                      document.querySelector('#post-quill<%=@y%>').value = document.querySelector('#form_request<%=@y%>').children[7].children[0].innerHTML;
-                    };
-                  </script>  
-                <%end%>
-                <%= submit_tag("Upload youre work") %>
-              <%@y += 1%>
-              <% end %>
-            </div>
-          <% elsif microservice_request.accepted? %>
-            <div class='card-footer'>
-              <p>Founding in progress</p>
-            </div>
-          <% else %>
-            <%= form_with(url: microservice_request_path(microservice_request.id), method: "patch")  do |f| %>
-              <%= hidden_field(:microservice_request, :accepted, :value => true) %>
-              <%= submit_tag("Accept request", class: 'card-footer btn btn-primary' ) %>
-            <% end %>
-          <%end%>
+          <div class='card-footer' id='microservice_request#<%=microservice_request.id%>'>
+            <%= render "microservice_requests/form", microservice_request: microservice_request%>
+          </div>
+
         </div>
       <%end%>
     </div>

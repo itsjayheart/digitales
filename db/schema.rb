@@ -129,6 +129,9 @@ ActiveRecord::Schema.define(version: 2020_09_14_184345) do
     t.boolean "delivered?", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "youtube"
+    t.text "soundcloude"
+    t.text "quill"
     t.index ["achievement_id"], name: "index_microservice_requests_on_achievement_id"
     t.index ["microservice_id"], name: "index_microservice_requests_on_microservice_id"
   end

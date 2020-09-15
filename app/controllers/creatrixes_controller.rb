@@ -2,7 +2,9 @@ class CreatrixesController < ApplicationController
 	before_action :authenticate_creatrix, only: [:show]
 
   def show
-	@x = 0 #count variable for quill plug in ids
+	@x = 0 #microservice count variable for quill plug in ids
+	@y = 0 #microservice_request count variable for quill plug in ids
+
 
   	if params['id'] == nil
   		@creatrix = current_creatrix

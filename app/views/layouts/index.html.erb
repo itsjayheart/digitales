@@ -2,6 +2,7 @@
 <html class="no-js">
   <head>
     <title>Digitales</title>
+    
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -18,12 +19,14 @@
     FROM FIRST STATICS INDEX-->
 
     <%= stylesheet_link_tag 'application', media: 'all' %>
+
   </head>
 
   <body>
   
     <%= render "layouts/header"%>
-    
+    <%= render "layouts/flash"%>
+
     <div>
     <%= yield %>
     </div>

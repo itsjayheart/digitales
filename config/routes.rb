@@ -23,11 +23,15 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :what_ifs, only: [:create, :update]
+
+  resources :m_statements, only: [:create, :update]
+
   resources :microservice_requests, only: [:update]
 
   resources :creatrixes, only: [:show] 
   
-  resources :microservice_category, only:[] do
+  resources :microservice_category do
     resources :microservices, only: [:create]
   end
 

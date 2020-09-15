@@ -4,6 +4,8 @@ class Node < ApplicationRecord
     belongs_to :nodeable, polymorphic: true
     belongs_to :creatrix
 
+    belongs_to :digitale
+
     has_many :achievements
 
     def non_achieved

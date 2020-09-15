@@ -1,4 +1,4 @@
-<div id="digitaleMStatementForm">
+<div id="<%= form_dom_id %>">
   <%= form_with(url: "/m_statements", method: 'post', authenticity_token: true, class: "nodeform") do |f| %>
     <%= hidden_field_tag(:digitale_id, digitale.id) %>
     <%= label_tag(:content, "m i g h t | | | m i g h t | n o t") %>

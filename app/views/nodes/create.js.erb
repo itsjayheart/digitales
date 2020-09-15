@@ -1,0 +1,10 @@
+
+// how to add the new digitale
+
+document.getElementById('digitaleTitleForm').classList.add('d-none');
+
+document.getElementById('digitaleForm').insertAdjacentHTML('beforeend', "<%= j render 'edit_digitale_title', digitale: @digitale, node: @node %>")
+
+document.getElementById('digitaleForm').insertAdjacentHTML('beforeend', "<%= j render 'new_what_if', digitale: @digitale, node: @node %>")
+
+

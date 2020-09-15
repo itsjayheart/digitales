@@ -1,0 +1,2 @@
+class MStatementsController < ApplicationController
+end

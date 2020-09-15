@@ -20,6 +20,12 @@ p, a {
     font-family: 'Marcellus', sans-serif;
 }
 
+/* makes things disappear for smooth Ajax 9-steps forms */
+
+.d-none {
+    display: none;
+}
+
 /* CSS for flash alerts */
 
 .alert-info, .alert-success, .alert-danger, .alert-warning {

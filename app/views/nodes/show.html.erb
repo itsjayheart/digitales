@@ -42,12 +42,12 @@
       
       <% if @fundraiser && !@fundraiser.funded?%>
         <p><%= @node.current_microservice_category.name %></p>
-       <p><b>$ <%= @fundraiser.current_fundings.ceil(2)%></b> raised of $ <%= (@fundraiser.goal / 100).ceil(2) %> goal</p>
+       <p><b>$ <%= @fundraiser.current_fundings%></b> raised of $ <%= @fundraiser.goal%> goal</p>
         <div class="progress">
           <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="<%= @per_cent_status%>" aria-valuemin="0" aria-valuemax="100" style="width: <%= @per_cent_status%>%">
           </div>
         </div>
-        <b><%= @per_cent_status.ceil%> %</b>
+        <b><%= @per_cent_status.ceil %> %</b>
         <div class="row mt-3 text-right">
           <%= form_with model: @donated_sum, method: "get", url: new_node_donated_sum_path(@node.id), local: true do |f| %>
             <%= f.text_field :sum, style: "width: 3em"%> $
@@ -63,7 +63,7 @@
           <p>Pending microservice request for <%= @node.current_microservice_category.name %></p>
         <% end %>
       <% else %>
-        <p>No request ma %>de yet for <%= @node.current_microservice_category.name %><p>
+        <p>No request yet for <%= @node.current_microservice_category.name %><p>
       <%end%>
     </div>    
 

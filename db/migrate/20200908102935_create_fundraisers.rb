@@ -6,7 +6,7 @@ class CreateFundraisers < ActiveRecord::Migration[5.2]
 
       t.boolean :funded?
 
-      t.decimal :goal
+      t.float :goal
 
       t.timestamps
     end

@@ -1,7 +1,7 @@
 class MicroservicesController < ApplicationController
 
   def create
-    price = params["microservice"]['price'].to_f * 100
+    price = params["microservice"]['price']
   	@microservice = Microservice.new(creatrix: current_creatrix, microservice_category: MicroserviceCategory.find(params['microservice_category_id']), price: price)
     
     puts "$"*100

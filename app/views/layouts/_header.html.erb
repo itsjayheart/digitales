@@ -1,10 +1,19 @@
+<!-- 
+<div class="sticky">
+    <ul class="gg-navbar">
+        <li><%= image_tag 'text14.png' %></li>
+        <li class="nav-item ml-4"> <%= link_to "Add a test", new_node_path, class: "nav-link" %> </li>
+        <li class="gg-secondary"><i class="fas fa-user-astronaut"></i></div>    
+    </ul>
+</div>
+
+-->
 <div class=''>
   <nav id="navbar" class="navbar navbar-expand-lg d-flex justify-content-between navbar-inverse navbar-fixed-top sticky" data-spy="affix">
-   <a href="/"><%= image_tag "digitales-logo.png", class: "mr-2 img-fluid ml-3", style: "height: 35px"%></a> 
+   <a href="/"><%= image_tag "text14.png", class: "mr-2 img-fluid ml-3", style: "height: 35px"%></a> 
   <a class="navbar-toggler" data-toggle="collapse" data-target=".navbar-collapse">☰</a>
   <div class=navbar-collapse collapse">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item ml-4"> <a href="/" class="nav-link">Home</a></li>
       <li class="nav-item ml-4"> <%= link_to "Add a node", new_node_path, class: "nav-link" %> </li>
     </ul>
   

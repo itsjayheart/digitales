@@ -35,4 +35,13 @@ class MicroservicesController < ApplicationController
       @microservices << microservice if microservice.microservice_category.name == @current_microservice_category.name
     end
   end
+
+  def destroy
+    @microservice = Microservice.find(params[:id])
+    @microservice.delete if @microservice
+    respond_to do |format|
+      format.html { redirect_to creatrix_path(current_creatrix.id) }
+      format.js { }
+    end
+  end
 end

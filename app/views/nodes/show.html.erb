@@ -39,7 +39,6 @@
 
   <div class="col-sm-4 col-xs-1 card d-flex flex-column justify-content-around">
     <div class='d-flex flex-column justify-content-around text-center m-5'>
-      
       <% if @fundraiser && !@fundraiser.funded?%>
         <p><%= @node.current_microservice_category.name %></p>
        <p><b>$ <%= @fundraiser.current_fundings%></b> raised of $ <%= @fundraiser.goal%> goal</p>

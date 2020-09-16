@@ -1,0 +1,68 @@
+#digitaleForm {
+    width: 750px;
+    padding: 30px;
+    border: solid 1px white;
+    border-radius: 25px;
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0px 0px 6px 1px white; 
+    margin: auto;
+}
+
+.nodeform {
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-around; 
+    align-items: center; height: 70vh;
+}
+
+.form-text-input {
+    padding: 5px;
+    border: 0px; 
+    background-color: rgba(255, 255, 255, 0.05); 
+    color: white;
+    border-radius: 50px;
+}
+
+.form-textarea-input {
+    padding: 20px;
+    width: 100%;
+    border: 0px;
+    height: 125px; 
+    background-color: transparent;
+}
+
+.form-textarea-input:active {
+    width: 100%;
+    border: 0px; 
+    background-color: transparent;
+}
+
+.gg-label {
+    text-shadow: 0px 0px 6px white;
+    color: white;
+}
+
+.gg-button {
+    border: solid 1px white;
+    border-radius: 50px;
+    box-shadow: 0px 0px 3px 1px white;
+    color: white;
+    text-shadow: 0px 0px 6px white;
+}
+
+.gg-button:hover {
+    background-color: white;
+    color: #555;
+}
+
+.gg-textarea {
+    padding: 20px;
+    width: 600px;
+    border: 0px; 
+    background-color: rgba(255, 255, 255, 0.05); 
+    color: white; 
+    height: 162px; 
+    border-radius: 20px;
+    overflow-x: hidden;
+	overflow-y: hidden;
+}

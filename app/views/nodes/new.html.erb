@@ -3,67 +3,10 @@
         <div class="nav d-flex justify-content-around" style="white-space: nowrap; text-align: center; margin-bottom: 10px; display: flex; flex-wrap: nowrap;">
           CREATE A NEW DIGITALE
         </div>
-
+ 
         <div style="width: 100%; padding-bottom: 20px; display: flex;">
 
-          <style>
-            #digitaleForm {
-              width: 750px;
-              padding: 30px;
-              border: solid 1px white;
-              border-radius: 25px;
-              background-color: rgba(255, 255, 255, 0.2);
-              box-shadow: 0px 0px 6px 1px white; 
-              margin: auto;
-            }
-          </style>
           <div id="digitaleForm">
-
-            <style>
-              .nodeform {
-                display: flex; 
-                flex-direction: column; 
-                justify-content: space-around; 
-                align-items: center; height: 70vh;
-              }
-
-              .form-text-input {
-                padding: 5px;
-                border: 0px; 
-                background-color: rgba(255, 255, 255, 0.05); 
-                color: white;
-                border-radius: 50px;
-              }
-
-              .form-textarea-input {
-                padding: 20px;
-                width: 600px;
-                border: 0px; 
-                background-color: rgba(255, 255, 255, 0.05); 
-                color: white; 
-                height: 75px; 
-                border-radius: 40px;
-                overflow-x: hidden;
-              }
-
-              .gg-label {
-                text-shadow: 0px 0px 6px white;
-                color: white;
-              }
-
-              .gg-button {
-                border: solid 1px white;
-                border-radius: 50px;
-                box-shadow: 0px 0px 3px 1px white;
-                color: white;
-                text-shadow: 0px 0px 6px white;
-              }
-
-              .gg-button:hover {
-                background-color: white;
-                color: #555;
-              }
-            </style>
 
               <div id="digitaleTitleForm">
                 <%= form_with model: @node, method: 'post', authenticity_token: true, class: "nodeform" do |f| %>
@@ -71,13 +14,14 @@
                   <%= label_tag(:content, "t i t l e", class: 'gg-label') %>
                   <%= text_field_tag(:content, "e. g. t a l e s | o f | a t l a n t i s", class: "form-text-input w-50 text-center text-muted") %>
                   <%= label_tag(:description, "d e s c r i p t i o n", class: 'gg-label') %>
-                  <%= text_area_tag(:description, "In the depths of a planet called Atlantis entirely covered with water survives a tribe of a few hundred people.", size: "48x6", class: "form-textarea-input w-50 text-center text-muted") %>
+                  <div class="gg-textarea">
+                    <%= text_area_tag(:description, "In the depths of a planet called Atlantis entirely covered with water survives a tribe of a few hundred people.", size: "48x5", class: "form-textarea-input text-center text-muted") %>
+                  </div>
                   <%= submit_tag('c r e a t e', class: "btn gg-button btn-lg btn-block") %>
                 <% end %>
               </div>
 
           </div>
-
           
         </div>
 </div>

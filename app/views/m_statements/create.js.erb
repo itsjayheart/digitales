@@ -1,8 +1,10 @@
-document.getElementById('<%= @ex_form_dom_id %>').classList.add('d-none');
 
-console.log(document.getElementById('<%= @ex_form_dom_id %>'));
-
-document.getElementById('digitaleForm').insertAdjacentHTML('beforeend', "<%= j render 'edit_digitale_m_statement', digitale: @digitale, node: @node, edit_form_dom_id: @edit_form_dom_id %>")
-
-document.getElementById('digitaleForm').insertAdjacentHTML('beforeend', "<%= j render 'new_m_statement', digitale: @digitale, node: @node, form_dom_id: @form_dom_id %>")
-
+<% if @digitale.m_statements.length == 6 %>
+	document.getElementById('<%= @ex_form_dom_id %>').classList.add('d-none');
+	document.getElementById('digitaleForm').insertAdjacentHTML('beforeend', "<%= j render 'edit_digitale_m_statement', digitale: @digitale, node: @node, edit_form_dom_id: @edit_form_dom_id %>");
+	document.getElementById('digitaleForm').insertAdjacentHTML('beforeend', "<%= j render 'digitale_form_final_submit', digitale: @digitale %>");
+<% else %>
+	document.getElementById('<%= @ex_form_dom_id %>').classList.add('d-none');
+	document.getElementById('digitaleForm').insertAdjacentHTML('beforeend', "<%= j render 'edit_digitale_m_statement', digitale: @digitale, node: @node, edit_form_dom_id: @edit_form_dom_id %>");
+	document.getElementById('digitaleForm').insertAdjacentHTML('beforeend', "<%= j render 'new_m_statement', digitale: @digitale, node: @node, form_dom_id: @form_dom_id %>");
+<% end %>

@@ -19,25 +19,26 @@ class MStatementsController < ApplicationController
 
 		@edit_form_dom_id = "editDigitaleMStatementForm" + (i + 1).to_s
 
+		puts @digitale.m_statements.length
+
+
 		if @node.save
-			if @digitale.m_statements
-				if @digitale.m_statements.length == 7
-					redirect_to digitale_path(@digitale.id)
-				else
-					respond_to do |format|
-						format.js { }
-					end
-				end
-			else
-				respond_to do |format|
-					format.js { }
-				end
+			respond_to do |format|
+				format.js { }
 			end
 		end
+
+		puts @digitale.m_statements.length
+
 
 	end
 
 	def update
+	  @tale = Tale.update(title: params['content'], description: params['description'])
+      @node = Node.update(title: params['content'], content: params['description'])
 
+      respond_to do |format|
+        format.js{ }
+      end
 	end
 end

@@ -15,15 +15,12 @@
 
   </head>
 
-  <body>
-  
+  <body id="hero-background">
     <%= render "layouts/header"%>
     <%= render "layouts/flash"%>
-    <%= yield %>
+    <div class="container padding-top"> <%= yield %> </div>
     <%= render "layouts/footer"%>
-    
   </body>
 
   <%= javascript_include_tag 'application' %>
-
 </html>

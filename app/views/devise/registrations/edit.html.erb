@@ -1,18 +1,51 @@
-<div id="hero-background">
   <div class="center pt-5">
+    <div class= holy><h1>Edit <%= resource_name.to_s.humanize %></h1></div>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
 
-    <h2>Edit <%= resource_name.to_s.humanize %></h2>
+        <br />
 
+        <div class="form-group">
+            <fieldset disabled="" data-children-count="1">
+            <label class="control-label" for="disabledInput">Email</label>
+            <input class="form-control" id="disabledInput" type="text" placeholder="Disabled input here..." disabled="" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGP6zwAAAgcBApocMXEAAAAASUVORK5CYII=&quot;);">
+          </fieldset>
+        </div>
 
+        <div class="form-group">
+            <fieldset disabled="" data-children-count="1">
+            <label class="control-label" for="disabledInput">Current Password</label>
+            <input class="form-control" id="disabledInput" type="text" placeholder="Disabled input here..." disabled="" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGP6zwAAAgcBApocMXEAAAAASUVORK5CYII=&quot;);">
+          </fieldset>
+        </div>
 
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-      <%= render "devise/shared/error_messages", resource: resource %>
+        <div class="form-group">
+            <fieldset disabled="" data-children-count="1">
+            <label class="control-label" for="disabledInput">New Password</label>
+            <input class="form-control" id="disabledInput" type="text" placeholder="Disabled input here..." disabled="" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGP6zwAAAgcBApocMXEAAAAASUVORK5CYII=&quot;);">
+          </fieldset>
+        </div>
 
-      <div class="field">
-        <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-      </div>
+        <div class="form-group">
+            <fieldset disabled="" data-children-count="1">
+            <label class="control-label" for="disabledInput">Password Confirmation</label>
+            <input class="form-control" id="disabledInput" type="text" placeholder="Disabled input here..." disabled="" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGP6zwAAAgcBApocMXEAAAAASUVORK5CYII=&quot;);">
+          </fieldset>
+        </div>
 
+CONFLIT ci dessous
+        <div class="field h5">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        </div>
+
+        <br />
+
+        <div class="field h5">
+          <%= f.label :current_password %><br />
+          <%= f.password_field :current_password, autocomplete: "current-password" %>
+        </div>
+CONFLIT
       <div>
         <%= f.label :hexanyme %><br />
         <%= f.text_field :hexanyme, autofocus: true %>
@@ -21,39 +54,45 @@
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
         <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
       <% end %>
+CONFLIT ci dessus
 
-      <div class="field">
-        <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-        <%= f.password_field :password, autocomplete: "new-password" %>
-        <% if @minimum_password_length %>
-          <br />
-          <em><%= @minimum_password_length %> characters minimum</em>
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
         <% end %>
-      </div>
 
-      <div class="field">
-        <%= f.label :password_confirmation %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-      </div>
+        <br />
 
-      <div class="field">
-        <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-        <%= f.password_field :current_password, autocomplete: "current-password" %>
-      </div>
+        <div class="field h5">
+          <%= f.label :password, "New password" %><br />
+          <%= f.password_field :password, autocomplete: "new-password" %>
+          <% if @minimum_password_length %>
+            <br />
+            
+            <em><%= @minimum_password_length %> characters minimum</em>
+          <% end %>
+        </div>
+
+        <br />
+
+        <div class="field h5">
+          <%= f.label :password_confirmation %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+        </div>
+
+          <br>
+
+        <div class="actions">
+          <%= f.submit "Update" %>
+        </div>
         <br>
+      <% end %>
+    <br>
+    <br>
+      <div class= holy><h3>Cancel my account</h3></div>
 
-      <div class="actions">
-        <%= f.submit "Update" %>
-      </div>
-      <br>
-    <% end %>
-<br>
-<br>
-    <h3>Cancel my account</h3>
+      <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
-    <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-    <%= link_to "Back", :back %>
+      <%= link_to "Back", :back %>
 
   </div>
 </div>

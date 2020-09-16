@@ -10,11 +10,9 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require rails-ujs
 //= require activestorage
-//= require jquery.min
+//= require jquery
+//= require quill.global
+//= require bootstrap
 //= require bootstrap.bundle
 //= require main
-//= require navbar
-//= require mansory_grid
-//= require quill.global

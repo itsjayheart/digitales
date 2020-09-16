@@ -1,23 +1,26 @@
 <div id="hero-background">
-  <div id="color-overlay"></div>
-  <div class="center">
+  <div class="container padding-top">
+      <div id="color-overlay"></div>
+        <div class="center">
+            <h1> <div class="holy"> Forgot your password ? </div> </h1>
+            <br>
+            <br>
+            <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+              <%= render "devise/shared/error_messages", resource: resource %>
 
-      <h2 id="forgotten-title">Forgot your password?</h2>
+             <div class="field p">
+                What's your <%= f.label :email %> address ? <br />
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", :id => "forgotten-field" %>
+              </div>
 
-      <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-        <%= render "devise/shared/error_messages", resource: resource %>
+              <div class="actions">
+                <%= f.submit "Send me the password", :id => "forgotten-button" %>
+              </div>
+            <% end %>
 
-        <div class="field">
-          What's your <%= f.label :email %> address ? <br />
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", :id => "forgotten-field" %>
+            <%= render "devise/shared/links" %>
+
         </div>
-
-        <div class="actions">
-          <%= f.submit "Send me the password", :id => "forgotten-button" %>
-        </div>
-      <% end %>
-
-      <%= render "devise/shared/links" %>
-
+    </div>
   </div>
 </div>

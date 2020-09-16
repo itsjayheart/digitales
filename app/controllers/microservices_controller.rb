@@ -1,8 +1,10 @@
+
 class MicroservicesController < ApplicationController
 
   def create
     price = params["microservice"]['price']
-  	@microservice = Microservice.new(creatrix: current_creatrix, microservice_category: MicroserviceCategory.find(params['microservice_category_id']), price: price)
+    @microservice_category = MicroserviceCategory.find(params['microservice_category_id'])
+  	@microservice = Microservice.new(creatrix: current_creatrix, microservice_category: @microservice_category, price: price)
     
     puts "$"*100
     puts params[:microservice][:soundcloude]
@@ -13,13 +15,30 @@ class MicroservicesController < ApplicationController
     @microservice.update(quill: params[:microservice][:quill]) if params[:microservice][:quill]
     @microservice.picture.attach(params[:picture]) if params[:picture]
 
-    @microservice_category = @microservice.microservice_category
 
     @microservice.save ? @errors = nil : @errors = @microservice.errors.full_messages.to_sentence
     
+    puts "%"*100
+    puts @errors
+    puts "%"*100
+
+
+    if @errors
+      alert(@errors, @microservice_category)
+    else
+      respond_to do |format|
+        format.html { redirect_to creatrix_path(current_creatrix.id) }
+        format.js { }
+      end
+    end
+  end
+
+  def alert(errors, microservice_category)
+    @errors = errors
+    @microservice_category = microservice_category
     respond_to do |format|
       format.html { redirect_to creatrix_path(current_creatrix.id) }
-      format.js { }
+      format.js { render :alert }
     end
   end
 
@@ -33,6 +52,17 @@ class MicroservicesController < ApplicationController
     @microservices = []
     Microservice.all.each do |microservice|
       @microservices << microservice if microservice.microservice_category.name == @current_microservice_category.name
+    end
+  end
+
+  def destroy
+    @microservice = Microservice.find(params[:id])
+    @microservice_category = @microservice.microservice_category
+    @microservice.delete if @microservice
+    @microservice_new = Microservice.new
+    respond_to do |format|
+      format.html { redirect_to creatrix_path(current_creatrix.id) }
+      format.js { }
     end
   end
 end

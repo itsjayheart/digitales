@@ -1,8 +1,6 @@
-<div id="hero-background">
-  <div id="color-overlay"></div>
+ <div id="color-overlay"></div>
   <div class="center">
-
-      <h2 id="forgotten-title">Forgot your password?</h2>
+      <div class="holy"> <h1 id="forgotten-title">Forgot your password?</h1></div>
 
       <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>

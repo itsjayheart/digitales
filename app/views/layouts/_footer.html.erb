@@ -8,13 +8,9 @@
             <%= link_to "Add a node", new_node_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-<<<<<<< HEAD
-            <%= link_to "My account", nodes_path, class: "nav-link" %>
-=======
             <% if creatrix_signed_in? %>
               <%= link_to "My account", creatrix_path(current_creatrix.id), class: "nav-link" %>
             <% end %>
->>>>>>> d87d400695f3f342284a9d698c8f059440f80077
           </li>
         </ul>
   </div>

@@ -1,156 +1,25 @@
-<div class="container d-flex flex-column justify-content-around w-100">
-        
-        <div class="nav d-flex justify-content-around" style="white-space: nowrap; text-align: center; margin-bottom: 10px; display: flex; flex-wrap: nowrap;">
-          CREATE A NEW DIGITALE
-        </div>
+<div class="bg-black">
+  <div class="container padding-top d-flex flex-column justify-content-around w-100">
+   
+          <div style="width: 100%; padding-bottom: 20px; display: flex;">
 
-        <div style="width: 100%; padding-bottom: 20px;">
+            <div id="digitaleForm">
 
+                <div id="digitaleTitleForm">
+                  <%= form_with model: @node, method: 'post', authenticity_token: true, class: "nodeform" do |f| %>
+                    <%= hidden_field_tag(:type, "Tale") %>
+                    <%= label_tag(:content, "t i t l e", class: 'gg-label') %>
+                    <%= text_field_tag(:content, "e. g. t a l e s | o f | a t l a n t i s", class: "form-text-input w-50 text-center text-muted") %>
+                    <%= label_tag(:description, "d e s c r i p t i o n", class: 'gg-label') %>
+                    <div class="gg-textarea">
+                      <%= text_area_tag(:description, "In the depths of a planet called Atlantis entirely covered with water survives a tribe of a few hundred people.", size: "48x5", class: "form-textarea-input text-center text-muted") %>
+                    </div>
+                    <%= submit_tag('c r e a t e', class: "btn gg-button btn-lg btn-block") %>
+                  <% end %>
+                </div>
 
-          <div id="digitaleForm">
-
-            <style>
-              .nodeform {
-                display: flex; 
-                flex-direction: column; 
-                justify-content: space-around; 
-                align-items: center; height: 70vh;
-              }
-
-              .form-text-input {
-                border: 0px; 
-                background-color: transparent; 
-                color: white;
-              }
-
-              .form-textarea-input {
-                border: 0px; 
-                background-color: transparent; 
-                color: white; height: 125px; 
-                overflow-x: hidden;
-              }
-            </style>
-
-              <div id="digitaleTitleForm">
-                <%= form_with model: @node, method: 'post', authenticity_token: true, class: "nodeform" do |f| %>
-                  <%= hidden_field_tag(:type, "Tale") %>
-                  <%= label_tag(:content, "t i t l e") %>
-                  <%= text_field_tag(:content, "e. g. t a l e s | o f | a t l a n t i s", class: "form-text-input w-50 text-center text-muted") %>
-                  <%= label_tag(:description, "d e s c r i p t i o n") %>
-                  <%= text_area_tag(:description, "In the depths of a planet called Atlantis entirely covered with water survives a tribe of a few hundred people.", size: "24x6", class: "form-textarea-input w-50 text-center text-muted") %>
-                  <%= submit_tag('c r e a t e', class: "btn btn-outline-secondary btn-lg btn-block") %>
-                <% end %>
-              </div>
-
-          </div>
-
-          <div id="what_if" class="tab-pane text-center fade">
-            <p>w h a t | i f</p>
-            <form action="<%= nodes_path %>" method="post" id="nodeform" style="display: flex; flex-direction: column; justify-content: space-around; align-items: center; height: 70vh;">
-              <input type="hidden" name="type" value="WhatIf">
-              <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-
-              <div style="display: flex; flex-direction: row; justify-content: center; align_items : center;">
-                
-                <div class="text-center d-flex flex-column justify-content-around">
-
-                  <input name="new_subject_setting_content" placeholder="e.g. New Zealand..." style="border: 0px; background-color: transparent; color: white;" class="text-center">
-                
-              </div>
-
-              <div class="text-center">
-                
-              <input name="new_verb_setting_content" style="border: 0px; background-color: transparent; color: white;" class="text-center" placeholder="...had been...">
             </div>
-
-            <div class="text-center d-flex flex-column justify-content-around">
-              <input name="new_object_setting_content" style="border: 0px; background-color: transparent; color: white;" class="text-center" placeholder="...a planet?">
-            </div>
-          </div>
-
-          <label for="description">d e s c r i p t i o n</label>
-
-          <textarea style="border: 0px; background-color: transparent; color: white; height: 125px; overflow-x: hidden;" class="w-50 text-center text-muted " name="description" placeholder="Aoteraoa is an exoplanet from the Oceania Galaxy. Maori boats surf along numerous red comets with spaceships sculpted in wood. When two strange pale newcomers arrive in a damaged spaceship made of metal, they ask for hospitality and pretend to be the last of their kind. Yet, there might be more than survival that motives their deeds..." form="nodeform"></textarea>
-
-          <p><input type="submit" class="btn btn-outline-secondary btn-lg btn-block" value="c r e a t e"></p>
-        </form>
-      </div>
-
-          <div id="m_statement" class="tab-pane fade text-center">
             
-
-            <p>m i g h t | | | m i g h t | n o t</p>
-
-
-
-            <form action="<%= nodes_path %>" method="post" id="nodeform" style="display: flex; flex-direction: column; justify-content: space-around; align-items: center; height: 70vh;">
-              <input type="hidden" name="type" value="MStatement">
-              <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-
-              <div style="display: flex; flex-direction: row; justify-content: center; align_items : center;">
-                
-                <div class="text-center">
-
-                  <input name="new_subject_setting_content" style="border: 0px; background-color: transparent; color: white; width: 25vw;" class="text-center" placeholder="e.g. a mother...">
-
-              </div>
-
-              <div class="text-center">
-              
-              <input name="new_verb_setting_content" class="text-center" style="border: 0px; background-color: transparent; color: white; width: 25vw;" placeholder="...have prevented from deportation...">
-            </div>
-
-            <div class="text-center">
-
-              <input name="new_object_setting_content" style="border: 0px; background-color: transparent; color: white; width: 25vw;" class="text-center" placeholder="...her son">
-              
-            </div>
           </div>
-
-          <label for="description">d e s c r i p t i o n</label>
-
-          <textarea style="border: 0px; background-color: transparent; color: white; height: 125px; overflow-x: hidden;" class="w-50 text-center text-muted " name="description" placeholder="Salome Imperator is the wrongful majesty of Primary World who asked for all mothers of Cities of Swen to abandon their first born to Imperial Camp." form="nodeform"></textarea>
-
-
-          <p><input type="submit" class="btn btn-outline-secondary btn-lg btn-block" value="c r e a t e"></p>
-        </form>
-      </div>
-
-
-
-          <div id="setting" class="tab-pane fade text-center">
-            <form action="<%= nodes_path %>" method="post" id="nodeform" style="display: flex; flex-direction: column; justify-content: space-around; align-items: center; height: 70vh;">
-              <input type="hidden" name="type" value="Setting">              
-              <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-              <label for="content">full name</label>
-              <input class="text-center" type="text" name="content" style="border: 0px; background-color: transparent; color: white; width: 33vw;" placeholder="e. g. Barbara Sand">
-
-              <label for="description">d e s c r i p t i o n</label>
-
-              <textarea style="border: 0px; background-color: transparent; color: white; height: 125px; overflow-x: hidden;" class="w-50 text-center text-muted " name="description" placeholder="Barbara Sand is a new cheerleader in the sweet town of Cotton Hills. When she mysteriously disappears, Agent Bobby Johnson starts to investigate. Rumors are his boyfriend, light-minded monster of a quarterback Leilani Greed, lost it when he understood she was transgender." form="nodeform"></textarea>
-              
-              <p><input type="submit" class="btn btn-outline-secondary btn-lg btn-block" value="c r e a t e"></p>
-            </form>
-          </div>
-
-
-
-          <div id="digit" class="tab-pane fade text-center">
-            <form action="<%= nodes_path %>" method="post" id="nodeform" style="display: flex; flex-direction: column; justify-content: space-around; align-items: center; height: 70vh;">
-              <input type="hidden" name="type" value="Digit">                
-              <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-
-              <label for="content">t i t l e</label>
-
-              <input style="border: 0px; background-color: transparent; color: white;" class="w-50 text-center" type="text" name="content" placeholder="e.g. weird LOTR meme">
-
-              <label for="description">d e s c r i p t i o n</label>
-
-              <textarea style="border: 0px; background-color: transparent; color: white; height: 125px; overflow-x: hidden;" class="w-50 text-center text-muted " name="description" placeholder="Memes are the new poem and believe me I know the weirdest ones." form="nodeform"></textarea>
-              
-              <p><input type="submit" class="btn btn-outline-secondary btn-lg btn-block" value="u p l o a d"></p>
-
-            </form>
-          </div>
-        </div>
+  </div>
 </div>

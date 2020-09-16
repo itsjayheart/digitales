@@ -33,6 +33,7 @@
           </fieldset>
         </div>
 
+CONFLIT ci dessous
         <div class="field h5">
           <%= f.label :email %><br />
           <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
@@ -44,6 +45,16 @@
           <%= f.label :current_password %><br />
           <%= f.password_field :current_password, autocomplete: "current-password" %>
         </div>
+CONFLIT
+      <div>
+        <%= f.label :hexanyme %><br />
+        <%= f.text_field :hexanyme, autofocus: true %>
+      </div>
+
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <% end %>
+CONFLIT ci dessus
 
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
           <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>

@@ -3,7 +3,7 @@
       <%if @creatrix.avatar.attached?%>
         <%= image_tag @creatrix.avatar, alt: 'avatar', class: "img-fluid", id: "avatar-image" %>
       <%end%>
-      <h5><%= @creatrix.itself.email %></h5>
+      <h5><%= @creatrix.itself.hexanyme %></h5>
       <p-lead class="lead"></p-lead>    
       <% if @creatrix == current_creatrix %>
         <div id="creatrix-details d-flex">

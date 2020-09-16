@@ -1,69 +1,63 @@
-<div id="hero-background">
-  <div class="container padding-top center">
-    <h1> <div class="holy"> My details </div> </h1>
-      <div class="row">
-        <div class="col-12">
-          <hr class="my-6 my-md-8 border-white-300">
-        </div>
+<div class="bg-black">
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-md-4 float-lg-right">
+      <%if @creatrix.avatar.attached?%>
+        <%= image_tag @creatrix.avatar, alt: 'avatar', class: "img-fluid", id: "avatar-image" %>
+      <%end%>
+      <h5><%= @creatrix.itself.email %></h5>
+      <p-lead class="lead"></p-lead>    
+      <% if @creatrix == current_creatrix %>
+        <div id="creatrix-details d-flex">
+          <h3>My details: </h3>
+          <p><strong> Email address </strong>: <%= @creatrix.email %></p>
+          <%= link_to "e d i t", edit_creatrix_registration_path, class: 'btn btn-secondary' %>           
+        </div> 
+      <% end %>
+    </div>
 
-        <div class="col-12 col-md-4 float-lg-right">
-          <%if @creatrix.avatar.attached?%>
-            <%= image_tag @creatrix.avatar, alt: 'avatar', class: "img-fluid", id: "avatar-image" %>
-          <%end%>
-          <h5><%= @creatrix.itself.hexanyme %></h5>
-          <p-lead class="lead"></p-lead>    
-          <% if @creatrix == current_creatrix %>
-            <div id="creatrix-details d-flex">
-              <p><strong> Email address </strong>: <%= @creatrix.email %></p>
-              <%= link_to "e d i t", edit_creatrix_registration_path, class: 'btn btn-secondary' %>           
+    <div class='col-12 col-md-8 padding-creatrixes'>
+      <h3 class="text-center holy">m i c r o s e r v i c e . s</h3>
+        <%= render "microservices/new"%>
+        <h3 class="text-center holy padding-creatrixes">r e q u e s t . s</h3>
+
+        <div class="d-flex flex-wrap text-center holy padding-creatrixes">
+          <% @microservice_requests.each do |microservice_request| %>
+            <div class='card m-2' style='width: 15em'>
+              <div class='card-header'>
+                <%= render "microservices/media_display", microservice: microservice_request.microservice %>
+              </div>
+              <div class='card-body'>
+                <ul>
+                  <li><%=microservice_request.achievement.achievement_category.name %></li>
+                  <li><%=microservice_request.microservice.microservice_category.name %></li>
+                  <li>price : <%= microservice_request.microservice.price %> $</li>
+                </ul>
+              </div>
+              <div class='card-footer' id='microservice_request#<%=microservice_request.id%>'>
+                <%= render "microservice_requests/form", microservice_request: microservice_request%>
+              </div>
             </div>
-          <% end %>
-        </div>
-
-        <div class='col-12 col-md-8 padding-creatrixes'>
-          <h3 class="text-center holy">m i c r o s e r v i c e . s</h3>
-            <%= render "microservices/new"%>
-            <h3 class="text-center holy padding-creatrixes">r e q u e s t . s</h3>
-
-            <div class="d-flex flex-wrap text-center holy padding-creatrixes">
-              <% @microservice_requests.each do |microservice_request| %>
-                <div class='card m-2' style='width: 15em'>
-                  <div class='card-header'>
-                    <%= render "microservices/media_display", microservice: microservice_request.microservice %>
-                  </div>
-                  <div class='card-body'>
-                    <ul>
-                      <li><%=microservice_request.achievement.achievement_category.name %></li>
-                      <li><%=microservice_request.microservice.microservice_category.name %></li>
-                      <li>price : <%= microservice_request.microservice.price %> $</li>
-                    </ul>
-                  </div>
-                  <div class='card-footer' id='microservice_request#<%=microservice_request.id%>'>
-                    <%= render "microservice_requests/form", microservice_request: microservice_request%>
-                  </div>
-                </div>
-              <%end%>
-          </div>
-          <h3 class="text-center holy padding-creatrixes">n o d e . s</h3>
-          <% @creatrix.nodes.each do |node| %>
-            <h3><%= link_to node.title, node_path(node.id)  %></h3>
-            <h6><%= node.achievements.count.to_s %> achievements out of 21</h6>
-            <p><%= node.content %></p>
-            <p></p>
-          <% end %>
-          <h3 class="text-center holy padding-creatrixes">d o n a t i o n . s</h3>
-          <h4>Petite pasteque en fleurs</h4>
-          <p>Far far away, behind the word...</p>
-          <div><p><a class="btn btn-secondary mt-2" style="width:100%" href="https://www.google.com">Go to node</a></div>
-          <h4>Petite pasteque en fleurs</h4>
-          <p>Far far away, behind the word...</p>
-          <div><p><a class="btn btn-secondary mt-2" style="width:100%" href="https://www.google.com">Go to node</a></div>
-          <h4>Petite pasteque en fleurs</h4>
-          <p>Far far away, behind the word...</p>
-          <div><p><a class="btn btn-secondary mt-2" style="width:100%" href="https://www.google.com">Go to node</a></div>
-        </div>
+          <%end%>
       </div>
+      <h3 class="text-center holy padding-creatrixes">n o d e . s</h3>
+      <% @creatrix.nodes.each do |node| %>
+        <h3><%= link_to node.title, node_path(node.id)  %></h3>
+        <h6><%= node.achievements.count.to_s %> achievements out of 21</h6>
+        <p><%= node.content %></p>
+        <p></p>
+      <% end %>
+      <h3 class="text-center holy padding-creatrixes">d o n a t i o n . s</h3>
+      <h4>Petite pasteque en fleurs</h4>
+      <p>Far far away, behind the word...</p>
+      <div><p><a class="btn btn-secondary mt-2" style="width:100%" href="https://www.google.com">Go to node</a></div>
+      <h4>Petite pasteque en fleurs</h4>
+      <p>Far far away, behind the word...</p>
+      <div><p><a class="btn btn-secondary mt-2" style="width:100%" href="https://www.google.com">Go to node</a></div>
+      <h4>Petite pasteque en fleurs</h4>
+      <p>Far far away, behind the word...</p>
+      <div><p><a class="btn btn-secondary mt-2" style="width:100%" href="https://www.google.com">Go to node</a></div>
     </div>
   </div>
-  </div>
-  </div>
+</div>
+</div>

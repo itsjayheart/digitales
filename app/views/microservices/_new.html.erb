@@ -1,21 +1,22 @@
-<div id="accordion">
+<div id="accordion">    
   <% (@achievements.length).times do |i| %>        
-  <div class="card bg-white holy w-100 text-dark">
+  <div class="card">
     <div class="card-header" id="heading<%=i%>">
       <h5 class="mb-0">
-        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse<%=i%>" aria-expanded="true" aria-controls="collapse<%=i%>"><%=@achievements[i].name%></button>
+        <button class="btn btn-link" data-toggle="collapse" data-target="#collapse<%=i%>" aria-expanded="false" aria-controls="collapse<%=i%>"><%=@achievements[i].name%></button>
       </h5>
     </div>                
-    <div id="collapse<%=i%>" class="collapse" aria-labelledby="heading<%=i%>" data-parent="#accordion">
+    <div id="collapse<%=i%>" class="collapsed collapse" aria-labelledby="heading<%=i%>" data-parent="#accordion">
       <% @achievements[i].microservice_categories.each do |microservice_category| %>
-        <div class='card-body' id='microservice_category#<%=microservice_category.id%>'>
-        <% if current_creatrix.microservices.any? { |microservice| microservice.microservice_category == microservice_category } %> 
-          <% microservice_display = Microservice.where(creatrix: current_creatrix, microservice_category: microservice_category)[0]%>  
-          <%= render "microservices/created", microservice:  microservice_display %>
+        <div class='card-body bg-white' id='microservice_category#<%=microservice_category.id%>'>
+        <% if current_creatrix.microservices.any? { |microservice| microservice.microservice_category == microservice_category } %>   
+          <%= render "microservices/created", microservice: Microservice.where(creatrix: current_creatrix, microservice_category: microservice_category)[0] %>
         <% else %>
           <p><%= microservice_category.name %></p>
           <p><%= microservice_category.description %></p>
           <%= form_with model: @microservice, id: "form#{@x}", url: microservice_category_microservices_path(microservice_category.id) do |f| %>
+            <%= f.label :price %> :
+            <%= f.text_field :price, style: "width: 3em"%> $
             <% case microservice_category.media_type%>
             <% when "image"%>
               <%= f.label :picture, "image" %> :
@@ -38,12 +39,10 @@
                   theme: 'snow'
                 });
                 form.onsubmit = function() {
-                  document.querySelector('#post-quill<%=@x%>').value = document.querySelector('#form0').querySelector(".ql-editor").innerHTML
+                  document.querySelector('#post-quill<%=@x%>').value = document.querySelector('#form<%=@x%>').children[7].children[0].innerHTML;
                 };
               </script>  
             <%end%>
-            <br><%= f.label :price %> :
-            <%= f.text_field :price, style: "width: 3em"%> $ <br>
             <%= f.submit "ADD MICROSERVICE" , class: "ml-3 btn btn-primary" %>
           <%end%>
           <%@x += 1%>

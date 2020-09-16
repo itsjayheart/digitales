@@ -25,6 +25,7 @@ Rails.application.routes.draw do
       resources :microservice_requests, only: [:create]
     end
   end
+  resources :microservices, only: [:destroy]
 
   resources :digitales, only: [:show]
 

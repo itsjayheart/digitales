@@ -5,7 +5,6 @@ class CreatrixesController < ApplicationController
 	@x = 0 #microservice count variable for quill plug in ids
 	@y = 0 #microservice_request count variable for quill plug in ids
 
-
   	if params['id'] == nil
   		@creatrix = current_creatrix
   	else
@@ -22,7 +21,6 @@ class CreatrixesController < ApplicationController
 	puts "%" * 100
 	puts @microservice_requests
 	puts "%" * 100
-
 
 	@achievements = AchievementCategory.all
   	@microservice = Microservice.new

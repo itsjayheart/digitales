@@ -1,0 +1,37 @@
+<div class='sticky'>
+  <nav id="gg-navbar" class="navbar navbar-expand-lg d-flex justify-content-between navbar-inverse navbar-fixed-top" data-spy="affix">
+   <a href="/"><%= image_tag "text14.png", class: "mr-2 img-fluid ml-3"%></a> 
+  <a class="navbar-toggler" data-toggle="collapse" data-target=".navbar-collapse">☰</a>
+  <div class=navbar-collapse collapse">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item ml-4"> <%= link_to "Add a node", new_node_path, class: "nav-link" %> </li>
+    </ul>
+  
+    <ul class="ml-auto navbar-nav">
+    <% if creatrix_signed_in? %>
+        <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle mr-5" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="gg-secondary"><i class="fas fa-user-astronaut"></i></div>
+                      </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        
+          <%= link_to "Account", creatrix_path(current_creatrix.id), class: "dropdown-item", style: "color: white;" %>
+        <%= link_to "Sign out", destroy_creatrix_session_path, method: :delete, class: "dropdown-item", style: "color: white;" %>
+        </div>
+
+      <% else %>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle mr-5" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-user-astronaut"></i>
+          </a>
+          
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <%= link_to "Connexion ", new_creatrix_session_path, class: "dropdown-item" %>
+            <%= link_to "Inscription", new_creatrix_registration_path, class: "dropdown-item" %>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  </nav>
+</div>

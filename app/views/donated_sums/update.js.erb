@@ -1,0 +1,8 @@
+console.log("<%=@errors%>")
+if("<%=@errors%>"){
+  document.getElementById("sum-alert").innerHTML = "<p class='m-2 alert alert-danger'><%=@errors%></p>"
+}else{
+  document.getElementById("sum-alert").innerHTML = ""  
+  document.getElementById("pay-method").innerHTML = "<%= j render "donated_sums/pay_method", node: @node, sum: @sum, donated_sum: @donated_sum%>"
+}
+  

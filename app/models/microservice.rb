@@ -1,8 +1,8 @@
 class Microservice < ApplicationRecord
-
+    after_create :ceil_price
     validates :price,
     presence: true, 
-    numericality: { greater_than_or_equal_to: 0.99e2, less_than_or_equal_to: 0.501e3 }
+    numericality: { greater_than_or_equal_to: 1, less_than_or_equal_to: 5 }
 
     has_one_attached :picture
 
@@ -11,5 +11,9 @@ class Microservice < ApplicationRecord
 
     has_many :microservice_requests
     has_many :achievements, through: :microservice_requests
+
+    def ceil_price
+        self.update(price: self.price.ceil(2))
+    end
 
 end

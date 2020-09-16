@@ -1,10 +1,12 @@
 <div id="<%= form_dom_id %>">
   <%= form_with(url: "/m_statements", method: 'post', authenticity_token: true, class: "nodeform") do |f| %>
     <%= hidden_field_tag(:digitale_id, digitale.id) %>
-    <%= label_tag(:content, "m i g h t | | | m i g h t | n o t") %>
-    <%= text_field_tag(:content, "the Abyssal Storm have been triggered by the Androgynous", class: "form-text-input w-50 text-center text-muted") %>
-     <%= label_tag(:description, "d e s c r i p t i o n") %>
-     <%= text_area_tag(:description, "In their quest to end all the worlds for good, the Androgynous has found their way to infinite power of the Abyssal Storm. It does mean the end for Primary World, and Secondary World, and Tertiary World.", size: "24x6", class: "form-textarea-input w-50 text-center text-muted") %>
-      <%= submit_tag('c r e a t e', class: "btn btn-outline-secondary btn-lg btn-block") %>
+    <%= label_tag(:content, "m i g h t | | | m i g h t | n o t", class: "gg-label") %>
+    <%= text_field_tag(:content, "the Abyssal Storm have been triggered by the Androgynous", class: "form-text-input w-100 text-center text-muted") %>
+     <%= label_tag(:description, "d e s c r i p t i o n", class: "gg-label") %>
+     <div class="gg-textarea">
+     	<%= text_area_tag(:description, "In their quest to end all the worlds for good, the Androgynous has found their way to infinite power of the Abyssal Storm. It does mean the end for Primary World, and Secondary World, and Tertiary World.", size: "48x5", class: "form-textarea-input text-center text-muted") %>
+     </div>
+      <%= submit_tag('c r e a t e', class: "btn gg-button btn-lg btn-block") %>
     <% end %>
 </div>

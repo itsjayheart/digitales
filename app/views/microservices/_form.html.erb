@@ -1,8 +1,6 @@
-<p><%= microservice_category.name %></p>
+<h4><%= microservice_category.name %></h4>
 <p><%= microservice_category.description %></p>
 <%= form_with model: microservice, id: "form#{microservice_category.id}", url: microservice_category_microservices_path(microservice_category.id) do |f| %>
-  <%= f.label :price %> :
-  <%= f.text_field :price, style: "width: 3em"%> $
   <% case microservice_category.media_type%>
   <% when "image"%>
     <%= f.label :picture, "image" %> :
@@ -29,6 +27,8 @@
       };
     </script>  
   <%end%>
+  <%= f.label :price %> :
+  <%= f.text_field :price, style: "width: 3em"%> $
   <div class='row m-1'>
     <%= f.submit "ADD MICROSERVICE", class: "ml-3 btn btn-primary" %>
     <div id='microservice_alert#<%=microservice_category.id%>'></div>

@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2020_09_14_184345) do
   create_table "achievements", force: :cascade do |t|
     t.bigint "achievement_category_id"
     t.bigint "node_id"
-    t.boolean "achieved?"
+    t.boolean "achieved?", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["achievement_category_id"], name: "index_achievements_on_achievement_category_id"
@@ -83,7 +83,7 @@ ActiveRecord::Schema.define(version: 2020_09_14_184345) do
   end
 
   create_table "donated_sums", force: :cascade do |t|
-    t.decimal "sum"
+    t.float "sum"
     t.bigint "fundraiser_id"
     t.bigint "creatrix_id"
     t.datetime "created_at", null: false
@@ -94,13 +94,13 @@ ActiveRecord::Schema.define(version: 2020_09_14_184345) do
 
   create_table "fundraisers", force: :cascade do |t|
     t.bigint "creatrix_id"
-    t.bigint "microservice_achievement_relation_id"
+    t.bigint "microservice_request_id"
     t.boolean "funded?"
-    t.decimal "goal"
+    t.float "goal"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["creatrix_id"], name: "index_fundraisers_on_creatrix_id"
-    t.index ["microservice_achievement_relation_id"], name: "index_fundraisers_on_microservice_achievement_relation_id"
+    t.index ["microservice_request_id"], name: "index_fundraisers_on_microservice_request_id"
   end
 
   create_table "m_statements", force: :cascade do |t|
@@ -125,14 +125,19 @@ ActiveRecord::Schema.define(version: 2020_09_14_184345) do
   create_table "microservice_requests", force: :cascade do |t|
     t.bigint "achievement_id"
     t.bigint "microservice_id"
+    t.boolean "accepted?", default: false
+    t.boolean "delivered?", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "youtube"
+    t.text "soundcloude"
+    t.text "quill"
     t.index ["achievement_id"], name: "index_microservice_requests_on_achievement_id"
     t.index ["microservice_id"], name: "index_microservice_requests_on_microservice_id"
   end
 
   create_table "microservices", force: :cascade do |t|
-    t.decimal "price"
+    t.float "price"
     t.bigint "microservice_category_id"
     t.bigint "creatrix_id"
     t.datetime "created_at", null: false
@@ -156,12 +161,15 @@ ActiveRecord::Schema.define(version: 2020_09_14_184345) do
   create_table "nodes", force: :cascade do |t|
     t.string "title"
     t.text "content"
+    t.boolean "in_production?", default: false
     t.bigint "creatrix_id"
     t.string "nodeable_type"
     t.bigint "nodeable_id"
+    t.bigint "digitale_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["creatrix_id"], name: "index_nodes_on_creatrix_id"
+    t.index ["digitale_id"], name: "index_nodes_on_digitale_id"
     t.index ["nodeable_type", "nodeable_id"], name: "index_nodes_on_nodeable_type_and_nodeable_id"
   end
 

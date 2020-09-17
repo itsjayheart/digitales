@@ -1,4 +1,4 @@
-#digitaleForm {
+.gg-digitale-card {
     width: 750px;
     padding: 30px;
     border: solid 1px white;
@@ -37,7 +37,7 @@
     background-color: transparent;
 }
 
-.gg-label {
+.gg-title, .gg-label {
     text-shadow: 0px 0px 6px white;
     color: white;
 }

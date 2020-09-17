@@ -1,12 +1,22 @@
 
-<div id='stars' style=''></div>
-<div id='stars2' style=''></div>
-<div id='stars3' style=''></div>
-<div class="w-100 text-center" style='margin-top:300px'>
-  <h1 class='drift'>DIVE IN</h1>
-</div>
-<div class="bg-black d-flex flex-wrap justify-content-around"id='node_container'>
-  <% 36.times do %>
-    <%=render "nodes/card"%>
-  <% end %>
+  
+<div>
+
+  <div id='stars' style=''></div>
+  <div id='stars2' style=''></div>
+  <div id='stars3' style=''></div>  
+  <div class="w-100 text-center" style='margin-top:300px'>
+    <h1 class='drift'>DIVE IN</h1>
+    <div id="node-sticky">
+        <%= link_to new_node_path, :action => 'go' do %>
+        <div class="row m-auto"><i class="fas fa-star fa-2x"></i>
+        <div class="add-a-node m-auto"> <p> ADD A NODE </p> </div>
+        <%end%>
+    </div>
+  </div>
+  <div class="bg-black d-flex flex-wrap justify-content-around"id='node_container'>
+    <% 36.times do %>
+      <%=render "nodes/card"%>
+    <% end %>
+  </div>
 </div>

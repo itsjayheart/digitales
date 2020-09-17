@@ -39,12 +39,12 @@
 
   <div class="col-sm-4 col-xs-1 card d-flex flex-column justify-content-around">
     <div class='d-flex flex-column justify-content-around text-center m-5'>
-      
+      <p><%= @node.title %></p>
       <% if @fundraiser && !@fundraiser.funded?%>
         <p><%= @node.current_microservice_category.name %></p>
-       <p><b>$ <%= @fundraiser.current_fundings%></b> raised of $ <%= @fundraiser.goal%> goal</p>
+       <p><b>$ <%= @fundraiser.current_fundings %></b> raised of $ <%= @fundraiser.goal%> goal</p>
         <div class="progress">
-          <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="<%= @per_cent_status%>" aria-valuemin="0" aria-valuemax="100" style="width: <%= @per_cent_status%>%">
+          <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="<%= @per_cent_status %>" aria-valuemin="0" aria-valuemax="100" style="width: <%= @per_cent_status%>%">
           </div>
         </div>
         <b><%= @per_cent_status.ceil %> %</b>

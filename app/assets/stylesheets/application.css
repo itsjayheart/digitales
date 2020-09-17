@@ -20,8 +20,8 @@
  *= require profile_page
  *= require sign_up
  *= require forgotten_password
- *= require digitale-creation-form
  *= require gg_main
+ *= require digitale-creation-form
  *= require node_index
  *= require stars
  */

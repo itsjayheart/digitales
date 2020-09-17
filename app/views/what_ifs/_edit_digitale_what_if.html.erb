@@ -1,4 +1,5 @@
 <div id="editDigitaleWhatIfForm">
+  <h6 class='gg-title mt-5 mb-5 ml-2'>( ...then make a 'what if ...' postulate )</h6>
   <%= form_with model: @what_if, method: 'put', authenticity_token: true, class: "nodeform" do |f| %>
     <%= hidden_field_tag(:digitale, digitale) %>
     <%= label_tag(:content, "w h a t | i f", class: "gg-label") %>

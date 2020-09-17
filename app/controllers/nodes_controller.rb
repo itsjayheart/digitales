@@ -1,4 +1,5 @@
 class NodesController < ApplicationController
+    layout "digitales", only: [:new]
     layout "index", only: [:index]
     before_action :authenticate_creatrix, only: [:index, :show, :new, :create]
     

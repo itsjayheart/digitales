@@ -3,8 +3,9 @@ class NodesController < ApplicationController
     before_action :authenticate_creatrix, only: [:index, :show, :new, :create]
     
     def index
-      @nodes = Node.all
       @digitales = Digitale.all
+      puts @digitales.length
+      puts "ù" * 60
     end
 
     def show

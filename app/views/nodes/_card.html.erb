@@ -1,9 +1,9 @@
-<%i=rand(1..10000000000)%>
+<%i=digitale.id%>
 <div class="wait gg-pool-card-<%=["primary","secondary","tertiary"].sample%>" style="height: 600px;"> 
   <a class="panel-title px-4 text-center" data-toggle="collapse" data-target="#collapse<%=i%>" href="tollapse" role="button" aria-expanded="false" aria-controls="collapseExample">
-  <h5>  <%= digitale.title %>  </h5> </a>
+  <h5>  <%= digitale.title if digitale%>  </h5> </a>
   <div class="collapse px-4 text-center" id="collapse<%=i%>">
-    <div> <p><%= digitale.description %></p> </div>
+    <div> <p><%= digitale.description if digitale%></p> </div>
   </div>
   <div class="fas fa-hand-holding-usd"><%= link_to "Creep in", digitale_path(digitale.id) %></div>
 </div>

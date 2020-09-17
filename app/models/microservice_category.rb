@@ -4,4 +4,8 @@ class MicroserviceCategory < ApplicationRecord
 
 	belongs_to :achievement_category
 
+	def status(node)
+		node
+	end
+
 end

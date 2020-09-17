@@ -15,8 +15,8 @@
     </div>
   </div>
   <div class="bg-black d-flex flex-wrap justify-content-around"id='node_container'>
-    <% 12.times do %>
-      <%= render partial: "card", locals: { digitale: digitales.sample } %>
+    <% @digitales.each do |digitale|%>
+      <%= render partial: "card", locals: { digitale: digitale } %>
     <% end %>
   </div>
 </div>

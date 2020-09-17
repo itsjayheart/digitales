@@ -3,18 +3,18 @@ class DigitalesController < ApplicationController
   	@digitale = Digitale.find(params['id'])
 
   	@digitale.m_statements.sort { |a, b|  a.id <=> b.id }.each do |m_statement|
-  		if m_statement.non_achieved
-  			if m_statement.in_production? == false
-  				m_statement.update(in_production?: true)
-  			    @current_node = m_statement
-  			    break
-  			else 
-  				@current_node = m_statement
-  				break
-  			end
-  		end
-  	end
-
+      if m_statement.non_achieved
+        if m_statement.in_production? == false
+          m_statement.update(in_production?: true)
+            @current_node = m_statement
+            break
+        else 
+          @current_node = m_statement
+          break
+        end
+      end
+    end
+    
   	p "$" * 30 + @current_node.to_s + "$" * 30
 
   	@donated_sum = DonatedSum.new

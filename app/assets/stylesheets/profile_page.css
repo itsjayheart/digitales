@@ -1,4 +1,4 @@
-/* code below belongs to profile_edit*/
+/* code below belongs to profile_edit */
 
 #testouille5 {
     display: flex;
@@ -6,14 +6,14 @@
 }
 
 /* end */
+
 div.sticky {
     position: -webkit-sticky;
     position: sticky;
-    top: 150px;
+    top: 100px;
     left:20px;
     z-index: 0;
 }
-
 
 #button-profile {
     margin: 0 20px 0 20px;
@@ -36,7 +36,6 @@ div.sticky {
 }
 
 #creatrix-details {
-    
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -56,7 +55,7 @@ div.sticky {
     -moz-box-shadow: -1px 10px 77px -2px rgba(0,0,0,0.75);
     box-shadow: -1px 10px 77px -2px rgba(0,0,0,0.75);
     margin-bottom: 20px;
-  }
+}
 
 #in-page-links {
     display: flex;
@@ -72,12 +71,12 @@ div.sticky {
 #microservices {
     padding: 150px 0 150px 0;
     background-color: rgb(0, 0, 0);
-    }
+}
 
 #fundraising-block {
     padding: 150px 0 150px 0;
     background-color: rgb(0, 0, 0);
-    }
+}
 
 #box-drop-shadow {
     background-color: rgba(255, 255, 255, 0.8);
@@ -99,9 +98,23 @@ div.sticky {
 #my-creations-block {
     padding: 150px 0 150px 0;
     background-color: rgb(0, 0, 0);
-    }
+}
 
 #my-participations-block {
     padding: 150px 0 150px 0;
     background-color: rgb(59, 59, 59);
-    }
+}
+
+.collapse #avatar {
+    margin-top: 0px;
+    margin-bottom: 10px;
+  }
+  
+  hr.solid {
+    border-top: 1px solid #ffffff;
+  }
+  
+  .btn.btn-primary.mt-3.holy {
+    background-color: rgba(255, 255, 255, 0);
+    border-color: white;
+  }

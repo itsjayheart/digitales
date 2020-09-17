@@ -4,57 +4,27 @@
         <%= render "devise/shared/error_messages", resource: resource %>
 
         <br />
-
-        <div class="form-group">
-            <fieldset disabled="" data-children-count="1">
-            <label class="control-label" for="disabledInput">Email</label>
-            <input class="form-control" id="disabledInput" type="text" placeholder="Disabled input here..." disabled="" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGP6zwAAAgcBApocMXEAAAAASUVORK5CYII=&quot;);">
-          </fieldset>
-        </div>
-
-        <div class="form-group">
-            <fieldset disabled="" data-children-count="1">
-            <label class="control-label" for="disabledInput">Current Password</label>
-            <input class="form-control" id="disabledInput" type="text" placeholder="Disabled input here..." disabled="" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGP6zwAAAgcBApocMXEAAAAASUVORK5CYII=&quot;);">
-          </fieldset>
-        </div>
-
-        <div class="form-group">
-            <fieldset disabled="" data-children-count="1">
-            <label class="control-label" for="disabledInput">New Password</label>
-            <input class="form-control" id="disabledInput" type="text" placeholder="Disabled input here..." disabled="" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGP6zwAAAgcBApocMXEAAAAASUVORK5CYII=&quot;);">
-          </fieldset>
-        </div>
-
-        <div class="form-group">
-            <fieldset disabled="" data-children-count="1">
-            <label class="control-label" for="disabledInput">Password Confirmation</label>
-            <input class="form-control" id="disabledInput" type="text" placeholder="Disabled input here..." disabled="" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGP6zwAAAgcBApocMXEAAAAASUVORK5CYII=&quot;);">
-          </fieldset>
-        </div>
-
-CONFLIT ci dessous
+        
         <div class="field h5">
           <%= f.label :email %><br />
-          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-text-input w-50 text-center" %>
         </div>
 
         <br />
 
         <div class="field h5">
           <%= f.label :current_password %><br />
-          <%= f.password_field :current_password, autocomplete: "current-password" %>
+          <%= f.password_field :current_password, autocomplete: "current-password", class: "form-text-input w-50 text-center text-muted" %>
         </div>
-CONFLIT
-      <div>
-        <%= f.label :hexanyme %><br />
-        <%= f.text_field :hexanyme, autofocus: true %>
-      </div>
 
-      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-      <% end %>
-CONFLIT ci dessus
+        <div class="field h5">
+          <%= f.label :hexanyme %><br />
+          <%= f.text_field :hexanyme, autofocus: true, class: "form-text-input w-50 text-center text-muted"%>
+        </div>
+
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+        <% end %>
 
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
           <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
@@ -64,7 +34,7 @@ CONFLIT ci dessus
 
         <div class="field h5">
           <%= f.label :password, "New password" %><br />
-          <%= f.password_field :password, autocomplete: "new-password" %>
+          <%= f.password_field :password, autocomplete: "new-password", class: "form-text-input w-50 text-center text-muted" %>
           <% if @minimum_password_length %>
             <br />
             
@@ -76,23 +46,28 @@ CONFLIT ci dessus
 
         <div class="field h5">
           <%= f.label :password_confirmation %><br />
-          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-text-input w-50 text-center text-muted" %>
         </div>
 
-          <br>
+          <br />
+          <br />
 
         <div class="actions">
-          <%= f.submit "Update" %>
+          <%= f.submit "Update", class: "btn btn-lg gg-button w-50"%>
         </div>
         <br>
       <% end %>
     <br>
     <br>
-      <div class= holy><h3>Cancel my account</h3></div>
+      <div class="holy"><h2>Cancel my account</h2></div>
 
-      <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+      <br />
+
+      <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete,  class: "btn btn-lg gg-button w-50" %></p>
 
       <%= link_to "Back", :back %>
+
+  </div>
 
   </div>
 </div>

@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+
+
 <html class="no-js">
   <head>
     <title>Digitales</title>
@@ -10,20 +12,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Gotu&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/6085f87352.js" crossorigin="anonymous"></script>
 
-    <!--FROM FIRST STATICS INDEX
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>swag</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="mansory_grid" type="text/css" href="mansory_grid.css">
-    FROM FIRST STATICS INDEX-->
-
     <%= stylesheet_link_tag 'application', media: 'all' %>
 
   </head>
 
-  <body>
+  <body id="root_body">
   
     <%= render "layouts/header"%>
     <%= render "layouts/flash"%>
@@ -32,9 +25,6 @@
     <%= yield %>
     </div>
 
-    <!--<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>-->
   </body>
   <%= javascript_include_tag 'application' %>
 </html>

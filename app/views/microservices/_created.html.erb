@@ -1,4 +1,4 @@
-<div class='d-flex flex-wrap'>
+<div class='d-flex flex-column'>
   <div>
     <p><%= microservice.microservice_category.name %></p>
     <p><%= microservice.microservice_category.description %></p>
@@ -6,5 +6,6 @@
   </div>
   <div>
     <%= render "microservices/media_display", microservice: microservice %>
+    <%= link_to "DELETE MICROSERVICE", microservice_path(microservice.id), method: "delete", class: "m-1 btn btn-secondary", remote: true %> 
   </div>
 </div>

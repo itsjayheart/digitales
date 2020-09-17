@@ -1,10 +1,14 @@
      <% case microservice.microservice_category.media_type%>
      <% when "image"%>
-       <%= image_tag microservice.picture, alt: 'picture', style: "height: 5em", class: "ml-5 border rounded"%>
+      <%= image_tag microservice.picture, alt: 'picture', class: "w-100 border rounded"%>
      <% when "video"%>
       <%=microservice.youtube.html_safe %>
      <% when "sound"%>
       <%= microservice.soundcloude.html_safe  %>
      <% when "text"%>
-      <%= microservice.quill.html_safe %>
+      <div class='card'>
+        <div class='card-body'>
+          <%= microservice.quill.html_safe %>
+        </div>
+      </div>
      <%end%>

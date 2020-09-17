@@ -1,115 +1,12 @@
-<!--
-<script src="https://kit.fontawesome.com/6085f87352.js" crossorigin="anonymous"></script>
 
-<section class="wrapper" id="hero-background">
-    <div class="center-title">
-        <h1>Dive <br> in </h1>
-    </div>
-
-    <div id="stars"></div>
-    <div id="stars2"></div>
-    <div id="stars3"></div>
-
-  <div class="masonry-flex" id="hero-background">
-    <div class="masonry-grid">
-    <% @nodes.each do |node| %>
-      <%= link_to node_path(node.id), class: "text-decoration-none text-reset", :remote => true do %>
-        <div id="masonry-card" class="<%= node.nodeable_type %> card mb-2">
-          <div id="vertical-flex">
-            <div id="masonry-card-title" class="panel panel-default">
-            <a class="panel-title" data-toggle="collapse" data-target="#collapse<%= node.id %>" href="tollapse" role="button" aria-expanded="false" aria-controls="collapseExample">
-            <h5> <%= node.title %> </h5> </a>
-            </div>
-              <div class= nodeable_type_icon>
-              <% case node.nodeable_type %>
-                <% when "WhatIf" %>
-                  <div> <i class="fas fa-question vertical-flex"></i> </div>
-                <% when "Tale" %>
-                  <div> <i class="fas fa-atlas"></i> </div>
-                <% when "Setting" %>
-                  <div> <i class="fas fa-cogs"></i> </div>
-                <% when "MStatement" %>
-                  <div> <i class="fas fa-cogs"></i> </div>
-                <% when "Digit" %>
-                  <div> <i class="fas fa-cogs"></i> </div>
-              <% end %>
-              </div>
-          </div>
-            <div class="collapse" id="collapse<%= node.id %>">
-              <div> <p><%= node.content %></p> </div>
-            </div>
-            <div class="btn"> <%= link_to "Creep in", node_path(node.id)%> </div>
-        </div>
-      <%end%>
-    <% end %>
-    </div>
-
-    <div class="sticky">
-        <%= link_to new_node_path, :action => 'go' do %>
-        <div class="row m-auto"><i class="fas fa-plus-circle fa-2x"></i>
-        <div class="add-a-node m-auto"> <p> ADD A NODE </p> </div>
-        <%end%>
-    </div>
-  </div>
-</section>
--->
-
-<script src="https://kit.fontawesome.com/6085f87352.js" crossorigin="anonymous"></script>
-
-<div class="stars-body">
-      <div id='stars' style=''></div>
-      <div id='stars2' style=''></div>
-      <div id='stars3' style=''></div>
-
-    <div class="gg-pool">
-      <% @digitales.each do |digitale| %>
-        <% i = rand(0..3) %>
-        <% i.times do %>
-          <div class="gg-pool-hidden-card" style="height: <%= rand(125..750) %>px;"></div>
-        <% end %>
-
-      <% j = rand(1..3) %>
-      <% case j %>
-      <% when 1 %>
-        <div class="card-float-1 gg-pool-card-primary" style="height: 600px;"> 
-             <a class="panel-title px-4 text-center" data-toggle="collapse" data-target="#collapse" href="tollapse" role="button" aria-expanded="false" aria-controls="collapseExample">
-                <h5>  Coucou je suis un tres long titre,  </h5> </a>
-                <div class="collapse px-4 text-center" id="collapse">
-                  <div> <p>Coucou je suis une longue description avec beaucoup de texte</p> </div>
-                </div>
-                <div class="fas fa-hand-holding-usd"> <%= link_to "Creep in", nodes_path%> </div>
-        </div>
-      <% when 2 %>
-        <div class="card-float-2 gg-pool-card-secondary" style="min-height: 600px;">
-              <a class="panel-title px-4 text-center" data-toggle="collapse" data-target="#collapse" href="tollapse" role="button" aria-expanded="false" aria-controls="collapseExample">
-                <h5>  Coucou je suis un titre tes </h5> </a>
-                <div class="collapse px-4 text-center" id="collapse">
-                  <div> <p>Coucou je suis une longue description avec beaucoup de texte</p> </div>
-                </div>
-                <div class="fas fa-hand-holding-usd"> <%= link_to "Creep in", nodes_path%> </div>
-        </div>
-      <% when 3 %>
-        <div class="card-float-3 gg-pool-card-tertiary" style="height: 600px;">
-               <a class="panel-title px-4 text-center" data-toggle="collapse" data-target="#collapse" href="tollapse" role="button" aria-expanded="false" aria-controls="collapseExample">
-                <h5>  Coucou je suis un titre </h5> </a>
-                <div class="collapse px-4 text-center" id="collapse">
-                  <div> <p>Coucou je suis une longue description avec beaucoup de texte</p> </div>
-                </div>
-                <div class="fas fa-hand-holding-usd"> <%= link_to "Creep in", nodes_path%> </div>
-        </div>
-      <% end %>
-
-      <% if digitale == @digitales.last %>
-        <% k = 4 - i %>
-      <% else %>
-        <% k = 4 - i - 1 %>
-      <% end %>
-
-      <% k.times do %>
-        <div class="gg-pool-hidden-card" style="height: <%= rand(125..750) %>px;"></div>
-      <% end %>
-      <% end %>
-
-      <div class="gg-pool-card-secondary" style="height: 66px;">Generate a new pool of Tales</div>
-    </div>
+<div id='stars' style=''></div>
+<div id='stars2' style=''></div>
+<div id='stars3' style=''></div>
+<div class="w-100 text-center" style='margin-top:300px'>
+  <h1 class='drift'>DIVE IN</h1>
 </div>
+<div class="bg-black d-flex flex-wrap justify-content-around"id='node_container'>
+  <%36.times do %>
+    <%=render "nodes/card"%>
+  <%end%>
+</div>      

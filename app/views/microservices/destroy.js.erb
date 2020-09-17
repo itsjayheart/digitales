@@ -1,0 +1,11 @@
+console.log("destroy")
+console.log("<%=@microservice.microservice_category.id%>")
+document.getElementById("microservice_category#<%=@microservice.microservice_category.id%>").innerHTML = "<%= j render "microservices/form", microservice: @microservice_new, microservice_category: @microservice_category %>"
+
+var form = document.querySelector('#form<%=@microservice_category.id%>');
+var quill = new Quill('#editor<%=@microservice_category.id%>', {
+  theme: 'snow'
+});
+form.onsubmit = function() {
+  document.querySelector('#post-quill<%=@microservice_category.id%>').value = document.querySelector('#form<%=@microservice_category.id%>').children[7].children[0].innerHTML;
+};

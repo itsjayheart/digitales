@@ -1,0 +1,30 @@
+#root_body{
+    height: 3000px;
+}
+
+.wait{
+  z-index: -1
+}
+
+.drift{
+  position: relative;
+  animation-name: drifting;
+  animation-duration: 180s;
+  animation-iteration-count: infinite;
+}
+@keyframes drifting {
+  0%   {
+      top:0px;
+      opacity: 0;
+    }
+  7%   {
+    opacity: 1;
+  }
+  95%   {
+    opacity: 1;
+  }
+  100%  {
+    opacity: 0;
+    top:-3500px;
+  }
+}

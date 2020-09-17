@@ -13,7 +13,6 @@
 
  *= require bootstrap
  *= require main
- *= require mansory_grid
  *= require navbar
  *= require footer
  *= require nodes_show
@@ -23,4 +22,6 @@
  *= require forgotten_password
  *= require digitale-creation-form
  *= require gg_main
+ *= require node_index
+ *= require stars
  */

@@ -15,8 +15,8 @@
     </div>
   </div>
   <div class="bg-black d-flex flex-wrap justify-content-around"id='node_container'>
-    <% 36.times do %>
-      <%=render "nodes/card"%>
+    <% 12.times do %>
+      <%= render partial: "card", locals: { digitale: digitales.sample } %>
     <% end %>
   </div>
 </div>

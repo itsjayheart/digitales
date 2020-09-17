@@ -1,9 +1,9 @@
 <%i=rand(1..10000000000)%>
-<div class="wait gg-pool-card-<%=["primary","secondary","tertiary"].sample%>" style="margin-bot 200px; height: 600px; width"> 
+<div class="wait gg-pool-card-<%=["primary","secondary","tertiary"].sample%>" style="height: 600px;"> 
   <a class="panel-title px-4 text-center" data-toggle="collapse" data-target="#collapse<%=i%>" href="tollapse" role="button" aria-expanded="false" aria-controls="collapseExample">
-  <h5>  <%=Faker::Books::Lovecraft.deity%>  </h5> </a>
+  <h5>  <%= digitale.title %>  </h5> </a>
   <div class="collapse px-4 text-center" id="collapse<%=i%>">
-    <div> <p><%=Faker::Books::Lovecraft.paragraph_by_chars(characters: rand(100..300))%></p> </div>
+    <div> <p><%= digitale.description %></p> </div>
   </div>
-  <div class="fas fa-hand-holding-usd"> <%= link_to "Creep in", nodes_path%> </div>
+  <div class="fas fa-hand-holding-usd"><%= link_to "Creep in", digitale_path(digitale.id) %></div>
 </div>

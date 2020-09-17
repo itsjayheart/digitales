@@ -3,35 +3,55 @@
 <div class="row">
   <div class="col-12 col-md-4 float-lg-right">
     
+
+
+
+
+
     <div  id="flex-profile" class="sticky">
     <%if @creatrix.avatar.attached?%>
+    <a data-toggle="collapse" data-target="#collapse" href="tollapse" role="button" aria-expanded="false" aria-controls="collapseExample">
       <div><%= image_tag @creatrix.avatar, alt: 'avatar', class: "img-fluid", id: "avatar-image" %></div>
+    </a>
     <%end%>
     
-    <div>
+    <div class="collapse"  id="collapse">
       <%= form_tag creatrix_avatars_path(@creatrix), multipart: true do %>
-      <%= file_field_tag :avatar %>
-      <%= submit_tag "mettre à jour" %>
+      <p class="text-center"> Update your profile picture </p>
+      <div class="text-center"> <%= file_field_tag :avatar %> </div>
+      <div class="text-center"> <%= submit_tag "Update" %> </div>
 <% end %>
     </div>
+
+
+
+
+
         <div><h2><%= @creatrix.itself.hexanyme %></h2></div>
       <p-lead class="lead"></p-lead>    
       <% if @creatrix == current_creatrix %>
         <div id="creatrix-details d-flex">
           <h4 class="mt-3 mb-1 text-center">My details: </h4>
           <p class="text-center"><strong> Email address </strong>: <%= @creatrix.email %></p>
-          <div> <%= link_to "e d i t", edit_creatrix_registration_path, class: 'btn btn-secondary', id:"button-profile" %>  </div>
+          <div> <%= link_to "e d i t", edit_creatrix_registration_path, class: 'btn btn-secondary mb-4', id:"button-profile" %>  </div>
+          <div> <hr class="solid holy"> </div>
+          <div> 
+              <a href="#requests" class="btn btn-primary mt-3 holy" id="button-profile">My requests > </a>
+              <a href="#microservices" class="btn btn-primary mt-3 holy" id="button-profile">Microservices > </a>
+              <a href="#donations" class="btn btn-primary mt-3 holy" id="button-profile">Donations > </a>
+              <a href="#nodes" class="btn btn-primary mt-3 holy" id="button-profile">Nodes > </a>
+          </div> 
         </div> 
     </div>
     <% end %>
   </div>
   <div class='col-12 col-md-8 padding-creatrixes'>
-    <div class='text-center'>
+    <div class='text-center' id="microservices">
     <h3 class="text-center holy mb-4">m i c r o s e r v i c e . s</h3>
     <i>Offer your services to node creator by uploading a demo media and offering a price</i>
     </div>
     <%= render "microservices/new"%>
-    <div class='text-center'>
+    <div class='text-center' id="requests">
       <h3 class="text-center holy padding-creatrixes">r e q u e s t . s</h3>
       <i>You will see here the the requests from the node creator for you realise a work for their node.</i>
     </div>
@@ -40,7 +60,7 @@
         <%= render "microservice_requests/card", microservice_request: microservice_request%>
       <%end%>
     </div>
-    <div class='text-center holy'>
+    <div class='text-center holy' id="nodes">
       <h3 class="text-center padding-creatrixes">n o d e . s</h3>
       <i>You will see here the nodes that you've created.</i>
     </div>
@@ -50,7 +70,7 @@
       <p><%= node.content %></p>
       <p></p>
     <% end %>
-    <div class='text-center holy'>
+    <div class='text-center holy' id="donations">
     <h3 class="text-center padding-creatrixes">d o n a t i o n . s</h3>
     <i>You will find here all the donations that you've made</i>
     </div>

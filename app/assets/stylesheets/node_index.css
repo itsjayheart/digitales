@@ -9,15 +9,16 @@
 .drift{
   position: relative;
   animation-name: drifting;
-  animation-duration: 180s;
+  animation-duration: 600s;
   animation-iteration-count: infinite;
+  animation-timing-function: linear;
 }
 @keyframes drifting {
   0%   {
       top:0px;
       opacity: 0;
     }
-  7%   {
+  3%   {
     opacity: 1;
   }
   95%   {
@@ -25,6 +26,6 @@
   }
   100%  {
     opacity: 0;
-    top:-3500px;
+    top:-8000px;
   }
 }

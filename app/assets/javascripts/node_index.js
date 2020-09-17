@@ -7,15 +7,16 @@ function spawn_card(){
   target.classList.remove("wait")
   target.classList.add("drift")
 }
-for(i=1;i<=array_length/4;i++){  
+
+for(i=1;i<=5;i++){  
   target = target_array[Math.round(Math.random()*target_array.length)]
   target.classList.remove("wait")
   target.classList.add("drift")
 }  
 
-delay = 5000
+delay = 2000
 for(i=1;i<=array_length;i++){  
-  delay += 5000
+  delay += 2000
   setTimeout(spawn_card,delay)
 }  
 console.log("node_index<%ok%>")

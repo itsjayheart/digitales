@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   devise_for :creatrixes
 
+
+
   devise_scope :creatrix do
     authenticated :creatrix do
       root 'nodes#index', as: :authenticated_root
@@ -39,6 +41,10 @@ Rails.application.routes.draw do
   
   resources :microservice_category do
     resources :microservices, only: [:create]
+  end
+
+  resources :creatrixes, only: [:show] do
+    resources :avatars, only: [:create]
   end
 
 end

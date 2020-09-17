@@ -2,7 +2,7 @@
   <h4 class='text-center'>Creatrix's microservices for <%= @current_microservice_category.name %></h4>
   <div class='d-flex flex-wrap justify-content-around'>
   <% @microservices.each do |microservice| %>
-    <div class='card mb-3' style='width: 20em'>
+    <div class='card mb-3'>
       <div class='card-header'>
         <%= render "microservices/media_display", microservice: microservice %>
       </div>

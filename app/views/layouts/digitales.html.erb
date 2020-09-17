@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html class="no-js">
+  <head>
+    <title>D I G I T A L E S</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <link href="https://cdn.quilljs.com/1.1.6/quill.snow.css" rel="stylesheet">
+    <script src="https://cdn.quilljs.com/1.1.6/quill.js"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Gotu&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/6085f87352.js" crossorigin="anonymous"></script>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+
+
+  </head>
+
+  <body id="hero-background">
+    <%= render "layouts/header"%>
+    <%= render "layouts/flash"%>
+    <div> <%= yield %> </div>
+    <%= render "layouts/footer"%>
+  </body>
+
+  <%= javascript_include_tag 'application' %>
+</html>

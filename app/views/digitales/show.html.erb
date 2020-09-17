@@ -27,7 +27,17 @@
     HAVE AN ACCES TO THE DIGIT.S THROUGH A TIMELINE
 
 -->
-<div class="bg-black d-flex" style="height: 100%; width: 100%; overflow-x: none;">
+<div class="text-center">
+<h1 class="gg-title mb-3">w e l c o m e</h1>
+
+<p class="gg-label p-roboto mb-1">this is the dashboard of a specific digitale</p>
+
+<p class="gg-label p-roboto mb-1">here you can learn about what it's going to talk about</p>
+
+<p class="gg-label p-roboto mb-1">and help turning it into a stunning 3D work of fiction</p>
+</div>
+
+<div class="d-flex" style="height: 100%; width: 100%; overflow-x: none;">
   <div class='padding-top d-flex justify-content-around' style="margin: auto; overflow-x: none; padding-top: 45px; padding-bottom: 70px; padding-right: 35px;">
 
     <div class="ml-3 d-flex flex-column mr-5">
@@ -66,9 +76,9 @@
     </div>
 
     <div class="card d-flex flex-column justify-content-around">
-      <div class='d-flex flex-column justify-content-around text-center m-5'>
+      <div class='d-flex flex-column justify-content-around text-center'>
         
-        <div class="mb-5">
+        <div class="m-5">
           <% if @fundraiser && !@fundraiser.funded?%>
             <p><%= @current_node.current_microservice_category.name %></p>
            <p><b>$ <%= @fundraiser.current_fundings%></b> raised of $ <%= @fundraiser.goal%> goal</p>
@@ -138,3 +148,55 @@
 
   </div>
 </div>
+
+<h1 class="gg-title text-center mb-3">d i g i t . s</h1>
+
+<p class="gg-label p-roboto text-center">'d i g i t . s' are the different creative microservices being funded by the community gathering around a digitale which allow, when put together in the right order, to turn it into a piece of 3D fiction
+
+ <p class="gg-label p-roboto text-center mb-5">it starts with writing, ends with composing, after having designed, modeled, animated, edited and recorded the voice acting needed to make it happen</p>
+
+ <div class="d-flex flex-column align-items-center">
+
+  <% i = 0 %>
+  <% @digitale.m_statements.sort { |a, b| a.id <=> b.id }.each do |m_statement| %>
+    <div class="gg-digitale-card text-center">
+      <h2 class="gg-label mb-5"><%= chapters[i] %></h2>
+      <h3 class="gg-label mb-3">m i g h t | | | m i g h t | n o t</h3>
+      <h4 class="gg-label mb-1"><%= m_statement.title %></h4>
+      <p class="card-text mb-5"><%= m_statement.content %></p>
+    </div>
+      <div class="mb-3">
+        <% AchievementCategory.all.each do |achievement_category| %>
+        <h4 class="mt-3 gg-label"><%= achievement_category.name %></h4>
+          <% achievement_category.microservice_categories.each do  |microservice_category| %>
+            <% achievement = m_statement.achievements.select { |achievement| achievement.achievement_category == achievement_category}.sample %>
+            <% if achievement %>
+              <% if achievement.microservice_requests.any? { |request| request.microservice.microservice_category == microservice_category } %>
+                <% achievement.microservice_requests.each do |request| %>
+                  <% if request.microservice.microservice_category == microservice_category %>
+                    <% if request.delivered? %>
+                      <div class="text-primary gg-title ml-3"><%= microservice_category.name %></div>
+                      <div><!-- INSERT MEDIA HERE --></div>
+                    <% elsif request.delivered? == false %> 
+                      <div class="ml-3 gg-title" style="color: white; text-shadow: 0px 0px 6px white;">
+                        <%= microservice_category.name %> achievement is in progression
+                      </div>
+                    <% end %>
+                  <% end %>
+                <% end %>
+              <% else %>
+                <div class="ml-3">
+                  no <%= microservice_category.name %> funded yet
+                </div>
+              <% end %>
+            <% else %>
+                <div class="ml-3">
+                  no <%= microservice_category.name %> funded yet
+                </div>
+            <% end %>
+          <% end %>
+      <% end %>
+    </div>
+    <% i += 1 %>
+  <% end %>
+ </div>

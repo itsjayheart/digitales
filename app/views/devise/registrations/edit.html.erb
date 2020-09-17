@@ -1,89 +1,86 @@
-<h1 class="text-center"> Edit your creatrix</h1>
+<h1 class="text-center holy"> Edit your creatrix</h1>
+  <br>
+  <br>
 
-<%if @creatrix.avatar.attached?%>
-    <div><%= image_tag @creatrix.avatar, alt: 'avatar', class: "img-fluid", id: "avatar-image" %></div>
-      <%else%>
-    <div><p>There is no image linked to this creatrix</p></div>   
-        <%end%>
+  <%if @creatrix.avatar.attached?%>
+      <div><%= image_tag @creatrix.avatar, alt: 'avatar', class: "img-fluid", id: "avatar-image" %></div>
+        <%else%>
+      <div><p>There is no image linked to this creatrix</p></div>   
+          <%end%>
 
-<div id="testouille5">
-  <div class="col pt-5">
-    <div class= holy><h3>Change your details</h3></div>
+  <div id="flexinthesesboxes">
+    <div class="col pt-5">
+      <div class= holy><h3>Change your details</h3></div>
+      <br>
+      <br>
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
-
-<br>
-
-    <div class="column field h">
-        <%= f.label :hexanyme %><br />
-        <%= f.text_field :hexanyme, autofocus: true, class: "form-text-input w-50 text-center text-muted"%>
-    </div>
-      
-    <div class="field h5 mt-4">
-        <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-text-input w-50 text-center" %>
-    </div>
-
       <br>
-
-    <div class="field h5">
-        <%= f.label :current_password %><br />
-        <%= f.password_field :current_password, autocomplete: "current-password", class: "form-text-input w-50 text-center text-muted" %>
-    </div>
-
+      <div>
+          <%= f.label :hexanyme, class:"h6"%><br/>
+          <%= f.text_field :hexanyme, autofocus: true, class: "form-text-input w-70 text-center text-muted h5"%>
+      </div>
+      <div>
+          <%= f.label :email, class:"h6"%><br /></div>
+      <div>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-text-input w-50 text-center h6" %>
+      </div>
+      <br>
+      <div>
+          <%= f.label :current_password, class:"h6"%><br />
+          <%= f.password_field :current_password, autocomplete: "current-password", class: "form-text-input w-50 text-center text-muted h5" %>
+      </div>
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-      <% end %>
 
-      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-      <% end %>
-
-      <br>
-
-    <div class="field h5">
-        <%= f.label :password, "New password" %><br />
-        <%= f.password_field :password, autocomplete: "new-password", class: "form-text-input w-50 text-center text-muted" %>
-        <% if @minimum_password_length %>
-        <br>
-        
-        <em><%= @minimum_password_length %> characters minimum</em>
+      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
         <% end %>
-    </div>
 
-      <br>
-
-    <div class="field h5">
-        <%= f.label :password_confirmation %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-text-input w-50 text-center text-muted" %>
-    </div>
-
-        <br>
-        <br>
-
-    <div class="actions">
-        <%= f.submit "Update", class: "btn btn-lg gg-button w-50"%>
-    </div>
-        <br>
-        
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
         <% end %>
-    
-      <br>
-      <br>
+
+        <br>
+
+      <div>
+          <%= f.label :password, "New password", class:"h6"%><br />
+          <%= f.password_field :password, autocomplete: "new-password", class: "form-text-input w-50 text-center text-muted h5" %>
+          <% if @minimum_password_length %>
+          <br>
+          <em><%= @minimum_password_length %> characters at least</em>
+          <% end %>
+      </div>
+
+        <br>
+
+      <div>
+          <%= f.label :password_confirmation, class:"h6"%><br />
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-text-input w-50 text-center text-muted h5" %>
+      </div>
+
+          <br>
+          <br>
+
+      <div class="actions">
+          <%= f.submit "Update", class: "btn btn-lg gg-button w-50 h6"%>
+      </div>
+        <br>
+          <% end %>
+        <br>
+        <br>
+    </div>
+
+    <div class="col pt-5">  
+      <div class="holy"><h3>Cancel my account</h3></div>
+          <br>
+          <br>
+          <br>
+          <h5> Your are unhappy of digitales and <br> want to end your digitales adventure ?
+          <br>
+          <br>
+          <br> <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete,  class: "btn btn-lg gg-button w-50" %></h5>
+          <br>
+          <br>
+          <%= link_to "Back", :back %>
 
   </div>
-
-  <div class="col pt-5">  
-
-    <div class="holy"><h3>Cancel my account</h3></div>
-
-        <br>
-
-        <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete,  class: "btn btn-lg gg-button w-50" %></p>
-        <%= link_to "Back", :back %>
-
-  </div>
-
-
-
 </div>

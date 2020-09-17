@@ -8,11 +8,11 @@
       </div>                
       <div id="collapse<%=i%>" class="collapsed collapse" aria-labelledby="heading<%=i%>" data-parent="#accordion">
         <% @achievements[i].microservice_categories.each do |microservice_category| %>
-          <div class='card-body bg-white' id='microservice_category#<%=microservice_category.id%>'>
+          <div class='card-body ' id='microservice_category#<%=microservice_category.id%>'>
             <% if current_creatrix.microservices.any? { |microservice| microservice.microservice_category == microservice_category } %>   
               <%= render "microservices/created", microservice: Microservice.where(creatrix: current_creatrix, microservice_category: microservice_category)[0] %>
             <% else %>
-              <%=  render "microservices/form", microservice: @microservice, microservice_category: microservice_category%>
+              <%= render "microservices/form", microservice: @microservice, microservice_category: microservice_category%>
             <% end %>
           </div>
         <% end %>

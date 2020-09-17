@@ -1,10 +1,14 @@
-     <% case microservice_request.microservice_category.media_type%>
+     <% case microservice_request.microservice.microservice_category.media_type%>
      <% when "image"%>
-        <%= image_tag microservice_request.picture, alt: 'picture', style: "width: 10em", class: "order rounded"%>
+        <%= image_tag microservice_request.picture, alt: 'picture', style: "width: 100%", class: "order rounded"%>
      <% when "video"%>
       <%=microservice_request.youtube.html_safe %>
      <% when "sound"%>
       <%= microservice_request.soundcloude.html_safe  %>
      <% when "text"%>
-      <%= microservice_request.quill.html_safe %>
+      <div class='card bg-black'>
+         <div class='card-body text-black'>
+            <%= microservice_request.quill.html_safe %>
+         </div>
+      </div>
      <%end%>

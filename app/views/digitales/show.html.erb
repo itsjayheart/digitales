@@ -169,7 +169,7 @@
         <% AchievementCategory.all.each do |achievement_category| %>
         <h4 class="mt-3 gg-label"><%= achievement_category.name %></h4>
           <% achievement_category.microservice_categories.each do  |microservice_category| %>
-            <% achievement = @current_node.achievements.select { |achievement| achievement.achievement_category == achievement_category}.sample %>
+            <% achievement = m_statement.achievements.select { |achievement| achievement.achievement_category == achievement_category}.sample %>
             <% if achievement %>
               <% if achievement.microservice_requests.any? { |request| request.microservice.microservice_category == microservice_category } %>
                 <% achievement.microservice_requests.each do |request| %>

@@ -3,11 +3,6 @@
 <div class="row">
   <div class="col-12 col-md-4 float-lg-right">
     
-
-
-
-
-
     <div  id="flex-profile" class="sticky">
     <%if @creatrix.avatar.attached?%>
     <a data-toggle="collapse" data-target="#collapse" href="tollapse" role="button" aria-expanded="false" aria-controls="collapseExample">
@@ -23,10 +18,6 @@
 <% end %>
     </div>
 
-
-
-
-
         <div><h2><%= @creatrix.itself.hexanyme %></h2></div>
       <p-lead class="lead"></p-lead>    
       <% if @creatrix == current_creatrix %>
@@ -39,7 +30,7 @@
               <a href="#requests" class="btn btn-primary mt-3 holy" id="button-profile">My requests > </a>
               <a href="#microservices" class="btn btn-primary mt-3 holy" id="button-profile">Microservices > </a>
               <a href="#donations" class="btn btn-primary mt-3 holy" id="button-profile">Donations > </a>
-              <a href="#nodes" class="btn btn-primary mt-3 holy" id="button-profile">Nodes > </a>
+              <a href="#nodes" class="btn btn-primary mt-3 holy" id="button-profile">Digitales > </a>
           </div> 
         </div> 
     </div>
@@ -61,8 +52,24 @@
       <%end%>
     </div>
     <div class='text-center holy' id="nodes">
-      <h3 class="text-center padding-creatrixes">n o d e . s</h3>
-      <i>You will see here the nodes that you've created.</i>
+      <h3 class="text-center padding-creatrixes mb-3">d i g i t a l e . s</h3>
+        <i>You will see here the nodes that you've created.</i>
+      <div id="flex-digitales">
+        <% 9.times do%>
+          <div class="gg-pool-card-secondary" style="height: 250px; width: 210px"> 
+            <a class="panel-title px-4 text-center" data-toggle="collapse" data-target="#collapse1" href="tollapse" role="button" aria-expanded="false" aria-controls="collapseExample">
+            <h5>  Testouille  </h5> </a>
+            <div class="collapse px-4 text-center" id="collapse1">
+              <div> <p> plop plop plop plop plop plop plop plop plop plop plop plopplopplop </p> </div>
+            </div>
+              <%= link_to nodes_path, class: "d-flex flex-column" do %>
+                <i class="fas fa-hand-holding-usd mb-3"></i>	
+                creep in 
+              <% end %>
+          </div>
+        <%end%>
+      </div>  
+    
     </div>
     <% @creatrix.nodes.each do |node| %>
       <h3><%= link_to node.title, digitale_path(node.digitale.id)  %></h3>

@@ -7,6 +7,13 @@
     <%if @creatrix.avatar.attached?%>
       <div><%= image_tag @creatrix.avatar, alt: 'avatar', class: "img-fluid", id: "avatar-image" %></div>
     <%end%>
+    
+    <div>
+      <%= form_tag creatrix_avatars_path(@creatrix), multipart: true do %>
+      <%= file_field_tag :avatar %>
+      <%= submit_tag "mettre à jour" %>
+<% end %>
+    </div>
         <div><h2><%= @creatrix.itself.hexanyme %></h2></div>
       <p-lead class="lead"></p-lead>    
       <% if @creatrix == current_creatrix %>

@@ -1,11 +1,16 @@
 <div id="<%= form_dom_id %>">
+  <h6 class='gg-title mt-5 mb-5 ml-2'>( ...now enumerate the 7 key events of your story )</h6>
+  
+  <% chapters = ['I', 'II', 'III', 'IIII', 'V', 'VI', 'VII'] %>
+  <% i = digitale.m_statements.count + 1 %>
+  <h2 class="gg-title text-center mb-1"><%= chapters[i] %></h2>
   <%= form_with(url: "/m_statements", method: 'post', authenticity_token: true, class: "nodeform") do |f| %>
     <%= hidden_field_tag(:digitale_id, digitale.id) %>
     <%= label_tag(:content, "m i g h t | | | m i g h t | n o t", class: "gg-label") %>
-    <%= text_field_tag(:content, "the Abyssal Storm have been triggered by the Androgynous", class: "form-text-input w-100 text-center text-muted") %>
+    <%= text_field_tag(:content, "tell what might or might not eventually happen in the story", class: "form-text-input w-100 text-center text-muted") %>
      <%= label_tag(:description, "d e s c r i p t i o n", class: "gg-label") %>
      <div class="gg-textarea">
-     	<%= text_area_tag(:description, "In their quest to end all the worlds for good, the Androgynous has found their way to infinite power of the Abyssal Storm. It does mean the end for Primary World, and Secondary World, and Tertiary World.", size: "48x5", class: "form-textarea-input text-center text-muted") %>
+     	<%= text_area_tag(:description, "describe in no more than 255 characters the implications and consequences of these two different alternatives", size: "48x5", class: "form-textarea-input text-center text-muted") %>
      </div>
       <%= submit_tag('c r e a t e', class: "btn gg-button btn-lg btn-block") %>
     <% end %>

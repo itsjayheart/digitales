@@ -1,4 +1,5 @@
 <div id="editDigitaleTitleForm">
+  <h6 class='gg-title mt-3 mb-5 ml-2'>( ...first give your digitale a name )</h6>
   <%= form_with model: @node, method: 'put', authenticity_token: true, class: "nodeform" do |f| %>
     <%= label_tag(:content, "t i t l e", class: 'gg-label') %>
     <%= text_field_tag(:content, node.title, class: "form-text-input w-50 text-center text-muted") %>

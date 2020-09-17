@@ -1,11 +1,12 @@
 <div id="digitaleWhatIfForm">
+  <h6 class='gg-title mt-5 mb-5 ml-2'>( ...then make a 'what if ...' postulate )</h6>
   <%= form_with(url: "/what_ifs", method: 'post', authenticity_token: true, class: "nodeform") do |f| %>
     <%= hidden_field_tag(:digitale_id, digitale.id) %>
     <%= label_tag(:content, "w h a t | i f", class: 'gg-label') %>
-    <%= text_field_tag(:content, "e. g. three worlds ended all at once?", class: "form-text-input w-100 text-center text-muted") %>
+    <%= text_field_tag(:content, "ask yourself 'what if ...' and write down here what comes next that fits your story idea the best", class: "form-text-input w-100 text-center text-muted") %>
      <%= label_tag(:description, "d e s c r i p t i o n", class: 'gg-label') %>
      <div class="gg-textarea">	
-     	<%= text_area_tag(:description, "What if three worlds penetrating each other caused their mutual decline?", size: "48x5", class: "form-textarea-input text-center text-muted") %>
+     	<%= text_area_tag(:description, "explain here in no more than 255 characters what it implies for the story that is worth mentioning", size: "48x5", class: "form-textarea-input text-center text-muted") %>
      </div>
       <%= submit_tag('c r e a t e', class: "btn gg-button btn-lg btn-block") %>
     <% end %>

@@ -1,0 +1,25 @@
+<div class='card m-2'>
+  <div class='card-header'>
+    <%= render "microservices/media_display", microservice: microservice_request.microservice %>
+  </div>
+  <div class='card-body d-flex flex-wrap'>
+    <div>
+      <h4>Microservice details:</h4>
+      <ul>
+        <li>Type category : <%=microservice_request.achievement.achievement_category.name %></li>
+        <li>Micorservice category : <%=microservice_request.microservice.microservice_category.name %></li>
+        <li>price : <%= microservice_request.microservice.price %> $</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Node details:</h4>
+      <ul>
+        <li>Title : <%=link_to microservice_request.achievement.node.title, node_path(microservice_request.achievement.node.id) %></li>
+        <li>Content : <%=microservice_request.achievement.node.content %></li>
+      </ul>
+    </div>
+  </div>
+  <div class='card-footer' id='microservice_request#<%=microservice_request.id%>'>
+    <%= render "microservice_requests/form", microservice_request: microservice_request%>
+  </div>
+</div>

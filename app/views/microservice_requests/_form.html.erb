@@ -3,7 +3,7 @@
     <% when "image"%>
       <% if microservice_request.delivered? %>
         <p>Youre work was delivered </p>
-        <%= image_tag microservice_request.art_work, alt: 'art_work', style: "width: 10em", class: "order rounded"%>
+        <%= render "microservice_requests/media_display", microservice_request: microservice_request%>
       <% else %>
         <%= form_with model: microservice_request, url: microservice_request_path(microservice_request.id), method: "patch" do |f| %>
           <%= hidden_field(:microservice_request, :media, :value => true) %>
@@ -17,7 +17,7 @@
     <% when "video"%>
       <% if microservice_request.delivered? %>
         <p>Youre work was delivered </p>
-        <%=microservice_request.youtube.html_safe %>
+        <%= render "microservice_requests/media_display", microservice_request: microservice_request%>
       <% else %>
         <%= form_with model: microservice_request, url: microservice_request_path(microservice_request.id), method: "patch" do |f| %>
           <%= hidden_field(:microservice_request, :media, :value => true) %>
@@ -29,7 +29,7 @@
     <% when "sound"%>
       <% if microservice_request.delivered? %>
         <p>Youre work was delivered </p>
-        <%= microservice_request.soundcloude.html_safe %>
+        <%= render "microservice_requests/media_display", microservice_request: microservice_request%>
       <% else %>
         <%= form_with model: microservice_request, url: microservice_request_path(microservice_request.id), method: "patch" do |f| %>
           <%= hidden_field(:microservice_request, :media, :value => true) %>
@@ -41,24 +41,25 @@
     <% when "text"%>
       <% if microservice_request.delivered? %>
         <p>Youre work was delivered </p>
-        <%= microservice_request.quill.html_safe %>
+        <%= render "microservice_requests/media_display", microservice_request: microservice_request%>
       <% else %>
-        <%= form_with model: microservice_request, id: "form_request#{@y}", url: microservice_request_path(microservice_request.id), method: "patch" do |f| %>
+        <%= form_with model: microservice_request, id: "form_request#{microservice_request.id}", url: microservice_request_path(microservice_request.id), method: "patch" do |f| %>
           <%= hidden_field(:microservice_request, :media, :value => true) %>
-          <%= f.hidden_field :quill, id: "post-quill_request#{@y}", required: true %>
-          <div id="editor-container" hidden="true"></div>
-          <div id="editor_request<%=@y%>"></div>
+          <%= f.hidden_field :quill, id: "post-quill_request#{microservice_request.id}", required: true %>
+          <div class='bg-white'>
+            <div id="editor-container" hidden="true"></div>
+            <div class='bg-black 'id="editor_request<%=microservice_request.id%>"></div>
+          </div>
           <script>
-            var form_request = document.querySelector('#form_request<%=@y%>');
-            var quill = new Quill('#editor_request<%=@y%>', {
+            var form_request = document.querySelector('#form_request<%=microservice_request.id%>');
+            var quill = new Quill('#editor_request<%=microservice_request.id%>', {
               theme: 'snow'
             });
             form_request.onsubmit = function() {
-              document.querySelector('#post-quill_request<%=@y%>').value = document.querySelector('#form_request<%=@y%>').children[7].children[0].innerHTML;
+              document.querySelector('#post-quill_request<%=microservice_request.id%>').value = document.querySelector('#form_request<%=microservice_request.id%>').querySelector(".ql-editor").innerHTML;
             };
           </script>  
           <%= submit_tag("Upload youre work") %>
-          <%@y += 1%>          
         <% end %>
       <% end %>      
     <% end %>

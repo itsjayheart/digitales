@@ -20,7 +20,7 @@ class DonatedSumsController < ApplicationController
         currency: 'usd',
     })
 
-    redirect_to node_path(@node.id)
+    redirect_to digitale_path(@node.digitale.id)
 
     fundraiser =  @node.achievements.last.microservices.last.microservice_requests.last.fundraisers.last
     puts @amount.to_i/100.0

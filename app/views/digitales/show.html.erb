@@ -92,7 +92,7 @@
             <% if !@current_node.achievements.first.microservice_requests.last%>
               <%= link_to "Make a request for #{@current_node.current_microservice_category.name} achievement", node_microservices_path(@current_node.id) , class: "btn gg-button" %>
             <% elsif @current_node.achievements.last.microservice_requests.last.accepted?%>
-              <%= link_to "Start fundraising #{@current_node.current_microservice_category.name}", node_microservices_path(@node.id) , class: "btn gg-button" %>
+              <%= link_to "Start fundraising #{@current_node.current_microservice_category.name}", node_microservices_path(@current_node.id) , class: "btn gg-button" %>
             <% else %>
               <p>Pending microservice request for <%= @current_node.current_microservice_category.name %></p>
             <% end %>
@@ -123,6 +123,7 @@
                 <% achievement.microservice_requests.each do |request| %>
                   <% if request.microservice.microservice_category == microservice_category %>
                     <% if request.delivered? %>
+                      <div><%= render "microservice_requests/media_display", microservice_request: request%></div>
                       <div class="text-primary ml-3"><%= microservice_category.name %></div>
                     <% elsif request.delivered? == false %> 
                       <div class="ml-3" style="color: white; text-shadow: 0px 0px 6px white;">
@@ -176,7 +177,7 @@
                   <% if request.microservice.microservice_category == microservice_category %>
                     <% if request.delivered? %>
                       <div class="text-primary gg-title ml-3"><%= microservice_category.name %></div>
-                      <div><!-- INSERT MEDIA HERE --></div>
+                      <div><%= render "microservice_requests/media_display", microservice_request: request%></div>
                     <% elsif request.delivered? == false %> 
                       <div class="ml-3 gg-title" style="color: white; text-shadow: 0px 0px 6px white;">
                         <%= microservice_category.name %> achievement is in progression

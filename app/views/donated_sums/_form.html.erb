@@ -1,6 +1,6 @@
         <div class="row mt-3">
           <div id='pay-method'>
-          <%= form_with model: @donated_sum, method: "patch", url: node_donated_sum_path(@node.id) do |f| %>
+          <%= form_with model: @donated_sum, method: "patch", url: node_donated_sum_path(@current_node.id) do |f| %>
             <%= f.text_field :sum, style: "width: 3em"%> $
             <%= f.submit "Donate" , class: "ml-3 btn btn-primary" %>
           <%end%>

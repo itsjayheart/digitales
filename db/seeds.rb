@@ -20,6 +20,7 @@ MicroserviceCategory.destroy_all
 MicroserviceRequest.destroy_all
 Fundraiser.destroy_all
 DonatedSum.destroy_all
+Digitale.destroy_all
 
 # creating AchievementCategory and MicroServiceCategory lists
 

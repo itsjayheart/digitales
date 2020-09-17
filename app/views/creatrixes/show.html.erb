@@ -45,7 +45,7 @@
       <i>You will see here the nodes that you've created.</i>
     </div>
     <% @creatrix.nodes.each do |node| %>
-      <h3><%= link_to node.title, node_path(node.id)  %></h3>
+      <h3><%= link_to node.title, digitale_path(node.digitale.id)  %></h3>
       <h6><%= node.achievements.count.to_s %> achievements out of 21</h6>
       <p><%= node.content %></p>
       <p></p>
@@ -58,7 +58,7 @@
     <%@donated_sums.each do |donated_sum|%>
       <h4><%=donated_sum.fundraiser.microservice_request.achievement.node.title%></h4>
       <p><%=donated_sum.fundraiser.microservice_request.achievement.node.content%></p>
-      <div><%= link_to "Go to node", node_path(donated_sum.fundraiser.microservice_request.achievement.node.id), class: "btn btn-secondary"%></div>
+      <div><%= link_to "Go to node", digitale_path(donated_sum.fundraiser.microservice_request.achievement.node.digitale.id), class: "btn btn-secondary"%></div>
     <%end%>
   </div>
 </div>

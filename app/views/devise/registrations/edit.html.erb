@@ -10,7 +10,7 @@
 
   <div id="flexinthesesboxes">
     <div class="col pt-5">
-      <div class= holy><h3>Change your details</h3></div>
+      <div><h3>Change your details</h3></div>
       <br>
       <br>
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
@@ -70,7 +70,7 @@
     </div>
 
     <div class="col pt-5">  
-      <div class="holy"><h3>Cancel my account</h3></div>
+      <div class="actions"><h3>Cancel my account</h3></div>
           <br>
           <br>
           <br>
@@ -80,7 +80,7 @@
           <br> <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete,  class: "btn btn-lg gg-button w-50" %></h5>
           <br>
           <br>
-          <%= link_to "Back", :back %>
+          <%= link_to "Revenir en arrière", :back %>
 
   </div>
 </div>

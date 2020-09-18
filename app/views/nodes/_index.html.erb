@@ -1,5 +1,6 @@
-
 <div>
+  <div id="top"> <div>
+  <div id="myBtn"> <a href="#top"> <i class="fa fa-chevron-up fa-1x w-25"></i></a></div>
   <div id='stars' class="holy" style=''></div>
   <div id='stars2' class="holy" style=''></div>
   <div id='stars3' class="holy" style=''></div>
@@ -18,5 +19,6 @@
     <% @digitales.each do |digitale|%>
       <%= render partial: "card", locals: { digitale: digitale } %>
     <% end %>
+    
   </div>
 </div>

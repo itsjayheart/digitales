@@ -1,11 +1,4 @@
 
-.homepage-divs {
-	height: 1150px;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-  }
-
 #myBtn {
 	/*display: none; /* Hidden by default */
 	position: fixed; /* Fixed/sticky position */

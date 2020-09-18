@@ -1,45 +1,53 @@
 <div id="color-overlay"></div>
-  <div class="">
-    <div class="homepage-divs container">
-      <div class="introduction-divs">
-          <h2> Welcome to </h2> <h1> <b style="color: white; text-shadow: 0px 0px 12px;"> D   i   g   i   t   a   l   e   s</b></h1>
+  <div class="center">
+    <div class="homepage-divs"> display="display-flex space-between">
+      <div sign-in> 
+          <h1 style="color: white; text-shadow: 0px 0px 12px;">D I G I T A L E S</h1>
+          <h4 style="color: white; text-shadow: 0px 0px 12px;">A REVOLUTIONARY WAY TO CREATE, PRODUCE AND CONSUME FICTION</h4>
           <br>
-          <h3>A revolutionary way to create, produce and consume <b class="holy"> fiction.</b></h3>
-          <br>
-      </div>
-
-      <section class="fdb-block">
-        <div class="container">
-          <div class="row align-items-center">
-            <div class="col-6 col-sm-6 m-auto col-md-3 pb-md-0">
-              <img alt="image" class="rounded-0" src="https://img.favpng.com/5/16/2/astronaut-space-suit-outer-space-cartoon-png-favpng-A6ZJ36wMY9DRjCPDEwYLsfbYt.jpg">
-            </div>
-          </div>
-
-            <div class="col-14 ml-auto col-md-8 col-lg-5 bg-light">
-              <h1>Design Blocks</h1>
-
-              <%=  %>
-              <p class="lead">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-              <p><a class="btn btn-primary mt-4 mb-5 mb-md-0" href="https://www.froala.com">Download</a></p>
-            </div>
-          </div>
-        </div>
-      </section>
-
---- 
           <p style="color: white; text-shadow: 0px 0px 12px;">Have you ever dreamt you could have a whole animation studio and creative writing team to turn your craziest ideas into a whole independent multimedia franchise having raging fans all over the world ?</p>
           <p style="color: white; text-shadow: 0px 0px 12px;">Then take part in our galactic, game-changing uprising.</p>
---- 
 
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name), class:"w-100") do |f| %>
+            <div class="d-flex justify-content-around align-items-center mb-3" style="width: 100%;">
 
----
-      <div sign-in class="center"> 
+              <div class="field d-flex">
+                <b><%= f.label :email, '@', style: "margin: 0 10px 0 10px; color: white; text-shadow: 0px 0px 12px;" %></b>
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "e m a i l", style: "background-color: white; border: Opx;" %>
+              </div>
+
+              <div class="d-flex justify-content-around align-items-center">
+                <%= f.label :password do %>
+                <i class="fas fa-lock" style="margin: 0 10px 0 10px; color: white; text-shadow: 0px 0px 12px;"></i>
+                <% end %>
+                <%= f.password_field :password, autocomplete: "current-password", class: "form-control", placeholder: "p a s s w o r d", style: "background-color: white; border: Opx;" %>
+              </div>
+
+              <% if devise_mapping.rememberable? %>
+              <div class="field">
+                <%= f.check_box :remember_me %>
+                <%= f.label :remember_me do %>
+                  <div style="margin:10px 0 0 10px; color: white; text-shadow: 0px 0px 12px;">r e m e m b e r | m e</div>
+                <% end %>
+              </div>
+            <% end %>
+
+            </div>
+            
+            <div class="actions">
+              <%= f.submit "Log in", :id => "button-sign", class: "btn btn-outline-secondary" %>
+            </div>
+          <% end %>
+
+          <%= render "devise/shared/links" %>
+      </div>
+
+      <div sign-in> 
         <section class="fdb-block">
             <div class="row justify-content-center">
               <div class="col-12 text-left">
                 <h1>What is D I G I T A L E S</h1>
-                <p class="lead">Digitales is a collaborative website where you can create stories while using the codes of role-play games. </p>
+                <p class="lead">Digitales is a collaborative website where you can create stories while using the codes  role-play games.   </p>
 
                 <img alt="image" class="img-fluid mt-5" src="./imgs/draws/android.svg">
               </div>
@@ -66,42 +74,6 @@
             </div>
         </section>
       </div>
-
-      <div sign-in> 
-        <%= form_for(resource, as: resource_name, url: session_path(resource_name), class:"w-100") do |f| %>
-          <div class="d-flex justify-content-around align-items-center mb-3" style="width: 100%;">
-
-              <div class="field d-flex">
-                <b><%= f.label :email, '@', style: "margin: 0 10px 0 10px; color: white; text-shadow: 0px 0px 12px;" %></b>
-                <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "e m a i l", style: "background-color: white; border: Opx;" %>
-              </div>
-
-              <div class="d-flex justify-content-around align-items-center">
-                <%= f.label :password do %>
-                <i class="fas fa-lock" style="margin: 0 10px 0 10px; color: white; text-shadow: 0px 0px 12px;"></i>
-                <% end %>
-                <%= f.password_field :password, autocomplete: "current-password", class: "form-control", placeholder: "p a s s w o r d", style: "background-color: white; border: Opx;" %>
-              </div>
-
-              <% if devise_mapping.rememberable? %>
-              <div class="field">
-                <%= f.check_box :remember_me %>
-                <%= f.label :remember_me do %>
-                  <div style="margin:10px 0 0 10px; color: white; text-shadow: 0px 0px 12px;">r e m e m b e r | m e</div>
-                <% end %>
-              </div>
-          <% end %>
-
-            </div>
-            
-            <div class="actions">
-              <%= f.submit "Log in", :id => "button-sign", class: "btn btn-outline-secondary" %>
-            </div>
-          <% end %>
-
-          <%= render "devise/shared/links" %>
-      </div>
-
 
     </div>
   </div>

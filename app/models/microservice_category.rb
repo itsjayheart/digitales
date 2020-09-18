@@ -39,9 +39,3 @@ class MicroserviceCategory < ApplicationRecord
     end
 	end
 end
-#Digitale.find(147).nodes[2].achievements.last.achievement_category.microservice_categories.first.status(Digitale.find(147).nodes[2])
-
-
-#Node.find_by(in_production?: true).achievements.last.microservice
-#Microservice.all=================achievement48 <=
-#Node.first.achievements.last.id==achievement46 X

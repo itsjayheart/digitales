@@ -1,32 +1,36 @@
-#root_body{
-    height: 3000px;
+#root_body {
+  height: 3000px;
 }
 
-.wait{
+.wait {
   z-index: -1
 }
 
-.drift{
+.drift {
   position: relative;
   animation-name: drifting;
   animation-duration: 600s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
 }
+
 @keyframes drifting {
-  0%   {
-      top:0px;
-      opacity: 0;
-    }
-  3%   {
-    opacity: 1;
-  }
-  95%   {
-    opacity: 1;
-  }
-  100%  {
+  0% {
+    top: 0px;
     opacity: 0;
-    top:-8000px;
+  }
+
+  3% {
+    opacity: 1;
+  }
+
+  95% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    top: -8000px;
   }
 }
 
@@ -52,7 +56,7 @@
 
 .add-a-node:hover {
   color: #2aa198;
-  
+
 }
 
 div.sticky6 h6 {
@@ -63,5 +67,3 @@ div.sticky6 h6 {
 #chevron-down:hover {
   text-shadow: 0px 0px 6px white;
 }
-
-

@@ -125,6 +125,7 @@ ActiveRecord::Schema.define(version: 2020_09_14_184345) do
   create_table "microservice_requests", force: :cascade do |t|
     t.bigint "achievement_id"
     t.bigint "microservice_id"
+    t.bigint "microservice_category_id"
     t.boolean "accepted?", default: false
     t.boolean "delivered?", default: false
     t.datetime "created_at", null: false
@@ -133,6 +134,7 @@ ActiveRecord::Schema.define(version: 2020_09_14_184345) do
     t.text "soundcloude"
     t.text "quill"
     t.index ["achievement_id"], name: "index_microservice_requests_on_achievement_id"
+    t.index ["microservice_category_id"], name: "index_microservice_requests_on_microservice_category_id"
     t.index ["microservice_id"], name: "index_microservice_requests_on_microservice_id"
   end
 

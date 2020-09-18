@@ -2,8 +2,9 @@ class MicroserviceRequestsController < ApplicationController
   def create
     @microservice = Microservice.find(params[:microservice_id])
     @node = Node.find(params[:node_id])
-    MicroserviceRequest.create(microservice: @microservice, achievement: @node.non_achieved)
+    @microservice_request = MicroserviceRequest.create(microservice: @microservice, achievement: @node.non_achieved, microservice_category: @microservice.microservice_category)
     redirect_to digitale_path(@node.digitale.id)
+    CreatrixMailer.creatrix_micro_service_request(@microservice_request).deliver_now
   end
 
   def update
@@ -17,13 +18,14 @@ class MicroserviceRequestsController < ApplicationController
     end
 
     if params[:microservice_request][:media]
-      @microservice_request.update(youtube: "<iframe width='100%' height='100%' src='#{params[:microservice_request][:youtube].sub("https://www.youtube.com/watch?v=","http://www.youtube.com/embed/")}' frameborder='0'></iframe>") if params[:microservice_request][:youtube]
+      @microservice_request.update(youtube: params[:microservice_request][:youtube]) if params[:microservice_request][:youtube]
       @microservice_request.update(soundcloude: params[:microservice_request][:soundcloude]) if params[:microservice_request][:soundcloude]
       @microservice_request.update(quill: params[:microservice_request][:quill]) if params[:microservice_request][:quill]
       @microservice_request.art_work.attach(params[:art_work]) if params[:art_work]      
 
       @microservice_request.update(delivered?: true)
       node = @microservice_request.achievement.node
+      CreatrixMailer.creatrix_micro_service_accepted(@microservice_request).deliver_now
     end
     puts 0*10000
     respond_to do |format|

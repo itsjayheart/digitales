@@ -1,13 +1,20 @@
 class CreatrixMailer < ApplicationMailer
-  default from: 'balfoldi@yahoo.fr'
+  default from: 'boalfoldi@gmail.com'
 
-  def creatrix_micro_service_request(creatrix)
-    mail(to: @creatrix.email, subject: 'micro service request') 
+  def creatrix_micro_service_request(microservice_request)
+    @microservice_request = microservice_request
+    @node = @microservice_request.achievement.node
+    @author = @microservice_request.microservice.creatrix
+    @emitter = @microservice_request.achievement.node.creatrix
+    mail(to: @author.email, subject: 'microservice request') 
   end
 
-  def creatrix_micro_service_accepted(creatrix)
-    mail(to: @creatrix.email, subject: 'micro service accepted') 
-
+  def creatrix_micro_service_accepted(microservice_request)
+    @microservice_request = microservice_request
+    @node = @microservice_request.achievement.node
+    @author = @microservice_request.microservice.creatrix
+    @emitter = @microservice_request.achievement.node.creatrix
+    mail(to: @emitter.email, subject: 'microservice request accepted') 
   end
 
   def creatrix_welcome(creatrix)

@@ -1,5 +1,5 @@
 class Creatrix < ApplicationRecord
-  after_create :default_avatar
+  after_create :default_avatar, :welcome_mail
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -20,9 +20,12 @@ class Creatrix < ApplicationRecord
 
   has_one_attached :avatar
 
+  def welcome_mail
+    CreatrixMailer.creatrix_welcome(self).deliver_now
+  end
+
   def default_avatar
     self.avatar.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'default_avatar.jpg')), filename: 'default_avatar.jpg', content_type: 'image/png')
   end
-
 
 end

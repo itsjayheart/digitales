@@ -1,0 +1,6 @@
+<h4 class='<%=achievement_category.bootstap_class(node)%>'><%=achievement_category.name%></h4>
+<% achievement_category.microservice_categories.each do |microservice_category| %>
+  <div class='card-body'>
+    <%=render "digitales/digit_status", microservice_category: microservice_category, node: node, display: false %>
+  </div>
+<%end%>

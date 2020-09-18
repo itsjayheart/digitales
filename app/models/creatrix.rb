@@ -27,5 +27,4 @@ class Creatrix < ApplicationRecord
   def default_avatar
     self.avatar.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'default_avatar.jpg')), filename: 'default_avatar.jpg', content_type: 'image/png')
   end
-
 end

@@ -22,7 +22,6 @@ class MicroservicesController < ApplicationController
     puts @errors
     puts "%"*100
 
-
     if @errors
       alert(@errors, @microservice_category)
     else

@@ -1,6 +1,4 @@
 class FundraiserController < ApplicationController
-  def create
-    
+  def create  
   end
-
 end

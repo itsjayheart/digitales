@@ -10,7 +10,7 @@ body {
     font-weight: bold;
     }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h5, h4, h5, h6 {
     color: white;
     font-family: 'Gotu', sans-serif;
     font-weight: bold;
@@ -45,4 +45,43 @@ text-shadow: 0px 0px 12px
 
 html {
     scroll-behavior: smooth;
+  }
+
+.float{
+  position: relative;
+  animation-name: floating;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  }
+@keyframes floating {
+  0%    {
+    top:0px;
+    left:0px;
+    right:0px;
+    bottom:0px;
+    }
+  25%   {
+    top:10px;
+    left:0px;
+    right:0px;
+    bottom:0px;
+    }
+  50%   {
+    top:0px;
+    left:0px;
+    right:0px;
+    bottom:0px;
+    }
+  75%   {
+    top:10px;
+    left:0px;
+    right:0px;
+    bottom:0px;
+    }
+  100%   {
+    top:0px;
+    left:0px;
+    right:0px;
+    bottom:0px;
+    }
   }

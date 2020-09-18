@@ -98,25 +98,29 @@ AchievementCategory.all.each do |achievement_category|
 end
 
 Digitale.all.each do |digitale|
-	(rand(MicroserviceCategory.all.length)).times do |id|
-		achievement = digitale.nodes[2].non_achieved
-		microservice_category = MicroserviceCategory.all[id]
-		microservice = Microservice.where(microservice_category: microservice_category).sample
-		microservice_request = MicroserviceRequest.create(achievement: achievement, microservice: microservice, microservice_category: microservice_category, accepted?: true, delivered?: true)
-		case microservice_request.microservice_category.media_type
-		when "image"
-			picture = pictures_array.sample
-			microservice_request.art_work.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'seed', picture)), filename: picture, content_type: 'image/png')
-		when "video"
-			microservice_request.update(youtube: "<iframe width='100%' height='100%' src='#{youtube_array.sample.sub("https://www.youtube.com/watch?v=","http://www.youtube.com/embed/")}' frameborder='0'></iframe>")
-		when "sound"
-			microservice_request.update(soundcloude: soundcloud_array.sample)
-		when "text"
-			h = "h#{rand(1..6)}"
-			microservice_request.update(quill:"<#{h}>"+Faker::Book.title+"</#{h}><p>"+Faker::Books::Lovecraft.paragraph_by_chars(characters: rand(200..500))+"</p><i>"+Faker::Games::LeagueOfLegends.quote+"</i><p>"+Faker::Books::Lovecraft.paragraph_by_chars(characters: rand(200..500))+"</p>")
-		end
-		microservice_request.achievement.update(achieved?: true) if microservice_request.microservice_category.id == microservice_request.achievement.achievement_category.microservice_categories.last.id
-	end
+  nodes_length = rand(0..7)
+  nodes_length.times do |x|
+    nodes_length-1 == x ? microservice_category_length = rand(MicroserviceCategory.all.length) : microservice_category_length = MicroserviceCategory.all.length
+    microservice_category_length.times do |id|
+      achievement = digitale.nodes[2+x].non_achieved
+      microservice_category = MicroserviceCategory.all[id]
+      microservice = Microservice.where(microservice_category: microservice_category).sample
+      microservice_request = MicroserviceRequest.create(achievement: achievement, microservice: microservice, microservice_category: microservice_category, accepted?: true, delivered?: true)
+      case microservice_request.microservice_category.media_type
+      when "image"
+        picture = pictures_array.sample
+        microservice_request.art_work.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'seed', picture)), filename: picture, content_type: 'image/png')
+      when "video"
+        microservice_request.update(youtube: "<iframe width='100%' height='100%' src='#{youtube_array.sample.sub("https://www.youtube.com/watch?v=","http://www.youtube.com/embed/")}' frameborder='0'></iframe>")
+      when "sound"
+        microservice_request.update(soundcloude: soundcloud_array.sample)
+      when "text"
+        h = "h#{rand(1..6)}"
+        microservice_request.update(quill:"<#{h}>"+Faker::Book.title+"</#{h}><p>"+Faker::Books::Lovecraft.paragraph_by_chars(characters: rand(200..500))+"</p><i>"+Faker::Games::LeagueOfLegends.quote+"</i><p>"+Faker::Books::Lovecraft.paragraph_by_chars(characters: rand(200..500))+"</p>")
+      end
+      microservice_request.achievement.update(achieved?: true) if microservice_request.microservice_category.id == microservice_request.achievement.achievement_category.microservice_categories.last.id
+    end
+  end
 end
 
 

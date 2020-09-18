@@ -27,10 +27,10 @@
           <div> <%= link_to "e d i t", edit_creatrix_registration_path, class: 'btn btn-secondary mb-4', id:"button-profile" %>  </div>
           <div> <hr class="solid holy"> </div>
           <div> 
-              <a href="#microservices" class="btn btn-primary mt-3 holy" id="button-profile">Microservices > </a>
-              <a href="#requests" class="btn btn-primary mt-3 holy" id="button-profile">My requests > </a>
-              <a href="#nodes" class="btn btn-primary mt-3 holy" id="button-profile">Digitales > </a>
-              <a href="#donations" class="btn btn-primary mt-3 holy" id="button-profile">Donations > </a>
+            <a href="#microservices" class="btn btn-primary mt-3 holy" id="button-profile">Microservices > </a>
+            <a href="#requests" class="btn btn-primary mt-3 holy" id="button-profile">My requests > </a>
+            <a href="#nodes" class="btn btn-primary mt-3 holy" id="button-profile">Digitales > </a>
+            <a href="#donations" class="btn btn-primary mt-3 holy" id="button-profile">Donations > </a>
           </div> 
         </div> 
     </div>
@@ -55,14 +55,9 @@
       <h3 class="text-center padding-creatrixes mb-3">d i g i t a l e . s</h3>
         <i>You will see here the nodes that you've created.</i>
       <div id="flex-digitales">
-        <% 9.times do%>
-          <div class="gg-pool-card-secondary" style="height: 250px; width: 210px"> 
-            <a class="panel-title px-4 text-center" data-toggle="collapse" data-target="#collapse1" href="tollapse" role="button" aria-expanded="false" aria-controls="collapseExample">
-            <h5>  Testouille  </h5> </a>
-            <div class="collapse px-4 text-center" id="collapse1">
-              <div> <p> plop plop plop plop plop plop plop plop plop plop plop plopplopplop </p> </div>
-            </div>
-              <%= link_to nodes_path, class: "d-flex flex-column" do %>
+        <% @digitales.each do |digitale|%>
+          <div class="gg-pool-card-secondary" style="height: 200px; width: 210px"> 
+              <%= link_to digitale_path(digitale.id), class: "d-flex flex-column" do %>
                 <i class="fas fa-hand-holding-usd mb-3"></i>	
                 creep in 
               <% end %>

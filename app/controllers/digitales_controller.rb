@@ -18,6 +18,7 @@ class DigitalesController < ApplicationController
   	p "$" * 30 + @current_node.to_s + "$" * 30
 
   	@donated_sum = DonatedSum.new
+    @digitales = Digitale.where(creatrix: current_creatrix)
 
     if Fundraiser.find_by(microservice_request: @current_node.non_achieved.microservice_requests.last)
       @fundraiser = Fundraiser.find_by(microservice_request: @current_node.achievements.last.microservice_requests.last)

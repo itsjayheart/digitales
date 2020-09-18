@@ -1,5 +1,5 @@
 class Node < ApplicationRecord
-    after_create :first_achievement
+    after_create :achievements
 
     belongs_to :nodeable, polymorphic: true
     belongs_to :creatrix
@@ -9,7 +9,7 @@ class Node < ApplicationRecord
     has_many :achievements
 
     def non_achieved
-    	return self.achievements.select { |achievement| achievement.achieved? == false }[0]
+    	return Achievement.where(node:self, achieved?: false).first
     end
     
     def current_fundraiser
@@ -31,8 +31,10 @@ class Node < ApplicationRecord
       return MicroserviceCategory.find(id)
     end
 
-    def first_achievement
-      Achievement.create(node: self, achievement_category: AchievementCategory.first)
+    def achievements
+      AchievementCategory.all.each do |achievement_category|
+        Achievement.create(node: self, achievement_category: achievement_category)
+      end
     end
 
 end

@@ -1,0 +1,16 @@
+<%case microservice_category.status(node)%>
+<%when "idle"%>
+  <h6 class='m-0 text-muted'><%=microservice_category.name%></h6>
+<%when "pending"%>
+  <h6 class='m-0 text-info holy'><%=microservice_category.name%></h6>
+    <i>-waiting creatrix validation</i>
+<%when "funding"%>
+  <h6 class='m-0 text-primary holy'><%=microservice_category.name%></h6>
+    <i>-funding in progress</i>
+<%when "delivering"%>
+  <h6 class='m-0 text-success'><%=microservice_category.name%></h6>
+    <i>-waiting creatrix delivery</i>
+<%when "delivered"%>
+  <h6 class='m-0'><%=microservice_category.name%></h6>
+  <%=render "microservice_requests/media_display", microservice_request: microservice_category.microservice_request(node)%>
+<%end%>

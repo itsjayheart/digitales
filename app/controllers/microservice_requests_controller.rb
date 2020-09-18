@@ -2,7 +2,7 @@ class MicroserviceRequestsController < ApplicationController
   def create
     @microservice = Microservice.find(params[:microservice_id])
     @node = Node.find(params[:node_id])
-    MicroserviceRequest.create(microservice: @microservice, achievement: @node.non_achieved)
+    MicroserviceRequest.create(microservice: @microservice, achievement: @node.non_achieved, microservice_category: @microservice.microservice_category)
     redirect_to digitale_path(@node.digitale.id)
   end
 

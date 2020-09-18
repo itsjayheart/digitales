@@ -27,15 +27,52 @@
     HAVE AN ACCES TO THE DIGIT.S THROUGH A TIMELINE
 
 -->
-<div class="text-center">
-<h1 class="gg-title mb-5 mt-5">f u n d</h1>
 
-<h3 class="gg-title mb-3">make the magic happen</h3>
+    <div id="chapter-sticky" class="chap-1">
+            <a href="#mchapter-0"><div class="m-auto"> <p> I </p> </a></div>
+    </div>
 
-<h4 class="gg-title mb-3">here you can learn about what a specific digitale is going to talk about</h4>
+    <div id="chapter-sticky" class="chap-2">
+            <a href="#mchapter-1"><div class="m-auto"> <p> II </p> </a></div>
+    </div>
 
-<h5 class="gg-label mb-1">and help turning it into a stunning 3D-VR work of fiction</h5>
+    <div id="chapter-sticky" class="chap-3">
+            <a href="#mchapter-2"><div class="m-auto"> <p> III </p> </a></div>
+    </div>
+
+    <div id="chapter-sticky" class="chap-4">
+            <a href="#mchapter-3"><div class="m-auto"> <p> IV </p> </a></div>
+    </div>
+
+    <div id="chapter-sticky" class="chap-5">
+            <a href="#mchapter-4"><div class="m-auto"> <p> V </p> </a></div>
+    </div>
+
+    <div id="chapter-sticky" class="chap-6">
+          <a href="#mchapter-5"> <div class="m-auto"> <p> VI </p> </a></div>
+    </div>
+
+    <div id="chapter-sticky" class="chap-7">
+            <a href="#mchapter-6"><div class="m-auto"> <p> VII </p> </a></div>
+    </div>
+
+
+<div class="text-center" id="testy">
+  <h1 class="gg-title mb-5 mt-5">f u n d</h1>
+
+  <h3 class="gg-title mb-3">make the magic happen</h3>
+
+  <h4 class="gg-title mb-3">here you can learn about what a specific digitale is going to talk about</h4>
+
+  <h5 class="gg-label mb-1">and help turning it into a stunning 3D-VR work of fiction</h5>
+
+  <a href="#flex-menu" id="chevron-down"> <i class="fas fa-chevron-down fa-4x pt-5" style="color:white"></i> </a>
 </div>
+
+
+
+<div id="flex-menu"></div>
+
 
 <div class="d-flex" style="height: 100%; width: 100%; overflow-x: none;">
   <div class='padding-top d-flex justify-content-around' style="margin: auto; overflow-x: none; padding-top: 45px; padding-bottom: 70px; padding-right: 35px;">
@@ -115,7 +152,7 @@
 <div class="d-flex flex-column align-items-center">
   <% i = 0 %>
   <% @digitale.m_statements.sort { |a, b| a.id <=> b.id }.each do |m_statement| %>
-    <div class="gg-digitale-card text-center ">
+    <div class="gg-digitale-card text-center " id="mchapter-<%=i%>">
       <h2 class="gg-label mb-5"><%= chapters[i] %></h2>
       <h3 class="gg-label mb-3">m i g h t | | | m i g h t | n o t</h3>
       <h4 class="gg-label mb-1"><%= m_statement.title %></h4>
@@ -125,5 +162,5 @@
       <%= render "digitales/digit_display", node: m_statement, display: false %>
     </div>
     <% i += 1 %>
-  <% end %>
+  <% end %> 
 </div>

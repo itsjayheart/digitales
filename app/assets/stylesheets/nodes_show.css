@@ -1,3 +1,101 @@
 .sticky-show {
     position: fixed;
   }
+
+  #flex-menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 90px;
+    padding-top: 8px;
+    background-color: rgba(255, 255, 255, 0.068);
+    border-bottom: 1px solid #ccc!important;
+    height: 50px;
+  }
+
+  #digitales-navbar {
+    
+    font-size: 20px;
+    width: 200px;
+    height: 40px;
+  }
+
+  #chapter-sticky {
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.13);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 60px;
+    width: 60px;
+    position: sticky;
+    left: 3%;
+    text-align: center;
+    z-index: 3;
+  }
+
+  .m-auto p {
+    font-size: 20px;
+    color: white;
+  }
+
+  .chap-1 {
+    top: 20%;
+  }
+
+  .chap-2 {
+    top: 30%;
+  }
+ 
+  .chap-3 {
+    top: 40%;
+  }
+  
+  .chap-4 {
+    top: 50%;
+  }
+
+  .chap-5 {
+    top: 60%;
+  }
+
+  .chap-6 {
+    top: 70%;
+  }
+
+  .chap-7 {
+    top: 80%;
+  }
+
+  #mchapter-0 {
+    scroll-margin-top: 100px;
+  }
+
+  #mchapter-1 {
+    scroll-margin-top: 100px;
+  }
+  
+  #mchapter-2 {
+    scroll-margin-top: 100px;
+  }
+
+  #mchapter-3 {
+    scroll-margin-top: 100px;
+  }
+
+  #mchapter-4 {
+    scroll-margin-top: 100px;
+  }
+
+  #mchapter-5 {
+    scroll-margin-top: 100px;
+  }
+
+  #mchapter-6 {
+    scroll-margin-top: 100px;
+  }
+
+  #testy {
+  margin-top: -300px;
+  margin-bottom: 250px;
+  }

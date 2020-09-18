@@ -1,24 +1,42 @@
-# README
+# Projet final THP : DigiTales
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 📋 C O N T E X T E :
 
-Things you may want to cover:
+On t'a dit qu'un site en chantier était censé te permettre de soumettre une idée de fiction à des auteurs, dessinateurs, monteurs, et acteurs pour la changer en une franchise à la Star Wars financée par du crowdfunding
 
-* Ruby version
+## 📋 P E R S O N A | U T I L I S A T E U R :
 
-* System dependencies
+Tu n'as pas peur des bugs, tu veux devenir J.K Rowling, être produit.e comme un film Pixar, tout en t'adressant directement aux artistes et en finançant ton idée grâce au crowdfunding
+bon ça restait un peu abstrait mais au plus simple et plus court
 
-* Configuration
+La version V1 production est en ligne. La V2 est en cours developpement.
 
-* Database creation
+## 🚀 Lien Github :
 
-* Database initialization
+https://github.com/itsjayheart/digitales/
 
-* How to run the test suite
+## 🚀 Lien Heroku :
 
-* Services (job queues, cache servers, search engines, etc.)
+https://digitales-production.herokuapp.com/
 
-* Deployment instructions
+## 🖥 Localement :
 
-* ...
+* **Lancer** `$ git clone "lien"`
+* **Lancer** `$ bundle install`
+* **Lancer** `$ rails db:create`
+* **Lancer** `$ rails db:migrate`
+* **Lancer** `$ rails server`
+* **Se rendre sur localhost:3000 via votre navigateur**
+
+Made with ❤️ and 💦
+
+## 📺 Lien Youtube : 
+https://youtu.be/m7_GMSUZUJU
+
+## ⌨️ Auteurs :
+
+Marion 'J' Pocquet | https://github.com/itsjayheart
+Boris Alföldi | https://github.com/balfoldi
+Emeran Gainville | https://github.com/Estebandelaciudad
+Lucas Gautier | https://github.com/RigateStudio
+Martin Lanrezac | https://github.com/MartinL123

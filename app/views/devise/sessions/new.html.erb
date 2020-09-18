@@ -1,53 +1,89 @@
-      <div id="color-overlay"></div>
-      <div class="center">
+<div id="color-overlay"></div>
+  <div class="center">
+    <div class="homepage-divs"> display="display-flex space-between">
+      <div sign-in> 
+          <h1 style="color: white; text-shadow: 0px 0px 12px;">D I G I T A L E S</h1>
+          <h4 style="color: white; text-shadow: 0px 0px 12px;">A REVOLUTIONARY WAY TO CREATE, PRODUCE AND CONSUME FICTION</h4>
+          <br>
+          <p style="color: white; text-shadow: 0px 0px 12px;">Have you ever dreamt you could have a whole animation studio and creative writing team to turn your craziest ideas into a whole independent multimedia franchise having raging fans all over the world ?</p>
+          <p style="color: white; text-shadow: 0px 0px 12px;">Then take part in our galactic, game-changing uprising.</p>
 
-        <h1 style="color: white; text-shadow: 0px 0px 12px;">D I G I T A L E S</h1>
-        <h4 style="color: white; text-shadow: 0px 0px 12px;">A REVOLUTIONARY WAY TO CREATE, PRODUCE AND CONSUME FICTION</h4>
-        <br>
-        <p style="color: white; text-shadow: 0px 0px 12px;">Have you ever dreamt you could have a whole animation studio and creative writing team to turn your craziest ideas into a whole independent multimedia franchise having raging fans all over the world ?</p>
-        <p style="color: white; text-shadow: 0px 0px 12px;">Then take part in our galactic, game-changing uprising.</p>
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name), class:"w-100") do |f| %>
+            <div class="d-flex justify-content-around align-items-center mb-3" style="width: 100%;">
 
-        <%= form_for(resource, as: resource_name, url: session_path(resource_name), class:"w-100") do |f| %>
-          <div class="d-flex justify-content-around align-items-center mb-3" style="width: 100%;">
+              <div class="field d-flex">
+                <b><%= f.label :email, '@', style: "margin: 0 10px 0 10px; color: white; text-shadow: 0px 0px 12px;" %></b>
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "e m a i l", style: "background-color: white; border: Opx;" %>
+              </div>
 
-            <div class="field d-flex">
-              <b><%= f.label :email, '@', style: "margin: 0 10px 0 10px; color: white; text-shadow: 0px 0px 12px;" %></b>
-              <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "e m a i l", style: "background-color: white; border: Opx;" %>
+              <div class="d-flex justify-content-around align-items-center">
+                <%= f.label :password do %>
+                <i class="fas fa-lock" style="margin: 0 10px 0 10px; color: white; text-shadow: 0px 0px 12px;"></i>
+                <% end %>
+                <%= f.password_field :password, autocomplete: "current-password", class: "form-control", placeholder: "p a s s w o r d", style: "background-color: white; border: Opx;" %>
+              </div>
+
+              <% if devise_mapping.rememberable? %>
+              <div class="field">
+                <%= f.check_box :remember_me %>
+                <%= f.label :remember_me do %>
+                  <div style="margin:10px 0 0 10px; color: white; text-shadow: 0px 0px 12px;">r e m e m b e r | m e</div>
+                <% end %>
+              </div>
+            <% end %>
+
             </div>
-
-            <div class="d-flex justify-content-around align-items-center">
-              <%= f.label :password do %>
-              <i class="fas fa-lock" style="margin: 0 10px 0 10px; color: white; text-shadow: 0px 0px 12px;"></i>
-              <% end %>
-              <%= f.password_field :password, autocomplete: "current-password", class: "form-control", placeholder: "p a s s w o r d", style: "background-color: white; border: Opx;" %>
-            </div>
-
-            <% if devise_mapping.rememberable? %>
-            <div class="field">
-              <%= f.check_box :remember_me %>
-              <%= f.label :remember_me do %>
-                <div style="margin:10px 0 0 10px; color: white; text-shadow: 0px 0px 12px;">r e m e m b e r | m e</div>
-              <% end %>
+            
+            <div class="actions">
+              <%= f.submit "Log in", :id => "button-sign", class: "btn btn-outline-secondary" %>
             </div>
           <% end %>
 
-          </div>
-          
-          <div class="actions">
-            <%= f.submit "Log in", :id => "button-sign", class: "btn btn-outline-secondary" %>
-          </div>
-        <% end %>
-
-        <%= render "devise/shared/links" %>
-
+          <%= render "devise/shared/links" %>
       </div>
+
+      <div sign-in> 
+        <section class="fdb-block">
+            <div class="row justify-content-center">
+              <div class="col-12 text-left">
+                <h1>What is D I G I T A L E S</h1>
+                <p class="lead">Digitales is a collaborative website where you can create stories while using the codes  role-play games.   </p>
+
+                <img alt="image" class="img-fluid mt-5" src="./imgs/draws/android.svg">
+              </div>
+            </div>
+
+            <div class="row text-left pt-5">
+              <div class="col-12 col-md-6">
+                <h3><strong>Feature One</strong></h3>
+
+                <p>Far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with
+                  the necessary regelialia. When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane.</p>
+
+                <p><a href="https://www.froala.com">Learn More <i class="fas fa-angle-right"></i></a></p>
+              </div>
+              <div class="col-12 col-md-6 pt-4 pt-md-0">
+                <h3><strong>Feature Two</strong></h3>
+
+                <p> It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life. The Big Oxmox advised her not to do so, because there
+                  were thousands of bad Commas, wild Question Marks and devious Semikoli. On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from
+                  its origin.</p>
+
+                <p><a href="https://www.froala.com">Learn More <i class="fas fa-angle-right"></i></a></p>
+              </div>
+            </div>
+        </section>
+      </div>
+
     </div>
+  </div>
+</div>
 
-    <!--<div class="row" id="test1">
-      <div class="col-6" id="bckg-image-hp"></div>
-      <div class="col-6 text-center my-auto px-5">
-        <h1>Froala Blocks</h1>
-            <p class="lead">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-            <p class="mt-4 mb-5"><a class="btn btn-secondary" href="https://www.froala.com">Button</a></p>
-      </div>
-    -->
+      <!--<div class="row" id="test1">
+        <div class="col-6" id="bckg-image-hp"></div>
+        <div class="col-6 text-center my-auto px-5">
+          <h1>Froala Blocks</h1>
+              <p class="lead">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+              <p class="mt-4 mb-5"><a class="btn btn-secondary" href="https://www.froala.com">Button</a></p>
+        </div>
+      -->

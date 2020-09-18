@@ -48,7 +48,6 @@
                 <div style="margin: auto;">
                     <h1 class="mb-3 gg-label"><%= @digitale.title %></h1>
                     <p class="card-text"><%= @digitale.description %></p>
-                  
                 </div>
               </div>
 
@@ -75,7 +74,7 @@
          
     </div>
 
-    <div class="card d-flex flex-column justify-content-around">
+    <div class="card d-flex flex-column justify-content-around" style='width:500px'>
       <div class='d-flex flex-column justify-content-around text-center'>
         
         <div class="m-5">
@@ -89,7 +88,7 @@
             <b><%= @per_cent_status.ceil %> %</b>
             <%= render "donated_sums/form"%>
           <% elsif  current_creatrix && current_creatrix == @current_node.creatrix %>
-            <% if !@current_node.achievements.first.microservice_requests.last%>
+            <% if !@current_node.non_achieved.microservice_requests.last%>
               <%= link_to "Make a request for #{@current_node.current_microservice_category.name} achievement", node_microservices_path(@current_node.id) , class: "btn gg-button" %>
             <% elsif @current_node.achievements.last.microservice_requests.last.accepted?%>
               <%= link_to "Start fundraising #{@current_node.current_microservice_category.name}", node_microservices_path(@current_node.id) , class: "btn gg-button" %>
@@ -114,35 +113,11 @@
       </div>    
 
       <div class="card-body">
-        <% AchievementCategory.all.each do |achievement_category| %>
-          <h4 class="mt-3 gg-label"><%= achievement_category.name %></h4>
-          <% achievement_category.microservice_categories.each do  |microservice_category| %>
-            <% achievement = @current_node.achievements.select { |achievement| achievement.achievement_category == achievement_category}.sample %>
-            <% if achievement %>
-              <% if achievement.microservice_requests.any? { |request| request.microservice.microservice_category == microservice_category } %>
-                <% achievement.microservice_requests.each do |request| %>
-                  <% if request.microservice.microservice_category == microservice_category %>
-                    <% if request.delivered? %>
-                      <div><%= render "microservice_requests/media_display", microservice_request: request%></div>
-                      <div class="text-primary ml-3"><%= microservice_category.name %></div>
-                    <% elsif request.delivered? == false %> 
-                      <div class="ml-3" style="color: white; text-shadow: 0px 0px 6px white;">
-                        <%= microservice_category.name %>
-                      </div>
-                    <% end %>
-                  <% end %>
-                <% end %>
-              <% else %>
-                <div class="text-muted ml-3">
-                  <%= microservice_category.name %>
-                </div>
-              <% end %>
-            <% else %>
-                <div class="text-muted ml-3">
-                  <%= microservice_category.name %>
-                </div>
-            <% end %>
-          <% end %>
+        <% @achievement_categories.each do |achievement_category| %>
+          <h4><%=achievement_category.name%></h4>
+          <% achievement_category.microservice_categories.each do |microservice_category| %>
+            <%= render "digitales/achievement_category", microservice_category: microservice_category, node: @current_node%>
+          <%end%>
         <% end %>
       </div>
     </div>
@@ -166,37 +141,15 @@
       <h4 class="gg-label mb-1"><%= m_statement.title %></h4>
       <p class="card-text mb-5"><%= m_statement.content %></p>
     </div>
+    <div>
       <div class="mb-3">
-        <% AchievementCategory.all.each do |achievement_category| %>
-        <h4 class="mt-3 gg-label"><%= achievement_category.name %></h4>
-          <% achievement_category.microservice_categories.each do  |microservice_category| %>
-            <% achievement = m_statement.achievements.select { |achievement| achievement.achievement_category == achievement_category}.sample %>
-            <% if achievement %>
-              <% if achievement.microservice_requests.any? { |request| request.microservice.microservice_category == microservice_category } %>
-                <% achievement.microservice_requests.each do |request| %>
-                  <% if request.microservice.microservice_category == microservice_category %>
-                    <% if request.delivered? %>
-                      <div class="text-primary gg-title ml-3"><%= microservice_category.name %></div>
-                      <div><%= render "microservice_requests/media_display", microservice_request: request%></div>
-                    <% elsif request.delivered? == false %> 
-                      <div class="ml-3 gg-title" style="color: white; text-shadow: 0px 0px 6px white;">
-                        <%= microservice_category.name %> achievement is in progression
-                      </div>
-                    <% end %>
-                  <% end %>
-                <% end %>
-              <% else %>
-                <div class="ml-3">
-                  no <%= microservice_category.name %> funded yet
-                </div>
-              <% end %>
-            <% else %>
-                <div class="ml-3">
-                  no <%= microservice_category.name %> funded yet
-                </div>
-            <% end %>
-          <% end %>
-      <% end %>
+        <% @achievement_categories.each do |achievement_category| %>
+          <h4><%=achievement_category.name%></h4>
+          <% achievement_category.microservice_categories.each do |microservice_category| %>
+            <%= render "digitales/achievement_category", microservice_category: microservice_category, node: m_statement%>
+          <%end%>
+        <% end %>
+      </div>  
     </div>
     <% i += 1 %>
   <% end %>

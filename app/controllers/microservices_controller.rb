@@ -10,7 +10,7 @@ class MicroservicesController < ApplicationController
     puts params[:microservice][:soundcloude]
     puts "$"*100
 
-    @microservice.update(youtube: "<iframe width='100%' height='100%' src='#{params[:microservice][:youtube].sub("https://www.youtube.com/watch?v=","http://www.youtube.com/embed/")}' frameborder='0'></iframe>") if params[:microservice][:youtube]
+    @microservice.update(youtube:params[:microservice][:youtube]) if params[:microservice][:youtube]
     @microservice.update(soundcloude: params[:microservice][:soundcloude]) if params[:microservice][:soundcloude]
     @microservice.update(quill: params[:microservice][:quill]) if params[:microservice][:quill]
     @microservice.picture.attach(params[:picture]) if params[:picture]

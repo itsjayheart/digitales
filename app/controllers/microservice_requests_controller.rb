@@ -17,7 +17,7 @@ class MicroserviceRequestsController < ApplicationController
     end
 
     if params[:microservice_request][:media]
-      @microservice_request.update(youtube: "<iframe width='100%' height='100%' src='#{params[:microservice_request][:youtube].sub("https://www.youtube.com/watch?v=","http://www.youtube.com/embed/")}' frameborder='0'></iframe>") if params[:microservice_request][:youtube]
+      @microservice.update(youtube:params[:microservice][:youtube]) if params[:microservice][:youtube]
       @microservice_request.update(soundcloude: params[:microservice_request][:soundcloude]) if params[:microservice_request][:soundcloude]
       @microservice_request.update(quill: params[:microservice_request][:quill]) if params[:microservice_request][:quill]
       @microservice_request.art_work.attach(params[:art_work]) if params[:art_work]      

@@ -39,44 +39,32 @@
 
 <div class="d-flex" style="height: 100%; width: 100%; overflow-x: none;">
   <div class='padding-top d-flex justify-content-around' style="margin: auto; overflow-x: none; padding-top: 45px; padding-bottom: 70px; padding-right: 35px;">
-
     <div class="ml-3 d-flex flex-column mr-5">
-      
-          <div class="gg-digitale-card text-center">
-              
-              <div style="height: 350px; display: flex; flex-direction: column; justify-content: center;"> 
-                <div style="margin: auto;">
-                    <h1 class="mb-3 gg-label"><%= @digitale.title %></h1>
-                    <p class="card-text"><%= @digitale.description %></p>
-                </div>
-              </div>
-
-              <h2 class="gg-label mb-1">w h a t | i f</h2>
-              
-              <h3 class="gg-label">
-                <p class="card-text mb-3"><%= @digitale.what_if.title %></p>
-              </h3>  
-              
-              <p class="card-text mb-5"><%= @digitale.what_if.content %></p>
-
-
-              <% chapters = ["I", "II", "III", "IIII", "V", "VI", "VII"] %>
-              <% i = 0 %>
-              <% @digitale.m_statements.each do |m_statement| %>
-                <h3 class="gg-label mb-5"><%= chapters[i] %></h3>
-                <h4 class="gg-label mb-3">m i g h t | | | m i g h t | n o t</h4>
-                <h6 class="gg-label mb-1"><%= m_statement.title %></h6>
-                <p class="card-text mb-5"><%= m_statement.content %></p>
-                <% i += 1 %>
-              <% end %>
-
+      <div class="gg-digitale-card text-center">  
+        <div style="height: 350px; display: flex; flex-direction: column; justify-content: center;"> 
+          <div style="margin: auto;">
+            <h1 class="mb-3 gg-label"><%= @digitale.title %></h1>
+            <p class="card-text"><%= @digitale.description %></p>
           </div>
-         
+        </div>
+        <h2 class="gg-label mb-1">w h a t | i f</h2>
+        <h3 class="gg-label">
+          <p class="card-text mb-3"><%= @digitale.what_if.title %></p>
+        </h3>
+        <p class="card-text mb-5"><%= @digitale.what_if.content %></p>
+        <% chapters = ["I", "II", "III", "IIII", "V", "VI", "VII"] %>
+        <% i = 0 %>
+        <% @digitale.m_statements.each do |m_statement| %>
+          <h3 class="gg-label mb-5"><%= chapters[i] %></h3>
+          <h4 class="gg-label mb-3">m i g h t | | | m i g h t | n o t</h4>
+          <h6 class="gg-label mb-1"><%= m_statement.title %></h6>
+          <p class="card-text mb-5"><%= m_statement.content %></p>
+          <% i += 1 %>
+        <% end %>
+      </div>
     </div>
-
     <div class="card d-flex flex-column justify-content-around" style='width:500px'>
       <div class='d-flex flex-column justify-content-around text-center'>
-        
         <div class="m-5">
           <% if @fundraiser && !@fundraiser.funded?%>
             <p><%= @current_node.current_microservice_category.name %></p>
@@ -99,32 +87,22 @@
             <p>No request yet for <%= @current_node.current_microservice_category.name %></p>
           <%end%>
         </div>
-
         <% i = 0 %>
         <% @digitale.m_statements.sort { |a, b| a.id <=> b.id }.each do |m_statement| %>
           <% if m_statement == @current_node %>
-              <h3 class="gg-label mb-5"><%= chapters[i] %></h3>
-              <h4 class="gg-label mb-3">m i g h t | | | m i g h t | n o t</h4>
-              <h6 class="gg-label mb-1"><%= @current_node.title %></h6>
+            <h3 class="gg-label mb-5"><%= chapters[i] %></h3>
+            <h4 class="gg-label mb-3">m i g h t | | | m i g h t | n o t</h4>
+            <h6 class="gg-label mb-1"><%= @current_node.title %></h6>
           <% end %>
           <% i += 1 %>
         <% end %>
-
       </div>    
-
       <div class="card-body">
         <% @achievement_categories.each do |achievement_category| %>
-          <%Achievement.find_by(achievement_category: achievement_category, node: @current_node).achieved? ? achievement_category_class = "text-primary" : achievement_category_class = ""%>
-          <h4 class='<%=achievement_category_class%>'><%=achievement_category.name%></h4>
-          <% achievement_category.microservice_categories.each do |microservice_category| %>
-          <div class='card-body'>
-            <%= render "digitales/achievement_category", microservice_category: microservice_category, node: @current_node, display: false %>
-          </div>
-          <%end%>
+          <%= render "digitales/achievement_category", achievement_category: achievement_category, node: @current_node, display: false %>
         <% end %>
       </div>
     </div>
-
   </div>
 </div>
 
@@ -132,10 +110,9 @@
 
 <p class="gg-label p-roboto text-center">'d i g i t . s' are the different creative microservices being funded by the community gathering around a digitale which allow, when put together in the right order, to turn it into a piece of 3D fiction
 
- <p class="gg-label p-roboto text-center mb-5">it starts with writing, ends with composing, after having designed, modeled, animated, edited and recorded the voice acting needed to make it happen</p>
+<p class="gg-label p-roboto text-center mb-5">it starts with writing, ends with composing, after having designed, modeled, animated, edited and recorded the voice acting needed to make it happen</p>
 
- <div class="d-flex flex-column align-items-center">
-
+<div class="d-flex flex-column align-items-center">
   <% i = 0 %>
   <% @digitale.m_statements.sort { |a, b| a.id <=> b.id }.each do |m_statement| %>
     <div class="gg-digitale-card text-center">
@@ -144,18 +121,9 @@
       <h4 class="gg-label mb-1"><%= m_statement.title %></h4>
       <p class="card-text mb-5"><%= m_statement.content %></p>
     </div>
-    <div>
-      <div class="mb-3">
-        <% @achievement_categories.each do |achievement_category| %>
-          <% @achievement_categories.each do |achievement_category| %>
-          <%Achievement.find_by(achievement_category: achievement_category, node: m_statement).achieved? ? achievement_category_class = "text-primary" : achievement_category_class = ""%>
-          <h4 class='<%=achievement_category_class%>'><%=achievement_category.name%></h4>
-          <% achievement_category.microservice_categories.each do |microservice_category| %>
-            <%= render "digitales/achievement_category", microservice_category: microservice_category, node: m_statement, display: true %>
-          <%end%>
-        <% end %>
-      </div>  
+    <div class='container'>
+      <%= render "digitales/digit_display", node: m_statement, display: false %>
     </div>
     <% i += 1 %>
   <% end %>
- </div>
+</div>

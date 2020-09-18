@@ -90,7 +90,7 @@
           <% elsif  current_creatrix && current_creatrix == @current_node.creatrix %>
             <% if !@current_node.non_achieved.microservice_requests.last%>
               <%= link_to "Make a request for #{@current_node.current_microservice_category.name} achievement", node_microservices_path(@current_node.id) , class: "btn gg-button" %>
-            <% elsif @current_node.achievements.last.microservice_requests.last.accepted?%>
+            <% elsif @current_node.non_achieved.microservice_requests.last.accepted?%>
               <%= link_to "Start fundraising #{@current_node.current_microservice_category.name}", node_microservices_path(@current_node.id) , class: "btn gg-button" %>
             <% else %>
               <p>Pending microservice request for <%= @current_node.current_microservice_category.name %></p>
@@ -114,9 +114,12 @@
 
       <div class="card-body">
         <% @achievement_categories.each do |achievement_category| %>
-          <h4><%=achievement_category.name%></h4>
+          <%Achievement.find_by(achievement_category: achievement_category, node: @current_node).achieved? ? achievement_category_class = "text-primary" : achievement_category_class = ""%>
+          <h4 class='<%=achievement_category_class%>'><%=achievement_category.name%></h4>
           <% achievement_category.microservice_categories.each do |microservice_category| %>
-            <%= render "digitales/achievement_category", microservice_category: microservice_category, node: @current_node%>
+          <div class='card-body'>
+            <%= render "digitales/achievement_category", microservice_category: microservice_category, node: @current_node, display: false %>
+          </div>
           <%end%>
         <% end %>
       </div>
@@ -144,9 +147,11 @@
     <div>
       <div class="mb-3">
         <% @achievement_categories.each do |achievement_category| %>
-          <h4><%=achievement_category.name%></h4>
+          <% @achievement_categories.each do |achievement_category| %>
+          <%Achievement.find_by(achievement_category: achievement_category, node: m_statement).achieved? ? achievement_category_class = "text-primary" : achievement_category_class = ""%>
+          <h4 class='<%=achievement_category_class%>'><%=achievement_category.name%></h4>
           <% achievement_category.microservice_categories.each do |microservice_category| %>
-            <%= render "digitales/achievement_category", microservice_category: microservice_category, node: m_statement%>
+            <%= render "digitales/achievement_category", microservice_category: microservice_category, node: m_statement, display: true %>
           <%end%>
         <% end %>
       </div>  

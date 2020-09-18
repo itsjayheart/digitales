@@ -2,7 +2,7 @@ class Microservice < ApplicationRecord
     after_create :ceil_price
     validates :price,
     presence: true, 
-    numericality: { greater_than_or_equal_to: 1, less_than_or_equal_to: 5 }
+    numericality: { greater_than_or_equal_to: 1, less_than_or_equal_to: 50 }
 
     has_one_attached :picture
 

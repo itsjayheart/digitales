@@ -111,7 +111,7 @@ Digitale.all.each do |digitale|
         picture = pictures_array.sample
         microservice_request.art_work.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'seed', picture)), filename: picture, content_type: 'image/png')
       when "video"
-        microservice_request.update(youtube: "<iframe width='100%' height='100%' src='#{youtube_array.sample.sub("https://www.youtube.com/watch?v=","http://www.youtube.com/embed/")}' frameborder='0'></iframe>")
+        microservice_request.update(youtube: "<iframe width='560' height='315' src='#{youtube_array.sample.sub('https://www.youtube.com/watch?v=',"http://www.youtube.com/embed/")}?controls=0' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>")
       when "sound"
         microservice_request.update(soundcloude: soundcloud_array.sample)
       when "text"

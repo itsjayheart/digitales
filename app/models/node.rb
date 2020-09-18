@@ -33,7 +33,7 @@ class Node < ApplicationRecord
 
     def achievements
       AchievementCategory.all.each do |achievement_category|
-        Achievement.create(node: self, achievement_category: achievement_category)
+        Achievement.create(node: self, achievement_category: achievement_category, achieved?: false)
       end
     end
 

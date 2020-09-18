@@ -1,0 +1,20 @@
+<%case microservice_category.status(node)%>
+<%when "idle"%>
+  <h6 class='m-0 text-muted'><%=microservice_category.name%></h6>
+<%when "pending"%>
+  <h6 class='m-0 text-info holy'><%=microservice_category.name%></h6>
+    <i>-waiting digit validation</i>
+<%when "funding"%>
+  <h6 class='m-0 text-primary holy'><%=microservice_category.name%></h6>
+    <i>-digit funding in progress</i>
+<%when "delivering"%>
+  <h6 class='m-0 text-warning'><%=microservice_category.name%></h6>
+    <i>-waiting digit delivery</i>
+<%when "delivered"%>
+  <h6 class='m-0 text-success'><%=microservice_category.name%></h6>
+  <%if display %>
+    <%=render "microservice_requests/media_display", microservice_request: microservice_category.microservice_request(node)%>
+  <%else%>
+    <i>-digit delivered</i>
+  <%end%>
+<%end%>

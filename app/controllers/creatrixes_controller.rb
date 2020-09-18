@@ -5,6 +5,7 @@ class CreatrixesController < ApplicationController
 	@x = 0 #microservice count variable for quill plug in ids
 	@y = 0 #microservice_request count variable for quill plug in ids
 	@donated_sums = DonatedSum.where(creatrix: current_creatrix)
+	@digitales = Digitale.where(creatrix: current_creatrix)
 
   	if params['id'] == nil
   		@creatrix = current_creatrix

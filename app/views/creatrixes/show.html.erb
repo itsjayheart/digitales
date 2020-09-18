@@ -27,10 +27,10 @@
           <div> <%= link_to "e d i t", edit_creatrix_registration_path, class: 'btn btn-secondary mb-4', id:"button-profile" %>  </div>
           <div> <hr class="solid holy"> </div>
           <div> 
-              <a href="#microservices" class="btn btn-primary mt-3 holy" id="button-profile">Microservices > </a>
-              <a href="#requests" class="btn btn-primary mt-3 holy" id="button-profile">My requests > </a>
-              <a href="#nodes" class="btn btn-primary mt-3 holy" id="button-profile">Digitales > </a>
-              <a href="#donations" class="btn btn-primary mt-3 holy" id="button-profile">Donations > </a>
+            <a href="#microservices" class="btn btn-primary mt-3 holy" id="button-profile">Microservices > </a>
+            <a href="#requests" class="btn btn-primary mt-3 holy" id="button-profile">My requests > </a>
+            <a href="#nodes" class="btn btn-primary mt-3 holy" id="button-profile">Digitales > </a>
+            <a href="#donations" class="btn btn-primary mt-3 holy" id="button-profile">Donations > </a>
           </div> 
         </div> 
     </div>
@@ -55,28 +55,17 @@
       <h3 class="text-center padding-creatrixes mb-3">d i g i t a l e . s</h3>
         <i>You will see here the nodes that you've created.</i>
       <div id="flex-digitales">
-        <% 9.times do%>
-          <div class="gg-pool-card-secondary" style="height: 250px; width: 210px"> 
-            <a class="panel-title px-4 text-center" data-toggle="collapse" data-target="#collapse1" href="tollapse" role="button" aria-expanded="false" aria-controls="collapseExample">
-            <h5>  Testouille  </h5> </a>
-            <div class="collapse px-4 text-center" id="collapse1">
-              <div> <p> plop plop plop plop plop plop plop plop plop plop plop plopplopplop </p> </div>
-            </div>
-              <%= link_to nodes_path, class: "d-flex flex-column" do %>
-                <i class="fas fa-hand-holding-usd mb-3"></i>	
-                creep in 
-              <% end %>
+        <% @digitales.each do |digitale|%>
+          <div class="gg-pool-card-secondary" style="height: 200px; width: 210px"> 
+            <h4><%= digitale.title %></h4>
+            <%= link_to digitale_path(digitale.id), class: "d-flex flex-column" do %>
+              <i class="fas fa-hand-holding-usd mb-3"></i>	
+              creep in 
+            <% end %>
           </div>
         <%end%>
       </div>  
     </div>
-
-    <% @creatrix.nodes.each do |node| %>
-      <h3><%= link_to node.title, digitale_path(node.digitale.id)  %></h3>
-      <h6><%= node.achievements.count.to_s %> achievements out of 21</h6>
-      <p><%= node.content %></p>
-      <p></p>
-    <% end %>
 
     <div class='text-center holy' id="donations">
       <h3 class="text-center padding-creatrixes">d o n a t i o n . s</h3>
@@ -84,17 +73,11 @@
           <p class="mt-3 mb-3"> You made <%= @donated_sums.length%> donations</p>
 
 
-      <div id="flex-digitales">
-        <% 8.times do%>
+        <%@donated_sums.each do |donated_sum|%>
           <div class="gg-pool-card-secondary" style="height: 250px; width: 210px"> 
-            <a class="panel-title px-4 text-center" data-toggle="collapse" data-target="#collapse1" href="tollapse" role="button" aria-expanded="false" aria-controls="collapseExample">
-            <h5>  Digitales </h5> </a>
-            <div class="collapse px-4 text-center" id="collapse1">
-              <div> <p> Description </p> </div>
-            </div>
-            <div></div>
-            <div> <h3>Amount</h3></div>
-              <%= link_to nodes_path, class: "d-flex flex-column" do %>
+            <h4><%=donated_sum.fundraiser.microservice_request.achievement.node.title%></h4> </a>
+            <div> <h3><%=donated_sum.sum%> $</h3></div>
+              <%= link_to digitale_path(donated_sum.fundraiser.microservice_request.achievement.node.digitale.id), class: "d-flex flex-column" do %>
                 <i class="fas fa-hand-holding-usd mb-3"></i>	
                 creep in 
               <% end %>
@@ -103,12 +86,6 @@
       </div>  
 
     </div>
-
-    <%@donated_sums.each do |donated_sum|%>
-      <h4><%=donated_sum.fundraiser.microservice_request.achievement.node.title%></h4>
-      <p><%=donated_sum.fundraiser.microservice_request.achievement.node.content%></p>
-      <div><%= link_to "Go to node", digitale_path(donated_sum.fundraiser.microservice_request.achievement.node.digitale.id), class: "btn btn-secondary"%></div>
-    <%end%>
 
   </div>
 </div>

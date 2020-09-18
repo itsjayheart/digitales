@@ -4,7 +4,7 @@ class DonatedSum < ApplicationRecord
 
     validates :sum,
     presence: true, 
-    numericality: { greater_than_or_equal_to: 1, less_than_or_equal_to: 5 }
+    numericality: { greater_than_or_equal_to: 1, less_than_or_equal_to: 50 }
 
     belongs_to :creatrix
     belongs_to :fundraiser

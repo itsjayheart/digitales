@@ -14,7 +14,7 @@ class NodesController < ApplicationController
 
       @node = Node.find(params[:id])
 
-      if Fundraiser.find_by(microservice_request: @node.achievements.last.microservice_requests.last) #if node.pending_microservice_request.accepted?
+      if Fundraiser.find_by(microservice_request: @node.achievements.last.microservice_requests.last)
         @fundraiser = Fundraiser.find_by(microservice_request: @node.achievements.last.microservice_requests.last)
         @per_cent_status = (@fundraiser.current_fundings.ceil * 100) / @fundraiser.goal.ceil
       end

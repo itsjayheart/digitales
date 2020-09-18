@@ -20,7 +20,7 @@ class DigitalesController < ApplicationController
   	@donated_sum = DonatedSum.new
 
     if Fundraiser.find_by(microservice_request: @current_node.non_achieved.microservice_requests.last)
-      @fundraiser = Fundraiser.find_by(microservice_request: @current_node.achievements.last.microservice_requests.last)
+      @fundraiser = Fundraiser.find_by(microservice_request: @current_node.non_achieved.microservice_requests.last)
       @per_cent_status = (@fundraiser.current_fundings.ceil * 100) / @fundraiser.goal.ceil
     end
   end

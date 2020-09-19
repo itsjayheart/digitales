@@ -54,6 +54,7 @@
 .gg-button:hover {
     background-color: white;
     color: #555;
+    text-decoration: unset;
 }
 
 .gg-textarea {

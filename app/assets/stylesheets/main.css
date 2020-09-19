@@ -3,7 +3,7 @@ body {
     padding-top: 70px; /*THIS LINE IS VERY IMPORTANT, DON'T  TOUCH IT IF YOU DON'T KNOW WHAT YOU ARE DOING*/
 }
 
-/*h1 {
+h1 {
     font-size: 68px;
     color: white;
     font-family: 'Gotu', sans-serif;
@@ -18,7 +18,8 @@ h1, h2, h5, h4, h5, h6 {
 
 p, a {
     font-family: 'Marcellus', sans-serif;
-}*/
+}
+
 
 /* makes things disappear for smooth Ajax 9-steps forms */
 

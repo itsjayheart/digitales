@@ -1,0 +1,337 @@
+body {
+  background-color: transparent;
+  /* padding-top: 70px; */
+  z-index: 2;
+  overflow-y: hidden;
+  }
+
+.padding-top {
+  padding-top: 127px;
+}
+
+.padding-bottom {
+  padding-bottom: 160px;
+}
+
+#myBtn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 99;
+  border: 1px solid #ccc !important;
+  outline: 1px;
+  outline-color: #3b0505 !important;
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 18px;
+}
+
+#myBtn:hover {
+  border: 3px;
+  border-color: #ffffff !important;
+  outline: 3px;
+  outline-color: #ffffff !important;
+  background-color: #ffffff41;
+}
+
+.hover-card:hover {
+  background-color: #1b1b1b07;
+}
+
+/*
+#hero-background {
+  z-index: 1;
+  background-image: url("https://images.pexels.com/photos/956999/milky-way-starry-sky-night-sky-star-956999.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260");
+}
+*/
+
+/* FONTS */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #e8eeff;
+  margin-top: 0;
+  margin-bottom: -3px;
+  font-family: 'Gotu', sans-serif;
+}
+
+h1 {
+  font-size: 68px;
+}
+
+h2 {
+  font-size: 48px;
+}
+
+h3 {
+  font-size: 34px;
+}
+
+h4 {
+  font-size: 23px;
+}
+
+h5 {
+  font-size: 18px;
+}
+
+h6 {
+  font-size: 14px;
+}
+
+.p-lead {
+  font-family: 'Gotu', sans-serif;
+  font-size: 19px;
+}
+
+.p {
+  font-size: 9px;
+}
+
+.p-lead-roboto {
+  color: #e8eeff;
+  font-family: 'Roboto', sans-serif;
+  font-size: 19px;
+}
+
+.p-roboto {
+  color: #e8eeff;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+}
+
+
+/* COLORS */
+
+.holy {
+  color: #e8eeff;
+  text-shadow: 0px 0px 14px;
+}
+
+.gg-primary {
+  color: rgb(255, 255, 255);
+  text-shadow: 0px 0px 3px black;
+  background-color: rgba(255, 255, 255, 0.637)
+}
+
+.gg-secondary {
+  color: white;
+  text-shadow: 0px 0px 12px;
+  background-color: rgba(255, 255, 255, 0.05);
+
+}
+
+.gg-body {
+  width: 100%;
+  height: 100vh;
+  background-color: black;
+
+}
+
+.gg-bg {
+  width: 100%;
+  height: 100vh;
+  background: url("<%= asset_path 'gg_background.png' %>") center center no-repeat;
+  background-size: 600px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+
+/* NAVBAR not supported in Firefox and IE */
+
+.gg-bg::-webkit-scrollbar {
+  background-color: transparent;
+  margin-top: 44px;
+  width: 8px;
+}
+
+.gg-bg::-webkit-scrollbar-track {
+  background-color: transparent;
+  margin-top: 44px;
+}
+
+.gg-bg::-webkit-scrollbar-thumb {
+  background-color: rgba(55, 55, 55, 0.7);
+  border-radius: 16px;
+}
+
+.gg-bg::-webkit-scrollbar-button {
+  display: none;
+}
+
+.gg-navbar {
+  height: 88px;
+  background-color: rgba(00, 00, 00, 0.6);
+  border-bottom: solid 1px #555;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.gg-btn-primary {
+  color: white;
+  text-shadow: 0px 0px 3px black;
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 55px;
+  border-radius: 25px;
+  box-shadow: 0px 0px 3px 3px black;
+
+}
+
+.gg-pool {
+  padding-top: 15px;
+  max-height: 15000px;
+  width: 100vw;
+  background-color: rgb(0, 0, 0);
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.gg-pool-hidden-card {
+  width: 255px;
+  margin: 15px;
+  border-radius: 25px;
+  border: none;
+}
+
+.gg-pool-card-primary {
+  width: 255px;
+  margin: 15px;
+  border-radius: 25px;
+  border: solid white 1px;
+  box-shadow: 0px 0px 6px 3px white;
+
+  color: white;
+  text-shadow: 0px 0px 3px rgb(219, 219, 219);
+  background-color: rgba(255, 255, 255, 0.308);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.gg-pool-card-secondary {
+  width: 255px;
+  margin: 15px;
+  border-radius: 25px;
+  border: solid white 1px;
+  box-shadow: 0px 0px 6px 1px white;
+
+  color: white;
+  text-shadow: 0px 0px 12px;
+  background-color: rgba(255, 255, 255, 0.05);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.gg-pool-card-tertiary {
+  width: 255px;
+  margin: 15px;
+  border-radius: 25px;
+  border: solid #555 1px;
+  color: rgba(128, 127, 127, 0.8);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.gg-pool .btn {
+  color: white;
+}
+
+.padding-creatrixes {
+  padding-top: 127px;
+}
+
+/* makes things disappear for smooth Ajax 9-steps forms */
+
+.d-none {
+  display: none;
+}
+
+/* CSS for flash alerts */
+
+.alert-info,
+.alert-success,
+.alert-danger,
+.alert-warning {
+  text-shadow: 0px 0px 12px;
+  margin-bottom: 0;
+}
+
+.alert-info button,
+.alert-success button,
+.alert-danger button,
+.alert-warning button {
+  color: white;
+  text-shadow: 0px 0px 12px
+}
+
+
+.bg-black {
+  background-color: black
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.float {
+  position: relative;
+  animation-name: floating;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes floating {
+  0% {
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+  }
+
+  25% {
+    top: 10px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+  }
+
+  50% {
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+  }
+
+  75% {
+    top: 10px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+  }
+
+  100% {
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+  }
+}

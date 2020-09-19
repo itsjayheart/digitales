@@ -15,5 +15,4 @@ class Microservice < ApplicationRecord
     def ceil_price
         self.update(price: self.price.ceil(2))
     end
-
 end

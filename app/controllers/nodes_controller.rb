@@ -43,21 +43,7 @@ class NodesController < ApplicationController
         else
           render :new
         end
-  #when "WhatIf"
-  #  nodeable = WhatIf.create(creatrix: current_creatrix, sentence: str, description: params['description'])
-  #  node = Node.create(nodeable: nodeable, creatrix: current_creatrix, digitale: digitale, title: nodeable.sentence, content: "description feature coming soon")
-  #when "MStatement"
-  #  nodeable = MStatement.create(creatrix: current_creatrix, sentence: str, description: params['description'])
-  #  node = Node.create(nodeable: nodeable, creatrix: current_creatrix, digitale: digitale, title: nodeable.sentence, content: "description feature coming soon")
-  #when "Digit"
-  #  nodeable = Digit.create(creatrix: current_creatrix, title: params['content'], description: params['description'])
-  #  node = Node.create(nodeable: nodeable, creatrix: current_creatrix, digitale: digitale, title: nodeable.title, content: "description feature coming soon")
-  #end
-  #if Node.all.any? { |node_instance| node_instance == node }
-  #    redirect_to node_path(node.id)
-  #else
-  #    render :new
-  #end
+
       end
     end
 

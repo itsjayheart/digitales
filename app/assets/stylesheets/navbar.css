@@ -1,48 +1,48 @@
-  .affix {
-    weight:100%;
-    background-color: #eee;
-    -webkit-transition:padding 0.2s ease-out;
-    -moz-transition:padding 0.2s ease-out;
-    -o-transition:padding 0.2s ease-out;
-    transition:padding 0.2s ease-out;
-  }
-  
-  navbar-expand-lg {
-    background-color: #eee;
-    -webkit-transition:padding 0.2s ease-out;
-    -moz-transition:padding 0.2s ease-out;
-    -o-transition:padding 0.2s ease-out;
-    transition:padding 0.2s ease-out;
-  }
-  
-  nav .navbar-nav .nav-link,
-  nav .navbar-brand {
-    color: white;
-    font-family: 'Gotu', sans-serif;
-  }
+.affix {
+  weight: 100%;
+  background-color: #eee;
+  -webkit-transition: padding 0.2s ease-out;
+  -moz-transition: padding 0.2s ease-out;
+  -o-transition: padding 0.2s ease-out;
+  transition: padding 0.2s ease-out;
+}
 
-  section {
-    height:calc(90% - 50px);
-    height: 90vh;
-  }
+navbar-expand-lg {
+  background-color: #eee;
+  -webkit-transition: padding 0.2s ease-out;
+  -moz-transition: padding 0.2s ease-out;
+  -o-transition: padding 0.2s ease-out;
+  transition: padding 0.2s ease-out;
+}
+
+nav .navbar-nav .nav-link,
+nav .navbar-brand {
+  color: white;
+  font-family: 'Gotu', sans-serif;
+}
+
+section {
+  height: calc(90% - 50px);
+  height: 90vh;
+}
 
 .navbar {
   padding: 15px 35px 15px 35px;
   margin-block-end: 500px;
 }
 
-nav.navbar{
+nav.navbar {
   -webkit-transition: all 0.4s ease;
   transition: all 0.4s ease;
 }
 
 .navbar-inverse {
-   background-color: #222;
-   border-color: #080808;
+  background-color: #222;
+  border-color: #080808;
 }
 
 nav.navbar.transparent {
- background-color:rgba(0,0,0,0);
+  background-color: rgba(0, 0, 0, 0);
 }
 
 .sticky {
@@ -52,6 +52,6 @@ nav.navbar.transparent {
   z-index: +1;
 }
 
-.sticky + .content {
+.sticky+.content {
   padding-top: 60px;
 }

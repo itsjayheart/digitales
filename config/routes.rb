@@ -1,13 +1,9 @@
 Rails.application.routes.draw do
 
-  get 'digitales_dot_gg/the_pool'
   get 'digitales_dot_gg/the_hook'
-  get 'digitales_dot_gg/the_diver'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   devise_for :creatrixes
-
-
 
   devise_scope :creatrix do
     authenticated :creatrix do
@@ -15,7 +11,7 @@ Rails.application.routes.draw do
     end
   
     unauthenticated do
-      root 'devise/sessions#new', as: :unauthenticated_root
+      root 'digitales_dot_gg#the_hook', as: :unauthenticated_root
     end
   end
 

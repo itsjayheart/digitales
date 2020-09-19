@@ -26,10 +26,10 @@
           <p class="text-center"><strong> Email address </strong>: <%= @creatrix.email %></p>
           <div> <%= link_to "e d i t", edit_creatrix_registration_path, class: 'btn btn-secondary mb-4', id:"button-profile" %>  </div>
           <div> 
-            <a href="#microservices" class="btn btn-primary mt-3 holy" id="button-profile">Microservices > </a>
-            <a href="#requests" class="btn btn-primary mt-3 holy" id="button-profile">My requests > </a>
-            <a href="#nodes" class="btn btn-primary mt-3 holy" id="button-profile">Digitales > </a>
-            <a href="#donations" class="btn btn-primary mt-3 holy" id="button-profile">Donations > </a>
+            <%= link_to "Microservices", "#microservices", class: "btn btn-primary mt-3 holy", id: "button-profile"%>
+            <%= link_to "My requests", "#requests", class: "btn btn-primary mt-3 holy", id: "button-profile"%>
+            <%= link_to "Digitales", "#nodes", class: "btn btn-primary mt-3 holy", id: "button-profile"%>
+            <%= link_to "Donations", "#donations", class: "btn btn-primary mt-3 holy", id: "button-profile"%>
           </div> 
         </div> 
     </div>

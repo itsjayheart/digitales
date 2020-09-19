@@ -4,4 +4,7 @@ class MStatement < ApplicationRecord
 
 	has_one :node, as: :nodeable
 
+    validates :title, length: { in: 3..30 }
+
+    validates :content, length: { in: 50..500 }
 end

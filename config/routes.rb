@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     end
   
     unauthenticated do
-      root 'devise/sessions#new', as: :unauthenticated_root
+      root 'digitales_dot_gg#the_hook', as: :unauthenticated_root
     end
   end
 

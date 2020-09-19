@@ -9,6 +9,7 @@
           <br>
           <br>
       <div class="col">
+      <% if creatrix_signed_in? %>
         <ul class="nav justify-content-center holy">
           <li class="nav-item">
           </li>
@@ -17,16 +18,15 @@
             <%= link_to "Add a node", new_node_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <% if creatrix_signed_in? %>
               <%= link_to "My account", creatrix_path(current_creatrix.id), class: "nav-link" %>
-            <% end %>
           </li>
         </ul>
+      <% end %>
       </div>
 
       <div class="row text-center mt-3">
         <div class="col">
-          <h5>Digitales</h5>
+          <h5 class="gg-title">d i g i t a l e . s</h5>
         </div>
         <br>
       </div>
@@ -34,7 +34,6 @@
       <div class="row mt-4">
         <div class="col text-center">
           <p class="lead holy">
-
         </div>
     </div>
 </footer>

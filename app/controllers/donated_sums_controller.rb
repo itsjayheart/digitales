@@ -7,7 +7,7 @@ class DonatedSumsController < ApplicationController
   def create
     @node = Node.find(params[:node_id])
     @amount =  params[:donated_sum][:sum]
-    # Amount in cents
+
     customer = Stripe::Customer.create({
         email: params[:stripeEmail],
         source: params[:stripeToken],

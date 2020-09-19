@@ -1,4 +1,3 @@
-console.log("node_index<%ok%>")
 target_array = document.getElementsByClassName("wait")
 array_length = target_array.length
 
@@ -19,5 +18,4 @@ for(i=1;i<=array_length;i++){
   delay += 2000
   setTimeout(spawn_card,delay)
 }  
-console.log("node_index<%ok%>")
 

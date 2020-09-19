@@ -6,11 +6,10 @@ function spawn_card(){
   target.classList.remove("wait")
   target.classList.add("drift")
 }
-
+delay = 0
 for(i=1;i<=5;i++){  
-  target = target_array[Math.round(Math.random()*target_array.length)]
-  target.classList.remove("wait")
-  target.classList.add("drift")
+  delay += 1000
+  setTimeout(spawn_card,delay)
 }  
 
 delay = 2000

@@ -8,9 +8,9 @@ class Node < ApplicationRecord
 
     has_many :achievements
 
-    validates :title, length: { in: 3..30 }
+    validates :title, length: { in: 2..150 }
 
-    validates :content, length: { in: 50..500 }
+    validates :content, length: { in: 25..255 }
 
 
     def non_achieved

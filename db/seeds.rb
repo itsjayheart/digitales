@@ -64,12 +64,12 @@ end
 	creatrix = Creatrix.all.sample
 	digitale = Digitale.create(creatrix: creatrix)
 	tale = Tale.create(creatrix: creatrix) 
-	Node.create(nodeable: tale, title: Faker::Book.title, content: Faker::Books::Lovecraft.paragraph_by_chars(characters: rand(200..500)), creatrix: creatrix, digitale: digitale)
+	Node.create(nodeable: tale, title: Faker::Books::Lovecraft.paragraph_by_chars(characters: rand(6..20)), content: Faker::Books::Lovecraft.paragraph_by_chars(characters: rand(200..500)), creatrix: creatrix, digitale: digitale)
 	what_if = WhatIf.create(creatrix: creatrix)
-	Node.create(nodeable: what_if, title: Faker::GreekPhilosophers.quote , content: Faker::Books::Lovecraft.paragraph_by_chars(characters: rand(200..500)) , creatrix: creatrix, digitale: digitale)
+	Node.create(nodeable: what_if, title: Faker::Books::Lovecraft.paragraph_by_chars(characters: rand(6..20)) , content: Faker::Books::Lovecraft.paragraph_by_chars(characters: rand(200..500)) , creatrix: creatrix, digitale: digitale)
 	7.times do |x|
 		m_statement = MStatement.create(creatrix: creatrix)
-		Node.create(nodeable: m_statement, title: Faker::Games::LeagueOfLegends.quote , content: Faker::Books::Lovecraft.paragraph_by_chars(characters: rand(200..500)) , creatrix: creatrix, digitale: digitale)
+		Node.create(nodeable: m_statement, title: Faker::Books::Lovecraft.paragraph_by_chars(characters: rand(6..20)) , content: Faker::Books::Lovecraft.paragraph_by_chars(characters: rand(200..500)) , creatrix: creatrix, digitale: digitale)
 	end
 end
 

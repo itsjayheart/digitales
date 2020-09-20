@@ -32,9 +32,9 @@ end
 
 writing_microservices_category = ["1.5k words synopsis", "10k words one-shot", "10k words one-shot: screenplay translation"]
 
-flat_microservices_category = ["2D character design", "2D prop design", "50-150 panels webcomic : thumbnail", "50-150 panels webcomic :sketching", "50-150 panels webcomic : lineart", "50-150 panels webcomic : flats", "50-150 panels webcomic : shadows and highlights", "50-150 panels webcomic : backgrounds", "50-150 panels webcomic : cover"]
+flat_microservices_category = ["2D character design", "2D prop design", "50-150 panels webcomic: thumbnail", "50-150 panels webcomic: sketching", "50-150 panels webcomic: lineart", "50-150 panels webcomic: flats", "50-150 panels webcomic: shadows and highlights", "50-150 panels webcomic: backgrounds", "50-150 panels webcomic: cover"]
 
-volume_microservices_category = ["3D modeling : character design", "3D modeling : prop design", "3D scenery artwork", "3D character artwork", "3D rigging of a character", "1-3 minutes animated scene"]
+volume_microservices_category = ["3D modeling: character design", "3D modeling: prop design", "3D scenery artwork", "3D character artwork", "3D rigging of a character", "1-3 minutes animated scene"]
 
 acting_microservices_category = ["1-3 minutes animated scene voice acting"]
 
@@ -42,7 +42,7 @@ editing_microservices_category = ["1-3 minutes animated scene editing"]
 
 music_microservices_category = ["1-3 minutes music theme"] 
 
-microservice_categories = [writing_microservices_category, flat_microservices_category, volume_microservices_category, acting_microservices_category, editing_microservices_category, music_microservices_category]
+microservice_categories = [writing_microservices_category, flat_microservices_category, volume_microservices_category, acting_microservices_category, music_microservices_category, editing_microservices_category]
 
 i = 0
 microservice_categories.each do |achievement_microservices_category|

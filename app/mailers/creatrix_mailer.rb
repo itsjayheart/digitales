@@ -18,6 +18,7 @@ class CreatrixMailer < ApplicationMailer
   end
 
   def creatrix_welcome(creatrix)
+    @author = creatrix
     mail(to: creatrix.email, subject: 'welcome') 
   end
 

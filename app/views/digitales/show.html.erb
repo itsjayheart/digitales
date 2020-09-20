@@ -1,64 +1,6 @@
-<!--
 
-  AS A VISITOR-CREATRIX I SHOULD
-
-    BE ABLE TO SEE THE CONTENT OF THE NODE
-
-      AND HAVE AN ACCESS TO THEIR CREATRIX' PROFILE
-
-    SEE THE CURRENT FUNDRAISER WITH
-
-      THE $ GOAL
-
-      HOW MUCH $ HAS ALREADY BEEN RAISED
-
-      A PROGRESS RANGE WITH A %
-
-      THE ARTIST-CREATRIX' PORTFOLIO FOR THE MICROSERVICE ASKED FOR
-
-    SEE THE LIST OF THE ACHIEVEMENTS 
-
-      WITH THOSE THAT HAVE ALREADY BEEN FUNDED IN A PARTICULAR COLOR
-
-      WITH THE ONE THAT IS CURRENTLY BEING FUNDED AND.OR DELIVERED BEING BOLDED AND BRIGHT
-
-      WITH THOSE ARE YET TO BE FUNDED AND DELIVERED BEING "MUTED"
-
-    HAVE AN ACCES TO THE DIGIT.S THROUGH A TIMELINE
-
--->
-
-    <div id="chapter-sticky" class="chap-1">
-            <a href="#mchapter-0"><div class="m-auto"> <p> I </p> </a></div>
-    </div>
-
-    <div id="chapter-sticky" class="chap-2">
-            <a href="#mchapter-1"><div class="m-auto"> <p> II </p> </a></div>
-    </div>
-
-    <div id="chapter-sticky" class="chap-3">
-            <a href="#mchapter-2"><div class="m-auto"> <p> III </p> </a></div>
-    </div>
-
-    <div id="chapter-sticky" class="chap-4">
-            <a href="#mchapter-3"><div class="m-auto"> <p> IV </p> </a></div>
-    </div>
-
-    <div id="chapter-sticky" class="chap-5">
-            <a href="#mchapter-4"><div class="m-auto"> <p> V </p> </a></div>
-    </div>
-
-    <div id="chapter-sticky" class="chap-6">
-          <a href="#mchapter-5"> <div class="m-auto"> <p> VI </p> </a></div>
-    </div>
-
-    <div id="chapter-sticky" class="chap-7">
-            <a href="#mchapter-6"><div class="m-auto"> <p> VII </p> </a></div>
-    </div>
-
-
-<div class="text-center" id="testy">
-  <h1 class="gg-title mb-5 mt-5">f u n d</h1>
+<div class="text-center" >
+  <h1 class="gg-title mb-3 mt-3">f u n d</h1>
 
   <h3 class="gg-title mb-3">make the magic happen</h3>
 
@@ -66,101 +8,136 @@
 
   <h5 class="gg-label mb-1">and help turning it into a stunning 3D-VR work of fiction</h5>
 
-  <a href="#flex-menu" id="chevron-down"> <i class="fas fa-chevron-down fa-4x pt-5" style="color:white"></i> </a>
 </div>
 
-
-
-<div id="flex-menu"></div>
-
-
-<div class="d-flex" style="height: 100%; width: 100%; overflow-x: none;">
-  <div class='padding-top d-flex justify-content-around' style="margin: auto; overflow-x: none; padding-top: 45px; padding-bottom: 70px; padding-right: 35px;">
-    <div class="ml-3 d-flex flex-column mr-5">
-      <div class="gg-digitale-card text-center">  
-        <div style="height: 350px; display: flex; flex-direction: column; justify-content: center;"> 
-          <div style="margin: auto;">
-            <h1 class="mb-3 gg-label"><%= @digitale.title %></h1>
-            <p class="card-text"><%= @digitale.description %></p>
-          </div>
-        </div>
-        <h2 class="gg-label mb-1">w h a t | i f</h2>
-        <h3 class="gg-label">
-          <p class="card-text mb-3"><%= @digitale.what_if.title %></p>
-        </h3>
-        <p class="card-text mb-5"><%= @digitale.what_if.content %></p>
-        <% chapters = ["I", "II", "III", "IIII", "V", "VI", "VII"] %>
-        <% i = 0 %>
-        <% @digitale.m_statements.each do |m_statement| %>
-          <h3 class="gg-label mb-5"><%= chapters[i] %></h3>
-          <h4 class="gg-label mb-3">m i g h t | | | m i g h t | n o t</h4>
-          <h6 class="gg-label mb-1"><%= m_statement.title %></h6>
-          <p class="card-text mb-5"><%= m_statement.content %></p>
-          <% i += 1 %>
-        <% end %>
-      </div>
-    </div>
-    <div class="card d-flex flex-column justify-content-around" style='width:500px'>
-      <div class='d-flex flex-column justify-content-around text-center'>
-        <div class="m-5">
-          <% if @fundraiser && !@fundraiser.funded?%>
-            <p><%= @current_node.current_microservice_category.name %></p>
-           <p><b>$ <%= @fundraiser.current_fundings%></b> raised of $ <%= @fundraiser.goal%> goal</p>
-            <div class="progress">
-              <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="<%= @per_cent_status %>" aria-valuemin="0" aria-valuemax="100" style="width: <%= @per_cent_status%>%">
-              </div>
+<div class='d-flex flex-wrap'>
+<div class='col-1'>
+  <div id="chapter-sticky" class="chap-1">
+    <%= link_to "#mchapter-0" do %>
+    <div class="m-auto"> <p> I </p></div>
+    <%end%>
+  </div>
+  <div id="chapter-sticky" class="chap-2">
+    <%= link_to "#mchapter-1" do %>
+    <div class="m-auto"> <p> II </p></div>
+    <%end%>
+  </div>
+  <div id="chapter-sticky" class="chap-3">
+    <%= link_to "#mchapter-2" do %>
+    <div class="m-auto"> <p> III </p></div>
+    <%end%>
+  </div>
+  <div id="chapter-sticky" class="chap-4">
+    <%= link_to "#mchapter-3" do %>
+    <div class="m-auto"> <p> IV </p></div>
+    <%end%>
+  </div>
+  <div id="chapter-sticky" class="chap-5">
+    <%= link_to "#mchapter-4" do %>
+    <div class="m-auto"> <p> V </p></div>
+    <%end%>
+  </div>
+  <div id="chapter-sticky" class="chap-6">
+    <%= link_to "#mchapter-5" do %>
+    <div class="m-auto"> <p> VI </p></div>
+    <%end%>
+  </div>
+  <div id="chapter-sticky" class="chap-7">
+    <%= link_to "#mchapter-6" do %>
+    <div class="m-auto"> <p> VII </p></div>
+    <%end%>
+  </div>
+</div>
+<div class='col'>
+  <div class="" style="height: 100%; width: 100%; overflow-x: none;">
+    <div class='padding-top d-flex flex-wrap justify-content-center' style="margin: auto; overflow-x: none; padding-top: 45px; padding-bottom: 70px; padding-right: 35px;">
+      <div class=col-sm-8>
+        <div class="gg-digitale-card text-center">  
+          <div style="height: 350px; display: flex; flex-direction: column; justify-content: center;"> 
+            <div style="margin: auto;">
+              <h2 class="mb-3 gg-label"><%= @digitale.title %></h2>
+              <p class="card-text"><%= @digitale.description %></p>
             </div>
-            <b><%= @per_cent_status.ceil %> %</b>
-            <%= render "donated_sums/form"%>
-          <% elsif  current_creatrix && current_creatrix == @current_node.creatrix %>
-            <% if !@current_node.non_achieved.microservice_requests.last%>
-              <%= link_to "Make a request for #{@current_node.current_microservice_category.name} achievement", node_microservices_path(@current_node.id) , class: "btn gg-button" %>
-            <% elsif @current_node.non_achieved.microservice_requests.last.accepted?%>
-              <%= link_to "Start fundraising #{@current_node.current_microservice_category.name}", node_microservices_path(@current_node.id) , class: "btn gg-button" %>
-            <% else %>
-              <p>Pending microservice request for <%= @current_node.current_microservice_category.name %></p>
-            <% end %>
-          <% else %>
-            <p>No request yet for <%= @current_node.current_microservice_category.name %></p>
-          <%end%>
-        </div>
-        <% i = 0 %>
-        <% @digitale.m_statements.sort { |a, b| a.id <=> b.id }.each do |m_statement| %>
-          <% if m_statement == @current_node %>
+          </div>
+          <h2 class="gg-label mb-1">w h a t | i f</h2>
+          <h3 class="gg-label">
+            <p class="card-text mb-3"><%= @digitale.what_if.title %></p>
+          </h3>
+          <p class="card-text mb-5"><%= @digitale.what_if.content %></p>
+          <% chapters = ["I", "II", "III", "IIII", "V", "VI", "VII"] %>
+          <% i = 0 %>
+          <% @digitale.m_statements.each do |m_statement| %>
             <h3 class="gg-label mb-5"><%= chapters[i] %></h3>
             <h4 class="gg-label mb-3">m i g h t | | | m i g h t | n o t</h4>
-            <h6 class="gg-label mb-1"><%= @current_node.title %></h6>
+            <h6 class="gg-label mb-1"><%= m_statement.title %></h6>
+            <p class="card-text mb-5"><%= m_statement.content %></p>
+            <% i += 1 %>
           <% end %>
-          <% i += 1 %>
-        <% end %>
-      </div>    
-      <div class="card-body">
-        <% @achievement_categories.each do |achievement_category| %>
-          <%= render "digitales/achievement_category", achievement_category: achievement_category, node: @current_node, display: false %>
-        <% end %>
+        </div>
       </div>
+      <div class="col-sm-4 card d-flex flex-column justify-content-around" style='width:500px'>
+        <div class='d-flex flex-column justify-content-around text-center'>
+          <div class="m-5">
+            <% if @fundraiser && !@fundraiser.funded?%>
+              <p><%= @current_node.current_microservice_category.name %></p>
+            <p><b>$ <%= @fundraiser.current_fundings%></b> raised of $ <%= @fundraiser.goal%> goal</p>
+              <div class="progress">
+                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="<%= @per_cent_status %>" aria-valuemin="0" aria-valuemax="100" style="width: <%= @per_cent_status%>%">
+                </div>
+              </div>
+              <b><%= @per_cent_status.ceil %> %</b>
+              <%= render "donated_sums/form"%>
+            <% elsif  current_creatrix && current_creatrix == @current_node.creatrix %>
+              <% if !@current_node.non_achieved.microservice_requests.last%>
+                <%= link_to "Make a request for #{@current_node.current_microservice_category.name} achievement", node_microservices_path(@current_node.id) , class: "btn gg-button" %>
+              <% elsif @current_node.non_achieved.microservice_requests.last.accepted?%>
+                <%= link_to "Start fundraising #{@current_node.current_microservice_category.name}", node_microservices_path(@current_node.id) , class: "btn gg-button" %>
+              <% else %>
+                <p>Pending microservice request for <%= @current_node.current_microservice_category.name %></p>
+              <% end %>
+            <% else %>
+              <p>No request yet for <%= @current_node.current_microservice_category.name %></p>
+            <%end%>
+          </div>
+          <% i = 0 %>
+          <% @digitale.m_statements.sort { |a, b| a.id <=> b.id }.each do |m_statement| %>
+            <% if m_statement == @current_node %>
+              <h3 class="gg-label mb-5"><%= chapters[i] %></h3>
+              <h4 class="gg-label mb-3">m i g h t | | | m i g h t | n o t</h4>
+              <h6 class="gg-label mb-1"><%= @current_node.title %></h6>
+            <% end %>
+            <% i += 1 %>
+          <% end %>
+        </div>    
+        <div class="card-body">
+          <% @achievement_categories.each do |achievement_category| %>
+            <%= render "digitales/achievement_category", achievement_category: achievement_category, node: @current_node, display: false %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <h1 class="gg-title text-center mb-3">d i g i t . s</h1>
+
+    <p class="gg-label p-roboto text-center">'d i g i t . s' are the different creative microservices being funded by the community gathering around a digitale which allow, when put together in the right order, to turn it into a piece of 3D fiction
+
+    <p class="gg-label p-roboto text-center mb-5">it starts with writing, ends with composing, after having designed, modeled, animated, edited and recorded the voice acting needed to make it happen</p>
+
+    <div class="d-flex flex-column align-items-center">
+      <% i = 0 %>
+      <% @digitale.m_statements.sort { |a, b| a.id <=> b.id }.each do |m_statement| %>
+        <div class="gg-digitale-card text-center " id="mchapter-<%=i%>">
+          <h2 class="gg-label mb-5"><%= chapters[i] %></h2>
+          <h3 class="gg-label mb-3">m i g h t | | | m i g h t | n o t</h3>
+          <h4 class="gg-label mb-1"><%= m_statement.title %></h4>
+          <p class="card-text mb-5"><%= m_statement.content %></p>
+        </div>
+        <div class='container'>
+          <%= render "digitales/digit_display", node: m_statement, display: false %>
+        </div>
+        <% i += 1 %>
+      <% end %> 
     </div>
   </div>
 </div>
-
-<h1 class="gg-title text-center mb-3">d i g i t . s</h1>
-
-<p class="gg-label p-roboto text-center">'d i g i t . s' are the different creative microservices being funded by the community gathering around a digitale which allow, when put together in the right order, to turn it into a piece of 3D fiction
-
-<p class="gg-label p-roboto text-center mb-5">it starts with writing, ends with composing, after having designed, modeled, animated, edited and recorded the voice acting needed to make it happen</p>
-
-<div class="d-flex flex-column align-items-center">
-  <% i = 0 %>
-  <% @digitale.m_statements.sort { |a, b| a.id <=> b.id }.each do |m_statement| %>
-    <div class="gg-digitale-card text-center " id="mchapter-<%=i%>">
-      <h2 class="gg-label mb-5"><%= chapters[i] %></h2>
-      <h3 class="gg-label mb-3">m i g h t | | | m i g h t | n o t</h3>
-      <h4 class="gg-label mb-1"><%= m_statement.title %></h4>
-      <p class="card-text mb-5"><%= m_statement.content %></p>
-    </div>
-    <div class='container'>
-      <%= render "digitales/digit_display", node: m_statement, display: false %>
-    </div>
-    <% i += 1 %>
-  <% end %> 
+</div>
 </div>

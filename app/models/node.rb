@@ -8,6 +8,11 @@ class Node < ApplicationRecord
 
     has_many :achievements
 
+    validates :title, length: { in: 2..150 }
+
+    validates :content, length: { in: 25..255 }
+
+
     def non_achieved
     	return Achievement.where(node:self, achieved?: false).first
     end

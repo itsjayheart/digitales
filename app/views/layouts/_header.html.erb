@@ -6,6 +6,7 @@
   <div class="navbar-collapse collapse">
 
     <ul class="ml-auto navbar-nav d-flex align-items-center">
+
       <% if creatrix_signed_in? %>
           <li class="nav-item ml-4"> 
             <%= link_to "c r e a t e", new_node_path, class: "gg-button gg-title p-2", style: "text-decoration: none;" %>
@@ -26,6 +27,7 @@
           </li>
 
       <% else %>
+      
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle mx-4" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <i class="fas fa-user-astronaut gg-title"></i>

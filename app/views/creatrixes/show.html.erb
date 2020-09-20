@@ -33,10 +33,10 @@
           <p class="mt-3 text-center"><strong> email </strong>: <%= @creatrix.email %></p>
           <div> <%= link_to "e d i t", edit_creatrix_registration_path, class: 'gg-button text-center mb-4', id:"button-profile" %> </div>
           <div> 
-            <a href="#requests" class="btn btn-primary mt-3 holy" id="button-profile">r e q u e s t . s > </a>
-            <a href="#microservices" class="btn btn-primary mt-3 holy" id="button-profile">m i c r o s e r v i c e . s > </a>
-            <a href="#nodes" class="btn btn-primary mt-3 holy" id="button-profile">d i g i t a l e . s > </a>
-            <a href="#donations" class="btn btn-primary mt-3 holy" id="button-profile">d o n a t i o n . s > </a>
+            <%= link_to "r e q u e s t . s", "#requests", class: "btn btn-primary mt-3 holy", id: "button-profile"%>
+            <%= link_to "m i c r o s e r v i c e . s", "#microservices", class: "btn btn-primary mt-3 holy", id: "button-profile"%>
+            <%= link_to "d i g i t a l e . s", "#nodes", class: "btn btn-primary mt-3 holy", id: "button-profile"%>
+            <%= link_to "d o n a t i o n . s", "#donations", class: "btn btn-primary mt-3 holy", id: "button-profile"%>
           </div> 
         </div> 
     </div>

@@ -4,4 +4,5 @@ class MStatement < ApplicationRecord
 
 	has_one :node, as: :nodeable
 
+
 end

@@ -1,13 +1,23 @@
 <div class="fixed-top d-flex justify-content-end">    
     <%= link_to new_creatrix_registration_path do %> 
-        <h5 class="gg-signup gg-title bg-primary mt-4 mr-4 btn btn-primary"><b>Creep in</b></h5>
+        <ul class="ml-auto navbar-nav d-flex align-items-center">
+            <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle mx-4" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-user-astronaut fa-6x"></i>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <%= link_to "Sign in", new_creatrix_session_path, class: "dropdown-item gg-title" %>
+                <%= link_to "Sign up", new_creatrix_registration_path, class: "dropdown-item gg-title" %>
+            </div>
+            </li>
+        </ul>   
     <% end %>
 </div>
 <div style="overflow-x: hidden;">
     <div class="digitales-dot-gg">
-       <div class="logo text-center">
-         <%=image_tag("text1129.png", alt: "d i g i t a l e s . g g")%>
-       </div>
+        <div class="logo text-center">
+          <%=image_tag("text1129.png", alt: "d i g i t a l e s . g g")%>
+        </div>
     </div>
     <div style="height: 200px; background-color: black; margin-top: 0px; padding-top: 0px;" class="d-flex flex-column justify-content-start">
     	<%= link_to new_creatrix_registration_path, class: 'gg-button-link' do %> 
@@ -17,7 +27,7 @@
     <section class="section-1">
         <svg xmlns='http://www.w3.org/2000/svg' fill='#000000' viewBox='0 0 1185 248'><circle cx='76' cy='121.1' r='20' class='a'/><circle cx='870' cy='201.1' r='11' class='a'/><circle cx='814.5' cy='165.6' r='24.5' class='a'/><path d='M0 0v17.7c22.7 14.8 53 31.9 90.7 51.5 150.8 78 322 116.6 424.8 69.3 102.9-47.4 138-69.3 210.8-69.3s118.3 48.6 219.5 38.3 76.3-59.3 188.7-59.3c18.9 0 35.5 2.6 50.5 6.8V0H0z' class='a'/></svg>
         <div class="container">
-        	<h1 class="mb-5">who we are</h1>
+        	<h1 class="mb-5 text-dark">who we are</h1>
         	<h3 class="w-100 mb-5 text-center text-muted"><b>we are a crowdfunding platform for story ideas</b></h3>
         	<div class="d-flex flex-column justify-content-around">
     	    	<div class="d-flex justify-content-around">
@@ -43,31 +53,31 @@
         <svg xmlns='http://www.w3.org/2000/svg' fill='#FFFFFF' viewBox='0 0 1185 248'><circle cx='76' cy='121.1' r='20' class='a'/><circle cx='870' cy='201.1' r='11' class='a'/><circle cx='814.5' cy='165.6' r='24.5' class='a'/><path d='M0 0v17.7c22.7 14.8 53 31.9 90.7 51.5 150.8 78 322 116.6 424.8 69.3 102.9-47.4 138-69.3 210.8-69.3s118.3 48.6 219.5 38.3 76.3-59.3 188.7-59.3c18.9 0 35.5 2.6 50.5 6.8V0H0z' class='a'/></svg>
         <div class="d-flex flex-row justify-content-around">
             <div class="container d-flex flex-column justify-content-around">
-                <i class="gg-title text-center fas fa-5x fa-user-astronaut"></i>
+                <i class="float gg-title text-center fas fa-5x fa-user-astronaut"></i>
                 <h1 class="text-center mb-5 gg-title">What is a creatrix?</h1>
                 <h3 class="gg-title mb-5 text-center"><b>when signing up you become a creatrix</b></h3> 
             <h4 class="gg-title mb-5 text-center">and as such you are being offered <b>four opportunities</b></h4>
                 <div class="w-100 d-flex justify-content-around" style="margin: auto;">
                     <div class="d-flex flex-column align-items-center">
-                        <i class="gg-title fas fa-3x fa-globe mb-3"></i>
+                        <i class="float gg-title fas fa-3x fa-globe mb-3"></i>
                         <h5 class="gg-title text-center" style="width: 250px;">
                             <b>to dive into a pool of 12 random digitales</b>
                         </h5>
                     </div>
                     <div class="d-flex flex-column align-items-center">
-                        <i class="gg-title fas fa-3x fa-star mb-1"></i>
+                        <i class="float gg-title fas fa-3x fa-star mb-1"></i>
                         <h5 class="gg-title text-center" style="width: 250px;">
                             <b>to create a digitale</b>
                         </h5>
                     </div>
                     <div class="d-flex flex-column align-items-center">
-                        <i class="gg-title fas fa-3x fa-film mb-3"></i>
+                        <i class="float gg-title fas fa-3x fa-film mb-3"></i>
                         <h5 class="gg-title text-center" style="width: 250px;">
                         	<b>to ask or to provide creative microservices</b>
                         </h5>
                     </div>
                     <div class="d-flex flex-column align-items-center">
-                        <i class="gg-title fas fa-3x fa-hand-holding-usd mb-3"></i>
+                        <i class="float gg-title fas fa-3x fa-hand-holding-usd mb-3"></i>
                         <h5 class="gg-title text-center" style="width: 250px;">
                             <b>to support a specific digitale on its page</b>
                         </h5>
@@ -78,9 +88,9 @@
         </div>
     </section>
     <section class="section-3">
-        <svg xmlns='http://www.w3.org/2000/svg' fill='#80B1F4' viewBox='0 0 1185 248'><circle cx='76' cy='121.1' r='20' class='a'/><circle cx='870' cy='201.1' r='11' class='a'/><circle cx='814.5' cy='165.6' r='24.5' class='a'/><path d='M0 0v17.7c22.7 14.8 53 31.9 90.7 51.5 150.8 78 322 116.6 424.8 69.3 102.9-47.4 138-69.3 210.8-69.3s118.3 48.6 219.5 38.3 76.3-59.3 188.7-59.3c18.9 0 35.5 2.6 50.5 6.8V0H0z' class='a'/></svg>
+        <svg style='z-index: ' xmlns='http://www.w3.org/2000/svg' fill='#80B1F4' viewBox='0 0 1185 248'><circle cx='76' cy='121.1' r='20' class='a'/><circle cx='870' cy='201.1' r='11' class='a'/><circle cx='814.5' cy='165.6' r='24.5' class='a'/><path d='M0 0v17.7c22.7 14.8 53 31.9 90.7 51.5 150.8 78 322 116.6 424.8 69.3 102.9-47.4 138-69.3 210.8-69.3s118.3 48.6 219.5 38.3 76.3-59.3 188.7-59.3c18.9 0 35.5 2.6 50.5 6.8V0H0z' class='a'/></svg>
             <div class="container d-flex flex-column justify-content-around" style="margin: auto;">
-            <i class="gg-title text-center fas fa-5x fa-star"></i>
+            <i class="float gg-title text-center fas fa-5x fa-star"></i>
             <h1 class="gg-title mb-5 text-center">What is a digitale?</h1>
             <h3 class="gg-title mb-3 text-center"><b>it is a brand new way to tell a story</b></h3>
 
@@ -95,7 +105,7 @@
             <div class="d-flex flex-column justify-content-between mb-5">
                 <div class="d-flex justify-content-between">
                     <div class="d-flex flex-column justify-content-center" style="width: 20vw;">
-                        <i class="gg-title mb-3 fas text-center fa-3x fa-atlas"></i>
+                        <i class="float gg-title mb-3 fas text-center fa-3x fa-atlas"></i>
                         <h5 class="gg-title text-center"><b>By giving your digitale a title...</b></h5>
                     </div>
                     <div></div>
@@ -104,7 +114,7 @@
                 <div class="d-flex justify-content-between">
                     <div></div>
                     <div class="d-flex flex-column justify-content-center" style="width: 20vw;">
-                        <i class="gg-title mb-3 fas text-center fa-3x fa-question"></i>
+                        <i class="float gg-title mb-3 fas text-center fa-3x fa-question"></i>
                         <h5 class="gg-title text-center"><b>...by asking yourself a 'what if' type of question...</b></h5>
                     </div>
                     <div></div>
@@ -113,7 +123,7 @@
                     <div></div>
                     <div></div>
                     <div class="d-flex flex-column justify-content-center" style="width: 20vw;">
-                        <i class="gg-title mb-3 fas text-center fa-3x fa-exclamation"></i>
+                        <i class="float gg-title mb-3 fas text-center fa-3x fa-exclamation"></i>
                         <h5 class="gg-title text-center"><b>...and by making 7 statements about what might or might not happen...</b></h5>
                     </div>
                 </div>
@@ -125,7 +135,7 @@
     <section class="section-4">
         <svg xmlns='http://www.w3.org/2000/svg' fill='#EBA01D' viewBox='0 0 1185 248'><circle cx='76' cy='121.1' r='20' class='a'/><circle cx='870' cy='201.1' r='11' class='a'/><circle cx='814.5' cy='165.6' r='24.5' class='a'/><path d='M0 0v17.7c22.7 14.8 53 31.9 90.7 51.5 150.8 78 322 116.6 424.8 69.3 102.9-47.4 138-69.3 210.8-69.3s118.3 48.6 219.5 38.3 76.3-59.3 188.7-59.3c18.9 0 35.5 2.6 50.5 6.8V0H0z' class='a'/></svg>
         <div class="container d-flex flex-column justify-content-around" style="margin: auto;">
-            <i class="gg-title text-center fas fa-5x fa-film"></i>
+            <i class="float gg-title text-center fas fa-5x fa-film"></i>
             <h1 class="gg-title mb-5 text-center">What is an achievement?</h1>
             <h3 class="gg-title mb-3 text-center">an achievement is one of a series of necessary steps<h3>
             <h3 class="gg-title mb-3 text-center">a story idea has to take</h3>
@@ -146,7 +156,7 @@
     <section class="section-5">
         <svg xmlns='http://www.w3.org/2000/svg' fill='#543AC3' viewBox='0 0 1185 248'><circle cx='76' cy='121.1' r='20' class='a'/><circle cx='870' cy='201.1' r='11' class='a'/><circle cx='814.5' cy='165.6' r='24.5' class='a'/><path d='M0 0v17.7c22.7 14.8 53 31.9 90.7 51.5 150.8 78 322 116.6 424.8 69.3 102.9-47.4 138-69.3 210.8-69.3s118.3 48.6 219.5 38.3 76.3-59.3 188.7-59.3c18.9 0 35.5 2.6 50.5 6.8V0H0z' class='a'/></svg>
         <div class="container d-flex flex-column justify-content-around" style="margin: auto;">
-            <i class="gg-title text-center fas fa-5x fa-hand-holding-usd"></i>
+            <i class="float gg-title text-center fas fa-5x fa-hand-holding-usd"></i>
             <h1 class="gg-title mb-5 text-center">What is a digit?</h1>
             <h3 class="gg-title mb-5 text-center">a digit is the creative result of a microservice<h3>
             <h4 class="gg-title mb-3 text-center">they're the different objects described in the list above</h4>
@@ -159,5 +169,5 @@
             <h4 class="p-3 mt-5 container gg-button text-center gg-title w-100">Creep in</h4>
         <% end %>
     </section>
-    <%= render 'layouts/footer' %>
+    <%= render "layouts/footer"%>
 </div>

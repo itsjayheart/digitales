@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'digitales_dot_gg/the_hook'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-
   devise_for :creatrixes
 
   devise_scope :creatrix do
@@ -14,8 +11,6 @@ Rails.application.routes.draw do
       root 'digitales_dot_gg#the_hook', as: :unauthenticated_root
     end
   end
-
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   resources :nodes do
     resources :donated_sums, only: [:create, :new, :update]

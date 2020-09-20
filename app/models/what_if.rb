@@ -4,4 +4,5 @@ class WhatIf < ApplicationRecord
 
 	has_one :node, as: :nodeable
 
+
 end

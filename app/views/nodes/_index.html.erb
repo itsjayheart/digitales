@@ -5,20 +5,20 @@
   <div id='stars2' class="holy" style=''></div>
   <div id='stars3' class="holy" style=''></div>
   <div class="w-100 text-center" style='margin-top:300px'>
-    <i class="drift gg-title fas fa-5x fa-globe"></i>
-    <h1 class='drift gg-title'>DIVE IN</h1>
-    <h3 class="drift gg-label">Look for the digitale that will blow your mind, and creep in.</h3>
-    <h4 class="drift gg-label">(Or create your own.)</h4>
+    <i class="drift gg-title mb-5 fas fa-5x fa-globe"></i>
+    <h1 class='drift mb-5 gg-title'>DIVE IN</h1>
+    <h3 class="drift gg-label">look for the digitale that will blow your mind and creep in</h3>
+    <h4 class="drift gg-label">(or create your own)</h4>
     <div id="node-sticky">
         <%= link_to new_node_path, class: 'gg-button-link', :action => 'go' do %>
-        <div class="row m-auto"><i class="gg-title fas fa-star fa-2x"></i>
-        <div class="add-a-node m-auto"> <p> c r e a t e </p> </div>
+          <div class="row m-auto"><i class="gg-title fas fa-star fa-2x"></i>
+          <div class="add-a-node gg-title m-auto"> <p> c r e a t e </p> </div>
         <%end%>
     </div>
   </div>
-  <div class="bg-black d-flex flex-wrap justify-content-around"id='node_container'>
-    <% @digitales.each do |digitale|%>
-      <%= render partial: "card", locals: { digitale: digitale } %>
+  <div class="d-flex flex-wrap justify-content-around"id='node_container'>
+    <% 12.times do %>
+      <%= render partial: "card", locals: { digitale: @digitales.sample } %>
     <% end %>  
   </div>
 </div>

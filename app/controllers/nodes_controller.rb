@@ -5,8 +5,6 @@ class NodesController < ApplicationController
     
     def index
       @digitales = Digitale.all
-      puts @digitales.length
-      puts "ù" * 60
     end
 
     def show

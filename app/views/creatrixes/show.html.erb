@@ -1,5 +1,5 @@
 <div class="text-center holy"> 
-  <i class="fas fa-5x mb-3 fa-user-astronaut"></i>
+  <i class="float fas fa-5x mb-3 fa-user-astronaut"></i>
   <h1 class="mb-5"> m a n a g e </h1>
   <h3 class="mb-3">this is your creatrix dashboard</h3> 
   <h4 class="mb-1">here you can edit your details and provide a portfolio for the microservices you deliver</h4>
@@ -49,12 +49,12 @@
       <h3 class="text-center holy padding-creatrixes">r e q u e s t . s</h3>
     </div>
     <div class="d-flex flex-column holy padding-creatrixes">
-      <% @microservice_requests.each do |microservice_request| %>
+      <% @microservice_requests.sort { |a, b| a.id <=> b.id }.each do |microservice_request| %>
         <%= render "microservice_requests/card", microservice_request: microservice_request%>
       <%end%>
     </div>
     <div class='text-center'>
-      <h3 class="text-center holy mb-4">m i c r o s e r v i c e . s</h3>
+      <h3 id='microservices' class="text-center holy mb-4">m i c r o s e r v i c e . s</h3>
     </div>
     <%= render "microservices/new"%>
     <div class='text-center holy' id="nodes">

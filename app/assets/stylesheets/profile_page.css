@@ -1,11 +1,8 @@
-/* code below belongs to profile_edit */
 
 #flexinthesesboxes {
     display: flex;
     justify-content: space-between;
 }
-
-/* end */
 
 div.sticky {
     position: -webkit-sticky;

@@ -20,7 +20,7 @@ class NodesController < ApplicationController
     end
 
     def new
-      @node = Node.new
+      @chapters = ["I", "II", "III", "IIII", "V", "VI", "VII"]
     end
 
     def create

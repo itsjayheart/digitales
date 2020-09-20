@@ -1,33 +1,85 @@
 <div class="d-flex flex-column justify-content-around align-items-center">
-  <i class="fas gg-title mt-3 mb-1 fa-5x fa-star"></i>
+  <i class="float fas gg-title mt-3 mb-1 fa-5x fa-star"></i>
   <h1 class="gg-title text-center mb-5 mt-5">c r e a t e</h1>
+  <%if @errors%>
+    <i class="alert alert-danger">There is <%=@errors.length%> error that prevent you from creating your node</i>
+  <%end%>
   <h3 class="gg-title text-center mb-3">your story matters</h3>
   <h4 class="gg-title text-center mb-3">the one in your life and the one in your head</h4>
 
   <h5 class="gg-title text-center mb-1">create a digitale and start sharing it now</h5>
-</div>
+</div> 
 
 <div class="mt-5 d-flex flex-column justify-content-around">
    
   <div style="margin: auto; display: flex;">
 
-    <div id="digitaleForm" class="gg-digitale-card">
+    <div id="digitaleForm" class="text-center">
 
       <div id="digitaleTitleForm">
-                  
-        <h6 class='gg-title mt-3 mb-5 ml-2'>( ...first give your digitale a name )</h6>
-
-        <%= form_with model: @node, method: 'post', authenticity_token: true, class: "nodeform" do |f| %>
-          <%= hidden_field_tag(:type, "Tale") %>
-          <%= label_tag(:content, "t i t l e", class: 'gg-label') %>
-          <%= text_field_tag(:content, "insert mesmerizing title here", class: "form-text-input w-50 text-center gg-title") %>
-          <%= label_tag(:description, "d e s c r i p t i o n", class: 'gg-label') %>
-          <div class="gg-textarea">
-            <%= text_area_tag(:description, "describe here in no more than 255 characters what your story is about", size: "48x5", class: "form-textarea-input text-center gg-title") %>
+      <div class="gg-digitale-card" >      
+        <%= form_with url: digitales_path, method: 'post', class: "nodeform" do |f| %>
+          <!-- Tales -->
+          <div id="tale#">
+            <h2 class="text-center">Tales</h2>
+            <h4 class='mb-5 text-center'>( ...first give your digitale a name )</h4>
+            <%= label_tag(:title_tale, "t i t l e", class: 'gg-label') %><br>
+            <%= text_field_tag(:title_tale, "insert mesmerizing title here", class: "form-text-input w-100 text-center gg-title") %><br>
+            <%= label_tag(:content_tale, "d e s c r i p t i o n", class: 'gg-label mt-4 text-center') %>
+            <div class="gg-textarea">
+                <%= text_area_tag(:content_tale,"describe here in no more than 255 characters what your story is about", size: "48x5", class: "form-textarea-input gg-title text-center") %>
+            </div>
+            <a href="#collapse1" aria-controls="collapseExample" aria-expanded="false" data-target="#collapse1" data-toggle="collapse" class="btn gg-button btn-lg btn-block mt-3 mb-3"> n e x t </a>
           </div>
-            <%= submit_tag('c r e a t e', class: "btn gg-button btn-lg btn-block") %>
-          <% end %>
+                  
+          <!-- what if -->
+          <div class='collapse' id='collapse1'>
+            <hr>
+            <h2 class="text-center">What if ?</h2>
+            <h4 class='mb-5 ml-2 text-center' id="step-2">( ...then make a 'what if ...' postulate )</h4>
+            <%= label_tag(:title_what_if, "w h a t | i f", class: 'gg-label') %>
+            <%= text_field_tag(:title_what_if, "ask yourself 'what if ...' and write down here what comes next that fits your story idea the best", class: "form-text-input w-100 text-center gg-title") %>
+            <%= label_tag(:content_what_if, "d e s c r i p t i o n", class: 'gg-label mt-4') %>
+            <div class="gg-textarea">	
+              <%= text_area_tag(:content_what_if, "explain here in no more than 255 characters what it implies for the story that is worth mentioning", size: "48x5", class: "form-textarea-input text-center gg-title") %>
+            </div>
+            <a href="#collapse2" aria-controls="collapseExample" aria-expanded="false" data-target="#collapse2" data-toggle="collapse" class="btn gg-button btn-lg btn-block mt-3 mb-3"> n e x t </a>
+          </div>
 
+          <!-- m statement -->
+          <% 6.times do |x|%>
+          <div class='collapse mt-3' id='collapse<%=2+x%>'>
+            <h4 class='mb-5 ml-2 text-center'>( ...now enumerate the 7 key events of your story )</h4>
+              <hr>
+              <h2 class="text-center"><%=@chapters[x]%></h2>
+              <%= label_tag("title_mst#{x}", "m i g h t | | | m i g h t | n o t", class: "gg-label") %>
+              <%= text_field_tag("title_mst#{x}", "tell what might or might not eventually happen in the story", class: "form-text-input w-100 text-center gg-title") %>
+              <%= label_tag("content_mst#{x}", "d e s c r i p t i o n", class: "gg-label mt-4") %>
+              <div class="gg-textarea">
+                <%= text_area_tag("content_mst#{x}", "describe in no more than 255 characters the implications and consequences of these two different alternatives", size: "48x5", class: "form-textarea-input text-center gg-title") %>
+              </div>
+              <a href="#collapse2" aria-controls="collapseExample" aria-expanded="false" data-target="#collapse<%=3+x%>" data-toggle="collapse" class="btn gg-button btn-lg btn-block mt-3 mb-3"> n e x t </a>
+            </div>
+          <%end%>
+
+          <!-- last m statement-->
+          <div class='collapse mt-5' id='collapse8'>
+            <hr>
+            <h4 class='mb-5 ml-2 text-center'>( ...now enumerate the 7 key events of your story )</h4>
+            <h2 class="text-center"><%=@chapters[-1]%></h2>
+            <%= label_tag(:title_mst6, "m i g h t | | | m i g h t | n o t", class: "gg-label") %>
+            <%= text_field_tag(:title_mst6, "tell what might or might not eventually happen in the story", class: "form-text-input w-100 text-center gg-title") %>
+            <%= label_tag(:content_mst6, "d e s c r i p t i o n", class: "gg-label mt-4") %>
+            <div class="gg-textarea">
+              <%= text_area_tag(:content_mst6, "describe in no more than 255 characters the implications and consequences of these two different alternatives", size: "48x5", class: "form-textarea-input text-center gg-title") %>
+            </div>
+            <%= submit_tag('c r e a t e', class: "mt-3 btn gg-button btn-lg btn-block mb-4") %>
+
+          </div>
+        <%end%>
+      </div>
+      <div id="errors" class="mt-5">
+      </div>
       </div>
 
     </div>

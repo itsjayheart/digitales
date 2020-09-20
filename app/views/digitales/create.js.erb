@@ -1,0 +1,7 @@
+satus = document.getElementById('errors')
+
+if("<%=@errors%>"){
+  document.getElementById('errors').innerHTML ="<div class='alert alert-danger'> <%=@errors%> </div>"
+}else{
+  document.getElementById('digitaleTitleForm').innerHTML = "<%=j render "success_button", digitale: @digitale%>"
+}

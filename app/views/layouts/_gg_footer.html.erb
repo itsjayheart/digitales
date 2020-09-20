@@ -1,0 +1,28 @@
+<div class="col">
+  <hr>
+  <% if creatrix_signed_in? %>
+    <ul class="nav justify-content-center holy">
+      <li class="nav-item">
+        <%= link_to nodes_path, class: "nav-link" do %>
+          <i class="fas gg-title fa-2x fa-globe"></i>
+        <% end %>
+      </li>
+          <li class="nav-item">
+            <%= link_to new_node_path, class: "nav-link" do %>
+              <i class="fas gg-title fa-2x fa-star"></i>
+            <% end %>
+          </li>
+          <li class="nav-item">
+              <%= link_to creatrix_path(current_creatrix.id), class: "nav-link" do %>
+                <i class="fas gg-title fa-2x fa-user-astronaut"></i>
+              <% end %>
+          </li>
+        </ul>
+      <% end %>
+      </div>
+
+      <div class="row text-center mt-3 mb-5">
+        <div class="col">
+          <h5 class="gg-title">d i g i t a l e . s</h5>
+        </div>
+      </div>

@@ -15,8 +15,6 @@ class DigitalesController < ApplicationController
       end
     end
     
-  	p "$" * 30 + @current_node.to_s + "$" * 30
-
   	@donated_sum = DonatedSum.new
 
     if Fundraiser.find_by(microservice_request: @current_node.non_achieved.microservice_requests.last)

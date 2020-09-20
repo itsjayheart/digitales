@@ -3,12 +3,13 @@
   <div class='d-flex flex-wrap justify-content-around'>
   <% @microservices.each do |microservice| %>
     <div class='card mb-3'>
-      <div class='card-header'>
-        <%= render "microservices/media_display", microservice: microservice %>
+      <div class='card-header row pl-5 justify-content-center'>
+        <%=image_tag microservice.creatrix.avatar, style: "height: 5em; width: 5em", class: "mr-3 m-0 img-fluid", id: "avatar-image"%>
+        <h3 class='align-self-center'>creatrix: <i><%= microservice.creatrix.hexanyme %></i></h3>
       </div>
       <div class='card-body'>
-        <li>Creatrix: <i><%= microservice.creatrix.email %></i></li>
-        <li>Price: <%= microservice.price %> $</li>
+        <%= render "microservices/media_display", microservice: microservice %>
+        Service price: <%= microservice.price %> $
       </div>
       <%= link_to "Send request to creatrix", node_microservice_microservice_requests_path(@node.id, microservice.id), method: "post", class: 'card-footer btn btn-primary'%>
     </div>

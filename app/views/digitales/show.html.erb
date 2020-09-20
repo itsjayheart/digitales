@@ -1,6 +1,9 @@
 
 <div class="text-center" >
-  <h1 class="gg-title mb-3 mt-3">f u n d</h1>
+
+  <i class="mb-5 gg-title fas fa-5x fa-hand-holding-usd"></i>
+
+  <h1 class="gg-title mb-5">f u n d</h1>
 
   <h3 class="gg-title mb-3">make the magic happen</h3>
 
@@ -12,39 +15,39 @@
 
 <div class='d-flex flex-wrap'>
 <div class='col-1'>
-  <div id="chapter-sticky" class="chap-1">
+  <div id="chapter-sticky" class="chap-1 mb-2">
     <%= link_to "#mchapter-0" do %>
-    <div class="m-auto"> <p> I </p></div>
+    <div class="m-auto gg-title"> <p> I </p></div>
     <%end%>
   </div>
-  <div id="chapter-sticky" class="chap-2">
+  <div id="chapter-sticky" class="chap-2 mb-2">
     <%= link_to "#mchapter-1" do %>
-    <div class="m-auto"> <p> II </p></div>
+    <div class="m-auto gg-title"> <p> II </p></div>
     <%end%>
   </div>
-  <div id="chapter-sticky" class="chap-3">
+  <div id="chapter-sticky" class="chap-3 mb-2">
     <%= link_to "#mchapter-2" do %>
-    <div class="m-auto"> <p> III </p></div>
+    <div class="m-auto gg-title"> <p> III </p></div>
     <%end%>
   </div>
-  <div id="chapter-sticky" class="chap-4">
+  <div id="chapter-sticky" class="chap-4 mb-2">
     <%= link_to "#mchapter-3" do %>
-    <div class="m-auto"> <p> IV </p></div>
+    <div class="m-auto gg-title"> <p> IIII </p></div>
     <%end%>
   </div>
-  <div id="chapter-sticky" class="chap-5">
+  <div id="chapter-sticky" class="chap-5 mb-2">
     <%= link_to "#mchapter-4" do %>
-    <div class="m-auto"> <p> V </p></div>
+    <div class="m-auto gg-title"> <p> V </p></div>
     <%end%>
   </div>
-  <div id="chapter-sticky" class="chap-6">
+  <div id="chapter-sticky" class="chap-6 mb-2">
     <%= link_to "#mchapter-5" do %>
-    <div class="m-auto"> <p> VI </p></div>
+    <div class="m-auto gg-title"> <p> VI </p></div>
     <%end%>
   </div>
   <div id="chapter-sticky" class="chap-7">
     <%= link_to "#mchapter-6" do %>
-    <div class="m-auto"> <p> VII </p></div>
+    <div class="m-auto gg-title"> <p> VII </p></div>
     <%end%>
   </div>
 </div>
@@ -78,6 +81,7 @@
       <div class="col-sm-4 card d-flex flex-column justify-content-around" style='width:500px'>
         <div class='d-flex flex-column justify-content-around text-center'>
           <div class="m-5">
+            <i class="mb-3 gg-title fas fa-3x fa-film"></i>
             <% if @fundraiser && !@fundraiser.funded?%>
               <p><%= @current_node.current_microservice_category.name %></p>
             <p><b>$ <%= @fundraiser.current_fundings%></b> raised of $ <%= @fundraiser.goal%> goal</p>

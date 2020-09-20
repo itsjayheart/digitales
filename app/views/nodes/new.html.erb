@@ -20,10 +20,10 @@
         <%= form_with model: @node, method: 'post', authenticity_token: true, class: "nodeform" do |f| %>
           <%= hidden_field_tag(:type, "Tale") %>
           <%= label_tag(:content, "t i t l e", class: 'gg-label') %>
-          <%= text_field_tag(:content, "insert mesmerizing title here", class: "form-text-input w-50 text-center text-muted") %>
+          <%= text_field_tag(:content, "insert mesmerizing title here", class: "form-text-input w-50 text-center gg-title") %>
           <%= label_tag(:description, "d e s c r i p t i o n", class: 'gg-label') %>
           <div class="gg-textarea">
-            <%= text_area_tag(:description, "describe here in no more than 255 characters what your story is about", size: "48x5", class: "form-textarea-input text-center text-muted") %>
+            <%= text_area_tag(:description, "describe here in no more than 255 characters what your story is about", size: "48x5", class: "form-textarea-input text-center gg-title") %>
           </div>
             <%= submit_tag('c r e a t e', class: "btn gg-button btn-lg btn-block") %>
           <% end %>

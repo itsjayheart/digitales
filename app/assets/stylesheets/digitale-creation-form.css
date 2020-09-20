@@ -28,6 +28,7 @@
     border: 0px;
     height: 125px; 
     background-color: transparent;
+    color: white;
 }
 
 .form-textarea-input:active {

@@ -52,12 +52,15 @@ microservice_categories.each do |achievement_microservices_category|
 	i += 1
 end
 
-Creatrix.create(email: "melon" + "@yopmail.com", password: "123123")
-10.times do
+
+
+creatrix = Creatrix.create(email: "melon" + "@yopmail.com", password: "123123")
+avatar = rand(9)
+creatrix.avatar.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'seed', "avatar_#{avatar}.png")), filename: "avatar_#{avatar}.png", content_type: 'image/png')
+
+10.times do |x|
     creatrix = Creatrix.create(hexanyme: Faker::Games::LeagueOfLegends.champion, email: Faker::Name.first_name + "@yopmail.com", password: "123123")
-    MicroserviceCategory.all.each do |cat|
-    	#micro = Microservice.create(creatrix: creatrix, price: rand(0.99e2..0.501e3), microservice_category: cat)
-    end
+	creatrix.avatar.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'seed', "avatar_#{x}.png")), filename: "avatar_#{x}.png", content_type: 'image/png')
 end
 
 30.times do |i|

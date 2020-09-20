@@ -10,21 +10,25 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Gotu&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/6085f87352.js" crossorigin="anonymous"></script>
+
     <%= stylesheet_link_tag 'application', media: 'all' %>
-
-
+    
   </head>
 
-  <body id="hero-background">
-    <%= render "layouts/header"%>
-    <%= render "layouts/flash"%>
-    <%=link_to "#hero-background" do %> 
-      <div id="myBtn"> 
-          <i class="fa fa-chevron-up fa-1x w-25"></i>
-      </div>
-    <%end%>
-    <div> <%= yield %> </div>
-    <%= render "layouts/footer"%>
+  <body>
+    <div class="gg-body" id="top">
+          <div class="gg-bg">
+            <%= render "layouts/header"%>
+            <%= render "layouts/flash"%>
+            <div><%= yield %></div>
+            <%=link_to "#hero-background" do %> 
+              <div id="myBtn"> 
+                <i class="fa fa-chevron-up fa-1x w-25"></i>
+              </div>
+            <%end%>
+            <%= render "layouts/gg_footer"%>
+          </div>
+    </div>
   </body>
 
   <%= javascript_include_tag 'application' %>

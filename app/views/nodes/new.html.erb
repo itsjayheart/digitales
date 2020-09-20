@@ -1,34 +1,37 @@
-<h1 class="gg-title text-center mb-5 mt-5">c r e a t e</h1>
-<h3 class="gg-title text-center mb-3">your story matters</h3>
-<h4 class="gg-title text-center mb-3">the one in your life and the one in your head</h4>
+<div class="d-flex flex-column justify-content-around align-items-center">
+  <i class="fas gg-title mt-3 mb-1 fa-5x fa-star"></i>
+  <h1 class="gg-title text-center mb-5 mt-5">c r e a t e</h1>
+  <h3 class="gg-title text-center mb-3">your story matters</h3>
+  <h4 class="gg-title text-center mb-3">the one in your life and the one in your head</h4>
 
-<h5 class="gg-title text-center mb-1">create a digitale and start sharing it now</h5>
+  <h5 class="gg-title text-center mb-1">create a digitale and start sharing it now</h5>
+</div>
 
-
-<div class="bg-black mt-5" style="width: 750px; margin: auto; border-radius: 25px;">
-  <div class="d-flex flex-column justify-content-around">
+<div class="mt-5 d-flex flex-column justify-content-around">
    
-          <div style="margin: auto; display: flex;">
+  <div style="margin: auto; display: flex;">
 
-            <div id="digitaleForm" class="gg-digitale-card">
+    <div id="digitaleForm" class="gg-digitale-card">
 
-                <div id="digitaleTitleForm">
-                  <h6 class='gg-title mt-3 mb-5 ml-2'>( ...first give your digitale a name )</h6>
+      <div id="digitaleTitleForm">
+                  
+        <h6 class='gg-title mt-3 mb-5 ml-2'>( ...first give your digitale a name )</h6>
 
-                  <%= form_with model: @node, method: 'post', authenticity_token: true, class: "nodeform" do |f| %>
-                    <%= hidden_field_tag(:type, "Tale") %>
-                    <%= label_tag(:content, "t i t l e", class: 'gg-label') %>
-                    <%= text_field_tag(:content, "insert mesmerizing title here", class: "form-text-input w-50 text-center text-muted") %>
-                    <%= label_tag(:description, "d e s c r i p t i o n", class: 'gg-label') %>
-                    <div class="gg-textarea">
-                      <%= text_area_tag(:description, "describe here in no more than 255 characters what your story is about", size: "48x5", class: "form-textarea-input text-center text-muted") %>
-                    </div>
-                    <%= submit_tag('c r e a t e', class: "btn gg-button btn-lg btn-block") %>
-                  <% end %>
-                </div>
-
-            </div>
-            
+        <%= form_with model: @node, method: 'post', authenticity_token: true, class: "nodeform" do |f| %>
+          <%= hidden_field_tag(:type, "Tale") %>
+          <%= label_tag(:content, "t i t l e", class: 'gg-label') %>
+          <%= text_field_tag(:content, "insert mesmerizing title here", class: "form-text-input w-50 text-center text-muted") %>
+          <%= label_tag(:description, "d e s c r i p t i o n", class: 'gg-label') %>
+          <div class="gg-textarea">
+            <%= text_area_tag(:description, "describe here in no more than 255 characters what your story is about", size: "48x5", class: "form-textarea-input text-center text-muted") %>
           </div>
+            <%= submit_tag('c r e a t e', class: "btn gg-button btn-lg btn-block") %>
+          <% end %>
+
+      </div>
+
+    </div>
+            
   </div>
+  
 </div>

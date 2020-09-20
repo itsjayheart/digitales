@@ -1,8 +1,8 @@
 body {
-  background-color: black;
-  padding-top: 70px;
+  background-color: transparent;
   z-index: 2;
-}
+  overflow-y: hidden;
+  }
 
 .padding-top {
   padding-top: 127px;
@@ -39,10 +39,6 @@ body {
   background-color: #1b1b1b07;
 }
 
-#hero-background {
-  z-index: 1;
-  background-image: url("https://images.pexels.com/photos/956999/milky-way-starry-sky-night-sky-star-956999.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260");
-}
 
 /* FONTS */
 
@@ -136,30 +132,36 @@ h6 {
   height: 100vh;
   background: url("<%= asset_path 'gg_background.png' %>") center center no-repeat;
   background-size: 600px;
+}
+
+.black-overlay {
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.75);
   overflow-y: scroll;
   overflow-x: hidden;
 }
 
 
-/* NAVBAR not supported in Firefox and IE */
+/* SCROLLBAR */
 
-.gg-bg::-webkit-scrollbar {
+.black-overlay::-webkit-scrollbar {
   background-color: transparent;
   margin-top: 44px;
   width: 8px;
 }
 
-.gg-bg::-webkit-scrollbar-track {
+.black-overlay::-webkit-scrollbar-track {
   background-color: transparent;
   margin-top: 44px;
 }
 
-.gg-bg::-webkit-scrollbar-thumb {
+.black-overlay::-webkit-scrollbar-thumb {
   background-color: rgba(55, 55, 55, 0.7);
   border-radius: 16px;
 }
 
-.gg-bg::-webkit-scrollbar-button {
+.black-overlay::-webkit-scrollbar-button {
   display: none;
 }
 

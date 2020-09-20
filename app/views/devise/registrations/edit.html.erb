@@ -1,85 +1,81 @@
-<h1 class="text-center holy"> Edit your creatrix</h1>
-  <br>
-  <br>
+<h1 class="text-center gg-title mb-5">e d i t</h1>
+<div id="flexinthesesboxes">
+  <div class="col pt-5">
+    <div class="gg-digitale-card d-flex flex-column justify-content-around align-items-center w-100">
+      <%if @creatrix.avatar.attached?%>
+        <div><%= image_tag @creatrix.avatar, alt: 'avatar', class: "img-fluid", id: "avatar-image" %></div>
+      <%else%>
+        <div><p>There is no image linked to this creatrix</p></div>   
+      <%end%>
 
-  <%if @creatrix.avatar.attached?%>
-      <div><%= image_tag @creatrix.avatar, alt: 'avatar', class: "img-fluid", id: "avatar-image" %></div>
-        <%else%>
-      <div><p>There is no image linked to this creatrix</p></div>   
-          <%end%>
-
-  <div id="flexinthesesboxes">
-    <div class="col pt-5">
-      <div><h3>Change your details</h3></div>
-      <br>
-      <br>
-      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-      <%= render "devise/shared/error_messages", resource: resource %>
-      <br>
-      <div>
-          <%= f.label :hexanyme, class:"h6"%><br/>
-          <%= f.text_field :hexanyme, autofocus: true, class: "form-text-input w-70 text-center text-muted h5"%>
-      </div>
-      <div>
-          <%= f.label :email, class:"h6"%><br /></div>
-      <div>
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-text-input w-50 text-center h6" %>
-      </div>
-      <br>
-      <div>
-          <%= f.label :current_password, class:"h6"%><br />
-          <%= f.password_field :current_password, autocomplete: "current-password", class: "form-text-input w-50 text-center text-muted h5" %>
-      </div>
-      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-
-      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-        <% end %>
-
-        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-        <% end %>
-
-        <br>
-
-      <div>
-          <%= f.label :password, "New password", class:"h6"%><br />
-          <%= f.password_field :password, autocomplete: "new-password", class: "form-text-input w-50 text-center text-muted h5" %>
-          <% if @minimum_password_length %>
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }, class: "w-100") do |f| %>
+          <%= render "devise/shared/error_messages", resource: resource %>
           <br>
-          <em><%= @minimum_password_length %> characters at least</em>
+          <div class="w-100 mb-3 text-center">
+            <%= f.label :hexanyme, 'h e x a n y m e', class: "gg-label text-center" %><br/>
+            <%= f.text_field :hexanyme, autofocus: true, class: "form-text-input w-100 text-center gg-title" %>
+          </div>
+          <div class="w-100 text-center">
+            <%= f.label :email, 'e m a i l', class: "gg-label text-center" %><br />
+          </div>
+          <div class="w-100 text-center">
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-text-input w-100 text-center gg-title" %>
+          </div>
+          <br>
+          <div class="w-100 text-center">
+            <%= f.label :current_password, "former password", class: "gg-label text-center" %><br />
+            <%= f.password_field :current_password, autocomplete: "current-password", class: "form-text-input w-100 text-center gg-title" %>
+          </div>
+          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+
+            <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
           <% end %>
-      </div>
 
-        <br>
-
-      <div>
-          <%= f.label :password_confirmation, class:"h6"%><br />
-          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-text-input w-50 text-center text-muted h5" %>
-      </div>
-
-          <br>
-          <br>
-
-      <div class="actions">
-          <%= f.submit "Update", class: "btn btn-lg gg-button w-50 h6"%>
-      </div>
-        <br>
+          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
           <% end %>
-        <br>
-        <br>
+
+          <br>
+
+          <div class="w-100 text-center">
+            <%= f.label :password, "new password", class: "gg-label text-center" %><br />
+            <%= f.password_field :password, autocomplete: "new-password", class: "form-text-input w-100 text-center gg-title" %>
+            <% if @minimum_password_length %>
+            <br>
+            <em><%= @minimum_password_length %> characters at least</em>
+            <% end %>
+          </div>
+
+          <br>
+
+          <div class="w-100 text-center">
+            <%= f.label :password_confirmation, 'password confirmation', class: "gg-label ml-2" %><br />
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-text-input w-100 text-center gg-title" %>
+          </div>
+
+            <br>
+            <br>
+
+          <div class="actions">
+            <h5><%= f.submit "u p d a t e", class: "btn btn-lg gg-button w-100 " %></h5>
+          </div>
+          <br>
+        <% end %>
+          <br>
+          <br>
+        </div>
     </div>
 
     <div class="col pt-5">  
-      <div class="actions"><h3>Cancel my account</h3></div>
+      <div class="actions"><h3 class="gg-title">Cancel my account</h3></div>
           <br>
           <br>
           <br>
-          <h5> Your are unhappy of digitales and <br> want to end your digitales adventure ?
+          <h5 class="gg-title"> Your are unhappy of digitales and <br> want to end your digitales adventure ?</h5>
           <br>
           <br>
-          <br> <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete,  class: "btn btn-lg gg-button w-50" %></h5>
+          <br><h5><%= button_to "c a n c e l", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete,  class: "btn btn-lg gg-button w-50" %></h5>
           <br>
           <br>
-
   </div>
 </div>

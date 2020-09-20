@@ -1,10 +1,6 @@
 class DigitalesDotGgController < ApplicationController
-  def the_pool
+
+  def homepage
   end
 
-  def the_hook
-  end
-
-  def the_diver
-  end
 end

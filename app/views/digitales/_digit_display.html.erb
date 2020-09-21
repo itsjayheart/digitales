@@ -1,17 +1,17 @@
 <% AchievementCategory.all[0..1].each do |achievement_category_1_2| %>
   <div class='card mt-5'>
-    <div class='card-header text-center'>
+    <div class='card-header text-center' style="color: white;">
       <h2 class='gg-title'>FINAL <%= achievement_category_1_2.name%> DIGIT</h2> 
     </div>
-    <div class='card-body'>
+    <div class='card-body' style="color: white;">
       <%=render "digitales/digit_status", microservice_category: achievement_category_1_2.microservice_categories.last, node: node, display: true %>
     </div>   
     <div class='card-footer'>
-      <a class="panel-title px-4 text-center" data-toggle="collapse" data-target="#collapse<%=Achievement.find_by(achievement_category: achievement_category_1_2, node: node).id%>" href="tollapse" role="button" aria-expanded="false" aria-controls="collapseExample">
-        <p>See all sub digits</p>
+      <a class="panel-title px-4 text-center gg-button-link gg-title" data-toggle="collapse" data-target="#collapse<%=Achievement.find_by(achievement_category: achievement_category_1_2, node: node).id%>" href="tollapse" role="button" aria-expanded="false" aria-controls="collapseExample">
+        <h5 class="gg-button btn-lg">see sub digits</h5>
       </a>
       <% achievement_category_1_2.microservice_categories.each do |microservice_category| %>
-          <div class="collapse" id="collapse<%=Achievement.find_by(achievement_category: achievement_category_1_2, node: node).id%>">
+          <div class="collapse" id="collapse<%=Achievement.find_by(achievement_category: achievement_category_1_2, node: node).id%>" style="color: white;">
             <%=render "digitales/digit_status", microservice_category: microservice_category, node: node, display: true %>
           </div>
       <%end%>
@@ -20,17 +20,17 @@
 <%end%>
 <% achievement_category_6 = AchievementCategory.all[5] %>
 <div class='card mt-5 mb-5'>
-  <div class='card-header text-center'>
+  <div class='card-header text-center' style="color: white;">
     <h2 class='gg-title'>FINAL <%= achievement_category_6.name%> DIGIT</h2> 
   </div>
-  <div class='card-body'>
+  <div class='card-body' style="color: white;">
     <%=render "digitales/digit_status", microservice_category: achievement_category_6.microservice_categories.last, node: node, display: true %>
   </div>   
-  <div class='card-footer'> 
-    <a class="panel-title px-4 text-center" data-toggle="collapse" data-target="#collapse<%=Achievement.find_by(achievement_category: achievement_category_6, node: node).id%>" href="tollapse" role="button" aria-expanded="false" aria-controls="collapseExample">
-      <p>See all sub digits</p>
+  <div class='card-footer' style="color: white:"> 
+    <a class="panel-title px-4 text-center gg-button-link gg-title" data-toggle="collapse" data-target="#collapse<%=Achievement.find_by(achievement_category: achievement_category_6, node: node).id%>" href="tollapse" role="button" aria-expanded="false" aria-controls="collapseExample">
+      <h5 class="btn-lg gg-button">see sub digits</h5>
     </a>
-    <div class="collapse px-4 text-center" id="collapse<%=Achievement.find_by(achievement_category: achievement_category_6, node: node).id%>">
+    <div class="collapse px-4 text-center" id="collapse<%=Achievement.find_by(achievement_category: achievement_category_6, node: node).id%>" style="color: white;">
       <% AchievementCategory.all[2..5].each do |achievementCategory_3_to_6|%>
         <h4 class='gg-title'><%=achievementCategory_3_to_6.name%></h4>
         <% achievementCategory_3_to_6.microservice_categories.each do |microservice_category| %>

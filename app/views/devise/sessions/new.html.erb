@@ -1,49 +1,35 @@
-<div id="color-overlay"></div>
-  <div class="center">
-    <div class="homepage-divs">
-      <div sign-in> 
-          <h1 style="color: white; text-shadow: 0px 0px 12px;">D I G I T A L E S</h1>
-          <h4 style="color: white; text-shadow: 0px 0px 12px;">A REVOLUTIONARY WAY TO CREATE, PRODUCE AND CONSUME FICTION</h4>
-          
-          <br>
+<div class="center">
+  <h1 class="gg-title mb-5">s i g n | i n</h1>
+    <div class="gg-digitale-card">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="d-flex flex-column justify-content-around align-items-center mb-3 w-100">
+          <div class="field w-50 d-flex flex-column">
+            <%= f.label :email, 'e m a i l', class: "gg-title" %>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-text-input text-center" %>
+          </div>
 
-            <p style="color: white; text-shadow: 0px 0px 12px;">Have you ever dreamt you could have a whole animation studio and creative writing team to turn your craziest ideas into a whole independent multimedia franchise having raging fans all over the world ?</p>
-            <p style="color: white; text-shadow: 0px 0px 12px;">Then take part in our galactic, game-changing uprising.</p>
+          <div class="field w-50 d-flex flex-column">
+            <%= f.label :password, 'p a s s w o r d', class: "gg-title mt-3" %>
+            <%= f.password_field :password, autocomplete: "current-password", class: "form-text-input text-center" %>
+          </div>
 
-          <%= form_for(resource, as: resource_name, url: session_path(resource_name), class:"w-100") do |f| %>
-            <div class="d-flex justify-content-around align-items-center mb-3" style="width: 100%;">
-
-              <div class="field d-flex">
-                <b><%= f.label :email, '@', style: "margin: 0 10px 0 10px; color: white; text-shadow: 0px 0px 12px;" %></b>
-                <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "e m a i l", style: "background-color: white; border: Opx;" %>
-              </div>
-
-              <div class="d-flex justify-content-around align-items-center">
-                <%= f.label :password do %>
-                <i class="fas fa-lock" style="margin: 0 10px 0 10px; color: white; text-shadow: 0px 0px 12px;"></i>
-                <% end %>
-                <%= f.password_field :password, autocomplete: "current-password", class: "form-control", placeholder: "p a s s w o r d", style: "background-color: white; border: Opx;" %>
-              </div>
-
-              <% if devise_mapping.rememberable? %>
-              <div class="field">
-                <%= f.check_box :remember_me %>
-                <%= f.label :remember_me do %>
-                  <div style="margin:10px 0 0 10px; color: white; text-shadow: 0px 0px 12px;">r e m e m b e r | m e</div>
-                <% end %>
-              </div>
-            <% end %>
-
-            </div>
-            
-            <div class="actions">
-              <%= f.submit "Log in", :id => "button-sign", class: "btn btn-outline-secondary" %>
+          <% if devise_mapping.rememberable? %>
+            <div class="field mt-3">
+              <%= f.check_box :remember_me %>
+              <%= f.label :remember_me do %>
+               <div class="ml-1 gg-title">r e m e m b e r | m e</div>
+              <% end %>
             </div>
           <% end %>
 
-          <%= render "devise/shared/links" %>
-      </div>
+        </div>
+            
+        <div class="actions">
+          <%= submit_tag('sign in', class: "btn gg-button btn-lg m-3") %>
+        </div>
+      <% end %>
 
+      <%= render "devise/shared/links" %>
     </div>
-  </div>
+
 </div>

@@ -5,14 +5,15 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <link href="https://fonts.googleapis.com/css2?family=Gotu&display=swap" rel="stylesheet">
+
     <script src="https://kit.fontawesome.com/6085f87352.js" crossorigin="anonymous"></script>
     <%= favicon_link_tag asset_path('user-astronaut-solid.svg') %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
 
   </head>
-
-  <body style="margin-top: 0px; padding-top: 0px;">
-      <%= yield %>
+  <body style="margin-top: 0px; padding-top: 0px; overflow-y: scroll;">
+    <%= yield %>
   </body>
   <%= javascript_include_tag 'application' %>
 </html>

@@ -1,40 +1,42 @@
-  <div id="color-overlay"></div>
+<div id="color-overlay"></div>
   <div class="center">
-    <div class= holy><h1>Sign up and get creative </h1></div>
+    <div class="holy mb-5"><h1>s i g n | u p</h1></div>
       <br>
-      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-        <%= render "devise/shared/error_messages", resource: resource %>
+      <div class='gg-digitale-card'>
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= render "devise/shared/error_messages", resource: resource %>
 
-        <div class="field">
-          <%= f.label :email %><br />
-          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-        </div>
+          <div class="field w-100">
+            <%= f.label :email, 'e m a i l ', class: 'gg-label' %><br />
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-text-input text-center w-50 gg-title" %>
+          </div>
 
-        <div>
-          <%= f.label :hexanyme %><br />
-          <%= f.text_field :hexanyme, autofocus: true %>
-        </div>
+          <div>
+            <%= f.label :hexanyme, ' h e x a n y m e', class: 'gg-label mt-3' %><br />
+            <%= f.text_field :hexanyme, autofocus: true, class: " form-text-input text-center w-50 gg-title" %>
+          </div>
 
-        <div class="field">
-          <%= f.label :password %>
-          <% if @minimum_password_length %>
-          <em>(<%= @minimum_password_length %> characters minimum)</em>
-          <% end %><br />
-          <%= f.password_field :password, autocomplete: "new-password" %>
-        </div>
+          <div class="field w-100">
+            <%= f.label :password, 'p a s s w o r d', class: 'gg-label mt-3' %>
+            <% if @minimum_password_length %>
+            <br><em>(<%= @minimum_password_length %> characters minimum)</em>
+            <% end %><br />
+            <%= f.password_field :password, autocomplete: "new-password", class: "form-text-input text-center mt-3 w-50 gg-title" %>
+          </div>
 
-        <div class="field">
-          <%= f.label :password_confirmation %><br/>
-          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-        </div>
+          <div class="field w-100">
+            <%= f.label :password_confirmation, 'p a s s w o r d | c o n f i r m a t i o n', class: 'gg-label mt-3' %><br/>
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-text-input text-center w-50 gg-title" %>
+          </div>
 
-        <div class="actions" id="sign-up-button">
-          <%= f.submit "Sign up", :id => "button-sign" %>
-        </div>
-      <% end %>
-      <p> already have an account? </p>
-      <%= render "devise/shared/links" %>
+          <div class="actions">
+            <%= submit_tag('sign up', class: "btn gg-button btn-lg m-3") %>
+          </div>
+        <% end %>
+        <p> already have an account? </p>
+        <%= render "devise/shared/links" %>
 
       </div>
+      <%= render "layouts/gg_footer" %>      
   </div>
 </div>

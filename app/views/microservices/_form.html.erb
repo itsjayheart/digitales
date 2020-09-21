@@ -1,38 +1,42 @@
-<h4><%= microservice_category.name %></h4>
-<p><%= microservice_category.description %></p>
-<%= form_with model: microservice, id: "form#{microservice_category.id}", url: microservice_category_microservices_path(microservice_category.id) do |f| %>
-  <% case microservice_category.media_type%>
-  <% when "image"%>
-    <%= f.label :picture, "image" %> :
-    <%= f.fields_for :picture  do |p| %>
-        <%= p.file_field :picture , :multiple => true, name: :picture %>
-    <% end %>
-  <% when "video"%>
-    <%= f.label :youtube,"youtube link" %> :
-    <%= f.text_field :youtube, style: "width: 20em"%>        
-  <% when "sound"%>
-    <%= f.label :soundcloude,"soundcloude embed share code" %> :
-    <%= f.text_field :soundcloude, style: "width: 20em"%>   
-  <% when "text"%>
-    <%= f.hidden_field :quill, id: "post-quill#{microservice_category.id}", required: true %>
-    <div class='bg-white'>
-      <div id="editor-container" hidden="true"></div>
-      <div class='bg-black' id="editor<%=microservice_category.id%>"></div>
+<div class='d-flex flex-column align-items-center w-100'>
+  <h5 class="gg-title"><%= microservice_category.name %></h5>
+  <p><%= microservice_category.description %></p>
+  <%= form_with model: microservice, id: "form#{microservice_category.id}", url: microservice_category_microservices_path(microservice_category.id) do |f| %>
+    <% case microservice_category.media_type%>
+    <% when "image"%>
+      <%= f.label :picture, "a r t w o r k", style: "color: #999;", class: "mr-1" %>
+      <%= f.fields_for :picture  do |p| %>
+          <%= p.file_field :picture , :multiple => true, name: :picture %>
+      <% end %>
+    <% when "video"%>
+      <%= f.label :youtube,"YouTube link : ", style: "color: #999;" %>
+      <%= f.text_field :youtube, style: "width: 20em", class: "form-text-input" %>        
+    <% when "sound"%>
+      <%= f.label :soundcloude,"SoundCloud embed share code : ", style: "color: #999;" %>
+      <%= f.text_field :soundcloude, style: "width: 20em"%>   
+    <% when "text"%>
+      <%= f.hidden_field :quill, id: "post-quill#{microservice_category.id}", required: true %>
+      <div class='bg-white text-left'>
+        <div id="editor-container" hidden="true"></div>
+        <div class='bg-black' id="editor<%=microservice_category.id%>"></div>
+      </div>
+      <script>
+        var form = document.querySelector('#form<%=microservice_category.id%>');
+        var quill = new Quill('#editor<%=microservice_category.id%>', {
+          theme: 'snow'
+        });
+        form.onsubmit = function() {
+          document.querySelector('#post-quill<%=microservice_category.id%>').value = document.querySelector('#form<%=microservice_category.id%>').querySelector(".ql-editor").innerHTML;
+        };
+      </script>  
+    <%end%> 
+    <div class="text-center">
+      <%= f.label :price, 'p r i c e', class: "gg-title mt-3 mb-3" %> 
+      <%= f.text_field :price, style: "width: 3em", class: "mt-3 form-text-input mb-3" %> $
     </div>
-    <script>
-      var form = document.querySelector('#form<%=microservice_category.id%>');
-      var quill = new Quill('#editor<%=microservice_category.id%>', {
-        theme: 'snow'
-      });
-      form.onsubmit = function() {
-        document.querySelector('#post-quill<%=microservice_category.id%>').value = document.querySelector('#form<%=microservice_category.id%>').querySelector(".ql-editor").innerHTML;
-      };
-    </script>  
+    <div class='row m-1'>
+      <%= submit_tag('add', class: "btn gg-button btn-lg btn-block mb-3") %>
+      <div id='microservice_alert#<%=microservice_category.id%>'></div>
+    </div>
   <%end%>
-  <%= f.label :price %> :
-  <%= f.text_field :price, style: "width: 3em"%> $
-  <div class='row m-1'>
-    <%= f.submit "ADD MICROSERVICE", class: "ml-3 btn btn-primary" %>
-    <div id='microservice_alert#<%=microservice_category.id%>'></div>
-  </div>
-<%end%>
+</div>

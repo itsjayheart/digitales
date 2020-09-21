@@ -1,7 +1,7 @@
 <div class="gg-digitale-card">
-<div class='h3 text-center alert alert-success'>Digitale created succesfully</div><br>
+<div class='h3 text-center alert alert-success'>digitale succesfully created</div><br>
 <div class='d-flex flex-column align-content-center'>
-<%= link_to "See your new digitale" , digitale_path(digitale.id), class: "btn gg-button mb-3" %>
-<%= link_to "Make youre first microservice request for your tales" , node_microservices_path(digitale.nodes.first.id), class: "btn gg-button" %>
+<%= link_to "see your digitale's own page" , digitale_path(digitale.id), class: "btn btn-lg gg-button mb-3" %>
+<%= link_to "make a first microservice request" , node_microservices_path(digitale.nodes.first.id), class: "btn btn-lg gg-button" %>
 </div>
 </div>

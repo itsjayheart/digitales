@@ -1,17 +1,19 @@
-<div class='container'>
-  <h4 class='text-center'>Creatrix's microservices for <%= @current_microservice_category.name %></h4>
+<div class='container text-center'>
+  <i class="gg-title mb-5 fa-5x fas fa-film"></i>
+  <h1 class="gg-title mb-3">h i r e</h1>
+  <h3 class='gg-title mb-5'>creatrixes available for <%= @current_microservice_category.name %></h3>
   <div class='d-flex flex-wrap justify-content-around'>
   <% @microservices.each do |microservice| %>
     <div class='card mb-3'>
-      <div class='card-header row pl-5 justify-content-center'>
-        <%=image_tag microservice.creatrix.avatar, style: "height: 5em; width: 5em", class: "mr-3 m-0 img-fluid", id: "avatar-image"%>
-        <h3 class='align-self-center'>creatrix: <i><%= microservice.creatrix.hexanyme %></i></h3>
+      <div class='card-header d-flex flex-column justify-content-center align-items-center'>
+        <%=image_tag microservice.creatrix.avatar, style: "height: 5em; width: 5em", class: "m-3 img-fluid", id: "avatar-image"%>
+        <h3 class='align-self-center gg-title' style="color: white;"><i><%= microservice.creatrix.hexanyme %></i></h3>
       </div>
       <div class='card-body'>
         <%= render "microservices/media_display", microservice: microservice %>
-        Service price: <%= microservice.price %> $
+          <h6 class="gg-title mt-3 mb-3" style="color: white;">price: <%= microservice.price %> $</h6>
       </div>
-      <%= link_to "Send request to creatrix", node_microservice_microservice_requests_path(@node.id, microservice.id), method: "post", class: 'card-footer btn btn-primary'%>
+      <h5><%= link_to "h i r e", node_microservice_microservice_requests_path(@node.id, microservice.id), method: "post", class: 'card-footer gg-button btn-lg btn-block'%></h5>
     </div>
   <% end %>
   </div>

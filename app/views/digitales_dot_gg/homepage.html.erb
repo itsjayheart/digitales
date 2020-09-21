@@ -2,8 +2,8 @@
     <%= link_to new_creatrix_registration_path do %> 
         <ul class="ml-auto navbar-nav d-flex align-items-center">
             <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle mx-4" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-user-astronaut fa-3x"></i>
+            <a class="nav-link gg-button-link gg-title dropdown-toggle mt-3 mx-4" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas gg-title fa-user-astronaut fa-3x"></i>
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <%= link_to "Sign in", new_creatrix_session_path, class: "dropdown-item gg-title" %>
@@ -166,8 +166,9 @@
             <h4 class="gg-title mb-3 text-center">and the audience will be able to see the dream they share turn into a real multimedia work of fiction!</h4>
         </div>
         <%= link_to new_creatrix_registration_path, class: 'gg-button-link' do %> 
-            <h4 class="p-3 mt-5 container gg-button text-center gg-title w-100">Creep in</h4>
+            <h4 class="p-3 mt-5 mb-5 container gg-button text-center gg-title w-100">Creep in</h4>
         <% end %>
+        <%= render "layouts/gg_footer"%>
+
     </section>
-    <%= render "layouts/footer"%>
 </div>

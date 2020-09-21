@@ -98,11 +98,11 @@ AchievementCategory.all.each do |achievement_category|
 end
 
 Digitale.all.each do |digitale|
-  nodes_length = rand(0..7)
+  nodes_length = rand(0..6)
   nodes_length.times do |x|
     nodes_length-1 == x ? microservice_category_length = rand(MicroserviceCategory.all.length) : microservice_category_length = MicroserviceCategory.all.length
     microservice_category_length.times do |id|
-      achievement = digitale.nodes[2+x].non_achieved
+      achievement = digitale.nodes[2 + x].non_achieved
       microservice_category = MicroserviceCategory.all[id]
       microservice = Microservice.where(microservice_category: microservice_category).sample
       microservice_request = MicroserviceRequest.create(achievement: achievement, microservice: microservice, microservice_category: microservice_category, accepted?: true, delivered?: true)

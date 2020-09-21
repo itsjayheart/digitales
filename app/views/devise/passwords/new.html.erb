@@ -1,21 +1,19 @@
- <div id="color-overlay"></div>
-  <div class="center">
-      <div class="holy"> <h1 id="forgotten-title">Forgot your password?</h1></div>
-
+<div class="center">
+  <h1 class="gg-title mb-5">Forgot your password?</h1>
+    <div class="gg-digitale-card d-flex flex-column justify-content-around">
       <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>
 
-        <div class="field">
-          What's your <%= f.label :email %> address ? <br />
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", :id => "forgotten-field" %>
+        <div class="field w-100 m-auto">
+          <%= f.label :email, 'e m a i l', class: 'gg-title' %> <br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", :id => "forgotten-field", class: "gg-title form-text-input text-center w-50" %>
         </div>
 
         <div class="actions">
-          <%= f.submit "Send me the password", :id => "forgotten-button" %>
+          <%= submit_tag('send me the password', class: "btn gg-button btn-lg m-3") %>
         </div>
       <% end %>
 
       <%= render "devise/shared/links" %>
-
-  </div>
+    </div>
 </div>

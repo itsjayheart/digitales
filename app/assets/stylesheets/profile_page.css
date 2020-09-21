@@ -116,3 +116,7 @@ div.sticky {
       justify-content: center;
       flex-wrap: wrap;
   }
+
+  #request-acceptance:hover {
+    background-color: white;
+  }

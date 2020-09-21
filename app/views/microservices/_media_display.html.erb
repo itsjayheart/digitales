@@ -3,7 +3,9 @@
 <% when "image"%>
  <%= image_tag microservice.picture, alt: 'picture', class: "w-100 border rounded"%>
 <% when "video"%>
- <%=microservice.youtube.html_safe %>
+  <div style="height: 30em">
+    <%=microservice.youtube.html_safe %>
+  </div>
 <% when "sound"%>
  <%= microservice.soundcloude.html_safe  %>
 <% when "text"%>

@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     end
   
     unauthenticated do
-      root 'digitales_dot_gg#the_hook', as: :unauthenticated_root
+      root 'landing_page#index', as: :unauthenticated_root
     end
   end
 

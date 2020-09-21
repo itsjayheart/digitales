@@ -2,7 +2,9 @@
      <% when "image"%>
         <%= image_tag microservice_request.art_work, alt: 'picture', style: "width: 100%", class: "order rounded"%>
      <% when "video"%>
-      <%=microservice_request.youtube.html_safe %>
+      <div style="height: 30em">
+         <%=microservice_request.youtube.html_safe %>
+      </div>
      <% when "sound"%>
       <%= microservice_request.soundcloude.html_safe  %>
      <% when "text"%>

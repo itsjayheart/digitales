@@ -18,7 +18,7 @@
     padding: 5px;
     border: 0px; 
     background-color: rgba(255, 255, 255, 0.05); 
-    color: white;
+    color: #999;
     border-radius: 50px;
 }
 
@@ -28,7 +28,7 @@
     border: 0px;
     height: 125px; 
     background-color: transparent;
-    color: white;
+    color: #999;
 }
 
 .form-textarea-input:active {

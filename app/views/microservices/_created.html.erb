@@ -1,11 +1,8 @@
-<div class='d-flex flex-column'>
-  <div>
-    <h4><%= microservice.microservice_category.name %></h4>
+<div class='d-flex flex-column align-items-center w-100'>
+    <h5 class="gg-title"><%= microservice.microservice_category.name %></h5>
     <p><%= microservice.microservice_category.description %></p>
-  </div>
-  <div>
+
     <%= render "microservices/media_display", microservice: microservice %>
-    <p>You are providing this MICROSERVICE for <%= microservice.price %> $</p>
-    <%= link_to "DELETE MICROSERVICE", microservice_path(microservice.id), method: "delete", class: "m-1 btn btn-secondary", remote: true %> 
-  </div>
+    <h6 class="gg-title mt-3">you are providing this microservice for <%= microservice.price %> $</h6>
+    <%= link_to "d e l e t e", microservice_path(microservice.id), method: "delete", class: "text-center gg-button-link mt-5 gg-button btn-lg btn-block", remote: true %> 
 </div>

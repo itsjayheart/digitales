@@ -2,45 +2,45 @@
     <% case microservice_request.microservice.microservice_category.media_type%>
     <% when "image"%>
       <% if microservice_request.delivered? %>
-        <p>Youre work was delivered </p>
+        <p>your work has been delivered </p>
         <%= render "microservice_requests/media_display", microservice_request: microservice_request%>
       <% else %>
         <%= form_with model: microservice_request, url: microservice_request_path(microservice_request.id), method: "patch" do |f| %>
           <%= hidden_field(:microservice_request, :media, :value => true) %>
-          <%= f.label :art_work, "image" %> :
+          <%= f.label :art_work, "a r t w o r k ", style: "color: #999;" %>
           <%= f.fields_for :art_work  do |p| %>
             <%= p.file_field :art_work , :multiple => true, name: :art_work %>
           <% end %>
-          <%= submit_tag("Upload youre work") %>
+          <%= submit_tag("upload your work") %>
         <% end %>        
       <% end %>
     <% when "video"%>
       <% if microservice_request.delivered? %>
-        <p>Youre work was delivered </p>
+        <p>your work has been delivered </p>
         <%= render "microservice_requests/media_display", microservice_request: microservice_request%>
       <% else %>
         <%= form_with model: microservice_request, url: microservice_request_path(microservice_request.id), method: "patch" do |f| %>
           <%= hidden_field(:microservice_request, :media, :value => true) %>
-          <%= f.label :youtube,"youtube link" %> :
+          <%= f.label :youtube,"YouTube link : ", style: "color: #999;" %>
           <%= f.text_field :youtube, style: "width: 20em"%>     
-          <%= submit_tag("Upload youre work") %>
+          <%= submit_tag("upload your work") %>
         <% end %>          
       <% end %>           
     <% when "sound"%>
       <% if microservice_request.delivered? %>
-        <p>Youre work was delivered </p>
+        <p>your work has been delivered </p>
         <%= render "microservice_requests/media_display", microservice_request: microservice_request%>
       <% else %>
         <%= form_with model: microservice_request, url: microservice_request_path(microservice_request.id), method: "patch" do |f| %>
           <%= hidden_field(:microservice_request, :media, :value => true) %>
-          <%= f.label :soundcloude,"soundcloude embed share code" %> :
+          <%= f.label :soundcloude,"SoundCloud embed share code : ", style: "color: #999;" %>
           <%= f.text_field :soundcloude, style: "width: 20em"%> 
-          <%= submit_tag("Upload youre work") %>
+          <%= submit_tag("upload your work") %>
         <% end %>        
       <%end%>           
     <% when "text"%>
       <% if microservice_request.delivered? %>
-        <p>Youre work was delivered </p>
+        <p>your work has been delivered</p>
         <%= render "microservice_requests/media_display", microservice_request: microservice_request%>
       <% else %>
         <%= form_with model: microservice_request, id: "form_request#{microservice_request.id}", url: microservice_request_path(microservice_request.id), method: "patch" do |f| %>
@@ -59,15 +59,15 @@
               document.querySelector('#post-quill_request<%=microservice_request.id%>').value = document.querySelector('#form_request<%=microservice_request.id%>').querySelector(".ql-editor").innerHTML;
             };
           </script>  
-          <%= submit_tag("Upload youre work") %>
+          <%= submit_tag("upload your work") %>
         <% end %>
       <% end %>      
     <% end %>
 <% elsif microservice_request.accepted? %>
-    <p>Founding in progress</p>
+    <p>funding in progress</p>
 <% else %>
   <%= form_with(url: microservice_request_path(microservice_request.id), method: "patch")  do |f| %>
     <%= hidden_field(:microservice_request, :accepted, :value => true) %>
-    <%= submit_tag("Accept request", class: ' btn btn-primary' ) %>
+    <%= submit_tag("a c c e p t", class: 'gg-button btn-lg btn-block', style: "background-color: transparent;", id: "request-acceptance") %>
   <% end %>
 <%end%>

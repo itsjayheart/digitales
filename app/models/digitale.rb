@@ -5,20 +5,11 @@ class Digitale < ApplicationRecord
 	has_many :nodes
 
 	def title
-		if self.nodes[0].title
-			self.nodes[0].title
-		else
-			"on the rainbow"
-		end
-		
+		self.nodes[0].title
 	end
 
 	def description
-		if self.nodes[0].content
-			self.nodes[0].content
-		else
-			"on the rainbow"
-		end
+		self.nodes[0].content
 	end
 
 	def what_if

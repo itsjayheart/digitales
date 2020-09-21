@@ -1,39 +1,38 @@
-# Projet final THP : DigiTales
+# Final project THP : DigiTales
 
-## 📋 C O N T E X T E :
+## 📋 C O N T E X T :
 
-On t'a dit qu'un site en chantier était censé te permettre de soumettre une idée de fiction à des auteurs, dessinateurs, monteurs, et acteurs pour la changer en une franchise à la Star Wars financée par du crowdfunding
+We have told you that a website under construction can allow you to submit a fictional idea to authors, illustrators, editors to change a franchise just like Star Wars while being financed through crowdfunding. 
 
-## 📋 P E R S O N A | U T I L I S A T E U R :
+## 📋 P E R S O N A | U S E R :
 
-Tu n'as pas peur des bugs, tu veux devenir J.K Rowling, être produit.e comme un film Pixar, tout en t'adressant directement aux artistes et en finançant ton idée grâce au crowdfunding
-bon ça restait un peu abstrait mais au plus simple et plus court
+You are not scared of bugs, you want to end up like J.K Rowling, being produced like a Pixar movie, while directly speaking to artists and financing your idea through crowdfunding.
 
-La version V1 production est en ligne. La V2 est en cours developpement.
+The V1 version is online. The V2 version is still under construction.
 
-## 🚀 Lien Github :
+## 🚀 Github link :
 
 https://github.com/itsjayheart/digitales/
 
-## 🚀 Lien Heroku :
+## 🚀 Heroku link :
 
 https://digitales-production.herokuapp.com/
 
-## 🖥 Localement :
+## 🖥 launch it locally :
 
-* **Lancer** `$ git clone "lien"`
-* **Lancer** `$ bundle install`
-* **Lancer** `$ rails db:create`
-* **Lancer** `$ rails db:migrate`
-* **Lancer** `$ rails server`
-* **Se rendre sur localhost:3000 via votre navigateur**
+* **launch** `$ git clone "lien"`
+* **launch** `$ bundle install`
+* **launch** `$ rails db:create`
+* **launch** `$ rails db:migrate`
+* **launch** `$ rails server`
+* **type localhost:3000 on your browser**
 
 Made with ❤️ and 💦
 
-## 📺 Lien Youtube : 
+## 📺 Youtube link : 
 https://www.youtube.com/watch?v=EkkIWbloV3k
 
-## ⌨️ Auteurs :
+## ⌨️ Authors :
 
 Marion 'J' Pocquet | https://github.com/itsjayheart
 Boris Alföldi | https://github.com/balfoldi

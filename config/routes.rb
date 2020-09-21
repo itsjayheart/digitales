@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   end
   resources :microservices, only: [:destroy] 
 
-  resources :digitales, only: [:show]
+  resources :digitales, only: [:show, :create, :new]
 
   resources :what_ifs, only: [:create, :update]
 

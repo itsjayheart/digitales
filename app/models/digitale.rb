@@ -5,11 +5,11 @@ class Digitale < ApplicationRecord
 	has_many :nodes
 
 	def title
-		return self.nodes.select { |node| node.nodeable.class == Tale }[0].title
+		return self.nodes[0].title
 	end
 
 	def description
-		return self.nodes.select { |node| node.nodeable.class == Tale }[0].content
+		return self.nodes[0].content
 	end
 
 	def what_if

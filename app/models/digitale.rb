@@ -5,7 +5,7 @@ class Digitale < ApplicationRecord
 	has_many :nodes
 
 	def title
-		return self.nodes.select { |node| node.nodeable.class.name == "Tale" }[0].title
+		return self.nodes[0].title
 	end
 
 	def description

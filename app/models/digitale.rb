@@ -9,7 +9,7 @@ class Digitale < ApplicationRecord
 	end
 
 	def description
-		return self.nodes.select { |node| node.nodeable.class == Tale }[0].content
+		self.nodes[0].content
 	end
 
 	def what_if

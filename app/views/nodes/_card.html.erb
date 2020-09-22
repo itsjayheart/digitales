@@ -1,3 +1,4 @@
+<% if digitale %>
 <%i=digitale.id%>
 <div class="wait hover-card gg-pool-card-<%=["primary","secondary","tertiary"].sample%>" style="height: 600px;"> 
   <a class="panel-title gg-title gg-button-link px-4 text-center" data-toggle="collapse" data-target="#collapse<%=i%>" href="tollapse" role="button" aria-expanded="false" aria-controls="collapseExample">
@@ -7,7 +8,8 @@
     <div><p><%= digitale.description %></p></div>
   </div>
   <%= link_to digitale_path(digitale.id), class: "d-flex flex-column gg-title gg-button-link" do %>
-  	<i class="fas fa-hand-holding-usd mb-3"></i>	
-  	creep in
+    <i class="fas fa-hand-holding-usd mb-3"></i>	
+    creep in
   <% end %>
 </div>
+<% end %>

@@ -5,7 +5,7 @@ class Digitale < ApplicationRecord
 	has_many :nodes
 
 	def title
-		self.nodes[0].title
+		return self.nodes[0].title
 	end
 
 	def description

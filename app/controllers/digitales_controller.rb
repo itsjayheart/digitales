@@ -15,15 +15,18 @@ class DigitalesController < ApplicationController
           node = Node.new(nodeable: nodable, title: params["title_mst#{x}"] , content: params["content_mst#{x}"] , creatrix: creatrix, digitale: @digitale)
           unless node.save
             nodable.delete
+            @digitale.delete
             @errors = "The chapter #{@chapters[x]} is preventing you from creating because #{node.errors.full_messages.to_sentence}"
             break
           end
         end
       else
+        @digitale.delete
         nodable.delete
         @errors = "The What if is preventing you from creating because #{node.errors.full_messages.to_sentence}"
       end      
     else
+      @digitale.delete
       nodable.delete
       @errors = "The Tales is preventing you from creating because #{node.errors.full_messages.to_sentence}"
     end

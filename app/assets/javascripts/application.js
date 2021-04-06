@@ -16,5 +16,4 @@
 //= require bootstrap.bundle
 //= require main
 //= require navbar
-//= require quill.global
 //= require node_index

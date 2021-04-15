@@ -1,0 +1,239 @@
+
+/* COLORS */
+
+a, a:hover {
+	color: white;
+	text-shadow: 0px 0px 2px white;
+}
+
+input, textarea, input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus, textarea:-webkit-autofill, textarea:-webkit-autofill:hover, textarea:-webkit-autofill:focus, select:-webkit-autofill, select:-webkit-autofill:hover, select:-webkit-autofill:focus {
+	height: 6vh;
+	background-color: rgba(42, 42, 42, 1);
+	border-radius: 50px;
+	border: none;
+
+	width: 100%;
+
+	color: #555;
+
+	margin-bottom: 1vh;
+
+	outline: none;
+}
+
+
+label {
+	color: #555;
+}
+
+
+form {
+	margin: 1vh 0px;
+	width: 95%;
+}
+
+
+.gg-button-secondary {
+	border: solid 1px white; 
+	box-shadow: 0px 0px 3px white; 
+	background-color: #090909; 
+	color: white; 
+	text-shadow: 0px 0px 2px white; 
+	width: 100%; 
+	height: 4vh;
+}
+
+.gg-button-secondary:hover {
+	background-color: white;
+	color: #555;
+}
+
+.gg-title {
+	color: white; 
+	text-shadow: 0px 0px 2px white; 
+	font-size: 1.25em; 
+	/*text-transform: uppercase;*/
+}
+
+.gg-primary {
+	color: white;
+	text-shadow: 0px 0px 2px black;
+	background-color: rgba(255, 255,255, 0.95)
+}
+
+.gg-secondary {
+	color: white;
+	text-shadow: 0px 0px 12px;
+	background-color: rgba(255, 255, 255, 0.05);
+
+}
+
+.gg-body {
+	width: 100%;
+	height: 100vh;
+	background-color: black;
+
+}
+
+.gg-bg {
+
+	width: 100%;
+	height: 100vh;
+	background: url("<%= asset_path 'gg_background.png' %>") center center no-repeat;
+	background-size: 100vh;
+	display: flex;
+	justify-content: space-between;
+	overflow-y: scroll;
+	overflow-x: hidden;
+
+	/* width: 100%;
+	height: 100vh;
+	background: url("<%= asset_path 'gg_background.png' %>") center center no-repeat;
+	background-size: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	overflow-y: scroll;
+	overflow-x: hidden;*/
+}
+
+
+/* custom website's scrollbar
+not supported in Firefox and IE */
+
+/* total width */
+
+.gg-bg::-webkit-scrollbar {
+        background-color: transparent;
+        margin-top: 44px;
+        width: /*8px;*/ 0px;
+}
+
+/* background of the scrollbar except button or resizer */
+.gg-bg::-webkit-scrollbar-track {
+        background-color: transparent;
+        margin-top: 44px;
+}
+
+/* scrollbar itself */
+.gg-bg::-webkit-scrollbar-thumb {
+        background-color: rgba(55, 55, 55, 0.7);
+        border-radius: 16px;
+}
+
+/* set button(top and bottom of the scrollbar) */
+.gg-bg::-webkit-scrollbar-button {
+        display:none;
+}
+
+
+.gg-navbar {
+	height: 88px;
+	background-color: rgba(00, 00, 00, 0.6);
+	border-bottom: solid 1px #555;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+
+.gg-btn-primary {
+	color: white;
+	text-shadow: 0px 0px 3px black;
+	background-color: rgba(255, 255,255, 0.95)
+	padding: 55px;
+	border-radius: 25px;
+	box-shadow: 0px 0px 3px 3px black;
+	border: none;
+
+}
+
+
+
+.gg-pool {
+	min-height: 50000px;
+	width: 50%;
+	background-color: rgba(16,16,16, 0.85);
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: flex-end;
+	/* justify-content: flex-start; */
+	align-items: center;
+}
+
+.gg-pool-hidden-card {
+	width: 255px;
+	margin: 15px;
+	border-radius: 25px;
+	border: none;
+}
+
+.gg-pool-card-primary {
+	width: 255px;
+	margin: 15px;
+	border-radius: 25px;
+	border: solid  white 1px;
+	box-shadow: 0px 0px 6px 3px white;
+
+	color: white;
+	text-shadow: 0px 0px 3px black;
+	background-color: rgba(255, 255,255, 0.95);
+
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.gg-pool-card-secondary {
+	width: 255px;
+	margin: 15px;
+	border-radius: 25px;
+	border: solid  white 1px;
+	box-shadow: 0px 0px 6px 1px white;
+
+	color: white;
+	text-shadow: 0px 0px 12px;
+	/*background-color: rgba(255, 255, 255, 0.05);*/
+	background-color: rgba(21, 21, 21, 1);
+
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+}
+
+
+.gg-pool-card-tertiary {
+	width: 255px;
+	margin: 15px;
+	border-radius: 25px;
+	border: solid  #555 1px;
+	color: rgba(55, 55, 55, 0.8);
+
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.gg-what-if {
+	width: 100%;
+	height: 12vh;
+	background-color: #666; 
+	box-shadow: 0px 0px 4px white; 
+	color: #333; 
+	text-align: center; 
+	border-radius: 25px;
+}
+
+.gg-input {
+	background-color: transparent;
+	border: solid 1px rgb(42, 42, 42);
+	color: white;
+	text-shadow: 0px 0px 2px white;
+	width: 100%;
+	text-align: center;
+	border-radius: 25px;
+}

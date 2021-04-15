@@ -53,7 +53,7 @@ microservice_categories.each do |achievement_microservices_category|
 end
 
 
-
+=begin
 creatrix = Creatrix.create(email: "melon" + "@yopmail.com", password: "123123")
 avatar = rand(9)
 creatrix.avatar.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'seed', "avatar_#{avatar}.png")), filename: "avatar_#{avatar}.png", content_type: 'image/png')
@@ -125,7 +125,7 @@ Digitale.all.each do |digitale|
     end
   end
 end
-
+=end
 
 
 

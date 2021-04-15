@@ -1,0 +1,33 @@
+<div id="digitale_title_section" style="display: flex; flex-direction: column; justify-content: space-around; align-items: center; margin-top: 3vh;">
+
+
+	<div>
+	</div>
+
+
+</div>
+
+<%= render 'edit', digitale: digitale %>
+
+
+<div id="digitale_new_gg_what_if" style="width: 100%; display: flex; flex-direction: column; justify-content: space-around; align-items: center;">
+	
+
+	<div style="text-align: left; padding-top: 1vh; background-color: none;">
+		( ...then make a 'what if' postulate )
+	</div>
+
+
+	<%= form_for gg_what_if, method: 'create', remote: true do |f| %>
+
+		<div style="width: 100%; display: flex; flex-direction: column; justify-content: space-around; align-items: center;">
+			<%= f.hidden_field :digitale_id, value: digitale.id %>
+			<%= label_tag(:title, 'w h a t | i f', style: 'color: white;') %>
+			<%= f.text_area :title, class: 'gg-what-if', style: 'height: 12vh;' %>
+			<%= f.submit 'n e x t', class: 'gg-button-secondary' %>
+		</div>
+
+	<% end %>
+
+
+</div>

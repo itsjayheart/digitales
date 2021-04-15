@@ -1,0 +1,19 @@
+<div id="digitale_gg_what_if" style="width: 95%; display: flex; flex-direction: column; justify-content: space-around; align-items: center; margin-top: 3vh;">
+	<div>w h a t | i f</div>
+	<div class="gg-what-if" style="display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 0px 1vw;"><%= digitale.gg_what_if.title %></div>
+</div>
+
+<div style="text-align: left; padding-top: 1vh; background-color: none; color: #555; text-shadow: none;">( ...now make 3 to 7 statements about what 'might or might not' happen )</div>
+
+<div id="digitale_new_gg_m_statement_1" style="width: 100%; display: flex; flex-direction: column; justify-content: space-around; align-items: center;">
+	<%= form_for gg_m_statement, method: 'create', remote: true do |f| %>
+		<div style="width: 100%; display: flex; flex-direction: column; justify-content: space-around; align-items: center;">
+			<%= f.hidden_field :digitale_id, value: digitale.id %>
+			<%= f.hidden_field :order, value: 1 %>
+			<div>I</div>
+			<%= label_tag(:title, 'm i g h t ||| m i g h t | n o t', style: 'color: white;') %>
+			<%= f.text_area :title, class: 'gg-input', style: 'height: 12vh;' %>
+			<%= f.submit 'n e x t', class: 'gg-button-secondary' %>
+		</div>
+	<% end %>
+</div>

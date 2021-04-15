@@ -1,0 +1,20 @@
+<div id="digitale_title_section" style="display: flex; flex-direction: column; justify-content: space-around; align-items: center; margin-top: 3vh;">
+	
+
+	<div style="text-align: left; padding-left: -12vw; padding-top: 1vh; background-color: none;">
+
+		( ...first give your digitale a name )
+
+	</div>
+
+
+	<%= form_for digitale, remote: true, method: 'put' do |f| %>
+
+		<div style="width: 100%; display: flex; flex-direction: column; justify-content: flex-start; align-items: center;">
+			<%= f.text_field :title, autocomplete: 'off', class: 'gg-input gg-title', placeholder: digitale.title, style: 'text-transform: uppercase; height: 6vh;' %>
+		</div>
+
+	<% end %>
+
+
+</div>

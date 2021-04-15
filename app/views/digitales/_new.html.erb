@@ -1,0 +1,16 @@
+<div class="gg-pool-card-secondary">
+	<div  id="new_digitale_form" style="width: 100%; display: flex; flex-direction: column; justify-content: flex-start; align-items: center;">
+		<div style="text-align: left; padding-left: -12vw; padding-top: 1vh; background-color: none;">( ...first give your digitale a name )</div>
+
+		<%= form_with digitale, method: 'create' do |f| %>
+			<div style="width: 100%; display: flex; flex-direction: column; justify-content: flex-start; align-items: center;">
+				<!-- <= label_tag :title, 't i t l e' %> -->
+				<%= f.text_field :title, autocomplete: 'off', class: 'gg-input', style: 'text-transform: uppercase; height: 6vh;' %>
+
+				<!--<= label_tag :description, 'd e s c r i p t i o n' %>
+				<= f.text_field :description %>-->
+				<%= f.submit 'n e x t', class: 'gg-button-secondary' %>
+			</div>
+		<% end %>
+	</div>
+</div>

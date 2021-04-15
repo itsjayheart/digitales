@@ -5,15 +5,25 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="HandheldFriendly" content="true">
+
     <link href="https://fonts.googleapis.com/css2?family=Gotu&display=swap" rel="stylesheet">
 
+
     <script src="https://kit.fontawesome.com/6085f87352.js" crossorigin="anonymous"></script>
-    <%= favicon_link_tag asset_path('user-astronaut-solid.svg') %>
+
     <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
 
   </head>
-  <body style="margin-top: 0px; padding-top: 0px; overflow-y: scroll;">
+
+  <body style="margin-top: 0px; padding-top: 0px;">
+      
+    <div>
     <%= yield %>
+    </div>
+  
   </body>
-  <%= javascript_include_tag 'application' %>
 </html>

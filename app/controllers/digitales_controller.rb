@@ -1,6 +1,26 @@
 class DigitalesController < ApplicationController
 
+  def new
+    @digitale = Digitale.new
+
+    respond_to do |format|
+      format.js{}
+    end
+
+  end
+
   def create
+
+    hash = params['digitale']
+
+    @digitale = Digitale.create(creatrix: current_creatrix, title: hash['title'], description: hash['description'])
+    @gg_what_if = GgWhatIf.new
+
+    respond_to do |format|
+      format.js{}
+    end
+
+=begin
     @chapters = ["I", "II", "III", "IIII", "V", "VI", "VII"]
     creatrix = current_creatrix
     @digitale = Digitale.create(creatrix: creatrix)
@@ -33,6 +53,26 @@ class DigitalesController < ApplicationController
       format.html { redirect_to new_node_path }
       format.js { }
     end
+=end
+  end
+
+  def edit
+    @digitale = Digitale.find(params['id'])
+
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def update
+    @digitale = Digitale.find(params['id'])
+    hash = params['digitale']
+
+    @digitale.update(title: hash['title'])
+
+    respond_to do |format|
+      format.js {}
+    end
   end
 
   def show
@@ -58,4 +98,6 @@ class DigitalesController < ApplicationController
       @per_cent_status = (@fundraiser.current_fundings.ceil * 100) / @fundraiser.goal.ceil
     end
   end
+
+
 end

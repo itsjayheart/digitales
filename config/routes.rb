@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'digitales_dot_gg/the_pool'
+  get 'digitales_dot_gg/the_hook'
+  get 'digitales_dot_gg/the_diver'
+
   devise_for :creatrixes
 
   devise_scope :creatrix do
@@ -20,7 +24,13 @@ Rails.application.routes.draw do
   end
   resources :microservices, only: [:destroy] 
 
-  resources :digitales, only: [:show, :create, :new]
+  resources :digitales do
+    resources :gg_what_ifs
+    resources :gg_m_statements
+  end
+
+  resources :gg_what_ifs
+  resources :gg_m_statements
 
   resources :what_ifs, only: [:create, :update]
 

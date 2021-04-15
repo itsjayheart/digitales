@@ -1,7 +1,3 @@
-satus = document.getElementById('errors')
+document.getElementById('new_digitale_form').insertAdjacentHTML('afterend', "<%= j render 'new_gg_what_if', gg_what_if: @gg_what_if, digitale: @digitale %>");
 
-if("<%=@errors%>"){
-  document.getElementById('errors').innerHTML ="<div class='alert alert-danger'> <%=@errors%> </div>"
-}else{
-  document.getElementById('digitaleTitleForm').innerHTML = "<%=j render "success_button", digitale: @digitale%>"
-}
+document.getElementById('new_digitale_form').parentNode.removeChild(document.getElementById('new_digitale_form'));
